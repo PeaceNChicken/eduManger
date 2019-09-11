@@ -1,12 +1,12 @@
-package kr.or.ksmart.eduManger.Service;
+package kr.or.ksmart.eduManger.BooksService;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.or.ksmart.eduManger.Mapper.BooksMapper;
-import kr.or.ksmart.eduManger.vo.Books;
+import kr.or.ksmart.eduManger.BooksMapper.BooksMapper;
+import kr.or.ksmart.eduManger.BooksVo.Books;
 
 @Service
 public class BooksService {

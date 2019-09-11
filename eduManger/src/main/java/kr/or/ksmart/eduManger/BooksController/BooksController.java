@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.Controller;
+package kr.or.ksmart.eduManger.BooksController;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import kr.or.ksmart.eduManger.Service.BooksService;
-import kr.or.ksmart.eduManger.vo.Books;
+import kr.or.ksmart.eduManger.BooksService.BooksService;
+import kr.or.ksmart.eduManger.BooksVo.Books;
 
 @Controller
 public class BooksController {

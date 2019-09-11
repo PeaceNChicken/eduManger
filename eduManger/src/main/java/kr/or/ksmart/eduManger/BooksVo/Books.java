@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.vo;
+package kr.or.ksmart.eduManger.BooksVo;
 
 public class Books {
 	private String book_code;
