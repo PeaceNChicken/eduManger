@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원목록</title>
+</head>
+<body>
+	<form>
+		<table board ="1">
+			<tr>
+				<th> 아이디 </th>
+				<th> 학원코드 </th>
+				<th> 비밀번호 </th>
+				<th> 접근권한 </th>
+				<th> 이름 </th>
+				<th> 성별 </th>
+				<th> 생년월일 </th>
+				<th> 개인연락처 </th>
+				<th> 정보등록일 </th>
+			</tr>	
+			<tr th:each="l:${memberList}">
+				<td th:text="${l.m_id}"></td>
+				<td th:text="${l.m_AC}"></td>
+				<td th:text="${l.m_pw}"></td>
+				<td th:text="${l.m_level}"></td>
+				<td th:text="${l.m_name}"></td>
+				<td th:text="${l.m_gender}"></td>
+				<td th:text="${l.m_birth}"></td>
+				<td th:text="${l.m_phone}"></td>
+				<td th:text="${l.m_date}"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
