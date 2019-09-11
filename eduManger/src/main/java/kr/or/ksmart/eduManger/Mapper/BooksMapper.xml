@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ksmart.eduManger.Mapper.BooksMapper">
+	<select id="booksList" resultType="kr.or.ksmart.eduManger.vo.Books">
+		SELECT book_code, book_name, book_pride, booknum_code, sbj_code, acade_code, book_date, int_id
+	FROM tb_books
+	</select>
+</mapper>
