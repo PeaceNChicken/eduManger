@@ -17,9 +17,10 @@ public class MemberController {
 	MemberService memberService;
 	
 	@GetMapping("/memberList")
-	public String getmemberList(@RequestParam (value="sk") String sk
-								,@RequestParam (value="sv") String sv
-								,Model model) {
+	public String getmemberList(
+			//@RequestParam (value="sk") String sk,
+			//@RequestParam (value="sv") String sv,
+			Model model) {
 		
 		List<Member> list = memberService.getMemberList();
 		model.addAttribute("memberList", list);
