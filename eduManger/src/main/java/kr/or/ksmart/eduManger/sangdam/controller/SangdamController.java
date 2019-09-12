@@ -18,13 +18,12 @@ public class SangdamController {
 	@GetMapping("/sangdam")
 	public String sangdamSelect(Map map) {
 		
+		
 		/*
 		 * List<Sangdam> list = sangdamService.getSangdamList(); Map<String, Object>
-		 * sMap = new HashMap<String, Object>(); 
-		 * sMap.put("list", list);
+		 * sMap = new HashMap<String, Object>(); sMap.put("list", list);
 		 */
-		  
-		 
+		 		  		 
 		return "/sangdam/sangdam.html";
 	}
 }

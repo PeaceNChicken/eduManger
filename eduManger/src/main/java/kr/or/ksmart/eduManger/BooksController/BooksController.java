@@ -19,10 +19,12 @@ public class BooksController {
 	@GetMapping("/booksList")
 	public String books(Model model) {
 		
-		  List<Books> booksList = booksService.booksList();
-		  System.out.println(booksList); model.addAttribute("booksList", booksList);
+		/*
+		 * List<Books> booksList = booksService.booksList();
+		 * System.out.println(booksList); model.addAttribute("booksList", booksList);
+		 */
 		
-		return "/index";
+		return "/books/booksList";
 	}
 	
 	
