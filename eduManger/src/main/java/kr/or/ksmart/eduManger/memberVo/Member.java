@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.vo;
+package kr.or.ksmart.eduManger.memberVo;
 
 public class Member {
 	private String m_id;
@@ -9,9 +9,7 @@ public class Member {
 	private String m_gender;
 	private String m_birth;
 	private String m_phone;
-	private String m_date;
-	
-	
+	private String m_date ;
 	public String getM_id() {
 		return m_id;
 	}
@@ -57,8 +55,8 @@ public class Member {
 	public String getM_phone() {
 		return m_phone;
 	}
-	public void setM_phone(String m_date) {
-		this.m_date = m_phone;
+	public void setM_phone(String m_phone) {
+		this.m_phone = m_phone;
 	}
 	public String getM_date() {
 		return m_date;
@@ -69,9 +67,9 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [m_id=" + m_id + ", m_AC=" + m_AC + ", m_pw=" + m_pw + ", m_level=" + m_level + ", m_name="
-				+ m_name + ", m_gender=" + m_gender + ", m_birth=" + m_birth + ", m_phone=" + m_phone + ", m_date=" + m_date + "]";
+				+ m_name + ", m_gender=" + m_gender + ", m_birth=" + m_birth + ", m_phone=" + m_phone + ", m_date="
+				+ m_date + "]";
 	}
-	
 	
 	
 }
