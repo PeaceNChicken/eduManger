@@ -97,7 +97,7 @@
 									<th> 개인연락처 </th>
 									<th> 정보등록일 </th>
 								</tr>	
-								<!-- <tr th:each="l:${memberList}">
+								 <tr th:each="l:${memberList}">
 									<td th:text="${l.m_id}"></td>
 									<td th:text="${l.m_AC}"></td>
 									<td th:text="${l.m_pw}"></td>
@@ -107,7 +107,7 @@
 									<td th:text="${l.m_birth}"></td>
 									<td th:text="${l.m_phone}"></td>
 									<td th:text="${l.m_date}"></td>
-								</tr> -->
+								</tr>
 						</table>
 					</div>
 				<br/>
@@ -117,21 +117,31 @@
 				<div class="content-panel">
 					<h4>교재 테이블</h4>
 					<table border="1" class="table table-bordered table-striped table-condensed">
-							<thead>
-								<tr>
-									<th>교재코드</th>
-									<th>교재명</th>
-									<th>교재가격</th>
-									<th>과목별교재수량코드</th>
-									<th>과목코드</th>
-									<th>학원코드</th>
-									<th>교재등록날자</th>
-									<th>교재등록아이디</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+						<thead>
+							<tr>
+								<th>교재코드</th>
+								<th>교재명</th>
+								<th>교재가격</th>
+								<th>과목별교재수량코드</th>
+								<th>과목코드</th>
+								<th>학원코드</th>
+								<th>교재등록날자</th>
+								<th>교재등록아이디</th>
+							</tr>
+						</thead>
+						<tbody>
+							 <tr th:each ="l : ${booksList}">
+								<td th:text="${l.book_code}">
+								<td th:text="${l.book_name}">
+								<td th:text="${l.book_pride}">
+								<td th:text="${l.booknum_code}">
+								<td th:text="${l.sbj_code}">
+								<td th:text="${l.acade_code}">
+								<td th:text="${l.book_date}">
+								<td th:text="${l.int_id}">							
+							</tr>
+						</tbody>
+					</table>
 					</div>
             <!--custom chart end-->
             <div class="row mt">

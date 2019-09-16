@@ -5,8 +5,8 @@
   
 <mapper namespace="kr.or.ksmart.eduManger.BooksMapper.BooksMapper">
 	<select id="booksList" resultType="kr.or.ksmart.eduManger.BooksVo.Books">
-		SELECT 
-		* 
-		FROM tb_books
+	SELECT 
+	*
+	FROM tb_books
 	</select>
 </mapper>

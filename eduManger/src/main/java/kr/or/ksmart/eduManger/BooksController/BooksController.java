@@ -16,15 +16,14 @@ public class BooksController {
 	@Autowired
 	private BooksService booksService;
 	
-	@GetMapping("/booksList")
-	public String books(Model model) {
+	@GetMapping("/")
+	public String books(Model model) {		
 		
-		/*
-		 * List<Books> booksList = booksService.booksList();
-		 * System.out.println(booksList); model.addAttribute("booksList", booksList);
-		 */
-		
-		return "/books/booksList";
+		  List<Books> booksList = booksService.booksList();
+		  System.out.println(booksList);
+		  model.addAttribute("booksList", booksList);
+		 	
+		return "/index";
 	}
 	
 	

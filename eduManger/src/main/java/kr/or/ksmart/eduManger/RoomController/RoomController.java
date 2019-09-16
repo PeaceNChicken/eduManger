@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import groovy.transform.AutoClone;
 import kr.or.ksmart.eduManger.RoomService.RoomService;
@@ -15,8 +17,10 @@ public class RoomController {
 	@Autowired
 	private RoomService roomService;
 	
-	public String roomList() {
-		//List<Room> roomList = roomService.roomList();
+	@GetMapping("/")
+	public String roomList(Model model) {
+		List<Room> roomList = roomService.roomList();
+		model.addAttribute("roomList", roomList);
 		
 		return "/index";
 	}
