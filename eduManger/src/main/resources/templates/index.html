@@ -36,14 +36,14 @@
 							<td>상담내용</td>
 							<td>등록일자</td>
 						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+						<tr th:each="l:${sangdamList}">
+							<td th:text="${l.sd_code}"></td>
+							<td th:text="${l.sd_ac}"></td>
+							<td th:text="${l.sd_id}"></td>
+							<td th:text="${l.sd_adId}"></td>
+							<td th:text="${l.sd_cate}"></td>
+							<td th:text="${l.sd_desc}"></td>
+							<td th:text="${l.sd_date}"></td>
 						</tr>
 					</table>
 				</div>
@@ -65,7 +65,7 @@
 								<th> 개인연락처 </th>
 								<th> 정보등록일 </th>
 							</tr>	
-							<!-- <tr th:each="l:${memberList}">
+							<tr th:each="l:${memberList}">
 								<td th:text="${l.m_id}"></td>
 								<td th:text="${l.m_AC}"></td>
 								<td th:text="${l.m_pw}"></td>
@@ -75,7 +75,7 @@
 								<td th:text="${l.m_birth}"></td>
 								<td th:text="${l.m_phone}"></td>
 								<td th:text="${l.m_date}"></td>
-							</tr> -->
+							</tr> 
 					</table>
 				</div>
 				<br/>
@@ -87,26 +87,21 @@
 					<h4>강의실 테이블</h4>
 						<table border="1" class="table table-bordered table-striped table-condensed">
 								<tr>
-									<th> 아이디 </th>
+									<th> 강의실코드 </th>
+									<th> 강의실번호 </th>
+									<th> 강의실위치 </th>
+									<th> 강의실등록날자 </th>
 									<th> 학원코드 </th>
-									<th> 비밀번호 </th>
-									<th> 접근권한 </th>
-									<th> 이름 </th>
-									<th> 성별 </th>
-									<th> 생년월일 </th>
-									<th> 개인연락처 </th>
-									<th> 정보등록일 </th>
+									<th> 관리자아이디 </th>
 								</tr>	
-								 <tr th:each="l:${memberList}">
-									<td th:text="${l.m_id}"></td>
-									<td th:text="${l.m_AC}"></td>
-									<td th:text="${l.m_pw}"></td>
-									<td th:text="${l.m_level}"></td>
-									<td th:text="${l.m_name}"></td>
-									<td th:text="${l.m_gender}"></td>
-									<td th:text="${l.m_birth}"></td>
-									<td th:text="${l.m_phone}"></td>
-									<td th:text="${l.m_date}"></td>
+								  <tr th:each="l:${roomList}">
+									<td th:text="${l.roomCode}"></td>
+									<td th:text="${l.roomNum}"></td>
+									<td th:text="${l.roomSpot}"></td>
+									<td th:text="${l.roomDate}"></td>
+									<td th:text="${l.acade_code}"></td>
+									<td th:text="${l.wrCode}"></td>
+
 								</tr>
 						</table>
 					</div>
@@ -130,7 +125,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							 <tr th:each ="l : ${booksList}">
+							 <tr th:each ="l : ${bookList}">
 								<td th:text="${l.book_code}">
 								<td th:text="${l.book_name}">
 								<td th:text="${l.book_pride}">
