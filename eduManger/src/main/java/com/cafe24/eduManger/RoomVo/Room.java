@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.RoomVo;
+package com.cafe24.eduManger.RoomVo;
 
 public class Room {
 

@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger;
+package com.cafe24.eduManger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

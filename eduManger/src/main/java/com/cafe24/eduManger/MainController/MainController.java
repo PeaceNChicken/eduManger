@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.MainController;
+package com.cafe24.eduManger.MainController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import kr.or.ksmart.eduManger.MainService.MainService;
+import com.cafe24.eduManger.MainService.MainService;
 
 @Controller
 public class MainController {

@@ -1,13 +1,13 @@
-package kr.or.ksmart.eduManger.MainMapper;
+package com.cafe24.eduManger.MainMapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import kr.or.ksmart.eduManger.BooksVo.Books;
-import kr.or.ksmart.eduManger.RoomVo.Room;
-import kr.or.ksmart.eduManger.memberVo.Member;
-import kr.or.ksmart.eduManger.sangdamVo.Sangdam;
+import com.cafe24.eduManger.BooksVo.Books;
+import com.cafe24.eduManger.RoomVo.Room;
+import com.cafe24.eduManger.memberVo.Member;
+import com.cafe24.eduManger.sangdamVo.Sangdam;
 
 @Mapper
 public interface MainMapper {

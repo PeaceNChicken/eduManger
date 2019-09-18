@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.memberVo;
+package com.cafe24.eduManger.memberVo;
 
 public class Member {
 	private String m_id;

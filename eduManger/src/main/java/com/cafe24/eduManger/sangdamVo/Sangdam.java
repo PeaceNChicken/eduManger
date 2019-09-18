@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.sangdamVo;
+package com.cafe24.eduManger.sangdamVo;
 
 public class Sangdam {
 

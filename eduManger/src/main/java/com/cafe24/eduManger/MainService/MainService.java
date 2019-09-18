@@ -1,4 +1,4 @@
-package kr.or.ksmart.eduManger.MainService;
+package com.cafe24.eduManger.MainService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.or.ksmart.eduManger.BooksVo.Books;
-import kr.or.ksmart.eduManger.MainMapper.MainMapper;
-import kr.or.ksmart.eduManger.RoomVo.Room;
-import kr.or.ksmart.eduManger.memberVo.Member;
-import kr.or.ksmart.eduManger.sangdamVo.Sangdam;
+import com.cafe24.eduManger.BooksVo.Books;
+import com.cafe24.eduManger.MainMapper.MainMapper;
+import com.cafe24.eduManger.RoomVo.Room;
+import com.cafe24.eduManger.memberVo.Member;
+import com.cafe24.eduManger.sangdamVo.Sangdam;
 
 @Service
 public class MainService {
