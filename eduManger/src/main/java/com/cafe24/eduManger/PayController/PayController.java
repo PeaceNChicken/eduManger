@@ -1,4 +1,4 @@
-package com.cafe24.eduManger.payController;
+package com.cafe24.eduManger.PayController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
