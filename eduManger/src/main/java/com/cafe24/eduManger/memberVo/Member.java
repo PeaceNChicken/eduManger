@@ -10,6 +10,7 @@ public class Member {
 	private String m_birth;
 	private String m_phone;
 	private String m_date ;
+	
 	public String getM_id() {
 		return m_id;
 	}
