@@ -1,4 +1,4 @@
-package com.cafe24.eduManger.BoardController;
+package com.cafe24.eduManger.SmsController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
