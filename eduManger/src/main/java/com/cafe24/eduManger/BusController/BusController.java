@@ -11,4 +11,9 @@ public class BusController {
 		
 		return "/bus/busList";
 	}
+	@GetMapping("/busInsert")
+	public String getbusInsert() {
+		
+		return "/bus/busInsert";
+	}
 }
