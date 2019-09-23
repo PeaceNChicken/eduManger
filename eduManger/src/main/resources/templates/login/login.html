@@ -12,9 +12,14 @@
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap -->
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
@@ -38,16 +43,26 @@
       <form class="form-login" action="/login" method="post">
         <h2 class="form-login-heading">로그인</h2>
         <div class="login-wrap">
-          <input name="u_id" type="text" class="form-control" placeholder="User ID" autofocus>
-          <br>
-          <input name="u_pw" type="password" class="form-control" placeholder="Password">
+           <div class="form-group">
+			  <label for="uname">Username:</label>
+			  <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+			  <div class="valid-feedback">Valid.</div>
+			  <div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+			  <label for="pwd">Password:</label>
+			  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+			  <div class="valid-feedback">Valid.</div>
+			  <div class="invalid-feedback">Please fill out this field.</div>
+			</div>
           <label class="checkbox">
             <span class="pull-right">
             <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a> <br/>
             </span>
             </label>
-          <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+          <button id="btnCheck" class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
           <br/>
+          <div id="check"></div>
           <label th:if="${result ne null}" th:text="${result}"></label>
           <hr>
           <div class="login-social-link centered">
@@ -90,11 +105,19 @@
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <!--BACKSTRETCH-->
   <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-  <script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.backstretch.min.js">
+  </script>
   <script>
     $.backstretch("img/login-bg.jpg", {
       speed: 500
     });
+    
+  </script>
+  <script type="text/javascript">
+	
+	$('#u_id').blur(function(){
+		alert('아이디입력');
+	});
   </script>
 </body>
 
