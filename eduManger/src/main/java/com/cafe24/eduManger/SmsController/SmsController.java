@@ -9,7 +9,7 @@ public class SmsController {
 	@GetMapping("/smsInsert")
 	public String smsInsert() {
 		
-		return "/board/smsInsert";
+		return "/sms/smsInsert";
 	}
 	
 	

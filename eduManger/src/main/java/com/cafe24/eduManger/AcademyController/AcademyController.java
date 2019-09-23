@@ -22,4 +22,11 @@ public class AcademyController {
 		
 		return "/academy/academyList";
 	}
+	
+	@GetMapping("/academyInfo")
+	public String academyInfo() {
+		
+		return "/academy/academyInfo";
+	}
+	
 }
