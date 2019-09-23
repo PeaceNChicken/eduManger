@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class StuCounselController {
 
 	@GetMapping("stuCounsel")
-	public String stuSangdam() {
+	public String stuCounselSelect() {
 		return "/students/stuCounsel/stuCounselList";
 	}
 }
