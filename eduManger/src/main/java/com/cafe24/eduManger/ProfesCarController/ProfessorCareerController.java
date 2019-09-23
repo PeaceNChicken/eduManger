@@ -11,6 +11,10 @@ public class ProfessorCareerController {
 			return "profesCar/profesCareerList";
 		}
 		
+		@GetMapping("profesCareerInsert")
+		public String professorCareerInsert() {
+			return "profesCar/profesCareerInsert";
+		}
 	}
 
 
