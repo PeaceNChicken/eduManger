@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MemberController {
 
-//	@Autowired 
-//	private MemberService memberService;
+	//@Autowired 
+	//private MemberService memberService;
 	
 	@GetMapping("/memberList")
 	public String memberList() {
