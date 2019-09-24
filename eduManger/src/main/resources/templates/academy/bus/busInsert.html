@@ -19,8 +19,11 @@
 			<div class="row">
 				<div class="col-lg-12 main-chart">     			
           			<div class="content-panel">
-            		    <div class="form-panel">
+            		    <div class="form-panel">           		    
 			              <h2 class="mb"><i class="fa fa-angle-right"></i> 차량등록</h2>
+			              <a href="/busList"><button type="button" class="pull-right btn btn-theme">등록하기</button></a>
+			              <br/>
+			              <br/>
 			              <form class="form-horizontal style-form" method="get">
 			                <div class="form-group">
 			                  <label class="col-sm-2 col-sm-2 control-label">차량번호</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -91,72 +94,65 @@
 			<div class="row">
 				<div class="col-lg-12 main-chart">     			
           			<div class="content-panel">
-            		    <div class="form-panel">
-			              <h2 class="mb"><i class="fa fa-angle-right"></i>노선등록</h2>
-			              <form class="form-horizontal style-form" method="get">
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">차량번호등록</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                  <div class="col-sm-10">
-			                    <input type="text" class="form-control">
-			                  </div>
-			                </div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">기사성함</label>
-			                  <div class="col-sm-10">
-			                    <input type="text" class="form-control">		                
-			                  </div>
-			                </div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">차종</label>
-							   <div class="form-check-inline">
-							  <label class="form-check-label">
-							    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input" name="optradio">대형	</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					  
-							    <input type="radio" class="form-check-input" name="optradio">중형</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							    <input type="radio" class="form-check-input" name="optradio">소형</input>
-							  </label>
+            		    <div class="content-panel">
+			              <h3 class="mb">-노선선택</h3>
+			              <form class="form-horizontal style-form" method="get"></form>		             									
+								<div class="bo_list_tt">				
+								<div>
+									<div class="num">
+									<input type="radio" class="form-check-input" name="optradio">1호차		
+									</div>								
+									<div class="subject">									
+										고대구로병원,대림역,목동14단지 방면																																					
+								<button data-toggle="collapse" data-target="#demor">노선보기</button>								
+								<div id="demor" class="collapse">
+									 구로성당 → 유엔미 아파트 → 소방지구대 → 고대구로병원 → 남구로고개 → 남구로역 1번출구 → 한신,두산 아파트 
+									→ 이화우성 아파트 → 대림역7번출구 → 신동아 아파트 → 거리공원 → 태영아파트 사거리 → 주유소 앞 → 신도림역 
+									→ 신도림 중학교 → 대림5차아파트 → 대림3차아파트 → 미성아파트 → 목동14단지 아파트상가 → 학원도착								
+								</div>									                 									
+								</div>	
+								</div>
+								<br/>
+								<br/>					
+							<div class="bo_list_tt">
+								<div>
+									<div class="num">
+									<input type="radio" class="form-check-input" name="optradio">2호차				
+										</div>					
+									<div class="subject">					
+										유한대학,동부골든아파트,칼산우성아파트 방면																
+										<button data-toggle="collapse" data-target="#demoo">노선보기</button>				
+									</div>
+									</div>
+									</div>				
+							<div id="demoo" class="collapse">
+									유한대학 → 유한공고 → 금강빌라 → 영풍아파트 → 오류파출소 → 동부골든아파트 → 거성푸르뫼
+									 → 개봉푸르지오 → 고척그린공원 → 온누리백제약국 → 칼산우성아파트 → 식자재마트 → 학원도착
+								</div>			
+								<br/>
+								<br/>												
+							<div class="bo_list_tt">
+								<div>
+									<div class="num">
+									<input type="radio" class="form-check-input" name="optradio">3호차				
+										</div>					
+									<div class="subject">					
+										개봉한진,고척우체국,신서초 방면																
+									<button data-toggle="collapse" data-target="#demoz">노선보기</button>												
+									</div>
+									</div>
+									</div>
+									<div id="demoz" class="collapse">
+									 현대,삼호아파트 → 개봉삼환아파트 → 구로성모병원 → 영화아파트정문 → 한마을아파트
+									 → 고산초등학교 → 청구아파트 → 고척우체국 → 고척파출소 건너 
+									 → 계남초 입구 → 목동10단지B상가 → 목동프라자 → 신서초후문 → 학원도착
+									</div>
+								</div>
 							</div>
-							</div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">승차정원</label>
-			                  <div class="col-sm-10">
-			                    <input class="form-control" type="text">
-			                  </div>
-			                </div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">성별</label>
-			                  <div class="col-sm-10">
-			                    <input class="form-control" id="disabledInput" type="text" >
-			                  </div>
-			                </div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">생년월일</label>
-			                  <div class="col-sm-10">
-			                    <input type="date" class="form-control" placeholder="placeholder">
-			                  </div>
-			                </div>
-			                <div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">휴대폰번호</label>
-			                  <div class="col-sm-10">
-			                    <input type="password" class="form-control" placeholder="">
-			                  </div>
-			                </div>
-			                	<div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">차량용도</label>
-							   <div class="form-check-inline">
-							  <label class="form-check-label">
-							    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input" name="optradio">관용</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					  
-							    <input type="radio" class="form-check-input" name="optradio">자가용</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							    <input type="radio" class="form-check-input" name="optradio">영업용</input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							    <input type="radio" class="form-check-input" name="optradio">기타</input>
-							  </label>
-							</div>
-			                </div>
-			              </form>
-			            </div>
-			          </div>
+						</div>																									
 					</div>
-				</div>
+				</div>				           						    					
+			</section>
 		</section>
-	</section>
 	</th:block>
 </html>
