@@ -20,95 +20,78 @@
 				<div class="col-lg-12 main-chart">
 				<div class="content-panel">
             		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 현재 개설된 과목</h2>
+					 <h2 class="mb"><i class="fa fa-angle-right"></i>개설된 강의를 수강하는 학생들..</h2> <!-- 개설될 강의 등록, 수정, 삭제, 조회 관리 / 리스트만 CRUD -->
 					<br/>
-					<div class="container">
 					<!-- ************************************************* 
 							검색하기 
 						*************************************************-->
 					<select>
 						<option>검색목록</option>
-						<option>과목코드</option>
+						<option>강의코드</option>
 						<option>학원코드</option>
-						<option>과목명</option>
+						<option>강사아이디</option>
+						<option>강의실코드</option>
+						<option>과목코드</option>
 					</select>>
 					<input type="text"> 
 					<button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-search"></i></button>
 					<!-- *************************************************
 							검색END 
 						*************************************************-->
-					<button type="button" class="btn btn-theme" onclick="location.href='subjectInsert'">과목 추가하기</button>
-						 <table class="table table table-striped table-advance table-hover">
+					<button type="button" class="btn btn-theme" onclick="location.href='lectureInsert'">강의 추가하기</button>
+						 <br/>
+						 <br/>
+						 <table class="table table-striped table-advance table-hover">
 						    <thead>
 						      <tr>
-						        <th>과목코드</th>
+						        <th>강의코드</th>
 						        <th>학원코드</th>
-						        <th>과목명</th>
+						        <th>강사아이디</th>
+						        <th>강의실코드</th>
+						        <th>과목코드</th>
+						        <th>등록학생인원</th> <!-- 쿼리문 count쓰면됨 -->
+						        <th>학년 및 수업과정 분류 코드</th>
 						        <th>등록자아이디</th>
 						        <th>등록날짜</th>
 						        <th>수정</th>
 						        <th>삭제</th>
 						      </tr>
 						    </thead>
-						    <tbody>
+						    <tbody> <!-- thymeleaf로 반복문을 돌려 내용을 삽입...! -->
 						      <tr>
+						        <td>lecture001</td>
+						        <td>ac001</td>
+						        <td>idpr001</td>
+						        <td>cla201</td>
 						        <td>subject001</td>
-						        <td>ac001</td>
-						        <td>국어</td>
+						        <td>14</td>
+						        <td>class_level001</td>
 						        <td>idad001</td>
 						        <td>2019-08-03</td>
 						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
 						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
 						      </tr>
-						      <tr>
+						     <tr>
+						        <td>lecture002</td>
+						        <td>ac001</td>
+						        <td>idpr002</td>
+						        <td>cla202</td>
 						        <td>subject002</td>
-						        <td>ac001</td>
-						        <td>영어</td>
+						        <td>17</td>
+						        <td>class_level002</td>
 						        <td>idad001</td>
 						        <td>2019-08-03</td>
 						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
 						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
 						      </tr>
 						      <tr>
+						        <td>lecture003</td>
+						        <td>ac001</td>
+						        <td>idpr003</td>
+						        <td>cla301</td>
 						        <td>subject003</td>
-						        <td>ac001</td>
-						        <td>수학</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject004</td>
-						        <td>ac001</td>
-						        <td>사회</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject005</td>
-						        <td>ac001</td>
-						        <td>과학</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject006</td>
-						        <td>ac001</td>
-						        <td>한국사</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>/td>
-						      </tr>
-						      <tr>
-						        <td>subject007</td>
-						        <td>ac007</td>
-						        <td>논술</td>
+						        <td>22</td>
+						        <td>class_level003</td>
 						        <td>idad001</td>
 						        <td>2019-08-03</td>
 						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
@@ -117,10 +100,9 @@
 						    </tbody>
 						  </table>
 					</div> <!-- table divEnd -->
-					</div> <!-- content-panelEnd -->
-					</div> <!-- form-panelEnd -->
+					</div><!-- form-panelEnd -->
+					</div><!-- content-panel divEnd -->
 				</div> <!-- grid divEnd -->
-			</div>
 		</section>
 	</section>
 	</th:block>
