@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.cafe24.eduManger.MemberMapper.MemberMapper">
+ 	<select id="memberList" resultType="com.cafe24.eduManger.MemberVo.Member">
+ 		SELECT 
+			member_id AS m_id, 
+			ac_code AS ac_code, 
+			member_pw AS m_pw, 
+			member_level AS m_level, 
+			member_name AS m_name, 
+			member_gender AS m_gender, 
+			member_birth AS m_birth, 
+			member_phone AS m_phone, 
+			member_date AS m_date
+		FROM member
+ 	</select>
+ 	
+ 	<insert id="memberInsert" parameterType="com.cafe24.eduManger.MemberVo.Member">
+ 		INSERT INTO member (
+			member_id, 
+			ac_code, 
+			member_pw, 
+			member_level,
+			member_name, 
+			member_gender, 
+			member_birth, 
+			member_phone, 
+			member_date
+			)
+		VALUES (
+			#{m_id}, 
+			'ac001', 
+			#{m_pw}, 
+			#{m_level}, 
+			#{m_name}, 
+			#{m_gender}, 
+			#{m_birth}, 
+			#{m_phone}, 
+			NOW()
+		)
+ 		
+ 	</insert>
+ </mapper>
