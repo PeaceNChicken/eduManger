@@ -72,6 +72,7 @@
 				,member_date=NOW()
 			WHERE member_id=#{m_id}
  	</update>
+ 	
  	<delete id="memberDelete" parameterType="String">
  		DELETE FROM member 
 		WHERE member_id=#{m_id}

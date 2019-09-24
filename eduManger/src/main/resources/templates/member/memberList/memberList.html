@@ -25,10 +25,16 @@
 				                <hr/>
 				                <!-- 조건입력창 -->
 								  <div class="col-sm-6">
+								  	<select class="form-control">
+								  		<option>아이디</option>
+								  		<option>학원코드</option>
+								  		<option>이름</option>
+								  		<option>권한</option>
+								  	</select>
 								  	<input type="text" class="form-control" placeholder="Search">
 								  </div>
 								  	<button type="button" class="btn btn-theme">회원검색</button>
-								  	<button type="button" class="btn btn-theme pull-right">회원등록</button>				
+								  	<a href="/memberInsert"><button type="button" class="btn btn-theme pull-right">회원등록</button></a>			
 				                <!--  조건입력END -->
 				                <br/>
 				                <br/>
@@ -43,6 +49,7 @@
 					                    <th>성별</th>
 					                    <th>생일</th>
 					                    <th>전화번호</th>
+					                    <th>등록날자</th>
 					                    <th>수정</th>
 					                    <th>삭제</th>
 					                  </tr>
@@ -56,6 +63,7 @@
 					                    <td th:text="${l.m_name}"></td>
 					                    <td th:text="${l.m_gender}"></td>
 					                    <td th:text="${l.m_birth}"></td>
+					                    <td th:text="${l.m_phone}"></td>
 					                    <td th:text="${l.m_date}"></td>
 					                    <td>
 					                      <button class="btn btn-primary btn-xs"><a th:href="@{/memberUpdate(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      

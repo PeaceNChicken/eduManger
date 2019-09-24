@@ -43,7 +43,7 @@ public class MemberController {
 		System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberUpdate");
 		
 		Member memberList = memberService.memberUpdateForm(m_id);
-		System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberController memberUpdate");
+		System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController memberUpdateForm");
 		
 		model.addAttribute("memberList", memberList);
 		return "/member/memberUpdate/memberUpdate";
@@ -51,6 +51,7 @@ public class MemberController {
 	
 	@PostMapping("memberUpdate")
 	public String memberUpdate(Member member) {
+		System.out.println(member + "<--- member com.cafe24.eduManger.MemberController memberUpdate");
 		memberService.memberUpdate(member);
 		return "redirect:/memberList";
 	}

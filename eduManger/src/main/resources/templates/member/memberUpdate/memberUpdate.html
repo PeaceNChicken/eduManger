@@ -41,10 +41,13 @@
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">권한</label>
 				                  <div class="col-sm-10">
-								  	<select id="m_level" name="m_level" class="form-control" th:value="${memberList.m_level}">
-					                  <option>관리자</option>
-					                  <option>강사</option>
-					                  <option>수강생</option>
+								  	<select id="m_level" name="m_level" class="form-control">
+								  	<!-- 선택된 권한 -->
+					                  <option th:text="${memberList.m_level}"></option>
+					                <!--  선택된 권한은 뜨지 않음 -->
+					                  <option th:if="${memberList.m_level ne '관리자'}">관리자</option>
+					                  <option th:if="${memberList.m_level ne '강사'}">강사</option>
+					                  <option th:if="${memberList.m_level ne '수강생'}">수강생</option>
 					                </select>
 				                  </div>
 				                </div>
@@ -59,11 +62,11 @@
 				                  <div class="col-sm-10">
 				                    <div class="radio">
 						                <label>
-						                  <input type="radio" name="m_gender" class="m_gender" value="남" checked>
+						                  <input type="radio" name="m_gender" class="m_gender" value="남" th:checked="${memberList.m_gender eq '남'}">
 						                  	남자
 						                  </label>
 						                <label>
-						                  <input type="radio" name="m_gender" class="m_gender" value="여">
+						                  <input type="radio" name="m_gender" class="m_gender" value="여" th:checked="${memberList.m_gender eq '여'}">
 						                  	여자
 						                  </label>
 						             </div>
@@ -72,7 +75,7 @@
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">생년월일</label>
 				                  <div class="col-sm-10">
-				                    <input id="m_date" name="m_date" type="date" class="form-control" placeholder="placeholder" th:value="${memberList.m_birth}">
+				                    <input id="m_date" name="m_birth" type="date" class="form-control" th:value="${memberList.m_birth}">
 				                  </div>
 				                </div>
 				                <div class="form-group">
