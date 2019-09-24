@@ -12,4 +12,10 @@ public interface MemberMapper {
 	public List<Member> memberList();
 	
 	public int memberInsert(Member member);
+	
+	public Member memberUpdateForm(String m_id);
+	
+	public int memberUpdate(Member member);
+	
+	public int memberDelete(String m_id);
 }

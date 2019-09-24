@@ -43,4 +43,37 @@
 		)
  		
  	</insert>
+ 	
+ 	<select id="memberUpdateForm" parameterType="String" resultType="com.cafe24.eduManger.MemberVo.Member">
+ 		SELECT 
+			member_id AS m_id, 
+			ac_code AS ac_code, 
+			member_pw AS m_pw, 
+			member_level AS m_level, 
+			member_name AS m_name, 
+			member_gender AS m_gender, 
+			member_birth AS m_birth, 
+			member_phone AS m_phone, 
+			member_date AS m_date 
+		FROM member
+			WHERE 
+			member_id=#{m_id}
+ 	</select>
+ 	
+ 	<update id="memberUpdate" parameterType="com.cafe24.eduManger.MemberVo.Member">
+ 		UPDATE member
+			SET
+				 member_pw=#{m_pw}
+				,member_level=#{m_level}
+				,member_name=#{m_name}
+				,member_gender=#{m_gender}
+				,member_birth=#{m_birth}
+				,member_phone=#{m_phone}
+				,member_date=NOW()
+			WHERE member_id=#{m_id}
+ 	</update>
+ 	<delete id="memberDelete" parameterType="String">
+ 		DELETE FROM member 
+		WHERE member_id=#{m_id}
+ 	</delete>
  </mapper>

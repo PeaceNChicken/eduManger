@@ -27,6 +27,21 @@ public class MemberService {
 	public int memberInsert(Member member) {		
 		return memberMapper.memberInsert(member);
 	}
+	
+	//맴버UpdateForm
+	public Member memberUpdateForm(String m_id){
+		return memberMapper.memberUpdateForm(m_id);
+	}
+	
+	//맴버update
+	public int memberUpdate(Member member) {
+		return memberMapper.memberUpdate(member);
+	}
+	
+	//맴버 delete
+	public int memberDelete(String m_id) {
+		return memberMapper.memberDelete(m_id);
+	}
 
 	
 	

@@ -58,10 +58,10 @@
 					                    <td th:text="${l.m_birth}"></td>
 					                    <td th:text="${l.m_date}"></td>
 					                    <td>
-					                      <button class="btn btn-primary btn-xs"><a href="#/memberUpdate"><i class="fa fa-pencil"></i></a></button>				                      
+					                      <button class="btn btn-primary btn-xs"><a th:href="@{/memberUpdate(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
 					                    </td>
 					                    <td>
-					                    	<button class="btn btn-danger btn-xs"><a href="/memberDelete"><i class="fa fa-trash-o "></i></a></button>
+					                    	<button class="btn btn-danger btn-xs"><a th:href="@{/memberDelete(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 					                    </td>
 					                  </tr>				                     				                 
 					                </tbody>
