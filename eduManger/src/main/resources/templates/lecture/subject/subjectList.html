@@ -41,76 +41,22 @@
 						 <table class="table table table-striped table-advance table-hover">
 						    <thead>
 						      <tr>
-						        <th>과목코드</th>
-						        <th>학원코드</th>
-						        <th>과목명</th>
-						        <th>등록자아이디</th>
-						        <th>등록날짜</th>
+						        <th>과목코드</th> <!-- sub_code -->
+						        <th>학원코드</th> <!-- ac_code -->
+						        <th>과목명</th> <!-- sub_name -->
+						        <th>등록자아이디</th> <!-- m_id -->
+						        <th>등록날짜</th> <!-- sub_date -->
 						        <th>수정</th>
 						        <th>삭제</th>
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <tr>
-						        <td>subject001</td>
-						        <td>ac001</td>
-						        <td>국어</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject002</td>
-						        <td>ac001</td>
-						        <td>영어</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject003</td>
-						        <td>ac001</td>
-						        <td>수학</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject004</td>
-						        <td>ac001</td>
-						        <td>사회</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject005</td>
-						        <td>ac001</td>
-						        <td>과학</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>subject006</td>
-						        <td>ac001</td>
-						        <td>한국사</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>/td>
-						      </tr>
-						      <tr>
-						        <td>subject007</td>
-						        <td>ac007</td>
-						        <td>논술</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
+						      <tr th:each="l:${subjectList}">
+						        <td th:text="${l.sub_code}"></td>
+						        <td th:text="${l.ac_code}"></td>
+						        <td th:text="${l.sub_name}"></td>
+						        <td th:text="${l.m_id}"></td>
+						        <td th:text="${l.sub_date}"></td>
 						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
 						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
 						      </tr>
