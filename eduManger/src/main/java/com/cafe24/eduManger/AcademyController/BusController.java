@@ -16,4 +16,5 @@ public class BusController {
 	public String getBusInsert() {
 		return "/academy/bus/busInsert";
 	}
+	
 }

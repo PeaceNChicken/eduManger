@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BustimeController {
+public class BuslineController {
 
-	@GetMapping("/busTimeList")
-	public String getBusTimeList() {
-		return "/academy/bus/busTime/busTimeList";
+	@GetMapping("/buslineList")
+	public String getBuslineList() {
+		return "/academy/bus/busLine/buslineList";
 	}
 }
