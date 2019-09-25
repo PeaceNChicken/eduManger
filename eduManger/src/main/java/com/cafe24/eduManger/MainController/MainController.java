@@ -3,13 +3,17 @@ package com.cafe24.eduManger.MainController;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.MainService.MainService;
+import com.cafe24.eduManger.MemberVo.Member;
 
 @Controller
 public class MainController {
@@ -17,6 +21,32 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 	
+	
+	@GetMapping("/login")
+	public String login() {		
+		return "/login/login";
+	}
+	
+	@PostMapping("/login")
+	public String login(HttpSession session, Member member,Model model) {
+		
+		Map<String,Object> loginCk = mainService.login(session, member);
+		String result = (String)loginCk.get("result");
+		
+		if(result.equals("notId") || result.equals("notPw")) {
+			model.addAttribute("result", "아이디 혹은 비밀번호가 불일치합니다");
+			return "/login/login";
+		}
+		
+		return "/index";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "/index";
+	}
+
 	/*
 	 * @GetMapping("/") public String MainList(Model model) { Map<String, Object>
 	 * map = mainService.subjectList();
@@ -33,10 +63,4 @@ public class MainController {
 	 * 
 	 * return "/index"; }
 	 */
-	
-	@GetMapping("/login")
-	public String login() {
-		return "login/login";
-	}
-
 }
