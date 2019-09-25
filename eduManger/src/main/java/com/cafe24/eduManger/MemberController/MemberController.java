@@ -18,29 +18,29 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("memberList")
+	@GetMapping("/memberList")
 	public String memberList(Model model) {
 		
 		model.addAttribute("memberList", memberService.memberList());
 		return "/member/memberList/memberList";
 	}
 	
-	@GetMapping("memberInsert")
+	@GetMapping("/memberInsert")
 	public String memberInsert() {		
 		return "/member/memberInsert/memberInsert";
 	}
 	
-	@PostMapping("memberInsert")
+	@PostMapping("/memberInsert")
 	public String memberInsert(Member member) {
-		System.out.println(member.toString() +"<----member com.cafe24.eduManger.MemberController memberInsert");
-		//memberService.memberInsert(member);
+		//System.out.println(member.toString() +"<----member com.cafe24.eduManger.MemberController memberInsert");
+		memberService.memberInsert(member);
 		return "redirect:/memberList";
 	}
 	
-	@GetMapping("memberUpdate")
+	@GetMapping("/memberUpdate")
 	public String memberUpdate(@RequestParam(value="memberId")String m_id,
 								Model model) {
-		System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberUpdate");
+		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberUpdate");
 		
 		Member memberList = memberService.memberUpdateForm(m_id);
 		System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController memberUpdateForm");
@@ -49,18 +49,35 @@ public class MemberController {
 		return "/member/memberUpdate/memberUpdate";
 	}
 	
-	@PostMapping("memberUpdate")
+	@PostMapping("/memberUpdate")
 	public String memberUpdate(Member member) {
-		System.out.println(member + "<--- member com.cafe24.eduManger.MemberController memberUpdate");
+		//System.out.println(member + "<--- member com.cafe24.eduManger.MemberController memberUpdate");
 		memberService.memberUpdate(member);
 		return "redirect:/memberList";
 	}
 	
-	@GetMapping("memberDelete")
+	@GetMapping("/memberDelete")
 	public String memberDelete(@RequestParam(value="memberId")String m_id ) {
-		System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
+		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
 		//memberService.memberDelete(m_id);
 		return "redirect:/memberList";
+	}
+	
+	@PostMapping("/memberSearch")
+	public String memberSearch(
+							   @RequestParam(value="sk")String sk
+							  ,@RequestParam(value="sv")String sv
+							  ,Model model
+							  ) {		
+		System.out.println(sk + "<--- sk com.cafe24.eduManger.MemberController memberSearch" );
+		System.out.println(sv + "<--- sv com.cafe24.eduManger.MemberController memberSearch" );
+		
+		if(sk.equals("select")) {
+			return "redirect:/memberList";
+		}
+		model.addAttribute("memberList", memberService.memberSearch(sk, sv));
+		
+		return "/member/memberList/memberList";
 	}
 	
 	

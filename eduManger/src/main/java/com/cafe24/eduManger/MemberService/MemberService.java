@@ -18,7 +18,7 @@ public class MemberService {
 	//맴버 list
 	public List<Member> memberList(){
 		List<Member> memberList = memberMapper.memberList();
-		System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
+		//System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
 		
 		return memberList;
 	}
@@ -41,6 +41,10 @@ public class MemberService {
 	//맴버 delete
 	public int memberDelete(String m_id) {
 		return memberMapper.memberDelete(m_id);
+	}
+	
+	public List<Member> memberSearch(String sk, String sv){	
+		return memberMapper.memberSearch(sk, sv);
 	}
 
 	

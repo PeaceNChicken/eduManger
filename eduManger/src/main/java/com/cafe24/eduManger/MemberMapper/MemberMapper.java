@@ -18,4 +18,6 @@ public interface MemberMapper {
 	public int memberUpdate(Member member);
 	
 	public int memberDelete(String m_id);
+	
+	public List<Member> memberSearch(String sk, String sv);
 }
