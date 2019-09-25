@@ -22,12 +22,7 @@ public class MemberService {
 		
 		return memberList;
 	}
-	
-	//맴버 insert
-	public int memberInsert(Member member) {		
-		return memberMapper.memberInsert(member);
-	}
-	
+			
 	//맴버UpdateForm
 	public Member memberUpdateForm(String m_id){
 		return memberMapper.memberUpdateForm(m_id);

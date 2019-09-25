@@ -25,25 +25,18 @@ public class MemberController {
 		return "/member/memberList/memberList";
 	}
 	
-	@GetMapping("/memberInsert")
-	public String memberInsert() {		
-		return "/member/memberInsert/memberInsert";
+	@GetMapping("/memberIndex")
+	public String memberIndex() {
+		return "/member/memberIndex/memberIndex";
 	}
-	
-	@PostMapping("/memberInsert")
-	public String memberInsert(Member member) {
-		//System.out.println(member.toString() +"<----member com.cafe24.eduManger.MemberController memberInsert");
-		memberService.memberInsert(member);
-		return "redirect:/memberList";
-	}
-	
+			
 	@GetMapping("/memberUpdate")
 	public String memberUpdate(@RequestParam(value="memberId")String m_id,
 								Model model) {
 		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberUpdate");
 		
 		Member memberList = memberService.memberUpdateForm(m_id);
-		System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController memberUpdateForm");
+		//System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController memberUpdateForm");
 		
 		model.addAttribute("memberList", memberList);
 		return "/member/memberUpdate/memberUpdate";
@@ -59,7 +52,7 @@ public class MemberController {
 	@GetMapping("/memberDelete")
 	public String memberDelete(@RequestParam(value="memberId")String m_id ) {
 		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
-		//memberService.memberDelete(m_id);
+		memberService.memberDelete(m_id);
 		return "redirect:/memberList";
 	}
 	
