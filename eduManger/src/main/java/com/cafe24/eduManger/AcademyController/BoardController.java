@@ -7,7 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BoardController {
 
 	@GetMapping("/boardList")
-	public String getboard() {
+	public String getBoard() {
 		return "/academy/board/boardList";
+	}
+	
+	@GetMapping("/replyWrite")
+	public String getReplyWrite() {
+		return "/academy/board/reply/replyWrite";
+	}
+	
+	@GetMapping("/boardUpdate")
+	public String getBoardUpdate() {
+		return "/academy/board/boardUpdate";
 	}
 }

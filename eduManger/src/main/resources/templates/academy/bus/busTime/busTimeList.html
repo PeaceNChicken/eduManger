@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<title>회원목록</title>
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+		    <!-- **********************************************************************************************************************************************************
+	        MAIN CONTENT
+	        *********************************************************************************************************************************************************** -->
+	    <section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">     			
+          			<div class="content-panel">
+            		    <div class="form-panel ">
+				              <table class="table table-striped table-advance table-hover">
+				                <h2><i class="fa fa-angle-right"></i>차량시간표</h2>
+				                <hr/>
+				                <!-- 조건입력창 -->
+								  <div class="col-sm-3">
+								  	<input type="text" class="form-control" placeholder="Search">
+								  </div>
+								  	<button type="button" class="btn btn-theme">차량검색</button>
+								  	<button type="button" class="btn btn-theme pull-right">차량시간표추가</button>				
+				                <!--  조건입력END -->
+				                <br/>
+				                <br/>
+				                <div class="container">            
+								  <table class="table table-bordered">
+								    <thead>
+								      <tr>
+								      <label><h4>1호차 - 고대구로병원,대림역 방면</h4></label>
+								        <th class="col-sm-3">정류장</th>
+								        <th>A타임</th>
+								        <th>B타임</th>
+								         <td class="col-sm-2">
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								       
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								        <td>구로성당 앞</td>
+								        <td>17:21</td>
+								        <td>19:41</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>    
+								      </tr>
+								      <tr>
+								        <td>유앤미 아파트정문</td>
+								        <td>17:26</td>
+								        <td>19:46</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>소방지구대 앞</td>
+								        <td>17:29</td>
+								        <td>19:48</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>    
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>고대구로병원 앞</td>
+								        <td>17:31</td>
+								        <td>19:51</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>       
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>남구로역 1번출구</td>
+								        <td>17:34</td>
+								        <td>19:52</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>       
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>신동아 아파트 정문</td>
+								        <td>17:39</td>
+								        <td>19:59</td>
+								        <td>
+								         <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>   
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>대림역4번 출구</td>
+								        <td>17:41</td>
+								        <td>19:01</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>학원도착</td>
+								        <td>17:50</td>
+								        <td>19:10</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>     
+								        </td>
+								      </tr>     
+								    </tbody>  
+								  </table>
+								    <table class="table table-bordered">
+								    <thead>
+								      <tr>
+								      <label><h4>2호차 - 유한대학,동부골든아파트,칼산우성아파트 방면</h4></label>
+								        <th class="col-sm-3">정류장</th>
+								        <th>A타임</th>
+								        <th>B타임</th>
+								         <td class="col-sm-2">
+								         <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>  
+								        </td>   
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								        <td>유한대학교 앞</td>
+								        <td>17:25</td>
+								        <td>18:40</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>        
+								        </td>   
+								      </tr>
+								      <tr>
+								        <td>영풍아파트</td>
+								        <td>17:27</td>
+								        <td>18:42</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>     
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>동부골든아파트</td>
+								        <td>17:29</td>
+								        <td>18:44</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>   
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>개봉푸르지오</td>
+								        <td>17:31</td>
+								        <td>18:46</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>고척그린공원</td>
+								        <td>17:34</td>
+								        <td>18:49</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>온누리백제약국</td>
+								        <td>17:39</td>
+								        <td>18:54</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>칼산우성아파트</td>
+								        <td>17:41</td>
+								        <td>19:01</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>학원도착</td>
+								        <td>17:50</td>
+								        <td>19:10</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>       
+								        </td>
+								      </tr>      
+								    </tbody>   
+								  </table>
+								      <table class="table table-bordered">
+								    <thead>
+								      <tr>
+								      <label><h4>3호차 - 개봉한진,고척우체국,신서초 방면</h4></label>
+								        <th class="col-sm-3">정류장</th>
+								        <th>A타임</th>
+								        <th>B타임</th>
+								         <td class="col-sm-2">
+								         <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>     
+								        </td>  
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								        <td>현대,삼호아파트</td>
+								        <td>17:27</td>
+								        <td>18:42</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>        
+								        </td>    
+								      </tr>
+								      <tr>
+								        <td>개봉삼환아파트</td>
+								        <td>17:29</td>
+								        <td>18:44</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>     
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>영화아파트정문</td>
+								        <td>17:32</td>
+								        <td>18:48</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>     
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>청구아파트</td>
+								        <td>17:34</td>
+								        <td>18:50</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>        
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>계남초 입구</td>
+								        <td>17:36</td>
+								        <td>18:52</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>목동프라자</td>
+								        <td>17:39</td>
+								        <td>18:55</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								      <tr>
+								        <td>신서초후문</td>
+								        <td>17:42</td>
+								        <td>18:58</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>
+								       <tr>
+								        <td>학원도착</td>
+								        <td>17:53</td>
+								        <td>19:13</td>
+								        <td>
+								        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+								        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+								        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>      
+								        </td>
+								      </tr>      
+								    </tbody>   
+								  </table> 
+								</div>
+							  </table>
+		        			 </div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>	
+	</th:block>
+</html>
