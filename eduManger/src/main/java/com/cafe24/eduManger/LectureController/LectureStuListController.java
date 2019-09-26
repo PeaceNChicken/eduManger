@@ -10,4 +10,10 @@ public class LectureStuListController {
 		public String lectureStuListSelect() {
 				return "/lecture/lectureStuGroup/lectureStuGroupList";
 		}
+		
+	
+		
+
+
 }
+

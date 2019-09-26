@@ -11,4 +11,11 @@ public class StuScoreController {
 		return "/students/stuScore/stuScoreList";
 	}
 
+		
+		@GetMapping("stuScoreInsert")
+		public String stuScoreInsert() {
+			return "/students/stuScore/stuScoreInsert";
+		}
+		
+		
 }

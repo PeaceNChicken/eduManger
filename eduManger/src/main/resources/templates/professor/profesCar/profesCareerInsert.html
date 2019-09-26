@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
 </head>
-<body>
-강사경력 인설트 페이지입니다.
-
-</body>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-sm-9 main-chart">
+				<div class="content-panel">
+            		    <div class="form-panel">
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 강사 경력 추가하기 </h2>
+					<br/>
+					<div class="container">
+					<button type="button" class="btn btn-theme" onclick="location.href='stuScoreInsert'">과목 추가</button>
+					<p/>
+					<!-- *************************************************
+							과목추가하기 
+						*************************************************-->						
+						 <table class="table table table-striped table-advance table-hover">
+						    <thead>
+						      <tr>
+						       <!--  <th>강사경력정보코드</th> 자동등록되므로 필요없음 -->
+						        <th>강사이력</th> 
+						        <th>기관명</th> 
+						        <th>기관근무시작일</th>
+						        <th>기관근무종료일</th> 
+						        <th>과목명</th>
+						        <th>기관명</th> 
+						        <th>과목명</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr>
+						      	<td></td>
+						      	<td></td>
+						      	<td></td>
+						      	<td></td>
+						      	
+						      </tr>					     
+						    </tbody>
+						  </table>
+						  </div>
+					</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
+				</div> <!-- grid div9End -->	
+				<div class="col-sm-3 main-chart">
+				</div> <!-- grid div3End -->	
+			</div> 		
+		</section>
+	</section>
+	</th:block>
 </html>
+          

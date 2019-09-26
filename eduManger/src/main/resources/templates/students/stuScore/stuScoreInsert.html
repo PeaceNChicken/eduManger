@@ -17,53 +17,101 @@
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
-				<div class="col-sm-12 main-chart">
+				<div class="col-lg-12 main-chart">
 				<div class="content-panel">
             		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 강사 경력정보</h2>
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 성적 입력하기 </h2>
 					<br/>
-					
-					<button type="button" class="btn btn-theme" onclick="location.href='profesCareerInsert'">성적 입력하기</button>
+					<div class="container mt-3">
+					<p/>
 					<!-- *************************************************
-							성적 리스트 
+							성적정보 등록 폼 START
 						*************************************************-->
-						 <table class="table table table-striped table-advance table-hover">
-						    <thead>
+						학년
+						<select>
+							<option>중학교 1학년</option>
+							<option>중학교 2학년</option>
+							<option>중학교 3학년</option>
+							<option>고등학교 1학년</option>
+							<option>고등학교 2학년</option>
+							<option>고등학교 3학년</option>
+						</select>
+						학기
+						<select>
+							<option>1학기</option>
+							<option>2학기</option>
+
+						</select>
+						시험분류
+						<select>
+							<option>중간고사</option>
+							<option>기말고사</option>
+							<option>모의고사</option>
+						</select>
+						 <p class="text-right"> <button type="button" class="btn btn-theme">저장</button></p>      
+						 <table class="table table table-striped table-advance table-hover  text-center">
+						    <thead> <!-- 왜 텍스트 가운데정렬이 안되냐!!!!!!!!!!!!!!!11 -->
 						      <tr>
-						        <th>강사경력정보코드</th>
-						        <th>강사아이디</th>
-						        <th>강사이력</th>
-						        <th>기관명</th>
-						        <th>기관근무시작일</th>
-						        <th>기관근무종료일</th>
-						        <th>등록자아이디</th>
-						        <th>정보등록일</th>
-						        <th>수정</th>
-						        <th>삭제</th>
+						        <!-- <th>학생별학교성적정보코드</th>
+						        <th>학원코드</th>
+						        <th>학생아이디</th> 아이디에 권한정보 설정되어있으므로 자동등록가능 -->
+						        <th>과목명</th>
+						        <th>점수</th>
+						        <th>등급</th>
+						        <th>시험일</th> 
 						      </tr>
 						    </thead>
 						    <tbody>
 						      <tr>
-						        <td>idprcar001</td>
-						        <td>idpr01</td>
-						        <td>하버드수석입학</td>
-						        <td>하버드대학교</td>
-						        <td>2007-10-11</td>
-						        <td>2011-11-12</td>
-						        <td>idad001</td>
-						        <td>2019-12-31</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
+						        <!-- <td>stu_score001</td>
+						        <td>ac01</td>
+						        <td>id001</td> 아이디에 권한정보 설정되어있으므로 자동등록가능 (이후생략) -->
+						        <td>국어</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
 						      </tr>
-						     
+						      <tr>
+						        <td>영어</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
+						      </tr>
+						       <tr>
+						        <td>수학</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
+						      </tr>
+						       <tr>
+						        <td>사회</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
+						      </tr>
+						      <tr>
+						        <td>과학</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
+						      </tr>
+						      <tr>
+						        <td>한국사</td>
+						        <td><input type="text"></td>
+						        <td><input type="text"></td>
+						        <td><input type="date"></td>
+						      </tr>
 						    </tbody>
 						  </table>
-					</div> <!-- content-panelEnd -->
+						 
+		<!-- *************************************************
+						성적정보 등록 폼 END 
+			*************************************************-->
+					</div>
 					</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
 				</div> <!-- grid div4End -->
-				<!-- *************************************************
-					강사 경력사항 상세정보	 
-						*************************************************-->
+				
 				<div class="col-sm-8 main-chart">
 				</div> <!-- grid div8End -->
 			</div>

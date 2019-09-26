@@ -10,4 +10,12 @@ public class ClassLevelController {
 		public String classLevelSelect() {
 			return "/lecture/classLevel/classLevelList";
 		}
+	
+	
+	@GetMapping("/classLevelInsert")
+		public String classLevelInsert() {
+			return "/lecture/classLevel/classLevelInsert";
+	}
+	
+	
 }
