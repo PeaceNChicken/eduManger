@@ -1,6 +1,7 @@
 package com.cafe24.eduManger.MemberService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cafe24.eduManger.ContractVo.ContractAcademy;
 import com.cafe24.eduManger.MemberMapper.MemberInsertMapper;
 import com.cafe24.eduManger.MemberVo.Member;
 import com.cafe24.eduManger.ProfessorVo.ProfesInfo;
@@ -18,8 +20,13 @@ public class MemberInsertService {
 	@Autowired
 	private MemberInsertMapper memberInsertMapper;
 	
+	//학원리스트
+		public List<ContractAcademy> academyList(){
+			return memberInsertMapper.academyList();
+		}
+	
 	//관리자 insert
-		public int masterInsert(Member member, HttpSession session) {		
+		public int masterInsert(Member member) {					
 			return memberInsertMapper.masterInsert(member);
 		}
 		

@@ -4,11 +4,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cafe24.eduManger.MemberService.MemberInsertService;
-import com.cafe24.eduManger.MemberService.MemberService;
 import com.cafe24.eduManger.MemberVo.Member;
 import com.cafe24.eduManger.ProfessorVo.ProfesInfo;
 import com.cafe24.eduManger.StudentVo.Stu_pi;
@@ -19,14 +19,15 @@ public class MemberInsertController {
 	private MemberInsertService memberInsertService;
 	
 	@GetMapping("/masterInsert")
-	public String masterInsert() {		
+	public String masterInsert(Model model) {					
+		model.addAttribute("academyList", memberInsertService.academyList());
 		return "/member/memberInsert/masterInsert";
 	}
 	
 	@PostMapping("/masterInsert")
-	public String masterInsert(Member member, HttpSession session) {
+	public String masterInsert(Member member) {
 		//System.out.println(member.toString() +"<----member com.cafe24.eduManger.MemberController memberInsert");
-		memberInsertService.masterInsert(member, session);
+		memberInsertService.masterInsert(member);
 		return "redirect:/memberList";
 	}
 	

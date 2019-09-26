@@ -22,9 +22,9 @@ public class ContractAcademyController {
 	 */
 	@GetMapping("/contractAcademyList")
 	public String contractAcademyList(Model model) {
-		Map<String, Object> map = contractAcademyService.contractAcademyList();
+		//Map<String, Object> map = contractAcademyService.contractAcademyList();
 		//System.out.println(map + "<-- controller");
-		model.addAttribute("contractAcademyList", map.get("contractAcademyList"));
+		//model.addAttribute("contractAcademyList", map.get("contractAcademyList"));
 		return "/contract/contractAcademy/contractAcademyList";
 	}
 	
