@@ -14,7 +14,7 @@ import com.cafe24.eduManger.ContractService.ContractPriceService;
 @Controller
 public class ContractPriceController {
 
-	@Autowired private ContractPriceService ContractPriceService;
+	@Autowired private ContractPriceService contractPriceService;
 	
 	/* @param  /contractAcademyList url
 	 * @return /contract/contractAcademy/contractAcademyList.html 화면
@@ -22,8 +22,8 @@ public class ContractPriceController {
 	 */
 	@GetMapping("/contractPriceList")
 	public String contractPriceList(Model model) {
-		Map<String, Object> map = ContractPriceService.contractPriceList(); //service단에서 리턴받은 map객체를 map이라는 변수에 선언
-		//System.out.println(map + "<-- controller");  map변수에 service단에서 리턴받은값이 제대로 들어왔는지 확인
+		Map<String, Object> map = contractPriceService.contractPriceList(); //service단에서 리턴받은 map객체를 map이라는 변수에 선언
+		System.out.println(map + "<-- controller");  //map변수에 service단에서 리턴받은값이 제대로 들어왔는지 확인
 		model.addAttribute("contractPriceList", map.get("contractPriceList")); //model객체에 map 객체 내에 contractPriceList란 이름표가 달렸던 데이터를 가져와서 contractPriceList라는 이름표를 달아놓는다.  
 		return "/contract/contractPrice/contractPriceList";
 	}
