@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
 </head>
-<body>
-
-</body>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">     			
+          			<div class="content-panel">
+            		    <div class="form-panel ">
+				             
+				                <h2><i class="fa fa-angle-right"></i>차량노선리스트</h2>
+				                <hr/>			                
+								  	<a href="/buslineInsert"><button type="button" class="btn btn-theme pull-right">노선등록</button></a>			
+				                <!--  조건입력END -->
+				                <br/>
+				                <br/>
+				                <table class="table table-striped table-advance table-hover">
+					                <thead>
+					                  <tr>
+					                    <th>호차</th>
+					                    <th>노선</th>			
+					                    <th></th>		                   
+					                    <th>등록자</th>					                    
+					                    <th>등록날짜</th>						                  	
+					                    <th></th>
+					                    <th>등록</th>			                    
+					                    <th>수정</th>
+					                    <th>삭제</th>
+					                  </tr>
+					                </thead>
+					                <tbody>
+					                  <tr>
+					                    <td>1호차</td>
+					                    <td>유한대학 → 유한공고 → 금강빌라 → 영풍아파트 → 오류파출소 → 동부골든아파트 → 거성푸르뫼 → 
+											 개봉푸르지오 → 고척그린공원 → 온누리백제약국 → 칼산우성아파트 → 식자재마트 → 학원도착</td>
+											 <td></td>
+					                    <td>idad001</td>					                    	
+					                    <td>2019-09-22</td>					                    
+					                    <td></td>
+					                    <td>
+					                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+					                    </td>
+					                    <td>
+					                      <button class="btn btn-primary btn-xs"><a href="/buslineInsert" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
+					                    </td>
+					                    <td>
+					                    	<button class="btn btn-danger btn-xs"><a href="/buslineList" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+					                    </td>
+					                  </tr>
+					                  <tr>
+					                    <td>2호차</td>
+					                    <td>유한대학 → 유한공고 → 금강빌라 → 영풍아파트 → 오류파출소 → 동부골든아파트 → 거성푸르뫼 → 
+								 			개봉푸르지오 → 고척그린공원 → 온누리백제약국 → 칼산우성아파트 → 식자재마트 → 학원도착	</td>
+											 <td></td>
+					                    <td>idad001</td>					                    	
+					                    <td>2019-09-22</td>					                    
+					                    <td></td>
+					                    <td>
+					                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+					                    </td>
+					                    <td>
+					                      <button class="btn btn-primary btn-xs"><a href="/buslineInsert" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
+					                    </td>
+					                    <td>
+					                    	<button class="btn btn-danger btn-xs"><a href="/buslineList" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+					                    </td>
+					                  </tr>
+					                  <tr>
+					                  <td>3호차</td>
+					                    <td>현대,삼호아파트 → 개봉삼환아파트 → 구로성모병원 → 영화아파트정문 → 한마을아파트
+											 → 고산초등학교 → 청구아파트 → 고척우체국 → 고척파출소 건너 
+											 → 계남초 입구 → 목동10단지B상가 → 목동프라자 → 신서초후문 → 학원도착</td>
+											 <td></td>
+					                    <td>idad001</td>					                    	
+					                    <td>2019-09-22</td>					                    
+					                    <td></td>
+					                    <td>
+					                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+					                    </td>
+					                    <td>
+					                      <button class="btn btn-primary btn-xs"><a href="/buslineInsert" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
+					                    </td>
+					                    <td>
+					                    	<button class="btn btn-danger btn-xs"><a href="/buslineList" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+					                    </td>
+					                  </tr>				                  			                     				                 
+					                </tbody>
+				              		</table>
+		        			 	</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+	</th:block>
 </html>

@@ -56,13 +56,13 @@
  	<update id="contractAcademyUpdate" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">
 	 	UPDATE academy
 		SET
-			ac_name =		#{ac_name},
+			ac_name 	=	#{ac_name},
 			ac_location =	#{ac_location},
-			ac_phone =		#{ac_phone},
-			ac_date =		NOW(),
-			member_id =		#{member_id} 
+			ac_phone 	=	#{ac_phone},
+			ac_date 	=	NOW(),
+			member_id 	=	#{member_id} 
 		WHERE
-			ac_code =		#{ac_code}
+			ac_code	 	=	#{ac_code}
  	</update>
  	
  	<delete id="contractAcademyDelete" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">

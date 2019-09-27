@@ -6,6 +6,7 @@ public class Stu_pi extends Member{
 	
 	private String stu_info_code;
 	private String ac_code;
+	private String stu_id;
 	private String admin_id;
 	private String drive_code;
 	private String stu_school;
@@ -24,6 +25,12 @@ public class Stu_pi extends Member{
 	}
 	public void setAc_code(String ac_code) {
 		this.ac_code = ac_code;
+	}
+	public String getStu_id() {
+		return stu_id;
+	}
+	public void setStu_id(String stu_id) {
+		this.stu_id = stu_id;
 	}
 	public String getAdmin_id() {
 		return admin_id;
@@ -64,10 +71,12 @@ public class Stu_pi extends Member{
 	
 	@Override
 	public String toString() {
-		return "Stu_pi [stu_info_code=" + stu_info_code + ", ac_code=" + ac_code + ", admin_id=" + admin_id
-				+ ", drive_code=" + drive_code + ", stu_school=" + stu_school + ", parents_phone=" + parents_phone
-				+ ", stu_brother=" + stu_brother + ", stu_info_etc=" + stu_info_etc + "]";
+		return "Stu_pi [stu_info_code=" + stu_info_code + ", ac_code=" + ac_code + ", stu_id=" + stu_id + ", admin_id="
+				+ admin_id + ", drive_code=" + drive_code + ", stu_school=" + stu_school + ", parents_phone="
+				+ parents_phone + ", stu_brother=" + stu_brother + ", stu_info_etc=" + stu_info_etc + "]";
 	}
+	
+	
 	
 	
 	
