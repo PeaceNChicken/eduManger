@@ -4,6 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="com.cafe24.eduManger.MemberMapper.MemberInsertMapper">
+ 	
+ 	<select id="academyList" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
+ 		SELECT
+			ac_code AS acCode,
+			ac_name AS acName,
+			ac_location AS acLocation,
+			ac_phone AS acPhone,
+			ac_date AS acDate,
+			member_id AS memberId
+		FROM
+			academy
+ 	</select>
+ 	
  	<insert id="masterInsert" parameterType="com.cafe24.eduManger.MemberVo.Member">
  		INSERT INTO member (
 			member_id, 
@@ -18,7 +31,7 @@
 			)
 		VALUES (
 			#{m_id}, 
-			'ac001', 
+			#{ac_code}, 
 			#{m_pw}, 
 			#{m_level}, 
 			#{m_name}, 
@@ -29,31 +42,7 @@
 		)
 	
  	</insert>
- 	<insert id="professorInsert" parameterType="com.cafe24.eduManger.ProfessorVo.ProfesInfo">
- 		INSERT INTO member
-			(
-			member_id, 
-			ac_code, 
-			member_pw, 
-			member_level, 
-			member_name, 
-			member_gender, 
-			member_birth, 
-			member_phone, 
-			member_date
-			)
-		VALUES (
-			#{m_id}, 
-			'ac001', 
-			#{m_pw}, 
-			#{m_level}, 
-			#{m_name}, 
-			#{m_gender}, 
-			#{m_birth}, 
-			#{m_phone}, 
-			NOW()
-			);		
- 	</insert>
+ 	
  	<insert id="professorInfoInsert" parameterType="com.cafe24.eduManger.ProfessorVo.ProfesInfo">
  		INSERT INTO profes_info
 			(
@@ -63,10 +52,11 @@
 			admin_id, 
 			idprinfo_subject, 
 			idprinfo_education, 
-			idprinfo_date)
+			idprinfo_date
+			)
 		VALUES (
 			#{prInfo_code}, 
-			'ac001', 
+			#{ac_code}, 
 			#{m_id}, 
 			#{admin_id}, 
 			#{prInfo_subject}, 
@@ -78,5 +68,36 @@
  		SELECT
 			MAX(CAST(SUBSTRING(idprinfo_code,10) AS DECIMAL)) AS maxcol
 		FROM profes_info
+ 	</select>
+ 	
+ 	<insert id="studentInfoInsert" parameterType="com.cafe24.eduManger.StudentVo.Stu_pi">
+ 		INSERT INTO Stu_PI
+			(
+			stu_info_code, 
+			ac_code, 
+			stu_id, 
+			admin_id, 
+			drive_code, 
+			stu_school, 
+			parents_phone, 
+			stu_brother, 
+			stu_info_etc
+			) 
+		VALUES (
+			#{stu_info_code}, 
+			'ac001', 
+			#{m_id}, 
+			#{admin_id}, 
+			'drive_info01', 
+			#{stu_school}, 
+			#{parents_phone}, 
+			#{stu_brother}, 
+			#{stu_info_etc} 
+			)
+ 	</insert>
+ 	<select id="studentInfoPiMaxCount" resultType="int">
+ 		SELECT
+			MAX(CAST(SUBSTRING(stu_info_code,9) AS DECIMAL)) AS maxcol
+		FROM Stu_PI
  	</select>
  </mapper>

@@ -25,8 +25,8 @@ public class MemberController {
 		return "/member/memberList/memberList";
 	}
 	
-	@GetMapping("/memberIndex")
-	public String memberIndex() {
+	@GetMapping("/memberInsertIndex")
+	public String memberInsertIndex() {
 		return "/member/memberIndex/memberIndex";
 	}
 			

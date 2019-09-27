@@ -43,18 +43,16 @@
 			                  </tr>
 			                </thead>
 			                <tbody>
-			                  <tr>
-			                    <td>
-			                      <a href="basic_table.html#">contractPrice001</a>
-			                    </td>
-			                    <td>MASTER01</td>
-			                    <td>20,000</td>
-			                    <td>월계약금액</td>
-			                    <td>2017-05-13</td>
+			                  <tr th:each="cp: ${contractPriceList}">
+			                    <td th:text="${cp.contractPriceCode}"></td>
+			                    <td th:text="${cp.memberId}"></td>
+			                    <td th:text="${cp.contractPriceMoney}"></td>
+			                    <td th:text="${cp.contractPriceEtc}"></td>
+			                    <td th:text="${cp.contractPriceDate}"></td>
 			                    <td>
 			                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-			                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-			                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+			                      <button class="btn btn-primary btn-xs"><a href="/contractPriceUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+			                      <button class="btn btn-danger btn-xs"><a href="/contractPriceDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>

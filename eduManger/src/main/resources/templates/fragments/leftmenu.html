@@ -9,8 +9,10 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
+        <!--  사진 -->
           <p class="centered"><a href="#profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h4 class="centered" style="color:#ffffff">[[${SNAME}]]</h4>
+          <h5 class="centered" >[[${SNAME}]]</h5>
           <li class="mt">
             <a class="active" href="/">
               <i class="fa fa-dashboard"></i>
@@ -23,7 +25,7 @@
               <span>회원관리</span>
               </a>
             <ul class="sub">
-              <li><a href="/memberIndex">!회원등록</a></li>
+              <li><a href="/memberInsertIndex">회원등록</a></li>
               <li><a href="/memberList">회원목록</a></li>
             </ul>
           </li>
@@ -35,7 +37,7 @@
             <ul class="sub">
               <li><a href="/proLectureList">!강사담당수업</a></li>
               <li><a href="/workTimeList">!강사근태</a></li>
-              <li><a href="/getprofesCareer">!강사이력-sy</a></li>
+              <li><a href="/getprofesCareer">!강사상세정보</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -44,6 +46,7 @@
               <span>!학생관리</span>
               </a>
             <ul class="sub">
+              <li><a href="/stuPi">!학생상세정보조회</a></li>
               <li><a href="/getstuLecture">!학생개인수강목록-sy</a></li>
               <li><a href="/attendData">!학생출결현황</a></li>
               <li><a href="/stuCounsel">!학생개인상담목록</a></li>

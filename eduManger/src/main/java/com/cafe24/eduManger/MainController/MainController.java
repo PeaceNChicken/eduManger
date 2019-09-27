@@ -21,6 +21,10 @@ public class MainController {
 	@Autowired
 	private MainService mainService;
 	
+	@GetMapping("/")
+	public String Main() {
+		return "/index";
+	}
 	
 	@GetMapping("/login")
 	public String login() {		
@@ -38,13 +42,16 @@ public class MainController {
 			return "/login/login";
 		}
 		
-		return "/index";
+		model.addAttribute("SNAME", (String)session.getAttribute("SNAME"));
+		model.addAttribute("SLEVEL", (String)session.getAttribute("SLEVEL"));
+		
+		return "redirect:/";
 	}
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "/index";
+		return "redirect:/";
 	}
 
 	/*
