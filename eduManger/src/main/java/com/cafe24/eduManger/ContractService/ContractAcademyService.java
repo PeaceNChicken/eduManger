@@ -71,8 +71,8 @@ public class ContractAcademyService {
 		return contractAcademyMapper.contractAcademyUpdate(contractAcademy);
 	}
 	
-	public int contractAcademyDelete(String ac_code) {
+	public int contractAcademyDelete(ContractAcademy contractAcademy) {
 		
-		return contractAcademyMapper.contractAcademyDelete(ac_code);
+		return contractAcademyMapper.contractAcademyDelete(contractAcademy);
 	}
 }

@@ -26,9 +26,9 @@ public class ContractAcademyController {
 	 */
 	@GetMapping("/contractAcademyList")
 	public String contractAcademyList(Model model) {
-		//Map<String, Object> map = contractAcademyService.contractAcademyList();
-		//System.out.println(map + "<-- controller");
-		//model.addAttribute("contractAcademyList", map.get("contractAcademyList"));
+		Map<String, Object> map = contractAcademyService.contractAcademyList();
+		System.out.println(map + "<-- controller");
+		model.addAttribute("contractAcademyList", map.get("contractAcademyList"));
 		return "/contract/contractAcademy/contractAcademyList";
 	}
 	
@@ -84,10 +84,28 @@ public class ContractAcademyController {
 		return "redirect:/contractAcademyList";
 	}
 	
+	/* @param  	contractAcademyDelete url
+	 * @return 	contract/contractAcademy/contractAcademyDelete.html 화면
+	 * @detail 	get방식으로 contractAcademyDelete url 요청할때 controller단에서 각행의 학원코드인 acCode 값을 매개변수로 
+	 * 			contractAcademyDelete()를 실행하게 되고 service단에서 contractAcademyUpdateById(acCode) 
+	 * 			실행 요청 후 리턴값을 model객체의 list라는 주머니에 담고 contractAcademyUpdate.html 화면에서
+	 * 			수정 폼에 value값으로 list에 담긴 값들을 화면에 뿌려준다.
+	 */
 	@GetMapping("/contractAcademyDelete")
-	public String contractAcademyDelete(@RequestParam(value="ac_code") String ac_code) {
+	public String contractAcademyDelete(@RequestParam(value="ac_code") String ac_code
+										,Model model) {
 		System.out.println(ac_code + "<-- contractAcademyDelete, ContractAcademyController");
-		contractAcademyService.contractAcademyDelete(ac_code);
+		model.addAttribute("list", contractAcademyService.contractAcademyUpdateById(ac_code));
+		contractAcademyService.contractAcademyUpdateById(ac_code);
+		return "/contract/contractAcademy/contractAcademyDelete";
+	}
+	
+	@PostMapping("/contractAcademyDelete")
+	public String contractAcademyDelete(ContractAcademy contractAcademy) {
+		
+		contractAcademyService.contractAcademyDelete(contractAcademy);
 		return "redirect:/contractAcademyList";
 	}
+	
+	
 }
