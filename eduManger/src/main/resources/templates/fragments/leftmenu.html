@@ -9,8 +9,10 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
+        <!--  사진 -->
           <p class="centered"><a href="#profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h4 class="centered" style="color:#ffffff">[[${SNAME}]]</h4>
+          <h5 class="centered" >[[${SNAME}]]</h5>
           <li class="mt">
             <a class="active" href="/">
               <i class="fa fa-dashboard"></i>
@@ -23,7 +25,7 @@
               <span>회원관리</span>
               </a>
             <ul class="sub">
-              <li><a href="/memberInsert">회원등록</a></li>
+              <li><a href="/memberInsertIndex">회원등록</a></li>
               <li><a href="/memberList">회원목록</a></li>
             </ul>
           </li>
@@ -33,10 +35,9 @@
               <span>!강사관리</span>
               </a>
             <ul class="sub">
-
               <li><a href="/proLectureList">!강사담당수업</a></li>
               <li><a href="/workTimeList">!강사근태</a></li>
-              <li><a href="/getprofesCareer">!강사이력-sy</a></li>
+              <li><a href="/getprofesCareer">!강사상세정보</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -57,9 +58,9 @@
               <span>!강의관리</span>
               </a>
             <ul class="sub">
-              <li><a href="/getsubject">!현재개설된 과목-sy</a></li>
-              <li><a href="/getlecture">!현재개설된 강의 전체리스트-sy</a></li>
-              <li><a href="getlectureStuGroupList">!개설된 강의를 신청한 수강생목록-sy</a></li>
+              <li><a href="/getsubjectList">!현재개설된 과목-sy</a></li>
+              <li><a href="/getlecture">!개설된 강의 전체리스트-sy</a></li>
+              <li><a href="/getlectureStuGroupList">!강의를 신청한 수강생목록-sy</a></li>
               <li><a href="/getclassLevel">!학년 및 수업과정분류-sy</a></li>
               <li><a href="/roomList">!강의실목록</a></li>
               <li><a href="/academyTimeTableList">!시간표</a></li>
@@ -74,7 +75,7 @@
               <li><a href="/boardList">!게시판관리</a></li>
               <li><a href="/busList">!차량관리</a></li>
               <li><a href="/buslineList">!차량노선관리</a></li>
-              <li><a href="/busTimeList">!차량시간표</a></li>            
+              <li><a href="/bustimeList">!차량시간표</a></li>            
               <li><a href="/incomeList">!수납 및 납부 안내</a></li>
               <li><a href="/priceLectureList">!수강료 및 할인 정보</a></li>
               <li><a href="/payList">!직원급여관리</a></li>
@@ -88,7 +89,9 @@
               <span>!계약</span>
               </a>
             <ul class="sub">
-              <li><a href="/contractList">!계약관리</a></li>
+              <li><a href="/contractList">!계약목록</a></li>
+              <li><a href="/contractPriceList">!계약단가표</a></li>
+              <li><a href="/contractAcademyList">!계약지점목록</a></li>
             </ul>
           </li>
         </ul>

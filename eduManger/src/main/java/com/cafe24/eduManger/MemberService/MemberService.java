@@ -18,16 +18,11 @@ public class MemberService {
 	//맴버 list
 	public List<Member> memberList(){
 		List<Member> memberList = memberMapper.memberList();
-		System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
+		//System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
 		
 		return memberList;
 	}
-	
-	//맴버 insert
-	public int memberInsert(Member member) {		
-		return memberMapper.memberInsert(member);
-	}
-	
+			
 	//맴버UpdateForm
 	public Member memberUpdateForm(String m_id){
 		return memberMapper.memberUpdateForm(m_id);
@@ -41,6 +36,10 @@ public class MemberService {
 	//맴버 delete
 	public int memberDelete(String m_id) {
 		return memberMapper.memberDelete(m_id);
+	}
+	
+	public List<Member> memberSearch(String sk, String sv){	
+		return memberMapper.memberSearch(sk, sv);
 	}
 
 	

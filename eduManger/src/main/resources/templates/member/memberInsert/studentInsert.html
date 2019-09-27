@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		#btnBox { text-align: center; }
+	</style>
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">     			
+					<div class="content-panel">
+						<div class="form-panel">
+							<h2 class="mb"><i class="fa fa-angle-right"></i> 수강생 회원등록</h2>
+							<form action="/studentInsert" class="form-horizontal style-form" method="post">
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">아이디</label>
+									<div class="col-sm-10">
+									  <input id="m_id" name="m_id" class="form-control" >
+									</div>
+					         	</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">비밀번호</label>
+									<div class="col-sm-10">
+						             	<input id="m_pw" name="m_pw" type="text" class="form-control" >
+										<span class="help-block">영문,숫자 포함 8글자이상</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">권한</label>
+									<div class="col-sm-10">
+										<input name="m_level" class="form-control" value="수강생" readonly>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">이름</label>
+									<div class="col-sm-10">
+										<input id="m_name" name="m_name" class="form-control" type="text" placeholder="이름을 입력하세요" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">성별</label>
+									<div class="col-sm-10">
+										<div class="radio">
+											<label>
+												<input type="radio" name="m_gender" class="m_gender" value="남" checked>
+												     	남자
+											</label>
+											<label>
+												<input type="radio" name="m_gender" class="m_gender" value="여" >
+												     	여자
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">생년월일</label>
+									<div class="col-sm-10">
+										<input id="m_date" name="m_birth" type="date" class="form-control" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">휴대폰번호</label>
+									<div class="col-sm-10">
+										<input id="m_phone" name="m_phone" type="text" class="form-control" placeholder="" >
+									</div>
+								</div>
+         <!-- ****************수강생 추가정보 ************-->
+								            <h3 class="mb"> 수강생 추가정보</h3>			
+								<div class="form-group">
+								<label class="col-sm-2 col-sm-2 control-label">재학중인 학교</label>
+								<div class="col-sm-10">
+								  	<input id="stu_school" name="stu_school" class="form-control" >
+								</div>
+					            </div> 
+					            <div class="form-group">
+								<label class="col-sm-2 col-sm-2 control-label">보호자 연락처</label>
+									<div class="col-sm-10">
+									  	<input id="parents_phone" name="parents_phone" class="form-control" >
+									</div>
+					            </div>
+					            <div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">학원에 다니고있는 형제자매 유/무</label>
+									<div class="col-sm-10">
+										<div class="radio">
+											<label>
+												<input type="radio" name="stu_brother" class="stu_brother" value="있음" checked>
+												     	있음
+											</label>
+											&nbsp
+											&nbsp
+											<label>
+												<input type="radio" name="stu_brother" class="stu_brother" value="없음" >
+												     	없음
+											</label>
+										</div>
+									</div>
+								</div>
+					            <div class="form-group">
+								<label class="col-sm-2 col-sm-2 control-label">기타 사항</label>
+									<div class="col-sm-10">
+									  	<textarea id="stu_info_etc" name="stu_info_etc" class="form-control" rows="15" ></textarea>
+									</div>
+					            </div>				
+					            <div style="text-align:center">
+								 	<button type="submit" class="btn btn-theme btn-lg">회원등록</button>
+								</div>
+							</form>
+			<!-- ****************수강생 추가정보 END ************-->
+			            </div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	</th:block>
+</html>      
