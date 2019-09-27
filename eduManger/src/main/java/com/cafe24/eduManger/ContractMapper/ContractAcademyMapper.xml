@@ -8,12 +8,12 @@
 
 	<select id="contractAcademyList" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
 		SELECT
-			ac_code AS acCode,
-			ac_name AS acName,
-			ac_location AS acLocation,
-			ac_phone AS acPhone,
-			ac_date AS acDate,
-			member_id AS memberId
+			ac_code, 
+			ac_name, 
+			ac_location, 
+			ac_phone, 
+			ac_date, 
+			member_id 
 		FROM
 			academy
 	</select>
@@ -30,14 +30,46 @@
 			)
 		VALUES 
 			(
-			#{acCode}, 
-			#{acName}, 
-			#{acLocation}, 
-			#{acPhone}, 
+			#{ac_code}, 
+			#{ac_name}, 
+			#{ac_location}, 
+			#{ac_phone}, 
 			NOW(), 
-			#{memberId} 
+			#{member_id} 
 			)
- 		
  	</insert>
  	
+ 	<select id="contractAcademyUpdateById" parameterType="String" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
+ 		SELECT 
+			ac_code, 
+			ac_name, 
+			ac_location, 
+			ac_phone, 
+			ac_date, 
+			member_id 
+		FROM 
+			academy
+		WHERE
+			ac_code= #{acCode} 
+ 	</select>
+ 	
+ 	<update id="contractAcademyUpdate" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">
+	 	UPDATE academy
+		SET
+			ac_name =		#{ac_name},
+			ac_location =	#{ac_location},
+			ac_phone =		#{ac_phone},
+			ac_date =		NOW(),
+			member_id =		#{member_id} 
+		WHERE
+			ac_code =		#{ac_code}
+ 	</update>
+ 	
+ 	<delete id="contractAcademyDelete" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">
+ 		DELETE 
+		FROM 
+			academy 
+		WHERE 
+			ac_code= #{ac_code} 
+ 	</delete>
 </mapper>

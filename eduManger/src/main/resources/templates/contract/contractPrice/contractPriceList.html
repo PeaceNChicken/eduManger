@@ -44,11 +44,11 @@
 			                </thead>
 			                <tbody>
 			                  <tr th:each="cp: ${contractPriceList}">
-			                    <td th:text="${cp.contractPriceCode}"></td>
-			                    <td th:text="${cp.memberId}"></td>
-			                    <td th:text="${cp.contractPriceMoney}"></td>
-			                    <td th:text="${cp.contractPriceEtc}"></td>
-			                    <td th:text="${cp.contractPriceDate}"></td>
+			                    <td th:text="${cp.contract_price_code}"></td>
+			                    <td th:text="${cp.member_id}"></td>
+			                    <td th:text="${cp.contract_price_money}"></td>
+			                    <td th:text="${cp.contract_price_etc}"></td>
+			                    <td th:text="${cp.contract_price_date}"></td>
 			                    <td>
 			                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
 			                      <button class="btn btn-primary btn-xs"><a href="/contractPriceUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>

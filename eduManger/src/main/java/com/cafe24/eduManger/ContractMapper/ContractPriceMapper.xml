@@ -8,11 +8,11 @@
 
 	<select id="contractPriceList" resultType="com.cafe24.eduManger.ContractVo.ContractPrice">
 		SELECT 
-			contract_price_code AS contractPriceCode,
-			member_id AS memberId,
-			contract_price_money AS contractPriceMoney,
-			contract_price_etc AS contractPriceEtc,
-			contract_price_date AS contractPriceDate
+			contract_price_code, 
+			member_id, 
+			contract_price_money, 
+			contract_price_etc, 
+			contract_price_date
 		FROM 
 			contract_price
 	</select>

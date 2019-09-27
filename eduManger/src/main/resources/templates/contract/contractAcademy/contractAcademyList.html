@@ -5,6 +5,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>계약목록</title>
+<script>
+	function caDelete(){
+		location.replace("");
+	}
+</script>
 </head>
 	<th:block layout:fragment="customTitle">
 		<title>index</title>
@@ -45,26 +50,46 @@
 			                </thead>
 			                <tbody>
 			                  <tr th:each="ca: ${contractAcademyList}" >
-			                    <td th:text="${ca.acCode}"></td>
-			                    <td th:text="${ca.acName}"></td>
-			                    <td th:text="${ca.acLocation}"></td>
-			                    <td th:text="${ca.acPhone}"></td>
-			                    <td th:text="${ca.acDate}"></td>
-			                    <td th:text="${ca.memberId}"></td>
+			                    <td th:text="${ca.ac_code}"></td>
+			                    <td th:text="${ca.ac_name}"></td>
+			                    <td th:text="${ca.ac_location}"></td>
+			                    <td th:text="${ca.ac_phone}"></td>
+			                    <td th:text="${ca.ac_date}"></td>
+			                    <td th:text="${ca.member_id}"></td>
 			                    <td>
 			                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-			                      <button class="btn btn-primary btn-xs"><a th:href="@{/contractAcademyUpdate(acCode=${ca.acCode})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
-			                      <button class="btn btn-danger btn-xs"><a href="#" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-primary btn-xs"><a th:href="@{/contractAcademyUpdateById(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+			                      <button class="btn btn-danger btn-xs"><a th:href="@{/contractAcademyDeleteById(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>
 						</table>
+						
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</section>
 	</section>
 	
 	</th:block>
 </html>
+<!-- 
+The Modal
+  <div class="modal fade" id="deleteModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        Modal body
+        <div class="modal-body">
+          	<h4>정말 삭제하시겠습니까?</h4>
+        </div>
+        Modal footer
+        <div class="modal-footer">
+          <button class="btn btn-danger" id="deleteBtn">YES</button>
+        </div>
+      </div>
+     </div>
+   </div>
+The Modal END 
+-->

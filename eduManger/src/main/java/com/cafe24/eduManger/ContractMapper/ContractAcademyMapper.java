@@ -10,4 +10,10 @@ public interface ContractAcademyMapper {
 	public List<ContractAcademy> contractAcademyList();
 	
 	public int contractAcademyInsert(ContractAcademy contractAcademy);
+	
+	public ContractAcademy contractAcademyUpdateById(String ac_code);
+	
+	public int contractAcademyUpdate(ContractAcademy contractAcademy);
+	
+	public int contractAcademyDelete(String ac_code);
 }

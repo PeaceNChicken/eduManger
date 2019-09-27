@@ -2,48 +2,47 @@ package com.cafe24.eduManger.ContractVo;
 
 public class ContractPrice {
 
-	private String contractPriceCode;
-	private String memberId;
-	private String contractPriceMoney;
-	private String contractPriceEtc;
-	private String contractPriceDate;
+	private String contract_price_code;
+	private String member_id;
+	private String contract_price_money;
+	private String contract_price_etc;
+	private String contract_price_date;
 	
-	public String getContractPriceCode() {
-		return contractPriceCode;
+	public String getContract_price_code() {
+		return contract_price_code;
 	}
-	public void setContractPriceCode(String contractPriceCode) {
-		this.contractPriceCode = contractPriceCode;
+	public void setContract_price_code(String contract_price_code) {
+		this.contract_price_code = contract_price_code;
 	}
-	public String getMemberId() {
-		return memberId;
+	public String getMember_id() {
+		return member_id;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
-	public String getContractPriceMoney() {
-		return contractPriceMoney;
+	public String getContract_price_money() {
+		return contract_price_money;
 	}
-	public void setContractPriceMoney(String contractPriceMoney) {
-		this.contractPriceMoney = contractPriceMoney;
+	public void setContract_price_money(String contract_price_money) {
+		this.contract_price_money = contract_price_money;
 	}
-	public String getContractPriceEtc() {
-		return contractPriceEtc;
+	public String getContract_price_etc() {
+		return contract_price_etc;
 	}
-	public void setContractPriceEtc(String contractPriceEtc) {
-		this.contractPriceEtc = contractPriceEtc;
+	public void setContract_price_etc(String contract_price_etc) {
+		this.contract_price_etc = contract_price_etc;
 	}
-	public String getContractPriceDate() {
-		return contractPriceDate;
+	public String getContract_price_date() {
+		return contract_price_date;
 	}
-	public void setContractPriceDate(String contractPriceDate) {
-		this.contractPriceDate = contractPriceDate;
+	public void setContract_price_date(String contract_price_date) {
+		this.contract_price_date = contract_price_date;
 	}
-	
 	@Override
 	public String toString() {
-		return "ContractPrice [contractPriceCode=" + contractPriceCode + ", memberId=" + memberId
-				+ ", contractPriceMoney=" + contractPriceMoney + ", contractPriceEtc=" + contractPriceEtc
-				+ ", contractPriceDate=" + contractPriceDate + "]";
+		return "ContractPrice [contract_price_code=" + contract_price_code + ", member_id=" + member_id
+				+ ", contract_price_money=" + contract_price_money + ", contract_price_etc=" + contract_price_etc
+				+ ", contract_price_date=" + contract_price_date + "]";
 	}
 	
 }

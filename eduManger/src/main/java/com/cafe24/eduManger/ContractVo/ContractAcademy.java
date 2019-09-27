@@ -2,52 +2,53 @@ package com.cafe24.eduManger.ContractVo;
 
 public class ContractAcademy {
 
-	private String acCode;
-	private String acName;
-	private String acLocation;
-	private String acPhone;
-	private String acDate;
-	private String memberId;
-	public String getAcCode() {
-		return acCode;
+	private String ac_code;
+	private String ac_name;
+	private String ac_location;
+	private String ac_phone;
+	private String ac_date;
+	private String member_id;
+	
+	public String getAc_code() {
+		return ac_code;
 	}
-	public void setAcCode(String acCode) {
-		this.acCode = acCode;
+	public void setAc_code(String ac_code) {
+		this.ac_code = ac_code;
 	}
-	public String getAcName() {
-		return acName;
+	public String getAc_name() {
+		return ac_name;
 	}
-	public void setAcName(String acName) {
-		this.acName = acName;
+	public void setAc_name(String ac_name) {
+		this.ac_name = ac_name;
 	}
-	public String getAcLocation() {
-		return acLocation;
+	public String getAc_location() {
+		return ac_location;
 	}
-	public void setAcLocation(String acLocation) {
-		this.acLocation = acLocation;
+	public void setAc_location(String ac_location) {
+		this.ac_location = ac_location;
 	}
-	public String getAcPhone() {
-		return acPhone;
+	public String getAc_phone() {
+		return ac_phone;
 	}
-	public void setAcPhone(String acPhone) {
-		this.acPhone = acPhone;
+	public void setAc_phone(String ac_phone) {
+		this.ac_phone = ac_phone;
 	}
-	public String getAcDate() {
-		return acDate;
+	public String getAc_date() {
+		return ac_date;
 	}
-	public void setAcDate(String acDate) {
-		this.acDate = acDate;
+	public void setAc_date(String ac_date) {
+		this.ac_date = ac_date;
 	}
-	public String getMemberId() {
-		return memberId;
+	public String getMember_id() {
+		return member_id;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 	@Override
 	public String toString() {
-		return "ContractAcademy [acCode=" + acCode + ", acName=" + acName + ", acLocation=" + acLocation + ", acPhone="
-				+ acPhone + ", acDate=" + acDate + ", memberId=" + memberId + "]";
+		return "ContractAcademy [ac_code=" + ac_code + ", ac_name=" + ac_name + ", ac_location=" + ac_location
+				+ ", ac_phone=" + ac_phone + ", ac_date=" + ac_date + ", member_id=" + member_id + "]";
 	}
-		
+	
 }
