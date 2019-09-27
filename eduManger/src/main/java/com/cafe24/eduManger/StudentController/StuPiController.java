@@ -11,7 +11,7 @@ import com.cafe24.eduManger.StudentService.StuPiService;
 import com.cafe24.eduManger.StudentVo.Stu_pi;
 
 @Controller
-public class stuPiController {
+public class StuPiController {
 
 	@Autowired
 	private StuPiService stuService;
