@@ -18,179 +18,307 @@
             		    <div class="form-panel">           		    
 			             <div id="page-wrapper">	
 			             </div>
-						<h1 class="page-header">관리자게시판</h1>
-			              <a href="/boardList"><button type="button" class="pull-right btn btn-theme">게시글관리</button></a>
+						<h1 class="page-header">게시판생성</h1>				
+			              
 			              <br/>
 			              <br/>
-			              <form class="form-horizontal style-form" method="get">
-			          
-<div class="panel panel-default">
-	<div class="panel-heading">
-		최근게시물
-		<a class="pull-right btn btn-xs btn-default" href="http://apps.qnibus.com/gnu5/bbs/new.php">최근게시물 더보기</a>
-	</div>
-	<div class="panel-body">
+			              <form class="form-horizontal style-form" method="get"></form>			          
+					<div class="panel panel-default">		
+					<ul class="nav nav-tabs" id="anc-bo-tab">
+					    <li class="active"><a href="#anc-bo-basic" data-toggle="tab">기본 설정</a></li>
+					    <li><a href="#anc-bo-auth" data-toggle="tab">권한 설정</a></li>
+					    <li><a href="#anc-bo-function" data-toggle="tab">기능 설정</a></li>					    
+					</ul>		
+		<div class="tab-content container">
+	<div class="tab-pane active" id="anc-bo-basic">
+		<h2>게시판 기본 설정</h2>
+		<br/>
+		<br/>
+
 		<div class="table-responsive">
-			<table class="table table-bordered">
-			<caption>최근게시물</caption>
-			<thead>
-			<tr>
-				<th scope="col">그룹</th>
-				<th scope="col">게시판</th>
-				<th scope="col">제목</th>
-				<th scope="col">이름</th>
-				<th scope="col">일시</th>
-			</tr>
-			</thead>
+			<table class="table">
+			<colgroup>
+				<col class="grid_4">
+				<col>
+				<col class="grid_3">
+			</colgroup>
 			<tbody>
-			
 			<tr>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/new.php?gr_id=board">게시판</a></td>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=124124">124124</a></td>
-				<td><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=124124&amp;wr_id=1#c_2">댓글. 124124</a></td>
-				<td class="td_mbname"><div><span class="sv_wrap">
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" class="sv_member" title="최고관리자 자기소개" target="_blank" onclick="return false;"> 최고관리자</a>
-<span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-</noscript></span></div></td>
-				<td class="td_datetime">2016-08-24</td>
+				<th scope="row"><label for="bo_table">TABLE<strong class="sr-only">필수</strong></label></th>
+				<td colspan="2">
+				<input type="text" name="bo_table" value="" id="bo_table" required  class=" required alnum_" maxlength="20">
+					영문자, 숫자, _ 만 가능 (공백없이 20자 이내)
+		    </td>
 			</tr>
-
-			
+			<tr>			
+				<th scope="row"><label for="gr_id">그룹<strong class="sr-only">필수</strong></label></th>
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>\n<option value="">선택</option>
+					<option>공지사항</option>
+					<option>자료</option>
+					<option>Q&A</option>
+					<option>공지사항</option>				
+				</select>													
+				</td>					
+			</tr>
 			<tr>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/new.php?gr_id=board">게시판</a></td>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=124124">124124</a></td>
-				<td><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=124124&amp;wr_id=1">124124</a></td>
-				<td class="td_mbname"><div><span class="sv_wrap">
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" class="sv_member" title="최고관리자 자기소개" target="_blank" onclick="return false;"> 최고관리자</a>
-<span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-</noscript></span></div></td>
-				<td class="td_datetime">2016-08-24</td>
-			</tr>
-
-			
-			<tr>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/new.php?gr_id=board">게시판</a></td>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_board2">Q&A</a></td>
-				<td><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_board2&amp;wr_id=8">묵공 글질 중</a></td>
-				<td class="td_mbname"><div><span class="sv_wrap">
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" class="sv_member" title="최고관리자 자기소개" target="_blank" onclick="return false;"> 최고관리자</a>
-<span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-</noscript></span></div></td>
-				<td class="td_datetime">2014-05-02</td>
-			</tr>
-
-			
-			<tr>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/new.php?gr_id=gallery">갤러리</a></td>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_gallery3">사진</a></td>
-				<td><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_gallery3&amp;wr_id=5">사진5</a></td>
-				<td class="td_mbname"><div><span class="sv_wrap">
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" class="sv_member" title="최고관리자 자기소개" target="_blank" onclick="return false;"> 최고관리자</a>
-<span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-</noscript></span></div></td>
-				<td class="td_datetime">2014-03-10</td>
-			</tr>
-
-			
-			<tr>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/new.php?gr_id=gallery">갤러리</a></td>
-				<td class="td_category"><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_gallery3">사진</a></td>
-				<td><a href="http://apps.qnibus.com/gnu5/bbs/board.php?bo_table=kal_gallery3&amp;wr_id=4">사진4</a></td>
-				<td class="td_mbname"><div><span class="sv_wrap">
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" class="sv_member" title="최고관리자 자기소개" target="_blank" onclick="return false;"> 최고관리자</a>
-<span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="http://apps.qnibus.com/gnu5/bbs/memo_form.php?me_recv_mb_id=admin" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/formmail.php?mb_id=admin&amp;name=%EC%B5%9C%EA%B3%A0%EA%B4%80%EB%A6%AC%EC%9E%90&amp;email=YWRtaW5AZG9tYWluLmNvbQ==" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/profile.php?mb_id=admin" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="http://apps.qnibus.com/gnu5/bbs/new.php?mb_id=admin">전체게시물</a>
-<a href="http://apps.qnibus.com/gnu5/adm/member_form.php?w=u&amp;mb_id=admin" target="_blank">회원정보변경</a>
-<a href="http://apps.qnibus.com/gnu5/adm/point_list.php?sfl=mb_id&amp;stx=admin" target="_blank">포인트내역</a>
-</span>
-</noscript></span></div></td>
-				<td class="td_datetime">2014-03-10</td>
-			</tr>
-
-						</tbody>
+				<th scope="row"><label for="bo_table">게시판제목<strong class="sr-only">필수</strong></label></th>
+				<td colspan="2">
+				<input type="text" name="bo_table" id="bo_table" required  class=" required alnum_" maxlength="20">					
+		    </td>		    
+			</tr>					
+			</tbody>			
 			</table>
+			<div style="text-align:center">
+	          	<button type="submit" class="btn btn-theme btn-lg">확인</button>
+	        </div>	
 		</div>
-	</div>
-</div>			          
-							</div>
-			                </div>		            
-			            </div>
-			          </div>
-		</section>
-	</section>
+	</div><!-- /#anc-bo-auth -->
+
+	<div class="tab-pane" id="anc-bo-function">
+		<h2>게시판 기능 설정</h2>
+		<br/>
+		<br/>
+		<div class="table-responsive">
+			<table class="table">			
+			<colgroup>
+				<col class="grid_4">
+				<col>
+				<col class="grid_3">
+			</colgroup>
+			<tbody>
+			<tr>									
+				<th scope="row"><label for="bo_count_modify">원글 수정 불가<strong class="sr-only">필수</strong></label></th>						
+				<td>			
+					<div class="col-sm-7">
+	             	   <input type="text" class="form-control" placeholder="1">댓글1개 이상이면 삭제불가
+	             	   
+	                </div>
+	                </td>
+	                <td>
+					<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용					
+				     </td>                      		
+						
+				</tr>				
+				<tr>
+				<th scope="row"><label for="bo_count_modify">원글 삭제 불가<strong class="sr-only">필수</strong></label></th>
+				<td>	
+					<div class="col-sm-7">
+	             	   <input type="text" class="form-control" placeholder="1">댓글1개 이상이면 삭제불가
+	                </div>
+					</td>
+	                <td>
+					<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용					
+				     </td> 										
+				</tr>
+				<tr>
+				<th scope="row"><label for="bo_count_modify">비밀글사용<strong class="sr-only">필수</strong></label></th>								
+				  	<td colspan="2">				  	
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용			
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required style="width:120px;height:30px;">
+					<option>사용하지 않음</option>
+					<option>체크후 사용</option>
+					<option>무조건</option>												
+				</select>													
+				</td>						
+				</tr>					
+				<tr>								
+				<th scope="row"><label for="bo_count_modify">비밀글사용<strong class="sr-only">필수</strong></label></th>												
+				  	<td>				  	
+					<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용	
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required style="width:120px;height:30px;">
+					<option>사용하지 않음</option>
+					<option>체크후 사용</option>
+					<option>무조건</option>												
+				</select>																
+				</td>						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">추천사용<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">비추천사용<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">이름실명사용<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">전체목록보이기사용<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">최대글수제한<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<div class="col-sm-2">
+	             	   <input type="text" class="form-control">
+	                </div>
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">최대댓글수제한<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<div class="col-sm-2">
+	             	   <input type="text" class="form-control">
+	                </div>		
+				  	<td>						
+				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
+					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>		
+				</tbody>
+				</table>
+				<div style="text-align:center">
+	          		<button type="submit" class="btn btn-theme btn-lg">확인</button>
+        		</div>				
+				</div>				
+				</div>	
+				<div class="tab-pane" id="anc-bo-auth">
+		<h2 >게시판 권한 설정</h2>
+		<br/>
+		<br/>
+		<div class="table-responsive">
+			<table class="table">			
+			<colgroup>
+				<col class="grid_4">
+				<col>
+				<col class="grid_3">
+			</colgroup>
+			<tbody>
+			<tr>
+				<th scope="row"><label for="bo_admin">게시판 관리자</label></th>
+				<td>
+					<input type="text" name="bo_admin" value="" id="bo_admin" class="form-control" maxlength="20">
+				</td>
+				<td class="td_grpset">
+					<input type="checkbox" name="chk_grp_admin" value="1" id="chk_grp_admin">
+					<label for="chk_grp_admin">그룹적용</label>
+					<input type="checkbox" name="chk_all_admin" value="1" id="chk_all_admin">
+					<label for="chk_all_admin">전체적용</label>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="bo_list_level">목록보기 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">글읽기 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">글쓰기 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">글답변 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">댓글쓰기 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">링크 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+  			<tr>
+				<th scope="row"><label for="bo_list_level">업로드 권한</label></th>				
+				<td colspan="2">
+					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
+					<option value="">선택</option>
+					<option>관리자</option>
+					<option>강사</option>
+					<option>수강생</option>								
+				</select>													
+				</td>	 
+  			</tr>
+    </tbody>
+    </table>
+    	<div style="text-align:center">
+         	<button type="submit" class="btn btn-theme btn-lg">확인</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </section>
+    </th:block>
+    </html>
+    
+    
