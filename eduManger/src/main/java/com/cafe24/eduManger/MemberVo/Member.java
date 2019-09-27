@@ -1,6 +1,8 @@
 package com.cafe24.eduManger.MemberVo;
 
-public class Member {
+import com.cafe24.eduManger.ContractVo.ContractAcademy;
+
+public class Member{
 	
 	private String m_id;
 	private String ac_code;

@@ -31,6 +31,7 @@ public class MainService {
 				session.setAttribute("SID", memberList.getM_id());
 				session.setAttribute("SLEVEL", memberList.getM_level());
 				session.setAttribute("SNAME", memberList.getM_name());
+				session.setAttribute("SACODE", memberList.getAc_code());
 				map.put("connect", memberList);
 			}
 			else{

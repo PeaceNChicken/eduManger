@@ -18,32 +18,6 @@
 		FROM member
  	</select>
  	
- 	<insert id="memberInsert" parameterType="com.cafe24.eduManger.MemberVo.Member">
- 		INSERT INTO member (
-			member_id, 
-			ac_code, 
-			member_pw, 
-			member_level,
-			member_name, 
-			member_gender, 
-			member_birth, 
-			member_phone, 
-			member_date
-			)
-		VALUES (
-			#{m_id}, 
-			'ac001', 
-			#{m_pw}, 
-			#{m_level}, 
-			#{m_name}, 
-			#{m_gender}, 
-			#{m_birth}, 
-			#{m_phone}, 
-			NOW()
-		)
- 		
- 	</insert>
- 	
  	<select id="memberUpdateForm" parameterType="String" resultType="com.cafe24.eduManger.MemberVo.Member">
  		SELECT 
 			member_id AS m_id, 
