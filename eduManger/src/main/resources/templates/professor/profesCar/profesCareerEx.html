@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>www.webmadang.net</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="javascript">
+function deleteRow(row) {
+  var i = row.parentNode.parentNode.rowIndex;
+  document.getElementById('OreTable').deleteRow(i);
+}
+
+function insRow() {
+  var tr = document.getElementById('toClone');
+  var cln = tr.cloneNode(true);
+  var elem = cln.querySelector('#Amount');
+  elem.value = '';
+  var table = document.getElementById("OreTable");
+  table.appendChild(cln);
+}
+</script>
+</head>
+<body>
+	<div id="Oretablediv">
+	  <table id="OreTable" border="1">
+	    <tr>
+	      <td>강사 아이디</td>
+	      <td>Amount</td>
+	      <td>Price</td>
+	      <td>Sub Total</td>
+	      <td>Delete?</td>
+	      <td>Add Rows?</td>
+	    </tr>
+	    <tr id='toClone'>
+	      <td>
+	        <select name="Ore">
+	          <option value="value1">Value 1</option>
+	          <option value="value2">Value 2</option>
+	        </select>
+	      </td>
+	      <td>
+	        <input size=25 type="text" id="Amount">
+	      </td>
+	      <td>Price</td>
+	      <td>SubTotal</td>
+	      <td>
+	        <input type="button" id="delOrebutton" value="Delete" onclick="deleteRow(this)" />
+	      </td>
+	      <td>
+	        <input type="button" id="addOrebutton" value="Add More Ore" onclick="insRow()" />
+	      </td>
+	    </tr>
+	  </table>
+
+</body>
+</html>

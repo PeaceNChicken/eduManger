@@ -11,10 +11,14 @@ public class ProfesCarController {
 	@Autowired
 	private ProfesCarService profesCarService;
 	
-	@GetMapping("profesCarList")
-	public String profesCarList() {
-		return "professor/profesCar/profesCareerList";
+	@GetMapping("/getprofesCareer")
+	public String professorCareerSelect() {
+		return "/professor/profesCar/profesCareerList";
 	}
-
+	
+	@GetMapping("/profesCarInsert")
+	public String professorCareerInsert() {
+		return "/professor/profesCar/profesCareerInsert";
+	}
 
 }
