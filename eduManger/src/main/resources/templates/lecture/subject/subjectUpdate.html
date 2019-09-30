@@ -20,23 +20,23 @@
 				<div class="col-sm-12 main-chart">
 				<div class="content-panel">
             		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 과목 추가하기</h2>
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 과목 수정하기</h2>
 					<br/>
 					<div class="container">
-					<button type="button" class="btn btn-theme" onclick="location.href='stuScoreInsert'">과목 추가</button>
-					<p/>
-					<!-- *************************************************
-							과목추가하기 
-						*************************************************-->						
+										
 						 <table class="table table table-striped table-advance table-hover">
 						    <thead>
 						      <tr>
+						      	<th>과목코드</th>	<!-- sub_code -->
 						        <th>학원코드</th> <!-- ac_code -->
-						        <th>과목명</th> <!-- sub_name -->
+						        <th>과목명</th> <!-- sub_name -->						   
 						      </tr>
 						    </thead>
 						    <tbody>
 						      <tr>
+						      	<td>
+						      		<span th:text="${sub_code}"></span>
+						      	</td>
 						      	<td> 
 						      		<input type="text">
 						      	</td>
@@ -49,7 +49,7 @@
 						  </div>
 					</div> <!-- form-panelEnd -->
 					</div> <!-- content-panelEnd -->
-				</div> <!-- grid div4End -->	
+				</div> <!-- grid12 divEnd -->	
 			</div> 		
 		</section>
 	</section>
