@@ -3,6 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
+  <!-- 
+		resultType : 결과반환 Object
+		parameterType : 조회결과 Object
+		파라미터의 값은 #{이름}
+		파라미터 명의 ${이름}
+   -->
+  
+  
   <mapper namespace="com.cafe24.eduManger.LectureMapper.SubjectMapper">
   	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
   		SELECT  
@@ -14,7 +22,10 @@
 		FROM 
 			subject	
   	</select>
-  
+  		
+  	<insert id="subjectInsert" >
+  	
+  	</insert>
   
   
   

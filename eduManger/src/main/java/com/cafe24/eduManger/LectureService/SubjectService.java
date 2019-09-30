@@ -20,8 +20,12 @@ public class SubjectService {
 		List<Subject> subjectList = subjectMapper.subjectList();
 		System.out.println(subjectList.toString() + "<--- subjectList com.cafe24.eduManger.LectureService.SubjectService.java");
 		
-		return subjectList;
-		
+		return subjectList;		
 	}
+	
+	// 과목 insert
+	
+		
+	
 	
 }

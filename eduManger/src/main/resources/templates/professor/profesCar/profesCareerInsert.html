@@ -5,23 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<script>
-	$(document).on('click','.copyBtn',function(){
-		var c = $('.cloneAdd').clone();
-			c.find('input').val('');
-		$('#wrapper').append(c);
 
-	});
-	$(document).on('click','.delBtn',function(){
-		var l = $('.cloneAdd').length;
-		
-		if(l>1) {
-			$(this).parent().remove();		
-		} else {
-			alert('경력정보는 1개 이상을 기입해주세요');
-		}		
-	});
-</script>
 
 
 </head>
@@ -108,6 +92,24 @@
 			</div> 		
 		</section>
 	</section>
+	
+	<script>
+	$(document).on('click','.copyBtn',function(){
+		var c = $('.cloneAdd').clone();
+			c.find('input').val('');
+		$('#wrapper').append(c);
+
+	});
+	$(document).on('click','.delBtn',function(){
+		var l = $('.cloneAdd').length;
+		
+		if(l>1) {
+			$(this).parent().remove();		
+		} else {
+			alert('경력정보는 1개 이상을 기입해주세요');
+		}		
+	});
+</script>
 	</th:block>
 </html>
           

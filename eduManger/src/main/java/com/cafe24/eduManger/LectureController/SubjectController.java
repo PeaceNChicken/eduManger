@@ -31,5 +31,11 @@ public class SubjectController {
 		return "/lecture/subject/subjectInsert";
 	}
 
-
+	@GetMapping("/subjectUpdate")
+	public String subjectUpdate() {
+		return "//lecture/subject/subjectUpdate";
+	}
+	
+	
+	
 }
