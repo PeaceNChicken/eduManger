@@ -14,5 +14,7 @@ public interface StuCounselMapper {
 	public List<StuCounsel> stuSearch(String sk, String sv);
 	
 	public List<StuCounsel> stuCounselList(String mId);
+	
+	public StuCounsel stuCounselUpdateForm(String stuCounselCode);
 
 }

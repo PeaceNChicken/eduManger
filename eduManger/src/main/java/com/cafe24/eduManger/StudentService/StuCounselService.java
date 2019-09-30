@@ -25,5 +25,9 @@ public class StuCounselService {
 	public List<StuCounsel> stuCounselList(String mId){
 		return stuCounselMapper.stuCounselList(mId);
 	}
+	
+	public StuCounsel stuCounselUpdateForm(String stuCounselCode) {		
+		return stuCounselMapper.stuCounselUpdateForm(stuCounselCode);
+	}
 
 }

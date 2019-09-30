@@ -35,11 +35,28 @@
 	<select id="stuCounselList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
 		SELECT 
 			stu_counsel_code, 
-			ac_code, member_id, 
-			admin_id, counsel_cate, 
+			ac_code, 
+			member_id AS m_id, 
+			admin_id, 
+			counsel_cate, 
 			counsel_desc, 
 			counsel_date
 		FROM stu_counsel
 			WHERE member_id = #{mId}
+	</select>
+	
+	<select id="stuCounselUpdateForm" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
+		SELECT 
+			stu_counsel_code, 
+			ac_code, 
+			member_id AS m_id, 
+			admin_id, 
+			counsel_cate, 
+			counsel_desc, 
+			counsel_date, 
+			counsel_title, 
+			counsel_etc 
+		FROM stu_counsel
+			WHERE stu_counsel_code = #{stuCounselCode}
 	</select>
 </mapper>

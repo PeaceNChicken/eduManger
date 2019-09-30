@@ -20,8 +20,7 @@
 				<div class="col-lg-9 main-chart">     			
        				<div class="content-panel">
 						<div class="form-panel ">
-							<h2><i class="fa fa-angle-right"></i>상담기록</h2>
-							<hr>
+							<h2>상담기록</h2>
 							<br/>
 							<br/>
 							<table id="counselList" class="table table-striped table-advance table-hover">
@@ -29,6 +28,7 @@
 									<tr>
 										<th>상담코드</th>
 										<th>등록자아이디</th>
+										<th>학생아이디</th>
 										<th>상담종류</th>
 										<th>상담내용</th>
 										<th>등록날자</th>
@@ -39,6 +39,7 @@
 									<tr th:each="l:${stuCounselList}">
 										<td th:text="${l.stu_counsel_code}"></td>
 										<td th:text="${l.admin_id}"></td>
+										<td th:text="${l.m_id}"></td>
 										<td th:text="${l.counsel_cate}"></td>
 										<td th:text="${l.counsel_desc}"></td>
 										<td th:text="${l.counsel_date}"></td>										
@@ -112,23 +113,27 @@
 				<div class="col-lg-9 main-chart">     			
           			<div class="content-panel">
 						<div class="form-panel">
-							<form class="form-horizontal style-form" method="get">
+							<form action="/stuCounselUdpate" class="form-horizontal style-form" method="post">
 								<h2>상담내용</h2>
 								<br/>
 								<br/>
+								<input id="memberId" name="m_id" type="hidden" th:value="${stuCounselUpdateForm.m_id}">
 								<label for="title">제목</label>
-								<input id="title" type="text" class="form-control">
-							<br/>
+								<input id="counsel_title" name="counsel_title" type="text" class="form-control" th:value="${stuCounselUpdateForm.counsel_title}">
+								<br/>
 								<label for="user">작성자</label>
-								<input id="user" type="text" class="form-control">
-							<br/>
+								<input id="admin_id" name="admin_id" type="text" class="form-control" th:value="${stuCounselUpdateForm.admin_id}">
+								<br/>
 								<label for="comment">내용</label>
-								<textarea class="form-control" rows="15" id="comment"></textarea>
-							<br/>
+								<textarea id="counsel_desc" name="counsel_desc" class="form-control" rows="15"  th:text=${stuCounselUpdateForm.counsel_desc}></textarea>
+								<br/>
+								<label for="date">등록날자</label>
+								<input id="counsel_date" name="counsel_date" type="date" class="form-control" th:value="${stuCounselUpdateForm.counsel_date}">
+								<br/>
 								<label for="etc">기타</label>
-								<input id="etc" type="text" class="form-control">
-							<br/>
-								<button type="button" class="btn btn-theme">저장</button>
+								<input id="counsel_etc" name="counsel_etc" type="text" class="form-control" th:value="${stuCounselUpdateForm.counsel_etc}">
+								<br/>
+								<button type="submit" class="btn btn-theme">저장</button>
 							</form>
 						</div>
 					</div>
@@ -152,9 +157,11 @@
 			});
 			
 			var counsel_code = td.eq(0).text();
-			console.log('상담코드' + counsel_code);
+			var mId = td.eq(2).text();
 			
-			location.href = '/stuCounselUpdate?stu_counsel_code='+ counsel_code;
+			//console.log('상담코드 <---' + counsel_code);
+			
+			location.href = '/stuCounselUpdateForm?counsel_code='+ counsel_code + '&mId=' + mId;
 		});
 	</script>
 	</th:block>
