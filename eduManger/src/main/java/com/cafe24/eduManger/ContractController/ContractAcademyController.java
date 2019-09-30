@@ -124,9 +124,8 @@ public class ContractAcademyController {
 	/* @param  	contractAcademy 타입 객체
 	 * @return 	계약지점삭제 후 지점목록화면 redirect:/contractAcademyList
 	 * @detail 	post방식으로 contractAcademyDelete url 요청할때 controller단에서 각행의 학원코드인 ac_code 값을 매개변수로 
-	 * 			contractAcademyDelete()를 실행하게 되고 service단에서 contractAcademyUpdateById(ac_code) 
-	 * 			실행 요청 후 리턴값을 model객체의 list라는 이름표를 부여하고 담아 contractAcademyUpdate.html 화면에서
-	 * 			삭제 폼에 value값으로 list에 담긴 값들을 화면에 뿌려준다.
+	 * 			contractAcademyDelete()를 실행하게 되고 service단에서 contractAcademyDelete(contractAcademy)
+	 * 			메서드 실행 요청하고 처리가 완료되면 목록화면으로 리다이렉트한다.
 	 */
 	@PostMapping("/contractAcademyDelete")
 	public String contractAcademyDelete(ContractAcademy contractAcademy) {

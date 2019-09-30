@@ -42,10 +42,12 @@ public class ContractPriceController {
 		return "/contract/contractPrice/contractPriceInsert";
 	}
 	
-	/* @param  	contractAcademyInsert url
-	 * @return 	계약지점추가화면 contract/contractAcademy/contractAcademyInsert.html
-	 * @detail 	get방식으로 contractAcademyInsert url 요청하면 controller단에서 contractAcademyInsert()
-	 *			메서드 실행하게 되고 계약 지점 추가 폼이 있는 contractAcademyInsert.html 화면으로이동한다.
+	/* @param  	contractPrice 타입 객체
+	 * @return 	redirect:/contractPriceList 계약단가목록화면
+	 * @detail 	post방식으로 contractAcademyInsert url 요청하면 controller단에서 contractAcademyInsert()
+	 *			메서드 실행하면서 매개변수로 추가폼에서 입력된 contractPrice 타입의 데이터를 담아 실행한다.
+	 *			service단의 contractPriceInsert() 메서드 실행요청하면서 contractPrice를 매개변수로 담아서 실행하고
+	 *			추가 처리가 되면 목록화면으로 리다이렉트한다.
 	 */
 	@PostMapping("/contractPriceInsert")
 	public String contractPriceInsert(ContractPrice contractPrice) {
