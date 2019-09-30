@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BustimeController {
 
-	@GetMapping("/busTimeList")
+	@GetMapping("/bustimeList")
 	public String getBusTimeList() {
-		return "/academy/bus/busTime/busTimeList";
+		return "/academy/bus/busTime/bustimeList";
 	}
+	
+	@GetMapping("/bustimeInsert")
+	public String getBusTimeInsert() {
+		return "/academy/bus/busTime/bustimeInsert";
+	}
+	
 }

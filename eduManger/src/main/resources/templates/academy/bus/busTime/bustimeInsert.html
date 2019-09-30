@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+<script type="text/javascript">
+$(document).on('click','.copyBtn',function(){
+	var c = $(this).parent().clone();
+		c.find('input').val('');
+	$('#warpper').append(c);
+
+});
+
+$(document).on('click','.deletBtn',function(){
+	var len = $('.cloenAdd').length;
+	if(len > 1){				
+		$(this).parent().remove();		
+	}else{
+		alert('더 이상 삭제 하실 수 없습니다.');
+	}
+});
+</script>
+</head>	
+
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	
+<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">     			
+          			<div class="content-panel">
+            		    <div class="form-panel">
+			              <h2 class="mb"><i class="fa fa-angle-right"></i>차량시간표추가</h2>
+			              <form action="/masterInsert" class="form-horizontal style-form" method="post">
+			              <br/>
+			              <br/>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">차량</label>
+				                  <div class="col-sm-10">
+				                    <select style="width:70px;height:30px;">
+				                    	<option>1호차</option>
+				                    	<option>2호차</option>
+				                    	<option>3호차</option>
+				                    	<option>4호차</option>
+				                    	<option>5호차</option>
+				                    	<option>6호차</option>
+				                    	<option>7호차</option>
+				                    	<option>8호차</option>
+				                    	<option>9호차</option>
+				                    </select>
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">기사명</label>
+				                  <div class="col-sm-6">
+				                    <input type="text" class="form-control" >
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">연락처</label>
+				                  <div class="col-sm-6">
+				                    <input type="text" class="form-control" >
+				                  </div>
+				                </div>	
+				                <div id="warpper">			                 
+				                <div class="form-group">				                
+					               <div class="cloenAdd">
+				                  <label class="col-sm-2 col-sm-2 control-label">정류장 및 시간</label>	
+				                  <div class="col-sm-6">
+				                  <button type="button" class="copyBtn">추가</button>
+				                    <input type="text" class="form-control" >
+				                  </div>	
+				                	</div>                	
+				                <div class="form-group">
+				                 A타임&nbsp;&nbsp;&nbsp;&nbsp;<input id="someTime" type="Time">&nbsp;&nbsp;&nbsp;&nbsp;
+								 B타임&nbsp;&nbsp;&nbsp;&nbsp;<input id="someTime" type="time">
+				                </div>				                	                
+				                <div style="text-align:center">
+				                	<a href="bustimeList"><button type="submit" class="btn btn-theme btn-lg">등록</button></a>
+				                </div>	
+				               </div>	
+				             </div>				                			
+			              </form>
+			            </div>
+			          </div>
+					</div>
+				</div>
+		</section>
+	</section>
+	</th:block>
+	</html>

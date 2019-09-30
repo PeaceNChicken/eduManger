@@ -11,9 +11,9 @@ public class BoardController {
 		return "/academy/board/boardList";
 	}
 	
-	@GetMapping("/replyWrite")
-	public String getReplyWrite() {
-		return "/academy/board/reply/replyWrite";
+	@GetMapping("/boardInsert")
+	public String getBoardInsert() {
+		return "/academy/board/boardInsert";
 	}
 	
 	@GetMapping("/boardUpdate")
