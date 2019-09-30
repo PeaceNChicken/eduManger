@@ -7,35 +7,36 @@
  	<select id="stuList" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
  		SELECT 
 			member_id AS m_id, 
-			ac_code AS ac_code, 
+			a.ac_code AS ac_code, 
 			member_pw AS m_pw, 
 			member_level AS m_level, 
 			member_name AS m_name, 
 			member_gender AS m_gender, 
 			member_birth AS m_birth, 
 			member_phone AS m_phone, 
-			member_date AS m_date
-		FROM member
-			WHERE member_level='수강생';
+			member_date AS m_date,
+			stu_info_code 
+		FROM member AS a
+		INNER JOIN Stu_PI AS b
+			WHERE member_level='수강생'
+			AND a.member_id = b.stu_id
  	</select>
  	
  	<select id="stuPi" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
  		 SELECT 
 			stu_info_code, 
-			a.ac_code,   
 			stu_id, 
 			member_name AS m_name, 
 			member_gender AS m_gender, 
-			admin_id, 
-			drive_code, 
 			stu_school, 
 			parents_phone, 
 			stu_brother, 
 			stu_info_etc 
-		FROM Stu_PI a 
-		inner JOIN member AS b 
-			ON a.stu_id=b.member_id
-			WHERE stu_id = #{stu_id}
+		FROM Stu_PI AS a
+		INNER JOIN member AS b
+			ON member_level = '수강생'
+			AND a.stu_id = b.member_id 
+			WHERE stu_info_code = #{stuInfo}
  	</select>
  	
  	<update id="stuPiUpdate" parameterType="com.cafe24.eduManger.StudentVo.Stu_pi">
@@ -48,24 +49,20 @@
 				parents_phone=#{parents_phone}, 
 				stu_brother=#{stu_brother}, 
 				stu_info_etc=#{stu_info_etc} 
-			WHERE stu_id=#{m_id}
+			WHERE stu_info_code=#{stu_info_code}
  	</update>
  	
  	<select id="stuPiSearch" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
  		SELECT 
 			member_id AS m_id, 
-			a.ac_code AS ac_code, 
-			member_pw AS m_pw, 
-			member_level AS m_level, 
+			b.ac_code AS ac_code, 
 			member_name AS m_name, 
-			member_gender AS m_gender, 
-			member_birth AS m_birth, 
-			member_phone AS m_phone, 
-			member_date AS m_date
-		FROM member AS a
-		INNER JOIN Stu_PI AS b
-		on a.member_id = b.stu_id
-			WHERE ${sk} LIKE CONCAT('%',#{sv},'%')
-		
+			member_gender AS m_gender,  
+			stu_info_code 
+		FROM Stu_PI AS a
+		INNER JOIN member AS b
+			ON member_level = '수강생'
+			AND a.stu_id = b.member_id 
+			WHERE ${sk} LIKE CONCAT('%',#{sv},'%')		
  	</select>
  </mapper>

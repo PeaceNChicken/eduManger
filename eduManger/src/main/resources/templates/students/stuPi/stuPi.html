@@ -27,6 +27,7 @@
 											<label class="col-sm-2 col-sm-2 control-label">아이디</label>
 											<div class="col-sm-10">
 											  	<input id="m_id" name="m_id" class="form-control" th:value="${stuPi.stu_id}" readonly>
+											  	<input id="stu_info_code" name="stu_info_code" class="form-control" type="hidden" th:value="${stuPi.stu_info_code}" readonly>
 											</div>
 							            </div> 									
 					           		<br/>
@@ -92,8 +93,8 @@
 									<span class="input-group">
 										<select name="sk" class="form-control">
 											<option value="select">선택</option>
-											<option value="member_id">아이디</option>
-											<option value="a.ac_code">학원코드</option>
+											<option value="a.stu_id">아이디</option>
+											<option value="b.ac_code">학원코드</option>
 											<option value="member_name">이름</option>											
 										</select>	
 									</span>			 									  	
@@ -127,7 +128,7 @@
 							  			<td th:text="${l.m_id}"></td>
 							  			<td th:text="${l.m_name}"></td>
 							  			<td th:text="${l.m_gender}"></td>
-							  			<td><a th:href="@{/stuPiList(stuId=${l.m_id})}">조회</a></td>
+							  			<td><a th:href="@{/stuPiList(stu_info_code=${l.stu_info_code})}">조회</a></td>
 							  		</tr>
 							  	</tbody>
 							</table>

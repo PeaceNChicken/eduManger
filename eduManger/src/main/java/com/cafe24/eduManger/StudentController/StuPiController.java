@@ -28,12 +28,12 @@ public class StuPiController {
 	 
 	
 	@GetMapping("/stuPiList")
-	public String stuPi(@RequestParam(value="stuId")String stuId
+	public String stuPi(@RequestParam(value="stu_info_code")String stuInfo
 					   ,Model model) {		
 		
 		//System.out.println(stuService.stuPi(stuId).toString() + "<-----Stu_Pi");
 		
-		model.addAttribute("stuPi", stuService.stuPi(stuId));
+		model.addAttribute("stuPi", stuService.stuPi(stuInfo));
 		model.addAttribute("stuList", stuService.stuList());
 		return "/students/stuPi/stuPi";
 	}

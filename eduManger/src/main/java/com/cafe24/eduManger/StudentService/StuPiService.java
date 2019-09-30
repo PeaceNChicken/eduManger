@@ -20,9 +20,9 @@ public class StuPiService {
 		return stuPiMapper.stuList();
 	}
 	
-	public Stu_pi stuPi(String stuId) {		
+	public Stu_pi stuPi(String stuInfo) {		
 		//System.out.println(stuPiMapper.stuPi(stuId).toString() + "<-----Stu_Pi");
-		return stuPiMapper.stuPi(stuId);
+		return stuPiMapper.stuPi(stuInfo);
 	}
 	
 	public int stuPiUpdate(Stu_pi stuPi) {
