@@ -86,10 +86,28 @@
 						         <!--COMPLETED ACTIONS DONUTS CHART-->
 						<div class="donut-main">
 					<!--********** 조건입력창************** -->
-							<div class="col-sm-9">
-								<input type="text" class="form-control" placeholder="Search">
+						<form action="/stuPiSearch" method="post">
+							<div class="row" >
+								<div class="col-sm-4" >							
+									<span class="input-group">
+										<select name="sk" class="form-control">
+											<option value="select">선택</option>
+											<option value="member_id">아이디</option>
+											<option value="a.ac_code">학원코드</option>
+											<option value="member_name">이름</option>											
+										</select>	
+									</span>			 									  	
+								</div>	
+								<div class="col-sm-8">																		
+									<div class="input-group">
+										<input name="sv" type="text" class="form-control" placeholder="Search" >
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-theme">회원검색</button>									
+										</span>
+									</div>
+								</div>
 							</div>
-							<button type="button" class="btn btn-theme">회원검색</button>				
+						</form>
 					<!--  **********조건입력END*********** -->
 							<br/>
 							<br/>

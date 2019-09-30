@@ -50,4 +50,22 @@
 				stu_info_etc=#{stu_info_etc} 
 			WHERE stu_id=#{m_id}
  	</update>
+ 	
+ 	<select id="stuPiSearch" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
+ 		SELECT 
+			member_id AS m_id, 
+			a.ac_code AS ac_code, 
+			member_pw AS m_pw, 
+			member_level AS m_level, 
+			member_name AS m_name, 
+			member_gender AS m_gender, 
+			member_birth AS m_birth, 
+			member_phone AS m_phone, 
+			member_date AS m_date
+		FROM member AS a
+		INNER JOIN Stu_PI AS b
+		on a.member_id = b.stu_id
+			WHERE ${sk} LIKE CONCAT('%',#{sv},'%')
+		
+ 	</select>
  </mapper>

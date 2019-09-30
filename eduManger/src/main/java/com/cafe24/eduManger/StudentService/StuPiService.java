@@ -33,4 +33,8 @@ public class StuPiService {
 		System.out.println(stuPi.toString());
 		return stuPiMapper.stuPiUpdate(stuPi);
 	}
+	
+	public List<Stu_pi> stuPiSearch(String sk, String sv){
+		return stuPiMapper.stuPiSearch(sk, sv);
+	}
 }

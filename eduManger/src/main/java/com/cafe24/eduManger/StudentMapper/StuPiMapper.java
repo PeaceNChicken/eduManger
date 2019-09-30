@@ -15,4 +15,6 @@ public interface StuPiMapper {
 	public Stu_pi stuPi(String stuId);
 	
 	public int stuPiUpdate(Stu_pi stuPi);
+	
+	public List<Stu_pi> stuPiSearch(String sk,String sv);
 }

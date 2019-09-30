@@ -45,4 +45,22 @@ public class StuPiController {
 		return "redirect:/stuPi"; 
 	}
 	
+	@PostMapping("/stuPiSearch")
+	public String stuPiSearch(@RequestParam(value="sk")String sk
+							 ,@RequestParam(value="sv")String sv
+							 ,Model model) {
+		System.out.println(sk + "<--------- sk");
+		System.out.println(sv + "<--------- sv");
+		
+		if(sk.equals("select")) {
+			return "redirect:/stuPi";
+		}
+		
+		Stu_pi stuPi = new Stu_pi();
+		model.addAttribute("stuPi", stuPi);
+		model.addAttribute("stuList", stuService.stuPiSearch(sk, sv));
+				
+		return "/students/stuPi/stuPi";
+	}
+	
 }
