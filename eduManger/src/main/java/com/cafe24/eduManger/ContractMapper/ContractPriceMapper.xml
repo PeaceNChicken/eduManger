@@ -16,4 +16,23 @@
 		FROM 
 			contract_price
 	</select>
+	
+	<insert id="contractPriceInsert" parameterType="com.cafe24.eduManger.ContractVo.ContractPrice"> 
+		INSERT INTO contract_price
+			(
+			contract_price_code, 
+			member_id, 
+			contract_price_money, 
+			contract_price_etc, 
+			contract_price_date
+			)
+		VALUES 
+			(
+			#{contract_price_code}, 
+			#{member_id}, 
+			#{contract_price_money}, 
+			#{contract_price_etc}, 
+			NOW()
+			)
+	</insert>
 </mapper>

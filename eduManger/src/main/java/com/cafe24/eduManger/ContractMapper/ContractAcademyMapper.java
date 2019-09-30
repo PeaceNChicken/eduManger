@@ -9,6 +9,8 @@ public interface ContractAcademyMapper {
 
 	public List<ContractAcademy> contractAcademyList();
 	
+	public List<ContractAcademy> contractAcademySearch(String cak, String cav, String cafd, String cald); 
+	
 	public int contractAcademyInsert(ContractAcademy contractAcademy);
 	
 	public ContractAcademy contractAcademyUpdateById(String ac_code);

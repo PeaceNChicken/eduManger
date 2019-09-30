@@ -8,4 +8,6 @@ import com.cafe24.eduManger.ContractVo.ContractPrice;
 public interface ContractPriceMapper {
 
 	public List<ContractPrice> contractPriceList();
+	
+	public int contractPriceInsert(ContractPrice contractPrice);
 }

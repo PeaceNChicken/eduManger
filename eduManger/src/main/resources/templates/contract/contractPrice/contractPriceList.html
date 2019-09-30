@@ -34,24 +34,26 @@
 							<br/>
 			                <thead>
 			                  <tr>
-			                    <th>계약 단가 코드</th>
-			                    <th>등록아이디</th>
+			                    <th th:if="${session.SID.equals('MASTER1')}">계약 단가 코드</th>
+			                    <th th:if="${session.SID.equals('MASTER1')}">등록아이디</th>
 			                    <th>계약금액</th>
 			                    <th>비고</th>
 			                    <th>등록일자</th>
-			                    <th>수정/삭제</th>
+			                    <th th:if="${session.SID.equals('MASTER1')}">수정</th>
+							    <th th:if="${session.SID.equals('MASTER1')}">삭제</th>
 			                  </tr>
 			                </thead>
 			                <tbody>
 			                  <tr th:each="cp: ${contractPriceList}">
-			                    <td th:text="${cp.contract_price_code}"></td>
-			                    <td th:text="${cp.member_id}"></td>
+			                    <td th:if="${session.SID.equals('MASTER1')}" th:text="${cp.contract_price_code}"></td>
+			                    <td th:if="${session.SID.equals('MASTER1')}" th:text="${cp.member_id}"></td>
 			                    <td th:text="${cp.contract_price_money}"></td>
 			                    <td th:text="${cp.contract_price_etc}"></td>
 			                    <td th:text="${cp.contract_price_date}"></td>
-			                    <td>
-			                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+			                    <td th:if="${session.SID.equals('MASTER1')}">
 			                      <button class="btn btn-primary btn-xs"><a href="/contractPriceUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+			                    </td>
+			                    <td th:if="${session.SID.equals('MASTER1')}">
 			                      <button class="btn btn-danger btn-xs"><a href="/contractPriceDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 			                    </td>
 			                  </tr>				                     				                 

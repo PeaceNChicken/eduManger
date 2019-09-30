@@ -17,12 +17,24 @@ public class ContractPriceService {
 
 	@Autowired private ContractPriceMapper contractPriceMapper;
 	
+	/* @param  	contractAcademyList url
+	 * @return 	contractAcademyMapper.contractPriceList() 실행결과를 담은 map객체
+	 * @detail 	controller단에서 contractPriceList() 실행 요청받으면 계약지점 목록을 Map 객체로 담기 위해 Map데이터 타입으로 선언 후 실행한다. 
+	 * 			새로운 map 객체참조변수를 선언해준 다음 mapper쪽에 있는 contractAcademyMapper.contractPriceList() 메서드 실행하게 하고 
+	 * 			실행결과로 리턴받은 목록을 List 데이터 타입으로 선언한 contractPriceList 변수에 담는다.
+	 * 			그리고 생성된 map 변수에 contractPriceList라고 명명한 주머니에 결과값을 담아 controller단에 리턴시켜준다.
+	 */
 	public Map<String, Object> contractPriceList(){
 		
-		Map<String, Object> map = new HashMap<String, Object>(); //맵객체에 담아 controller단으로 리턴시켜줄거라서 Map 클래스 데이터 타입으로 map 변수선언
-		List<ContractPrice> contractPriceList = contractPriceMapper.contractPriceList(); //mapper단에서 리턴받은 리스트를 선언된 contractPriceList 변수에 담는다.  
-		map.put("contractPriceList", contractPriceList); // 리스트 데이터 타입의 contractPriceList 변수를 map객체에 담고 contractPriceList라는 이름표를 달아놓는다.
-		System.out.println(contractPriceList.toString() + "<-- service"); //mapper에서 리턴받은 리스트를 담은 contractPriceList 변수에 값이 제대로 들어온것인지 확인.
+		Map<String, Object> map = new HashMap<String, Object>(); 
+		List<ContractPrice> contractPriceList = contractPriceMapper.contractPriceList();   
+		map.put("contractPriceList", contractPriceList); 
+		System.out.println(contractPriceList.toString() + "<-- service"); 
 		return map;
+	}
+	
+	public int contractPriceInsert(ContractPrice contractPrice) {
+		//System.out.println(contractPriceMapper.contractPriceInsert(contractPrice));
+		return contractPriceMapper.contractPriceInsert(contractPrice);
 	}
 }

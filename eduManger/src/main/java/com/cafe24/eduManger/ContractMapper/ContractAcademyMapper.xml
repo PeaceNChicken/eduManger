@@ -18,6 +18,30 @@
 			academy
 	</select>
 	
+	<select id="contractAcademySearch" parameterType="String" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
+		SELECT
+			ac_code, 
+			ac_name, 
+			ac_location, 
+			ac_phone, 
+			ac_date, 
+			member_id 
+		FROM
+			academy
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="cak != 'select'">
+				AND ${cak} LIKE CONCAT ('%',#{cav},'%')
+			</if>
+			<if test="cafd != null and cafd != '' ">
+				AND	ac_date >= #{cafd}
+			</if>
+			<if test="cald != null and cald != '' ">
+				AND	ac_date <![CDATA[<]]>= #{cald}
+			</if>
+		</trim>
+	</select>
+	
+	
 	<insert id="contractAcademyInsert" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">
  		INSERT INTO academy
 			(
