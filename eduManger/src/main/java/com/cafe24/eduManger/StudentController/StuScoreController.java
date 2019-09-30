@@ -10,12 +10,10 @@ public class StuScoreController {
 	public String stuScoreSelect() {
 		return "/students/stuScore/stuScoreList";
 	}
-
 		
 		@GetMapping("stuScoreInsert")
 		public String stuScoreInsert() {
 			return "/students/stuScore/stuScoreInsert";
 		}
-		
-		
+
 }

@@ -51,7 +51,7 @@ public class MemberController {
 	
 	@GetMapping("/memberDelete")
 	public String memberDelete(@RequestParam(value="memberId")String m_id ) {
-		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
+		System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
 		memberService.memberDelete(m_id);
 		return "redirect:/memberList";
 	}

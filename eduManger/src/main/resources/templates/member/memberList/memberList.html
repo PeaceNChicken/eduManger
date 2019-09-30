@@ -2,15 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/default}">
-<head>
-	<meta charset="UTF-8">
-	<title>회원목록</title>
-</head>
+
 	<th:block layout:fragment="customTitle">
 		<title>index</title>
 	</th:block>
-	
+	<meta charset="UTF-8">	
 	<th:block layout:fragment="customContents">
+	<!-- *******************The Modal**********************l -->
+						  <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          	<h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						        </div>
+						      </div>
+						     </div>
+						   </div>
+	<!-- ***************The Modal END********************* -->
   <!-- **********************************************************************************************************************************************************
      MAIN CONTENT
      *********************************************************************************************************************************************************** -->
@@ -74,10 +85,10 @@
 							       <td th:text="${l.m_phone}"></td>
 							       <td th:text="${l.m_date}"></td>
 							       <td>
-							         <button class="btn btn-primary btn-xs"><a th:href="@{/memberUpdate(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
+							         <button class="btn btn-primary btn-xs" ><a th:href="@{/memberUpdate(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
 							       </td>
 							       <td>
-							       	<button id="btnDelete"class="btn btn-danger btn-xs"><a th:href="@{/memberDelete(memberId=${l.m_id})}" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+							       	<button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-memberId="${l.m_id}"><i class="fa fa-trash-o "></i></button>
 							        </td>
 							      </tr>				                     				                 
 							   </tbody>
@@ -88,6 +99,21 @@
 			</div>
 		</section>
 	</section>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.btnDelete').click(function(){				
+				var memberId = $(this).attr('data-memberId');
+				$('#deleteBtn').val(memberId);			
+				$('#deleteModal').modal('show');
+			})
+			$('#deleteBtn').click(function(){
+				var memberId = $(this).val();									
+				//alert(memberId);
+				location.href = '/memberDelete?memberId='+ memberId;
+			})
+		})
+	</script>
 <!-- **********************************************************************************************************************************************************
     		MAIN CONTENT END
  *********************************************************************************************************************************************************** -->	
