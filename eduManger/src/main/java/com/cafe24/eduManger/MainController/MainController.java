@@ -44,8 +44,9 @@ public class MainController {
 		
 		model.addAttribute("SNAME", (String)session.getAttribute("SNAME"));
 		model.addAttribute("SLEVEL", (String)session.getAttribute("SLEVEL"));
+		System.out.println((String)session.getAttribute("SNAME"));
 		
-		return "redirect:/";
+		return "/index";
 	}
 	
 	@GetMapping("/logout")
