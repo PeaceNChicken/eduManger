@@ -21,23 +21,43 @@
 				<div class="content-panel">
             		    <div class="form-panel">
 					<h2 class="mb"><i class="fa fa-angle-right"></i> 현재 개설된 과목</h2>
-					<br/>
+					
 					<div class="container">
+						<div>
+						<button type="button" class="btn btn-theme pull-right" onclick="location.href='subjectInsert'">과목 추가하기</button>
+						</div>				
+						<br/>
 					<!-- ************************************************* 
 							검색하기 
 						*************************************************-->
-					<select>
-						<option>검색목록</option>
-						<option>과목코드</option>
-						<option>학원코드</option>
-						<option>과목명</option>
-					</select>
-					<input type="text"> 
-					<button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-search"></i></button>
+					<table>
+						<tr>
+							<td>
+								<select class="form-control" style="width:200px;">
+									<option>검색목록</option>
+									<option>과목코드</option>
+									<option>학원코드</option>
+									<option>과목명</option>
+								</select>
+							</td>
+							<td>
+								<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="width:700px;"> 
+							</td>
+							<td>
+								<button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+							</td>
+						</tr>
+					</table>					
+					
+					
+					
+					
+					
 					<!-- *************************************************
 							검색END 
 						*************************************************-->
-					<button type="button" class="btn btn-theme" onclick="location.href='subjectInsert'">과목 추가하기</button>
+						
+						<p/>
 						 <table class="table table table-striped table-advance table-hover">
 						    <thead>
 						      <tr>
@@ -58,7 +78,7 @@
 						        <td th:text="${l.m_id}"></td>
 						        <td th:text="${l.sub_date}"></td>
 						        <td><button class="btn btn-primary btn-xs" onclick="location.href='subjectUpdate'"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
+						        <td><button class="btn btn-danger btn-xs" onclick="location.href='subjectDelete'"><i class="fa fa-trash-o"></i></button></td>
 						      </tr>
 						    </tbody>
 						  </table>
