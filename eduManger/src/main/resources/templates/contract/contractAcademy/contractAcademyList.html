@@ -81,11 +81,10 @@
 			                    <td th:text="${ca.ac_date}"></td>
 			                    <td th:text="${ca.member_id}"></td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">
-			                      <button class="btn btn-success btn-xs btnDelete" data-toggle="modal" th:data-ac_code="${ca.ac_code}"><i class="fa fa-check"></i></button>
 			                      <button class="btn btn-primary btn-xs"><a th:href="@{/contractAcademyUpdateById(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
 			                    </td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">  
-			                      <button class="btn btn-danger btn-xs"><a th:href="@{/contractAcademyDelete(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-ac_code="${ca.ac_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>
