@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-sm-12 main-chart">
+				<div class="content-panel">
+            		    <div class="form-panel">
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 강의 삭제하기 </h2>
+					<br/>
+					<div class="container">
+				
+					<!-- *************************************************
+							강의삭제하기 
+						*************************************************-->						
+						 <table class="table table table-striped table-advance table-hover">
+						    <thead>
+						      <tr>
+						        <th>강의코드</th>
+						        <th>학원코드</th>
+						        <th>강사아이디</th>
+						        <th>강의실코드</th>
+						        <th>과목코드</th>
+						        <th>등록학생인원</th> 
+						        <th>학년 및 수업과정 분류 코드</th>
+						        <th>등록자아이디</th>
+						        <th>등록날짜</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr>
+						      	<td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						      </tr>						     
+						    </tbody>
+						  </table>
+					
+					<p>
+					정말 이 강의를 삭제하시겠습니까?
+					</p>	 
+					<button type="button" class="btn btn-theme" onclick="location.href='/getlecture'">삭제하기</button>
+					
+					<!-- *************************************************
+							강의삭제하기 END
+						*************************************************-->		  
+						 
+						 
+						  </div>
+					</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
+				</div> <!-- grid div4End -->	
+			</div> 		
+		</section>
+	</section>
+	</th:block>
+</html>
+          
