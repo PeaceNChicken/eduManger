@@ -17,4 +17,8 @@ public class BusController {
 		return "/academy/bus/busInsert";
 	}
 	
+	@GetMapping("/busUpdate")
+	public String getBusUpdate() {
+		return "/academy/bus/busUpdate";
+	}
 }

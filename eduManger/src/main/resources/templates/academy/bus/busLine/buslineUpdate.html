@@ -14,23 +14,18 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-	 <section id="main-content">
+	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
-				<div class="col-lg-12 main-chart">     			
+				<div class="col-lg-12 main-chart">
+<!-- **********************************************form 화면******************************************************** -->		
           			<div class="content-panel">
             		    <div class="form-panel">
-			              <h2 class="mb"><i class="fa fa-angle-right"></i>노선등록</h2>
-			              <form action="/memberInsert" class="form-horizontal style-form" method="post">
-				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">등록할노선</label>
-				                  <div class="col-sm-8">
-				                    <input type="text" class="form-control">
-				                  </div>
-				                </div>
-				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">호차</label>
-				                  <div class="col-sm-4">
+			              <h2 class="mb"><i class="fa fa-angle-right"></i>차량노선수정</h2>
+			              <form class="form-horizontal style-form" method="get">
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">호차번호</label>
+			                    <div class="col-sm-4">
 				                   <select id="m_level" name="m_level" class="form-control">
 				                   	  <option>호차선택</option>
 					                  <option>1호차</option>
@@ -44,16 +39,22 @@
 					                  <option>9호차</option>
 					                </select>
 				                  </div>
-				                </div>				                				                					
-			               </form>
-			               <div style="text-align:center">
-						      <a href="/buslineList"><button type="submit" class="btn btn-theme btn-lg">확인</button></a>
-						  </div>	
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">노선수정</label>
+			                  <div class="col-sm-10">
+			                    <input type="text" class="form-control">
+			                  </div>
+			                </div>
+			              </form>
+			              <div style="text-align:center">
+				         	<a href="/buslineList"><button type="submit" class="btn btn-theme btn-lg">확인</button></a>
+				        </div>
 			            </div>
-			          </div>
-					</div>
-				</div>
+			         </div>
+		          </div>
+	           </div>
+			</section>
 		</section>
-	</section>
 	</th:block>
 </html>

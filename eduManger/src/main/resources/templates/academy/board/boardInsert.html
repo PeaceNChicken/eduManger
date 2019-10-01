@@ -19,7 +19,6 @@
 			             <div id="page-wrapper">	
 			             </div>
 						<h1 class="page-header">게시판생성</h1>				
-			              
 			              <br/>
 			              <br/>
 			              <form class="form-horizontal style-form" method="get"></form>			          
@@ -34,7 +33,6 @@
 		<h2>게시판 기본 설정</h2>
 		<br/>
 		<br/>
-
 		<div class="table-responsive">
 			<table class="table">
 			<colgroup>
@@ -44,16 +42,16 @@
 			</colgroup>
 			<tbody>
 			<tr>
-				<th scope="row"><label for="bo_table">TABLE<strong class="sr-only">필수</strong></label></th>
+				<th scope="row"><label for="bo_table">게시판제목<strong class="sr-only">필수</strong></label></th>
 				<td colspan="2">
 				<input type="text" name="bo_table" value="" id="bo_table" required  class=" required alnum_" maxlength="20">
-					영문자, 숫자, _ 만 가능 (공백없이 20자 이내)
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    </td>
 			</tr>
 			<tr>			
 				<th scope="row"><label for="gr_id">그룹<strong class="sr-only">필수</strong></label></th>
 				<td colspan="2">
-					<select id="gr_id" name="gr_id" class="form-control input-sm" required>\n<option value="">선택</option>
+					<select id="gr_id" name="gr_id" class="form-control input-sm"><option value="">선택</option>
 					<option>공지사항</option>
 					<option>자료</option>
 					<option>Q&A</option>
@@ -62,19 +60,28 @@
 				</td>					
 			</tr>
 			<tr>
-				<th scope="row"><label for="bo_table">게시판제목<strong class="sr-only">필수</strong></label></th>
+				<th scope="row"><label for="bo_table">게시판관리자<strong class="sr-only">필수</strong></label></th>
 				<td colspan="2">
-				<input type="text" name="bo_table" id="bo_table" required  class=" required alnum_" maxlength="20">					
+				<input type="text" name="bo_table" id="bo_table" required  class=" required alnum_" maxlength="20" placeholder="admin">					
 		    </td>		    
-			</tr>					
-			</tbody>			
+			</tr>	
+			<tr>
+				<th scope="row"><label for="bo_table">글쓰기<strong class="sr-only">필수</strong></label></th>
+				<td colspan="2">
+				<div class="form-group">			                  
+	                   <div class="form-group">
+						  <textarea class="form-control"></textarea>
+						</div>
+	             	     </div>
+		  		 	 </td>	
+		  		 	 </tr>
+				</tbody>			
 			</table>
 			<div style="text-align:center">
-	          	<button type="submit" class="btn btn-theme btn-lg">확인</button>
+	          	<a href="boardList"><button type="submit" class="btn btn-theme btn-lg">확인</button></a>
 	        </div>	
 		</div>
 	</div><!-- /#anc-bo-auth -->
-
 	<div class="tab-pane" id="anc-bo-function">
 		<h2>게시판 기능 설정</h2>
 		<br/>
@@ -92,14 +99,12 @@
 				<td>			
 					<div class="col-sm-7">
 	             	   <input type="text" class="form-control" placeholder="1">댓글1개 이상이면 삭제불가
-	             	   
 	                </div>
 	                </td>
 	                <td>
-					<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용					
+					<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용					
 				     </td>                      		
-						
 				</tr>				
 				<tr>
 				<th scope="row"><label for="bo_count_modify">원글 삭제 불가<strong class="sr-only">필수</strong></label></th>
@@ -109,96 +114,110 @@
 	                </div>
 					</td>
 	                <td>
-					<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용					
+					<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용					
 				     </td> 										
 				</tr>
-				<tr>
-				<th scope="row"><label for="bo_count_modify">비밀글사용<strong class="sr-only">필수</strong></label></th>								
-				  	<td colspan="2">					  				  	
-				  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input" name="optradio">그룹적용			
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
-					<select id="gr_id" name="gr_id" class="form-control input-sm" required style="width:120px;height:30px;">
-					<option>사용하지 않음</option>
-					<option>체크후 사용</option>
-					<option>무조건</option>												
-				</select>															
-				</td>						
-				</tr>					
 				<tr>								
-				<th scope="row"><label for="bo_count_modify">비밀글사용<strong class="sr-only">필수</strong></label></th>												
-				  	<td>				  	
-					<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용	
+				 <th scope="row"><label for="bo_count_modify">비밀글사용<strong class="sr-only">필수</strong></label></th>												
+				  <td>
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required style="width:120px;height:30px;">
 					<option>사용하지 않음</option>
 					<option>체크후 사용</option>
 					<option>무조건</option>												
 				</select>																
-				</td>						
+			     </td>
+		  	  	 <td>				  	
+					<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용
+				 </td>	
 				</tr>
 				<tr>				
 				<th scope="row"><label for="bo_count_modify">추천사용<strong class="sr-only">필수</strong></label></th>								
 				  	<td>
-				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<input type="checkbox" class="form-check-input" name="optradio">사용		
 				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>
 				<tr>				
 				<th scope="row"><label for="bo_count_modify">비추천사용<strong class="sr-only">필수</strong></label></th>								
 				  	<td>
-				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<input type="checkbox" class="form-check-input" name="optradio">사용		
 				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>
 				<tr>				
-				<th scope="row"><label for="bo_count_modify">이름실명사용<strong class="sr-only">필수</strong></label></th>								
-				  	<td>
-				  	<input type="radio" class="form-check-input" name="optradio">사용		
-				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				<th scope="row"><label for="bo_count_modify">이름실명사용<strong class="sr-only">필수</strong></label></th>	
+					<td>							
+				  	<input type="checkbox" class="form-check-input" name="optradio">사용	
+				  	<td>	
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>
 				<tr>				
 				<th scope="row"><label for="bo_count_modify">전체목록보이기사용<strong class="sr-only">필수</strong></label></th>								
 				  	<td>
-				  	<input type="radio" class="form-check-input" name="optradio">사용		
+				  	<input type="checkbox" class="form-check-input" name="optradio">사용		
 				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>
 				<tr>				
 				<th scope="row"><label for="bo_count_modify">최대글수제한<strong class="sr-only">필수</strong></label></th>								
 				  	<td>
-				  	<div class="col-sm-2">
+				  	<div class="col-sm-5">
 	             	   <input type="text" class="form-control">
 	                </div>
 				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>
 				<tr>				
 				<th scope="row"><label for="bo_count_modify">최대댓글수제한<strong class="sr-only">필수</strong></label></th>								
 				  	<td>
-				  	<div class="col-sm-2">
+				  	<div class="col-sm-5">
 	             	   <input type="text" class="form-control">
 	                </div>		
 				  	<td>						
-				  	<input type="radio" class="form-check-input" name="optradio">그룹적용				
-					<input type="radio" class="form-check-input" name="optradio">그룹전체적용			
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
 					</td>																						
 				</tr>		
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">제목글자수제한<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				  	<div class="col-sm-5">
+	             	   <input type="text" class="form-control">
+	                </div>
+				  	<td>						
+				  	<input type="checkbox" class="form-check-input" name="optradio">그룹적용				
+					<input type="checkbox" class="form-check-input" name="optradio">그룹전체적용			
+					</td>																						
+				</tr>
+				<tr>				
+				<th scope="row"><label for="bo_count_modify">욕설글,비방글 필터링<strong class="sr-only">필수</strong></label></th>								
+				  	<td>
+				<div class="form-group">			                  
+	                  <div class="col-sm-5">
+	                   <input type="radio" class="form-check-input" name="optradio">사용함
+	                   <div class="form-group">
+						  <textarea class="form-control"></textarea>
+						</div>
+	                  </div>
+	                </div>   
+	                </td>
+	                </tr>
 				</tbody>
 				</table>
 				<div style="text-align:center">
-	          		<button type="submit" class="btn btn-theme btn-lg">확인</button>
+	          		<a href="boardList"><button type="submit" class="btn btn-theme btn-lg">확인</button></a>
         		</div>				
 				</div>				
 				</div>	
@@ -231,6 +250,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -242,6 +262,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -253,6 +274,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -264,6 +286,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -275,6 +298,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -286,6 +310,7 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
@@ -297,20 +322,34 @@
 				<td colspan="2">
 					<select id="gr_id" name="gr_id" class="form-control input-sm" required>
 					<option value="">선택</option>
+					<option>전체</option>
 					<option>관리자</option>
 					<option>강사</option>
 					<option>수강생</option>								
 				</select>													
 				</td>	 
-  			</tr>
-    </tbody>
+  			</tr> 
+  			<tr>
+				<th scope="row"><label for="bo_list_level">권한이 없을 경우</label></th>		
+				<td>						
+				<div class="form-group">		
+	                 <div class="col-sm-2">	                 
+	                   경고메세지:	 <input type="text" placeholder="권한이없습니다">		
+	                </div>	                    
+	                </div>	
+	                </td>	                
+                    <td>                    
+                <div>경고후이동페이지: <input type="text"></div> 		           													
+				</td>	 
+  			</tr> 			
+    </tbody>   
     </table>
-    	<div style="text-align:center">
-         	<button type="submit" class="btn btn-theme btn-lg">확인</button>
+    <div style="text-align:center">
+         	<a href="boardList"><button type="submit" class="btn btn-theme btn-lg">확인</button></a>
         </div>
+    </div>   
     </div>
-    </div>
-    </div>
+    </div>  
     </div>
     </div>
     </div>

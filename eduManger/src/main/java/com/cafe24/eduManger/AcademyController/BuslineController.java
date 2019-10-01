@@ -15,4 +15,9 @@ public class BuslineController {
 	public String getBuslineInsert() {
 		return "/academy/bus/busLine/buslineInsert";
 	}
+	
+	@GetMapping("/buslineUpdate")
+	public String getBuslineUpdate() {
+		return "/academy/bus/busLine/buslineUpdate";
+	}
 }

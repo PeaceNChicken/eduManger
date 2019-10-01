@@ -37,6 +37,13 @@ $(document).on('click','.deletBtn',function(){
 			              <form action="/masterInsert" class="form-horizontal style-form" method="post">
 			              <br/>
 			              <br/>
+			              <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">테이블</label>
+				                  <div class="col-sm-6">
+				                    <input type="text" class="form-control" placeholder="수정한날짜 2019-09-12 
+1호차 서강식 기사님(010-5554-5555) - 고대구로병원,대림역 방면">
+				                  </div>
+				                </div>
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">차량</label>
 				                  <div class="col-sm-10">
@@ -68,26 +75,37 @@ $(document).on('click','.deletBtn',function(){
 				                <div id="warpper">			                 
 				                <div class="form-group">				                
 					               <div class="cloenAdd">
-				                  <label class="col-sm-2 col-sm-2 control-label">정류장 및 시간</label>	
+				                  <label class="col-sm-2 col-sm-2 control-label">정류장</label>	
 				                  <div class="col-sm-6">
 				                  <button type="button" class="copyBtn">추가</button>
+				                  <button type="button" class="deletBtn">삭제</button>
 				                    <input type="text" class="form-control" >
 				                  </div>	
-				                	</div>                	
+				                	</div> 
+				                	</div>
+				                	</div>
+				                <div id="warpper">	               	
+				                <div class="cloenAdd">
 				                <div class="form-group">
-				                 A타임&nbsp;&nbsp;&nbsp;&nbsp;<input id="someTime" type="Time">&nbsp;&nbsp;&nbsp;&nbsp;
-								 B타임&nbsp;&nbsp;&nbsp;&nbsp;<input id="someTime" type="time">
+				                  <label class="col-sm-2 col-sm-2 control-label">시간</label>	
+				                  <div class="col-sm-6">
+				                 A타임<input id="someTime" type="Time">
+								 B타임<input id="someTime" type="time">
+								 <button type="button" class="copyBtn">추가</button>
+								 <button type="button" class="deletBtn">삭제</button>
+				                </div>
 				                </div>				                	                
-				                <div style="text-align:center">
-				                	<a href="bustimeList"><button type="submit" class="btn btn-theme btn-lg">등록</button></a>
-				                </div>	
+				               </div>
 				               </div>	
-				             </div>				                			
 			              </form>
+			              <div style="text-align:center">
+		                	<a href="bustimeList"><button type="submit" class="btn btn-theme btn-lg">등록</button></a>
+		              	  </div>
 			            </div>
 			          </div>
 					</div>
 				</div>
+				
 		</section>
 	</section>
 	</th:block>
