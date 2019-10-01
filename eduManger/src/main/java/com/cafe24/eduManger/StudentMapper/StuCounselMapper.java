@@ -15,6 +15,14 @@ public interface StuCounselMapper {
 	
 	public List<StuCounsel> stuCounselList(String mId);
 	
+	public int stuCounselMaxCount();
+	
+	public int stuCounselInsert(StuCounsel stuCounsel);
+	
 	public StuCounsel stuCounselUpdateForm(String stuCounselCode);
+		
+	public int stuCounselUpdate(StuCounsel stuCounsel);
+	
+	public int stuCounselDelete(String stuCounselCode);
 
 }
