@@ -38,7 +38,6 @@
 										<select name="sk" class="form-control">
 											<option value="select">선택</option>
 											<option value="a.member_id">아이디</option>
-											<option value="a.ac_code">학원코드</option>
 											<option value="member_name">이름</option>											
 										</select>	
 									</span>			 									  	
@@ -60,7 +59,6 @@
 						<table class="table table-striped table-advance table-hover table-bordered">
 							<thead>
 								<tr>							
-									<th>학원코드</th>
 									<th>아이디</th>
 									<th>이름</th>
 									<th>성별</th>
@@ -69,7 +67,6 @@
 							</thead>
 							<tbody>
 								<tr th:each="l:${stuList}">
-									<td th:text="${l.ac_code}"></td>
 						  			<td th:text="${l.m_id}"></td>
 						  			<td th:text="${l.m_name}"></td>
 						  			<td th:text="${l.m_gender}"></td>

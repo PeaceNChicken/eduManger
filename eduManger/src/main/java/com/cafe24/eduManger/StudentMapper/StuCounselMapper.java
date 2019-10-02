@@ -9,7 +9,7 @@ import com.cafe24.eduManger.StudentVo.StuCounsel;
 @Mapper
 public interface StuCounselMapper {
 
-	public List<StuCounsel> stuList(); 
+	public List<StuCounsel> stuList(String ac_code); 
 	
 	public List<StuCounsel> stuSearch(String sk, String sv);
 	

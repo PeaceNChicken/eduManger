@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="com.cafe24.eduManger.StudentMapper.StuPiMapper">
- 	<select id="stuList" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
+ 	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
  		SELECT 
 			member_id AS m_id, 
 			a.ac_code AS ac_code, 
@@ -20,6 +20,7 @@
 		INNER JOIN Stu_PI AS b
 			WHERE member_level='수강생'
 			AND a.member_id = b.stu_id
+			AND a.ac_code LIKE CONCAT ('%',#{ac_code},'%')
  	</select>
  	
  	<select id="stuPi" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
