@@ -20,7 +20,7 @@ public class MainService {
 	public Map<String,Object> login(Member member, HttpSession session) {
 		
 		Member memberList = mainMapper.login(member);
-		System.out.println(memberList.toString() + "<----- memberList com.cafe24.eduManger.MemberService login");
+		//System.out.println(memberList + "<----- memberList com.cafe24.eduManger.MemberService login");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String result = "";
 		
@@ -39,10 +39,9 @@ public class MainService {
 				result = "notPw";
 			}
 		}
-		else{
+		else {
 			//System.out.println("아이디 불일치");
 			result = "notId";
-			
 		}
 		map.put("result", result);
 		return map;

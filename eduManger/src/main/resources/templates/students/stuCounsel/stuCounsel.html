@@ -5,6 +5,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>회원목록</title>
+	<style>	
+		 #bener {
+		  height: 800px; 
+		  background:#D8D8D8;
+		  top:0px;
+		} 
+	</style>
 </head>
 	<th:block layout:fragment="customTitle">
 		<title>index</title>
@@ -18,7 +25,7 @@
 		<section class="wrapper">
 			<div class="row">			
 				<!-- *********************right panel************************** -->			
-				<div class="col-lg-3 ds col-lg-push-9">
+				<div id=bener class="col-lg-3 col-lg-push-9" >
 					<!--COMPLETED ACTIONS DONUTS CHART-->
 					<div class="donut-main">
 			<!-- **************조건입력창*************** -->
@@ -158,7 +165,7 @@
 	<!-- ***************The Modal END********************* -->
 
 	<script type="text/javascript">
-			
+	//삭제버튼 클릭시 모달창 
 		$('.btnDelete').click(function(){
 			var stu_counsel_code = $(this).attr('data-stu_counsel_code');
 			//alert(stu_counsel_code);
@@ -173,6 +180,7 @@
 			location.href = '/stuCounselDelete?stu_counsel_code=' + stu_counsel_code;
 		});
 		
+	//테이블 행 클릭시 정보 전달
 		$('#counselList tr').click(function(){
 			//배열 선언
 			var tdArr = new Array();
@@ -195,7 +203,23 @@
 			location.href = '/stuCounselUpdateForm?counsel_code='+ counsel_code + '&mId=' + mId;
 			
 		});
+	
+	//움직이는배너
+	$(document).ready(function(){
+		var benerTop = parseInt($('#bener').css('top'));
+		console.log(benerTop + '<-- benerTop');
+		
+		$(window).scroll(function(){
+			//현제 스크롤 위치
+			var scrollTop = $(window).scrollTop();
+			//console.log(scrollTop + '<---현제 스크롤 위치');
+			var newBenerTop = scrollTop + benerTop + "px";
+			//console.log(newBenerTop + '<---newBenerTop');
 			
+			//#bener top부분을 스크롤할때마다 top 위치를 바꿔줌
+			$('#bener').stop().animate({'top' : newBenerTop}, 500);
+		}).scroll();
+	});
 	</script>
 	</th:block>
 </html>
