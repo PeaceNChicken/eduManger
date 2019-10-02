@@ -20,4 +20,22 @@
 		
  	</select>
  
+ 	<select id="getReplyList" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Board">
+ 	
+ 	SELECT 
+	 		board_code
+	 		,ac_code
+	 		,member_id
+	 		,board_cate
+	 		,board_title
+	 		,board_content
+	 		,board_count
+	 		,board_date
+	FROM 
+		board
+	WHERE 
+		board_code=#{board}
+	
+ 	</select>
+ 
  </mapper>

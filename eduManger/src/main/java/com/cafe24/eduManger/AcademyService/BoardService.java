@@ -18,9 +18,12 @@ public class BoardService {
 	public Map<String, Object> getBoard(){
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Board> bo = boardMapper.getBoard();
-		map.put("Board", bo);
+		map.put("board", bo);
 		return map;
 	}
 	
+	public Board getReplyList(String board){
+		return boardMapper.getReplyList(board);
+	}
 	
 }

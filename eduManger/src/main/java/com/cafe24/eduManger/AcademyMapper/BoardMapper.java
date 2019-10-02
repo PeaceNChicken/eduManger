@@ -11,4 +11,6 @@ import com.cafe24.eduManger.AcademyVo.Board;
 public interface BoardMapper {
 
 	public List<Board> getBoard();
+	
+	public Board getReplyList(String board);
 }

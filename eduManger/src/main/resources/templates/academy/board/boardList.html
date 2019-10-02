@@ -48,29 +48,24 @@
 					                <thead>
 					                  <tr>
 					                    <th>게시글번호</th>
-					                    <th>학원코드</th>	
 									        <th>작성자</th>						     
 									        <th>카테고리</th>
 									        <th>그룹</th>
 									        <th>내용</th>
 									        <th>조회수</th>
-									        <th>수정</th>
+									        <th>등록날짜</th>
 									        <th>삭제</th>
 					                  </tr>
 					                </thead>
 					                <tbody>
-					                <tr th:each="b: ${Board}">					                    
+					                <tr th:each="b: ${board}">					                    
 								        <td th:text="${b.board_code}"></td>
-								        <td th:text="${b.ac_code}"></td>
 								        <td th:text="${b.member_id}"></td>
-								       <td th:text="${b.board_cate}"></td>
+								        <td th:text="${b.board_cate}"></td>
 								        <td th:text="${b.board_title}"></td>						        
-								        <td><a th:href="@{/replyList(Board=${b.board_code})}" th:text="${b.board_content}"></a></td>
+								        <td><a th:href="@{/replyList(board=${b.board_code})}" th:text="${b.board_content}"></a></td>
 								        <td th:text="${b.board_count}"></td>
 								        <td th:text="${b.board_date}"></td>
-					                    <td>
-					                      <a th:href="@{/boardUpdate(Board=${b.board_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
-					                    </td>
 					                    <td>
 					                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
 					                    </td>					                    
@@ -88,7 +83,6 @@
 							</div>
 						</div>
 					</div>
-					
 				</section>
 			</section>
 	</th:block>

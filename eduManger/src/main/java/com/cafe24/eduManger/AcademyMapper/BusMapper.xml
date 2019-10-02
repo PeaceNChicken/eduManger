@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.cafe24.eduManger.AcademyMapper.BusMapper">
+ 	<select id="getBusList" resultType="com.cafe24.eduManger.AcademyVo.Bus">
+ 	
+	 	SELECT 
+		 	bus_code
+		 	,member_id
+		 	,ac_code
+		 	,bus_number
+		 	,bus_cate
+		 	,bus_driver
+		 	,bus_driver_phone
+		 	,bus_num
+		 	,bus_limit
+		 	,bus_date
+		FROM 
+			bus
+		
+ 	</select>
+ 
+ </mapper>
