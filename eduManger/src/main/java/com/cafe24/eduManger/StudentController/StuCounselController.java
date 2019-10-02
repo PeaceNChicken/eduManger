@@ -20,11 +20,8 @@ public class StuCounselController {
 	private StuCounselService stuCounselService;
 	
 	@GetMapping("/stuCounsel")
-	public String stuCounsel(Model model) {						
-		
-		StuCounsel stucounsel = new StuCounsel();
-		model.addAttribute("stuCounselUpdateForm", stucounsel);
-		model.addAttribute("stuList", stuCounselService.stuList());
+	public String stuCounsel(Model model) {								
+		stuCounselService.stuList(model);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	
@@ -37,7 +34,8 @@ public class StuCounselController {
 		if(sk.equals("select")) {
 			return "redirect:/stuCounsel";
 		}
-		model.addAttribute("stuList", stuCounselService.stuSearch(sk, sv));
+		
+		stuCounselService.stuSearch(sk, sv, model);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	
@@ -45,30 +43,8 @@ public class StuCounselController {
 	public String stuCounselList(@RequestParam(value="memberId", required=false)String mId
 								,Model model
 								,HttpSession session) {
-		//System.out.println(mId + "<----- mId com.cafe24.eduManger.StudentController.StuCounselController.stuCounselList");
-		
-		//StuCounsel vo 초기화
-		StuCounsel stucounsel = new StuCounsel();
-		String sessionId = "";
-		
-		//mId가 null이 아닐때 session영역에 mId값 대입
-		if(mId != null) {
-			session.setAttribute("CounselMid", mId);
-		}
-		
-		sessionId = (String)session.getAttribute("CounselMid");
-		//초기화된 StuCounsel vo 에 session영역에 저장된 mId를 대입
-		stucounsel.setM_id(sessionId);
-		
-		String voMid = stucounsel.getM_id();
-		System.out.println(sessionId + "<---- sessionId");
-		System.out.println(voMid + "<----voMid");
-		//상담내용 초기화
-		model.addAttribute("stuCounselUpdateForm", stucounsel);
-		//학생리스트
-		model.addAttribute("stuList", stuCounselService.stuList());
-		//상담리스트
-		model.addAttribute("stuCounselList", stuCounselService.stuCounselList(sessionId));
+		//System.out.println(mId + "<----- mId com.cafe24.eduManger.StudentController.StuCounselController.stuCounselList");	
+		stuCounselService.stuCounselList(mId, session, model);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	
@@ -96,12 +72,7 @@ public class StuCounselController {
 		//System.out.println(stuCounselCode + "<----- stuCounselCode com.cafe24.eduManger.StudentController.StuCounselController.stuCounselUpdateForm");
 		//System.out.println(mId + "<----- mId com.cafe24.eduManger.StudentController.StuCounselController.stuCounselUpdateForm");
 		
-		//학생리스트출력
-		model.addAttribute("stuList", stuCounselService.stuList());
-		//상담리스트출력
-		model.addAttribute("stuCounselList", stuCounselService.stuCounselList(mId));
-		//상담내용출력
-		model.addAttribute("stuCounselUpdateForm", stuCounselService.stuCounselUpdateForm(stuCounselCode));
+		stuCounselService.stuCounselUpdateForm(stuCounselCode, mId, model);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	
