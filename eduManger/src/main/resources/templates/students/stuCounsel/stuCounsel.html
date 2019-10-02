@@ -13,50 +13,17 @@
 	<th:block layout:fragment="customContents">
 		    <!-- **********************************************************************************************************************************************************
 	        MAIN CONTENT
-	        *********************************************************************************************************************************************************** -->
+	        *********************************************************************************************************************************************************** -->		
 	<section id="main-content">
 		<section class="wrapper">
-			<div class="row">
-				<div class="col-lg-9 main-chart">     			
-       				<div class="content-panel">
-						<div class="form-panel ">
-							<h2><i class="fa fa-angle-right"></i>상담기록</h2>
-							<hr>
-							<br/>
-							<br/>
-							<table id="counselList" class="table table-striped table-advance table-hover">
-								<thead>
-									<tr>
-										<th>상담코드</th>
-										<th>등록자아이디</th>
-										<th>상담종류</th>
-										<th>상담내용</th>
-										<th>등록날자</th>
-										<th>삭제</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr th:each="l:${stuCounselList}">
-										<td th:text="${l.stu_counsel_code}"></td>
-										<td th:text="${l.admin_id}"></td>
-										<td th:text="${l.counsel_cate}"></td>
-										<td th:text="${l.counsel_desc}"></td>
-										<td th:text="${l.counsel_date}"></td>										
-										<td>
-											<button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-memberId="123"><i class="fa fa-trash-o "></i></button>
-										</td>
-									</tr>							    
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-<!-- *********************right panel************************** -->
-			
-				<div class="col-lg-3 ds">
+			<div class="row">			
+				<!-- *********************right panel************************** -->			
+				<div class="col-lg-3 ds col-lg-push-9">
 					<!--COMPLETED ACTIONS DONUTS CHART-->
 					<div class="donut-main">
 			<!-- **************조건입력창*************** -->
+						<h2>학생리스트</h2>
+						<br/>						
 						<form action="/stuCounselSearch" method="post">
 							<div class="row" >
 								<div class="col-sm-4" >							
@@ -107,28 +74,67 @@
 					<!-- /col-lg-3 -->
 				</div>					
 	<!--********************** 1panel End ****************-->
-						
+				<div class="col-lg-9 main-chart col-lg-pull-3">     			
+       				<div class="content-panel">
+						<div class="form-panel ">
+							<h2>상담기록</h2>
+							<br/>
+							<a th:href="@{/stuCounselInsert(m_id=${stuCounselUpdateForm.m_id})}"><button type="button" class="btn btn-theme pull-right">등록</button></a>
+							<br/>
+							<br/>
+							<table id="counselList" class="table table-striped table-advance table-hover">
+								<thead>
+									<tr>
+										<th>상담코드</th>
+										<th>등록자아이디</th>
+										<th>학생아이디</th>
+										<th>상담종류</th>
+										<th>상담제목</th>
+										<th>등록날자</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="l:${stuCounselList}">
+										<td th:text="${l.stu_counsel_code}"></td>
+										<td th:text="${l.admin_id}"></td>
+										<td th:text="${l.m_id}"></td>
+										<td th:text="${l.counsel_cate}"></td>
+										<td th:text="${l.counsel_title}"></td>
+										<td th:text="${l.counsel_date}"></td>										
+									</tr>							    
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+		
 	<!-- ***********************상담목록 **************************-->
-				<div class="col-lg-9 main-chart">     			
+				<div class="col-lg-9 main-chart col-lg-pull-3">     			
           			<div class="content-panel">
 						<div class="form-panel">
-							<form class="form-horizontal style-form" method="get">
+							<form action="/stuCounselUdpate" class="form-horizontal style-form" method="post">
 								<h2>상담내용</h2>
 								<br/>
 								<br/>
+								<input id="stu_counsel_code" name="stu_counsel_code" type="hidden" th:value="${stuCounselUpdateForm.stu_counsel_code}">
+								<input id="memberId" name="m_id" type="hidden" th:value="${stuCounselUpdateForm.m_id}">
 								<label for="title">제목</label>
-								<input id="title" type="text" class="form-control">
-							<br/>
+								<input id="counsel_title" name="counsel_title" type="text" class="form-control" th:value="${stuCounselUpdateForm.counsel_title}">
+								<br/>
 								<label for="user">작성자</label>
-								<input id="user" type="text" class="form-control">
-							<br/>
+								<input id="admin_id" name="admin_id" type="text" class="form-control" th:value="${stuCounselUpdateForm.admin_id}" readonly>
+								<br/>
 								<label for="comment">내용</label>
-								<textarea class="form-control" rows="15" id="comment"></textarea>
-							<br/>
-								<label for="etc">기타</label>
-								<input id="etc" type="text" class="form-control">
-							<br/>
-								<button type="button" class="btn btn-theme">저장</button>
+								<textarea id="counsel_desc" name="counsel_desc" class="form-control" rows="15"  th:text=${stuCounselUpdateForm.counsel_desc}></textarea>
+								<br/>
+								<label for="date">등록날자</label>
+								<input id="counsel_date" name="counsel_date" type="date" class="form-control" th:value="${stuCounselUpdateForm.counsel_date}">
+								<br/>
+								<label for="etc">상담종류</label>
+								<input id="counsel_cate" name="counsel_cate" type="text" class="form-control" th:value="${stuCounselUpdateForm.counsel_cate}">
+								<br/>
+								<button type="submit" class="btn btn-theme">저장</button>
+								<button type="button"class="btn btn-danger btnDelete" data-toggle="modal" th:data-stu_counsel_code="${stuCounselUpdateForm.stu_counsel_code}">삭제</button>
 							</form>
 						</div>
 					</div>
@@ -136,7 +142,37 @@
 			</div>
 		</section>
 	</section>
+	<!-- *******************The Modal**********************l -->
+						  <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          	<h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						        </div>
+						      </div>
+						     </div>
+						   </div>
+	<!-- ***************The Modal END********************* -->
+
 	<script type="text/javascript">
+			
+		$('.btnDelete').click(function(){
+			var stu_counsel_code = $(this).attr('data-stu_counsel_code');
+			//alert(stu_counsel_code);
+			$('#deleteBtn').val(stu_counsel_code);
+			$('#deleteModal').modal('show');		
+		});
+		
+		$('#deleteBtn').click(function(){
+			var stu_counsel_code = $(this).val();
+			//alert(stu_counsel_code);
+			
+			location.href = '/stuCounselDelete?stu_counsel_code=' + stu_counsel_code;
+		});
+		
 		$('#counselList tr').click(function(){
 			//배열 선언
 			var tdArr = new Array();
@@ -152,10 +188,14 @@
 			});
 			
 			var counsel_code = td.eq(0).text();
-			console.log('상담코드' + counsel_code);
+			var mId = td.eq(2).text();
 			
-			location.href = '/stuCounselUpdate?stu_counsel_code='+ counsel_code;
+			//console.log('상담코드 <---' + counsel_code);
+		
+			location.href = '/stuCounselUpdateForm?counsel_code='+ counsel_code + '&mId=' + mId;
+			
 		});
+			
 	</script>
 	</th:block>
 </html>

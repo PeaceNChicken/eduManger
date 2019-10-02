@@ -7,12 +7,12 @@
  	
  	<select id="academyList" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
  		SELECT
-			ac_code AS acCode,
-			ac_name AS acName,
-			ac_location AS acLocation,
-			ac_phone AS acPhone,
-			ac_date AS acDate,
-			member_id AS memberId
+			ac_code, 
+			ac_name, 
+			ac_location, 
+			ac_phone, 
+			ac_date, 
+			member_id
 		FROM
 			academy
  	</select>

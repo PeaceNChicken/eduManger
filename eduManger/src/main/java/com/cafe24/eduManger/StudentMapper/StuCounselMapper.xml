@@ -35,11 +35,75 @@
 	<select id="stuCounselList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
 		SELECT 
 			stu_counsel_code, 
-			ac_code, member_id, 
-			admin_id, counsel_cate, 
+			ac_code, 
+			member_id AS m_id, 
+			admin_id, 
+			counsel_cate, 
+			counsel_title, 
 			counsel_desc, 
 			counsel_date
 		FROM stu_counsel
 			WHERE member_id = #{mId}
 	</select>
+	
+	<select id="stuCounselMaxCount" resultType="int">
+		SELECT
+			MAX(CAST(SUBSTRING(stu_counsel_code,12) AS DECIMAL)) AS maxcol
+		FROM stu_counsel
+	</select>
+	<insert id="stuCounselInsert" parameterType="com.cafe24.eduManger.StudentVo.StuCounsel">
+		INSERT INTO stu_counsel
+			(
+			stu_counsel_code, 
+			ac_code, 
+			member_id, 
+			admin_id, 
+			counsel_title, 
+			counsel_cate, 
+			counsel_desc, 
+			counsel_date, 
+			counsel_etc
+			)
+			VALUES (
+			#{stu_counsel_code}, 
+			#{ac_code}, 
+			#{m_id}, 
+			#{admin_id}, 
+			#{counsel_title}, 
+			#{counsel_cate}, 
+			#{counsel_desc}, 
+			#{counsel_date}, 
+			#{counsel_etc} 
+			)
+	</insert>
+	<select id="stuCounselUpdateForm" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
+		SELECT 
+			stu_counsel_code, 
+			ac_code, 
+			member_id AS m_id, 
+			admin_id, 
+			counsel_cate, 
+			counsel_desc, 
+			counsel_date, 
+			counsel_title, 
+			counsel_etc 
+		FROM stu_counsel
+			WHERE stu_counsel_code = #{stuCounselCode}
+	</select>
+		
+	<update id="stuCounselUpdate" parameterType="com.cafe24.eduManger.StudentVo.StuCounsel">
+		UPDATE stu_counsel
+		SET
+			counsel_title=#{counsel_title}, 
+			counsel_desc=#{counsel_desc}, 
+			counsel_date=#{counsel_date}, 
+			counsel_cate=#{counsel_cate} 
+		WHERE stu_counsel_code=#{stu_counsel_code}
+	</update>
+	
+	<delete id="stuCounselDelete" parameterType="String">
+		DELETE FROM 
+			stu_counsel 
+		WHERE stu_counsel_code=#{stuCounselCode}
+	</delete>
 </mapper>

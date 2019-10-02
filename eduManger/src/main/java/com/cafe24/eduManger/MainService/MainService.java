@@ -17,22 +17,22 @@ public class MainService {
 	@Autowired
 	private MainMapper mainMapper;
 	
-	public Map<String,Object> login(HttpSession session, Member member) {
+	public Map<String,Object> login(Member member, HttpSession session) {
 		
 		Member memberList = mainMapper.login(member);
-		//System.out.println(memberList + "<----- memberList com.cafe24.eduManger.MemberService login");
+		System.out.println(memberList.toString() + "<----- memberList com.cafe24.eduManger.MemberService login");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String result = "";
 		
 		if(memberList != null) {
 			//System.out.println("아이디 일치");
 			if(memberList.getM_pw().equals(member.getM_pw())) {
-				//System.out.println("로그인성공");
+				//System.out.println("로그인성공");				
+				map.put("memberList", memberList);
 				session.setAttribute("SID", memberList.getM_id());
 				session.setAttribute("SLEVEL", memberList.getM_level());
 				session.setAttribute("SNAME", memberList.getM_name());
 				session.setAttribute("SACODE", memberList.getAc_code());
-				map.put("connect", memberList);
 			}
 			else{
 				//System.out.println("비밀번호 불일치");
