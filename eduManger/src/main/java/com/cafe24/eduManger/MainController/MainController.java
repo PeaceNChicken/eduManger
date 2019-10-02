@@ -33,20 +33,15 @@ public class MainController {
 	
 	@PostMapping("/login")
 	public String login(HttpSession session, Member member,Model model) {
-		
-		Map<String,Object> loginCk = mainService.login(session, member);
+		Map<String,Object> loginCk = mainService.login(member,session);		
 		String result = (String)loginCk.get("result");
-		
+					
 		if(result.equals("notId") || result.equals("notPw")) {
 			model.addAttribute("result", "아이디 혹은 비밀번호가 불일치합니다");
 			return "/login/login";
-		}
+		}			
 		
-		model.addAttribute("SNAME", (String)session.getAttribute("SNAME"));
-		model.addAttribute("SLEVEL", (String)session.getAttribute("SLEVEL"));
-		System.out.println((String)session.getAttribute("SNAME"));
-		
-		return "/index";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/logout")
