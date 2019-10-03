@@ -10,4 +10,6 @@ import com.cafe24.eduManger.AcademyVo.Bus;
 public interface BusMapper {
 
 	public List<Bus> getBusList();
+	
+	public Bus getBusUpdate(String bus);
 }

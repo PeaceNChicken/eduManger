@@ -21,4 +21,8 @@ public class BusService {
 		map.put("bus", bu);
 		return map;
 	}
+	
+	public Bus getBusUpdate(String bus) {
+		return busMapper.getBusUpdate(bus);
+	}
 }

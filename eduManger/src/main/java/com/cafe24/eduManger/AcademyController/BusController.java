@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.AcademyService.BusService;
 
@@ -27,7 +28,10 @@ public class BusController {
 	}
 	
 	@GetMapping("/busUpdate")
-	public String getBusUpdate() {
+	public String getBusUpdate(@RequestParam(value="bus")String bus, Model model) {
+		System.out.println(bus+"<--bus");
+		System.out.println(busService.getBusUpdate(bus)+"<--");
+		model.addAttribute("busUpdate", busService.getBusUpdate(bus));
 		return "/academy/bus/busUpdate";
 	}
 }

@@ -45,22 +45,22 @@
 						      </tr>
 			                </thead>
 			                <tbody>
-			                <tr th:each="bu: ${bus}">
-			                    <td th:text="${bu.bus_code}"></td>
-						        <td th:text="${bu.ac_code}"></td>
-						        <td th:text="${bu.bus_number}"></td>
-						        <td th:text="${bu.bus_cate}"></td>
-						        <td th:text="${bu.bus_num}"></td>
-						        <td th:text="${bu.bus_limit}"></td>
-						        <td th:text="${bu.bus_driver}"></td>
-						        <td th:text="${bu.bus_driver_phone}"></td>
-						        <td th:text="${bu.member_id}"></td>
-						        <td th:text="${bu.bus_date}"></td>
+			                <tr th:each="u: ${bus}">
+			                    <td th:text="${u.bus_code}"></td>
+						        <td th:text="${u.ac_code}"></td>
+						        <td th:text="${u.bus_number}"></td>
+						        <td th:text="${u.bus_cate}"></td>
+						        <td th:text="${u.bus_num}"></td>
+						        <td th:text="${u.bus_limit}"></td>
+						        <td th:text="${u.bus_driver}"></td>
+						        <td th:text="${u.bus_driver_phone}"></td>
+						        <td th:text="${u.member_id}"></td>
+						        <td th:text="${u.bus_date}"></td>
 						        <td>
-			                      <a th:href="@{/busUpdate(Bus=${bu.bus_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
+			                      <a th:href="@{/busUpdate(bus=${u.bus_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
 			                   </td>
 			                    <td>
-			                      <button class="btn btn-danger btn-xs"><a href="/busUpdate" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                 </tr>
 			                </tbody>

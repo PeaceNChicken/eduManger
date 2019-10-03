@@ -22,4 +22,25 @@
 		
  	</select>
  
+ 	<select id="getBusUpdate" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Bus">
+ 
+ 	SELECT 
+ 		bus_code
+ 		,member_id
+ 		,ac_code
+ 		,bus_number
+ 		,bus_cate
+ 		,bus_driver
+ 		,bus_driver_phone
+ 		,bus_num
+ 		,bus_limit
+ 		,bus_date
+	FROM 
+		bus
+	WHERE 
+		bus_code=#{bus}
+
+	
+	</select>
+ 
  </mapper>
