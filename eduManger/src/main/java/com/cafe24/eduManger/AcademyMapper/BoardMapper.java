@@ -12,5 +12,5 @@ public interface BoardMapper {
 
 	public List<Board> getBoard();
 	
-	public Board getReplyList(String board);
+	public Board getBoardUpdate(String board);
 }

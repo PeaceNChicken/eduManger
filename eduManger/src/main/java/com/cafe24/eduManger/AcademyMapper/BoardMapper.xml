@@ -20,7 +20,7 @@
 		
  	</select>
  
- 	<select id="getReplyList" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Board">
+ 	<select id="getBoardUpdate" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Board">
  	
  	SELECT 
 	 		board_code

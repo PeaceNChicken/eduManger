@@ -30,15 +30,10 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardUpdate")
-	public String getBoardUpdate() {
-		return "/academy/board/boardUpdate";
-	}
-	
-	@GetMapping("/replyList")
-	public String getReplyList(@RequestParam(value="board") String board, Model model) {
+	public String getBoardUpdate(@RequestParam(value="board") String board, Model model) {
 		System.out.println(board+"<--dd");
-		System.out.println(boardService.getReplyList(board)+"<--");
-		model.addAttribute("replyList", boardService.getReplyList(board));
+		System.out.println(boardService.getBoardUpdate(board)+"<--");
+		model.addAttribute("boardUpdate", boardService.getBoardUpdate(board));
 		return "/academy/board/boardUpdate";
 	}
 }

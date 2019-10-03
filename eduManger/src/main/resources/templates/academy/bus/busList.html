@@ -48,7 +48,7 @@
 			                <tr th:each="bu: ${bus}">
 			                    <td th:text="${bu.bus_code}"></td>
 						        <td th:text="${bu.ac_code}"></td>
-						        <td><a th:href="@{/busUpdate(Bus=${bu.bus_code})}" th:text="${bu.bus_number}"></a></td>
+						        <td th:text="${bu.bus_number}"></td>
 						        <td th:text="${bu.bus_cate}"></td>
 						        <td th:text="${bu.bus_num}"></td>
 						        <td th:text="${bu.bus_limit}"></td>
@@ -59,9 +59,6 @@
 						        <td>
 			                      <a th:href="@{/busUpdate(Bus=${bu.bus_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
 			                   </td>
-			                    <td>
-			                      <button class="btn btn-primary btn-xs"><a href="/busUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>				                      
-			                    </td>
 			                    <td>
 			                      <button class="btn btn-danger btn-xs"><a href="/busUpdate" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 			                    </td>

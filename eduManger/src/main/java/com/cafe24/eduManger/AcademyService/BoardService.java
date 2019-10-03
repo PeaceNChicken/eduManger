@@ -22,8 +22,8 @@ public class BoardService {
 		return map;
 	}
 	
-	public Board getReplyList(String board){
-		return boardMapper.getReplyList(board);
+	public Board getBoardUpdate(String board){
+		return boardMapper.getBoardUpdate(board);
 	}
 	
 }
