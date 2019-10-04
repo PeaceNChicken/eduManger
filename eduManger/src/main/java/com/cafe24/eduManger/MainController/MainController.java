@@ -62,6 +62,11 @@ public class MainController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	@GetMapping("/index2")
+	public String test() {
+		return "/index2";
+	}
+	
 
 	/*
 	 * @GetMapping("/") public String MainList(Model model) { Map<String, Object>

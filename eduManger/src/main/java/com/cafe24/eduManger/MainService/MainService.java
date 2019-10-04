@@ -27,7 +27,7 @@ public class MainService {
 		if(memberList != null) {
 			//System.out.println("아이디 일치");
 			if(memberList.getM_pw().equals(member.getM_pw())) {
-				System.out.println("로그인성공");				
+				//System.out.println("로그인성공");				
 				map.put("memberList", memberList);
 				session.setAttribute("SID", memberList.getM_id());
 				session.setAttribute("SLEVEL", memberList.getM_level());
