@@ -28,7 +28,7 @@
 							  	<input type="text" class="form-control" placeholder="Search">
 							  </div>
 							  	<button type="button" class="btn btn-theme">검색</button>
-							  	<button type="button" class="btn btn-theme pull-right">계약 추가</button>				
+							  	<button type="button" class="btn btn-theme pull-right"><a th:href="@{/contractInsert}" style="color:#ffffff">계약 추가</a></button>				
 			                <!--  조건입력END -->
 			                <br/>
 			                <br/>
@@ -37,7 +37,7 @@
 			                    <th th:if="${session.SID.equals('MASTER1')}">계약코드</th>
 			                    <th th:if="${session.SID.equals('MASTER1')}">계약단가코드</th>
 			                    <th>학원코드</th>
-			                    <th>등록아이디</th>
+			                    <th>계약담당자</th>
 			                    <th>계약일</th>
 			                    <th>서비스시작일</th>
 			                    <th>서비스종료일</th>

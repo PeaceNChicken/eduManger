@@ -17,7 +17,7 @@
 			contract_end, 
 			contract_valid, 
 			contract_state, 
-			contarct_price, 
+			contract_price, 
 			contract_price_sys, 
 			contract_pay, 
 			contract_unpay

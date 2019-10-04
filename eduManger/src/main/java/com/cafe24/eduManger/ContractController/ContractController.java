@@ -29,5 +29,9 @@ public class ContractController {
 		return "/contract/contractList";
 	}
 	
+	@GetMapping("/contractInsert")
+	public String contractInsert() {
+		return "/contract/contractInsert";
+	}
 	
 }
