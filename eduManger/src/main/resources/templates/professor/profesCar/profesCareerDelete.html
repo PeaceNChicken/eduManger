@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
 </head>
-<body>
-강사경력 인설트 페이지입니다.
-
-</body>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-sm-12 main-chart">
+				<div class="content-panel">
+            		    <div class="form-panel">
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 강사경력정보 삭제하기</h2>
+					<br/>
+					<div class="container">
+				
+					<!-- *************************************************
+							강사경력정보삭제 
+						*************************************************-->						
+						 <form>
+						 	 <table class="table table table-striped table-advance table-hover">
+						    <thead>
+						      <tr>
+						        <th>강사경력정보코드</th>
+						        <th>강사아이디</th>
+						        <th>강사이력</th>
+						        <th>기관명</th>
+						        <th>기관근무시작일</th>
+						        <th>기관근무종료일</th>
+						        <th>등록자아이디</th>
+						        <th>정보등록일</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr>
+						        <td>idprcar001</td>
+						        <td>idpr01</td>
+						        <td>하버드수석입학</td>
+						        <td>하버드대학교</td>
+						        <td>2007-10-11</td>
+						        <td>2011-11-12</td>
+						        <td>idad001</td>
+						        <td>2019-12-31</td>
+						      </tr>
+						    </tbody>
+						  </table>
+						  <button type="button" class="btn btn-theme" onclick="location.href='getprofesCareer'">삭제하기</button>
+						 </form>
+					<!-- *************************************************
+							강사경력정보삭제 END
+						*************************************************-->		  
+						  </div>
+					</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
+				</div> <!-- grid div4End -->	
+			</div> 		
+		</section>
+	</section>
+	</th:block>
 </html>
+          
