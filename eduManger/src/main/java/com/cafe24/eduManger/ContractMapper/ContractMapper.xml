@@ -6,5 +6,23 @@
 
 <mapper namespace="com.cafe24.eduManger.ContractMapper.ContractMapper">
 
+	<select id="contractList" resultType="com.cafe24.eduManger.ContractVo.Contract">
+		SELECT 
+			contract_code, 
+			contract_price_code, 
+			ac_code, 
+			member_id, 
+			contract_date, 
+			contract_start, 
+			contract_end, 
+			contract_valid, 
+			contract_state, 
+			contarct_price, 
+			contract_price_sys, 
+			contract_pay, 
+			contract_unpay
+		FROM 
+			contract
+	</select>
 	
 </mapper>
