@@ -27,83 +27,85 @@
 					<!-- *************************************************
 							성적정보 등록 폼 START
 						*************************************************-->
-						학년
-						<select>
-							<option>중학교 1학년</option>
-							<option>중학교 2학년</option>
-							<option>중학교 3학년</option>
-							<option>고등학교 1학년</option>
-							<option>고등학교 2학년</option>
-							<option>고등학교 3학년</option>
-						</select>
-						학기
-						<select>
-							<option>1학기</option>
-							<option>2학기</option>
-
-						</select>
-						시험분류
-						<select>
-							<option>중간고사</option>
-							<option>기말고사</option>
-							<option>모의고사</option>
-						</select>
-						 <p class="text-right"> <button type="button" class="btn btn-theme">저장</button></p>      
-						 <table class="table table table-striped table-advance table-hover  text-center">
-						    <thead> <!-- 왜 텍스트 가운데정렬이 안되냐!!!!!!!!!!!!!!!11 -->
-						      <tr>
-						        <!-- <th>학생별학교성적정보코드</th>
-						        <th>학원코드</th>
-						        <th>학생아이디</th> 아이디에 권한정보 설정되어있으므로 자동등록가능 -->
-						        <th>과목명</th>
-						        <th>점수</th>
-						        <th>등급</th>
-						        <th>시험일</th> 
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr>
-						        <!-- <td>stu_score001</td>
-						        <td>ac01</td>
-						        <td>id001</td> 아이디에 권한정보 설정되어있으므로 자동등록가능 (이후생략) -->
-						        <td>국어</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						      <tr>
-						        <td>영어</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						       <tr>
-						        <td>수학</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						       <tr>
-						        <td>사회</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						      <tr>
-						        <td>과학</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						      <tr>
-						        <td>한국사</td>
-						        <td><input type="text"></td>
-						        <td><input type="text"></td>
-						        <td><input type="date"></td>
-						      </tr>
-						    </tbody>
-						  </table>
-						 
+						<form action="/postStuScoreList" method="post">
+						
+							학년
+							<select>
+								<option>중학교 1학년</option>
+								<option>중학교 2학년</option>
+								<option>중학교 3학년</option>
+								<option>고등학교 1학년</option>
+								<option>고등학교 2학년</option>
+								<option>고등학교 3학년</option>
+							</select>
+							학기
+							<select>
+								<option>1학기</option>
+								<option>2학기</option>
+	
+							</select>
+							시험분류
+							<select>
+								<option>중간고사</option>
+								<option>기말고사</option>
+								<option>모의고사</option>
+							</select>
+							 <p class="text-right"> <input type="submit" class="btn btn-theme" value="저장"></p>      
+							 <table class="table table table-striped table-advance table-hover  text-center">
+							    <thead> <!-- 왜 텍스트 가운데정렬이 안되냐!!!!!!!!!!!!!!!11 -->
+							      <tr>
+							        <!-- <th>학생별학교성적정보코드</th>
+							        <th>학원코드</th>
+							        <th>학생아이디</th> 아이디에 권한정보 설정되어있으므로 자동등록가능 -->
+							        <th>과목명</th>
+							        <th>점수</th>
+							        <th>등급</th>
+							        <th>시험일</th> 
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <!-- <td>stu_score001</td>
+							        <td>ac01</td>
+							        <td>id001</td> 아이디에 권한정보 설정되어있으므로 자동등록가능 (이후생략) -->
+							        <td>국어</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							      <tr>
+							        <td>영어</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							       <tr>
+							        <td>수학</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							       <tr>
+							        <td>사회</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							      <tr>
+							        <td>과학</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							      <tr>
+							        <td>한국사</td>
+							        <td><input type="text"></td>
+							        <td><input type="text"></td>
+							        <td><input type="date"></td>
+							      </tr>
+							    </tbody>
+							  </table>
+						 </form>
 		<!-- *************************************************
 						성적정보 등록 폼 END 
 			*************************************************-->
