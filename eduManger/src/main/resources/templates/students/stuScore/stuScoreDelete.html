@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-sm-12 main-chart">
+				<div class="content-panel">
+            		    <div class="form-panel">
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 학생 개인별 성적정보 삭제하기</h2>
+					<br/>
+					<div class="container">
+				
+					<!-- *************************************************
+							학생 성적정보삭제 
+						*************************************************-->						
+						 <form action="/#">
+						 	 <table class="table table table-striped table-advance table-hover">
+						    <thead>
+										<tr>
+											<th>생별학교성적정보코드</th>
+											<th>학원코드</th>
+											<th>학생아이디</th>
+											<th>과목코드</th>
+											<th>시험회차</th>
+											<th>시험분류</th>
+											<th>점수</th>
+											<th>등급</th>
+											<th>시험일</th>
+											<th>등록자아이디</th>
+											<th>최종수정일</th>								
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#{} readonly</td>
+											<td>#{} readonly</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{} readonly</td>
+											<td>#{}</td>						
+										</tr>
+									</tbody>
+						  </table>
+						  <button type="button" class="btn btn-theme" onclick="location.href='getStuScoreList'">삭제하기</button>
+						 </form>
+					<!-- *************************************************
+							학생 성적정보삭제 END
+						*************************************************-->		  
+						  </div>
+					</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
+				</div> <!-- grid div4End -->	
+			</div> 		
+		</section>
+	</section>
+	</th:block>
+</html>
+          

@@ -22,4 +22,18 @@ public class StuScoreController {
 		public String poststuScore() {
 			return "/students/stuScore/stuScoreList";
 		}
+		
+		
+		@GetMapping("/stuScoreUpdate")
+		public String stuScoreUpdate() {
+			return "/students/stuScore/stuScoreUpdate";
+		}
+		
+		@GetMapping("/stuScoreDelete")
+		public String stuScoreDelete() {
+			return "/students/stuScore/stuScoreDelete";
+		}
+		
+		
+		
 }
