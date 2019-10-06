@@ -11,7 +11,7 @@ public class Contract {
 	private String contract_end;
 	private String contract_valid;
 	private String contract_state;
-	private int contract_price;
+	private int contract_total_price;
 	private String contract_price_sys;
 	private int contract_pay;
 	private int contract_unpay;
@@ -70,11 +70,11 @@ public class Contract {
 	public void setContract_state(String contract_state) {
 		this.contract_state = contract_state;
 	}
-	public int getContract_price() {
-		return contract_price;
+	public int getContract_total_price() {
+		return contract_total_price;
 	}
-	public void setContract_price(int contract_price) {
-		this.contract_price = contract_price;
+	public void setContract_total_price(int contract_total_price) {
+		this.contract_total_price = contract_total_price;
 	}
 	public String getContract_price_sys() {
 		return contract_price_sys;
@@ -99,7 +99,7 @@ public class Contract {
 		return "Contract [contract_code=" + contract_code + ", contract_price_code=" + contract_price_code
 				+ ", ac_code=" + ac_code + ", member_id=" + member_id + ", contract_date=" + contract_date
 				+ ", contract_start=" + contract_start + ", contract_end=" + contract_end + ", contract_valid="
-				+ contract_valid + ", contract_state=" + contract_state + ", contract_price=" + contract_price
+				+ contract_valid + ", contract_state=" + contract_state + ", contract_total_price=" + contract_total_price
 				+ ", contract_price_sys=" + contract_price_sys + ", contract_pay=" + contract_pay + ", contract_unpay="
 				+ contract_unpay + "]";
 	}

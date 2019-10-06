@@ -8,4 +8,12 @@ import com.cafe24.eduManger.ContractVo.Contract;
 public interface ContractMapper {
 
 	public List<Contract> contractList();
+	
+	public int contractInsert(Contract contract);
+	
+	public Contract contractUpdateById(String contract_code);
+	
+	public int contractUpdate(Contract contract);
+	
+	public int contractDelete(String contract_code);
 }

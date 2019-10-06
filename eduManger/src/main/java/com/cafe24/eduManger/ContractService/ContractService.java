@@ -30,4 +30,19 @@ public class ContractService {
 		return map;
 	}
 	
+	public int contractInsert(Contract contract) {
+		return contractMapper.contractInsert(contract);
+	}
+	
+	public Contract contractUpdateById(String contract_code) {
+		return contractMapper.contractUpdateById(contract_code);
+	}
+	
+	public int contractUpdate(Contract contract) {
+		return contractMapper.contractUpdate(contract);
+	}
+	
+	public int contractDelete(String contract_code) {
+		return contractMapper.contractDelete(contract_code);
+	}
 }

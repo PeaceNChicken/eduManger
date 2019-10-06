@@ -41,7 +41,6 @@
 		</trim>
 	</select>
 	
-	
 	<insert id="contractAcademyInsert" parameterType="com.cafe24.eduManger.ContractVo.ContractAcademy">
  		INSERT INTO academy
 			(
