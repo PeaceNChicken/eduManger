@@ -19,6 +19,4 @@ public interface ContractAcademyMapper {
 	
 	public int contractAcademyDelete(String ac_code);
 	
-	public int contractAcademyDelete(ContractAcademy contractAcademy);
-	
 }

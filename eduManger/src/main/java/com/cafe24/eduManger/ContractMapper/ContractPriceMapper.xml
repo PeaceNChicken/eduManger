@@ -35,4 +35,36 @@
 			NOW()
 			)
 	</insert>
+	
+	<select id="contractPriceUpdateById" parameterType="String" resultType="com.cafe24.eduManger.ContractVo.ContractPrice">
+ 		SELECT 
+			contract_price_code, 
+			member_id, 
+			contract_price_money, 
+			contract_price_etc, 
+			contract_price_date
+		FROM 
+			contract_price
+		WHERE
+			contract_price_code = #{contract_price_code}
+ 	</select>
+ 	
+ 	<update id="contractPriceUpdate" parameterType="com.cafe24.eduManger.ContractVo.ContractPrice">
+	 	UPDATE contract_price
+		SET
+			member_id				=	#{member_id},
+			contract_price_money	= 	#{contract_price_money},
+			contract_price_etc		= 	#{contract_price_etc},
+			contract_price_date		= 	NOW()
+		WHERE 
+			contract_price_code		= 	#{contract_price_code}
+ 	</update>
+ 	
+ 	<delete id="contractPriceDelete" parameterType="String">
+		DELETE 
+		FROM 
+			contract_price 
+		WHERE 
+			contract_price_code = #{contract_price_code}
+ 	</delete>
 </mapper>

@@ -3,37 +3,76 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/default}">
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 </head>
-	<th:block layout:fragment="customTitle">
-		<title>index</title>
-	</th:block>
-	<th:block layout:fragment="customContents">
-		
-    <!-- **********************************************************************************************************************************************************
+<th:block layout:fragment="customTitle">
+	<title>index</title>
+</th:block>
+<th:block layout:fragment="customContents">
+
+	<!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
+	<!--main content start-->
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
 				<div class="col-lg-12 main-chart">
-					<br/>
+					<br />
 					<div class="content-panel">
-            		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 과정 추가하기 </h2>
-					<br/>
-						
-					
-					
-					
-						  <button type="button" class="btn btn-theme" > 추가 </button>
-					</div> <!-- content-panelEnd -->
-					</div> <!-- form-panelEnd -->
-				</div> <!-- grid div -->
+						<div class="form-panel">
+							<h2 class="mb"><i class="fa fa-angle-right"></i> 학년 및 수업과정 추가하기</h2>
+							<br />
+								<div class="container">
+									<table >
+										<tr>
+											<td>학원코드</td>
+											<td>
+												<select class="form-control" style="width: 250px;">
+													<option>지점명</option>
+													<option></option>
+												</select>
+											</td>
+										</tr>										
+										<tr>
+											<td>학년명</td>
+											<td>
+												<select class="form-control pull-right">
+													<option>중학교</option>
+													<option>고등학교</option>
+												</select>
+											</td>
+											<td>														
+												<select class="form-control" style="width: 250px;">
+													<option>1학년</option>
+													<option>2학년</option>
+													<option>3학년</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>수업과정</td>
+											<td>
+												<select class="form-control">
+													<option>기초반</option>
+													<option>심화반</option>
+												</select>
+											</td>
+										</tr>
+									
+									</table>
+									<p/><br/>
+									
+									<button type="button" class="btn btn-theme" onclick="location.href='getclassLevel'">추가</button>
+								</div>
+						</div>
+						<!-- content-panelEnd -->
+					</div>
+					<!-- form-panelEnd -->
+				</div>
+				<!-- grid div -->
 			</div>
 		</section>
 	</section>
-	</th:block>
+</th:block>
 </html>
-          

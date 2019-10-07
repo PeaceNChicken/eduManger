@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-sm-12 main-chart">
+				<div class="content-panel">
+            		<div class="form-panel">
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 학년 및 수업과정 분류 수정하기</h2>
+					<br/>
+						<div class="container">
+							<table class="table table table table-striped table-advance table-hover">
+									<thead>
+										<tr>
+											<th>학년 및 수업과정 분류코드</th> <!-- class_level001  -->
+											<th>학원코드</th> <!-- ac001 -->
+											<th>학년명</th>
+											<th>수업과정</th>
+											<th>등록자아이디</th>
+											<th>등록날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>${}</td>
+											<td>${}</td>
+											<td>${}</td>
+											<td>${}</td>
+											<td>${}</td>
+											<td>${}</td>
+										</tr>
+									</tbody>
+								</table>	
+								<button type="button" class="btn btn-theme" onclick="location.href='/getclassLevel'">수정완료</button>
+							</div>
+						</div> <!-- form-panelEnd -->
+					</div> <!-- content-panelEnd -->
+				</div> <!-- grid12 divEnd -->	
+			</div> 		
+		</section>
+	</section>
+	</th:block>
+</html>
+          

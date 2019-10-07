@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		#btnBox { text-align: center; }
+	</style>
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">     			
+          			<div class="content-panel">
+            		    <div class="form-panel">
+			              <h2 class="mb"><i class="fa fa-angle-right"></i> 계약 내역 수정</h2>
+			              <form action="/contractUpdate" class="form-horizontal style-form" method="post">
+				                <div class="form-group" > <!-- style="display:none"  -->
+				                  <label class="col-sm-2 col-sm-2 control-label">계약코드</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_code" name="contract_code" type="text" class="form-control" th:value="${list.contract_code}" />
+				                  </div>
+				                </div>
+				                <div class="form-group" > <!-- style="display:none"  -->
+				                  <label class="col-sm-2 col-sm-2 control-label">계약단가코드</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_price_code" name="contract_price_code" type="text" class="form-control" th:value="${list.contract_price_code}" />
+				                  </div>
+				                </div>
+				                <div class="form-group" > <!-- style="display:none"  -->
+				                  <label class="col-sm-2 col-sm-2 control-label">학원코드</label>
+				                  <div class="col-sm-10">
+				                    <input id="ac_code" name="ac_code" type="text" class="form-control" th:value="${list.ac_code}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">계약담당자</label>
+				                  <div class="col-sm-10">
+								  	<input id="member_id" name="member_id" type="text" class="form-control" th:value="${list.member_id}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">계약일</label>
+				                  <div class="col-sm-4">
+								  	<input id="contract_date" name="contract_date" type="date" class="form-control" th:value="${list.contract_date}" />
+				                  </div>
+				                  <label class="col-sm-2 col-sm-2 control-label">계약유효기간</label>
+				                  <div class="col-sm-4">
+				                    <input id="contract_valid" name="contract_valid" class="form-control" type="date" th:value="${list.contract_valid}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">서비스시작일</label>
+				                  <div class="col-sm-4">
+								  	<input id="contract_start" name="contract_start" type="date" class="form-control" th:value="${list.contract_start}" />
+				                  </div>
+				                  <label class="col-sm-2 col-sm-2 control-label">서비스종료일</label>
+				                  <div class="col-sm-4">
+				                    <input id="contract_end" name="contract_end" type="date" class="form-control" th:value="${list.contract_end}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">계약상태</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_state" name="contract_state" type="text" class="form-control" th:value="${list.contract_state}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">계약금액</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_total_price" name="contract_total_price" class="form-control" type="text" th:value="${list.contract_total_price}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">납입방식</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_price_sys" name="contract_price_sys" class="form-control" type="text" th:value="${list.contract_price_sys}" />
+				                  </div>
+				                </div>		
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">납입금액</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_pay" name="contract_pay" class="form-control" type="text" th:value="${list.contract_pay}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">미납금액</label>
+				                  <div class="col-sm-10">
+				                    <input id="contract_unpay" name="contract_unpay" class="form-control" type="text" th:value="${list.contract_unpay}" />
+				                  </div>
+				                </div>	
+				                <div style="text-align:center">
+				                	<button type="submit" class="btn btn-theme btn-lg">수정하기</button>
+				                </div>			
+			              </form>
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</section>
+	</section>
+	</th:block>
+</html>
+           
+          
+           

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe24.eduManger.ContractMapper.ContractMapper">
+
+	<select id="contractList" resultType="com.cafe24.eduManger.ContractVo.Contract">
+		SELECT
+			contract_code,
+			contract_price_code,
+			c.ac_code				AS ac_code,
+			a.ac_name 				AS ac_name, 
+			c.member_id				AS member_id, 
+			contract_date, 
+			contract_start, 
+			contract_end, 
+			contract_valid, 
+			contract_state, 
+			contract_total_price, 
+			contract_price_sys,
+			contract_pay,
+			contract_unpay
+		FROM 
+			contract c
+		INNER JOIN 
+			academy a
+		ON 
+			c.ac_code = a.ac_code
+	</select>
+	
+	<insert id="contractInsert" parameterType="com.cafe24.eduManger.ContractVo.Contract">
+		INSERT INTO contract
+			(
+			contract_code, 
+			contract_price_code, 
+			ac_code, 
+			member_id, 
+			contract_date, 
+			contract_start, 
+			contract_end, 
+			contract_valid, 
+			contract_state, 
+			contract_total_price, 
+			contract_price_sys, 
+			contract_pay, 
+			contract_unpay
+			)
+		VALUES 
+			(
+			#{contract_code}, 
+			#{contract_price_code}, 
+			#{ac_code}, 
+			#{member_id}, 
+			#{contract_date}, 
+			#{contract_start}, 
+			#{contract_end}, 
+			#{contract_valid}, 
+			#{contract_state}, 
+			#{contract_total_price}, 
+			#{contract_price_sys}, 
+			#{contract_pay}, 
+			#{contract_unpay}
+			)
+	</insert>
+	
+	<select id="contractUpdateById" parameterType="String" resultType="com.cafe24.eduManger.ContractVo.Contract">
+		SELECT 
+			contract_code, 
+			contract_price_code, 
+			ac_code, 
+			member_id, 
+			contract_date, 
+			contract_start, 
+			contract_end, 
+			contract_valid, 
+			contract_state, 
+			contract_total_price, 
+			contract_price_sys, 
+			contract_pay, 
+			contract_unpay
+		FROM 
+			contract
+		WHERE 
+			contract_code 			=#{contract_code}
+	</select>
+	
+	<update id="contractUpdate" parameterType="com.cafe24.eduManger.ContractVo.Contract">
+		UPDATE 
+			contract
+		SET
+			contract_price_code		=#{contract_price_code},
+			ac_code					=#{ac_code},
+			member_id				=#{member_id},
+			contract_date			=#{contract_date},
+			contract_start			=#{contract_start},
+			contract_end			=#{contract_end},
+			contract_valid			=#{contract_valid},
+			contract_state			=#{contract_state},
+			contract_total_price	=#{contract_total_price},
+			contract_price_sys		=#{contract_price_sys},
+			contract_pay			=#{contract_pay},
+			contract_unpay			=#{contract_unpay}
+		WHERE 
+			contract_code			=#{contract_code}
+	</update>
+	
+	<delete id="contractDelete" parameterType="String">
+		DELETE FROM 
+			contract 
+		WHERE 
+			contract_code			=#{contract_code}
+	</delete>
+</mapper>

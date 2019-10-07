@@ -24,10 +24,6 @@
 							<h2><i class="fa fa-angle-right"></i>계약 단가표</h2>
 							<hr/>
 							<!-- 조건입력창 -->
-							<div class="col-sm-6">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-								<button type="button" class="btn btn-theme">검색</button>
 								<button type="button" class="btn btn-theme pull-right"><a href="/contractPriceInsert" style="color:#ffffff">계약단가 추가</a></button>				
 							<!--  조건입력END -->
 							<br/>
@@ -51,20 +47,47 @@
 			                    <td th:text="${cp.contract_price_etc}"></td>
 			                    <td th:text="${cp.contract_price_date}"></td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">
-			                      <button class="btn btn-primary btn-xs"><a href="/contractPriceUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+			                      <button class="btn btn-primary btn-xs"><a th:href="@{/contractPriceUpdateById(contract_price_code=${cp.contract_price_code})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
 			                    </td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">
-			                      <button class="btn btn-danger btn-xs"><a href="/contractPriceDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-contract_price_code="${cp.contract_price_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>
 						</table>
+						<!-- The Modal -->
+						  <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          <h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						<!-- The Modal END -->						
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	</section>
-	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnDelete').click(function(){				
+					var contract_price_code = $(this).attr('data-contract_price_code');
+					$('#deleteBtn').val(contract_price_code);			
+					$('#deleteModal').modal('show');
+				})
+				$('#deleteBtn').click(function(){
+					var contract_price_code = $(this).val();									
+					//alert(contract_price_code);
+					location.href = '/contractPriceDelete?contract_price_code=' + contract_price_code;
+				});
+			});
+		</script>	
 	</th:block>
 </html>

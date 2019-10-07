@@ -5,13 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>계약목록</title>
-<script>
-	$(document).ready(function(){
-		$('deleteBtn').click(function(){
-			console.log('확인');
-		});
-	});
-</script>
+
 </head>
 	<th:block layout:fragment="customTitle">
 		<title>index</title>
@@ -38,6 +32,7 @@
 								 	<select name="cak" class="form-control">
 								 		<option value="select">선택</option>
 								 		<option value="ac_name">학원이름</option>
+								 		<option value="ac_location">지점명</option>
 								 		<option value="member_id">계약담당자</option>
 								 	</select>					 									  	
 								</div>
@@ -59,7 +54,7 @@
 							</form>
 								<div class="col-sm-1 col-sm-offset-3">
 									<button type="button" class="btn btn-theme"><a href="/contractAcademyInsert" style="color:#ffffff">지점 추가</a></button>
-								</div>				
+								</div>
 							</div>
 							<!--  조건입력END -->
 							<br/>
@@ -86,11 +81,10 @@
 			                    <td th:text="${ca.ac_date}"></td>
 			                    <td th:text="${ca.member_id}"></td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">
-			                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-check"></i></button>
 			                      <button class="btn btn-primary btn-xs"><a th:href="@{/contractAcademyUpdateById(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
 			                    </td>
 			                    <td th:if="${session.SID.equals('MASTER1')}">  
-			                      <button class="btn btn-danger btn-xs"><a th:href="@{/contractAcademyDelete(ac_code=${ca.ac_code})}" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-ac_code="${ca.ac_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>
@@ -103,7 +97,7 @@
 						          <h4>정말 삭제하시겠습니까?</h4>
 						        </div>
 						        <div class="modal-footer">
-						          <button class="btn btn-danger">YES</button>
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
 						        </div>
 						      </div>
 						    </div>
@@ -116,7 +110,20 @@
 
 	</section>
 	</section>
-	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnDelete').click(function(){				
+					var ac_code = $(this).attr('data-ac_code');
+					$('#deleteBtn').val(ac_code);			
+					$('#deleteModal').modal('show');
+				})
+				$('#deleteBtn').click(function(){
+					var ac_code = $(this).val();									
+					//alert(ac_code);
+					location.href = '/contractAcademyDelete?ac_code='+ ac_code;
+				});
+			});
+		</script>
 	</th:block>
 </html>
 

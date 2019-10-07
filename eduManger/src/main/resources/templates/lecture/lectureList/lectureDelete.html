@@ -20,44 +20,56 @@
 				<div class="col-sm-12 main-chart">
 				<div class="content-panel">
             		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 과목 수정하기</h2>
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 강의 삭제하기 </h2>
 					<br/>
 					<div class="container">
-										
+				
+					<!-- *************************************************
+							강의삭제하기 
+						*************************************************-->						
 						 <table class="table table table-striped table-advance table-hover">
 						    <thead>
 						      <tr>
-						      	<th>과목코드</th>	<!-- sub_code -->
-						        <th>학원코드</th> <!-- ac_code -->
-						        <th>과목명</th> <!-- sub_name -->						   
+						        <th>강의코드</th>
+						        <th>학원코드</th>
+						        <th>강사아이디</th>
+						        <th>강의실코드</th>
+						        <th>과목코드</th>
+						        <th>등록학생인원</th> 
+						        <th>학년 및 수업과정 분류 코드</th>
+						        <th>등록자아이디</th>
+						        <th>등록날짜</th>
 						      </tr>
 						    </thead>
 						    <tbody>
 						      <tr>
-						      	<td>
-						      		<span th:text="${sub_code}"></span>
-						      	</td>
-						      	<td> 
-						      		<select class="form-control" style="width:200px;">
-										<option>검색목록</option>
-										<option>과목코드</option>
-										<option>학원코드</option>
-										<option>과목명</option>
-									</select>
-						      	</td>
-						        <td>
-						        	<input type="text" class="form-control" style="width:200px;">
-						        </td>
-						        <td>
-						        	<input type="button" class="btn btn-theme" onclick="location.href='/getsubjectList'" value="수정완료">
-						        </td>
+						      	<td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
+						        <td> ${} </td>
 						      </tr>						     
 						    </tbody>
 						  </table>
+					
+					<p>
+					정말 이 강의를 삭제하시겠습니까?
+					</p>	 
+					<button type="button" class="btn btn-theme" onclick="location.href='/getlecture'">삭제하기</button>
+					
+					<!-- *************************************************
+							강의삭제하기 END
+						*************************************************-->		  
+						 
+						 
 						  </div>
 					</div> <!-- form-panelEnd -->
 					</div> <!-- content-panelEnd -->
-				</div> <!-- grid12 divEnd -->	
+				</div> <!-- grid div4End -->	
 			</div> 		
 		</section>
 	</section>

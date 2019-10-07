@@ -16,7 +16,14 @@ public class LectureController {
 		return "/lecture/lectureList/lectureInsert";
 	}
 	
+	@GetMapping("/lectureUpdate")
+	public String lectureUpdate() {
+		return "/lecture/lectureList/lectureUpdate";
+	}
 	
-	
+	@GetMapping("/lectureDelete")
+	public String lectureDelete() {
+		return "/lecture/lectureList/lecturedelete";
+	}
 	
 }
