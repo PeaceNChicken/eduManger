@@ -1,5 +1,5 @@
 package com.cafe24.eduManger.LectureVo;
-
+//vo
 public class Subject {
 	
 	private String sub_code;

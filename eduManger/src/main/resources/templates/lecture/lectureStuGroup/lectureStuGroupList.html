@@ -17,112 +17,30 @@
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
-				<div class="col-lg-9 main-chart">
-				<div class="content-panel">
-            		    <div class="form-panel">
-					 <h2 class="mb"><i class="fa fa-angle-right"></i>개설된 강의</h2> <!-- 개설될 강의 등록, 수정, 삭제, 조회 관리 / 리스트만 CRUD -->
-					<br/>
-					
-						 <br/>
-						 <br/>
-						 <table class="table table-striped table-advance table-hover">
-						    <thead>
-						      <tr>
-						        <th>강의코드</th>
-						        <th>학원코드</th>
-						        <th>강사아이디</th>
-						        <th>강의실코드</th>
-						        <th>과목코드</th>
-						        <th>등록학생인원</th> <!-- 쿼리문 count쓰면됨 -->
-						        <th>학년 및 수업과정 분류 코드</th>
-						        <th>등록자아이디</th>
-						        <th>등록날짜</th>
-						        <th>수정</th>
-						        <th>삭제</th>
-						      </tr>
-						    </thead>
-						    <tbody> <!-- thymeleaf로 반복문을 돌려 내용을 삽입...! -->
-						      <tr>
-						        <td>lecture001</td>
-						        <td>ac001</td>
-						        <td>idpr001</td>
-						        <td>cla201</td>
-						        <td>subject001</td>
-						        <td>14</td>
-						        <td>class_level001</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						     <tr>
-						        <td>lecture002</td>
-						        <td>ac001</td>
-						        <td>idpr002</td>
-						        <td>cla202</td>
-						        <td>subject002</td>
-						        <td>17</td>
-						        <td>class_level002</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						      <tr>
-						        <td>lecture003</td>
-						        <td>ac001</td>
-						        <td>idpr003</td>
-						        <td>cla301</td>
-						        <td>subject003</td>
-						        <td>22</td>
-						        <td>class_level003</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						    </tbody>
-						  </table>
-					</div> <!-- table divEnd -->
-					</div><!-- form-panelEnd -->
-					
+				<div class="col-lg-9 main-chart">				
 					<div class="content-panel">
             		    <div class="form-panel">
             		    
-            		     <h2 class="mb"><i class="fa fa-angle-right"></i>강의 상세정보 -수강생 리스트</h2>
-            		    	<form action="">
-            		    		 <table class="table table-striped table-advance table-hover">
-								    <thead>
-								      <tr>
-								        <th>강의코드</th>
-								        <th>학원코드</th>
-								        <th>강사아이디</th>
-								        <th>강의실코드</th>
-								        <th>과목코드</th>
-								        <th>등록학생인원</th> <!-- 쿼리문 count쓰면됨 -->
-								        <th>학년 및 수업과정 분류 코드</th>
-								        <th>등록자아이디</th>
-								        <th>등록날짜</th>
-								        <th>수정</th>
-								        <th>삭제</th>
-								      </tr>
-								    </thead>
-								    <tbody> <!-- thymeleaf로 반복문을 돌려 내용을 삽입...! -->
-								      <tr>
-								        <td>lecture001</td>
-								        <td>ac001</td>
-								        <td>idpr001</td>
-								        <td>cla201</td>
-								        <td>subject001</td>
-								        <td>14</td>
-								        <td>class_level001</td>
-								        <td>idad001</td>
-								        <td>2019-08-03</td>
-								        <td><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
-								        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
-								      </tr>
-								    </tbody>
-								  </table>
+            		     <h2 class="mb"><i class="fa fa-angle-right"></i>강의를 등록한 학생 리스트</h2>
+            		    	<form action="#">
+            		    		<table class="table table-striped table-advance table-hover">
+				               		<thead>
+				               			<tr>
+				               				<th>학생명</th>
+				               				<th>재학중인 학교</th>
+				               				<th>본인연락처</th>
+				               				<th>강의등록일</th>
+				               			</tr>
+				               		</thead>
+				               		<tbody>
+				               			<tr>
+				               				<td> 김1</td>
+				               				<td> 전주중학교 </td>
+				               				<td> 010-1111-1111</td>
+				               				<td> 2019-01-01</td>
+				               			</tr>
+				               		</tbody>
+				               	</table>
             		    	</form>
             		    </div>
             		</div>
