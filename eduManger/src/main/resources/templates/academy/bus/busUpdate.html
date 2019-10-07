@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 main-chart">
+<!-- **********************************************form 화면******************************************************** -->		
+          			<div class="content-panel">
+            		    <div class="form-panel">
+			              <h2 class="mb"><i class="fa fa-angle-right"></i>차량정보수정</h2>
+			              <form class="form-horizontal style-form" method="get">
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">차량번호</label>
+			                  <div class="col-sm-7">
+			                    <input type="text" class="form-control" th:value="${busUpdate.bus_code}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">학원코드</label>
+			                  <div class="col-sm-7">
+			                    <input type="text" class="form-control" th:value="${busUpdate.ac_code}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">차종</label>
+			                   <div class="col-sm-7">
+			                    <input type="text" class="form-control" th:value="${busUpdate.bus_cate}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">기사성함</label>
+			                  <div class="col-sm-7">
+			                    <input type="text" class="form-control" th:value="${busUpdate.bus_driver}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">호차번호</label>
+			                  <div class="col-sm-7">
+			                    <input class="form-control" id="disabledInput" type="text" th:value="${busUpdate.bus_num}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">승차정원</label>
+			                  <div class="col-sm-7">
+			                    <input class="form-control" id="disabledInput" type="text" th:value="${busUpdate.bus_limit}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">등록자아이디</label>
+			                  <div class="col-sm-7">
+			                    <input type="text" class="form-control" th:value="${busUpdate.member_id}">
+			                  </div>
+			                </div>
+			                <div class="form-group">
+			                  <label class="col-sm-2 col-sm-2 control-label">등록날짜</label>
+			                  <div class="col-sm-7">
+			                    <input type="date" class="form-control" th:value="${busUpdate.bus_date}">
+			                  </div>
+			                  </div>
+			                  <div style="text-align:center">
+				                <a href="/busList"><button type="submit" class="btn btn-theme btn-lg">수정</button></a>
+				             </div>	
+       					  </form>
+    				       </div>
+   						  </div>
+    				   </div>
+    				 </div>
+    			</section>
+   			</section>
+	  </th:block>
+ </html>
+			          

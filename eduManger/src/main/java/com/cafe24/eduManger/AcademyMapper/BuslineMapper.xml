@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.cafe24.eduManger.AcademyMapper.BuslineMapper">
+	<select id="getBuslineList" resultType="com.cafe24.eduManger.AcademyVo.Busline">
+	
+	SELECT 
+		line_code
+		,ac_code
+		,member_id
+		,line_num
+		,line_info
+		,line_date
+	FROM 
+		bus_line
+			
+	</select>
+	
+	<select id="getBuslineUpdate" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Busline">
+	
+	SELECT 
+		line_code
+		,ac_code
+		,member_id
+		,line_num
+		,line_info
+		,line_date
+	FROM 
+		bus_line
+	WHERE 
+		line_code=#{busline}
+	
+	</select>
+	
+</mapper>
