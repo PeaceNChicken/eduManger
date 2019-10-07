@@ -20,40 +20,50 @@
 				<div class="col-sm-12 main-chart">
 				<div class="content-panel">
             		    <div class="form-panel">
-					<h2 class="mb"><i class="fa fa-angle-right"></i> 과목 추가하기</h2>
+					<h2 class="mb"><i class="fa fa-angle-right"></i> 학생 개인별 성적정보 삭제하기</h2>
 					<br/>
 					<div class="container">
 				
 					<!-- *************************************************
-							과목추가하기 
+							학생 성적정보삭제 
 						*************************************************-->						
-						 <table class="table table table-striped table-advance table-hover">
+						 <form action="/#">
+						 	 <table class="table table table-striped table-advance table-hover">
 						    <thead>
-						      <tr>
-						        <th>학원코드</th> <!-- ac_code -->
-						        <th>과목명</th> <!-- sub_name -->
-						        <th>추가</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr>
-						      	<td> 
-						      		<select class="form-control">
-						      			<option>지점선택</option>
-						      			<option>${}</option>
-						      		</select>
-						      	</td>
-						        <td>
-						        	<input type="text" class="form-control">
-						        </td>
-						        <td>
-						        	<button type="button" class="btn btn-theme" onclick="location.href='getsubjectList'">과목 추가</button>
-						        </td>
-						      </tr>						     
-						    </tbody>
+										<tr>
+											<th>생별학교성적정보코드</th>
+											<th>학원코드</th>
+											<th>학생아이디</th>
+											<th>과목코드</th>
+											<th>시험회차</th>
+											<th>시험분류</th>
+											<th>점수</th>
+											<th>등급</th>
+											<th>시험일</th>
+											<th>등록자아이디</th>
+											<th>최종수정일</th>								
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>#{} readonly</td>
+											<td>#{} readonly</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{}</td>
+											<td>#{} readonly</td>
+											<td>#{}</td>						
+										</tr>
+									</tbody>
 						  </table>
+						  <button type="button" class="btn btn-theme" onclick="location.href='getStuScoreList'">삭제하기</button>
+						 </form>
 					<!-- *************************************************
-							과목추가하기 END
+							학생 성적정보삭제 END
 						*************************************************-->		  
 						  </div>
 					</div> <!-- form-panelEnd -->

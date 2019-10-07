@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cafe24.eduManger.LectureService.SubjectService;
 import com.cafe24.eduManger.LectureVo.Subject;
@@ -33,9 +34,13 @@ public class SubjectController {
 
 	@GetMapping("/subjectUpdate")
 	public String subjectUpdate() {
-		return "//lecture/subject/subjectUpdate";
+		return "/lecture/subject/subjectUpdate";
 	}
 	
+	@GetMapping("/subjectDelete")
+	public String subjectDelete() {
+		return "/lecture/subject/subjectDelete";
+	}
 	
 	
 }
