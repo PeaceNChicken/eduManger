@@ -78,10 +78,17 @@ var editEvent = function (event, element, view) {
 
         //일정 업데이트
         $.ajax({
-            type: "get",
-            url: "",
+            type: "post",
+            url: "/academyTimeTableUpdate",
             data: {
-                //...
+            	id : event._id,
+            	title : event.title,
+            	description : event.description,
+            	start : event.start,
+            	end : event.end,
+            	type : event.type,
+            	backgroundColor : event.backgroundColor,
+            	allDay : event.allDay
             },
             success: function (response) {
                 alert('수정되었습니다.')
@@ -99,9 +106,9 @@ var editEvent = function (event, element, view) {
         //삭제시
         $.ajax({
             type: "get",
-            url: "",
+            url: "/academyTimeTableDelete",
             data: {
-                //...
+            	id : event._id
             },
             success: function (response) {
                 alert('삭제되었습니다.');
