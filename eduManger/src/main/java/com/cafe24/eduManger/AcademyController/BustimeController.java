@@ -16,4 +16,8 @@ public class BustimeController {
 		return "/academy/bus/busTime/bustimeInsert";
 	}
 	
+	@GetMapping("/bustimeUpdate")
+	public String getBustimeUpdate() {
+		return "/academy/bus/busTime/bustimeUpdate";
+	}
 }
