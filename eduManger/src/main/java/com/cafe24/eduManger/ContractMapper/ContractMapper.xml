@@ -7,22 +7,27 @@
 <mapper namespace="com.cafe24.eduManger.ContractMapper.ContractMapper">
 
 	<select id="contractList" resultType="com.cafe24.eduManger.ContractVo.Contract">
-		SELECT 
-			contract_code, 
-			contract_price_code, 
-			ac_code, 
-			member_id, 
+		SELECT
+			contract_code,
+			contract_price_code,
+			c.ac_code				AS ac_code,
+			a.ac_name 				AS ac_name, 
+			c.member_id				AS member_id, 
 			contract_date, 
 			contract_start, 
 			contract_end, 
 			contract_valid, 
 			contract_state, 
 			contract_total_price, 
-			contract_price_sys, 
-			contract_pay, 
+			contract_price_sys,
+			contract_pay,
 			contract_unpay
 		FROM 
-			contract
+			contract c
+		INNER JOIN 
+			academy a
+		ON 
+			c.ac_code = a.ac_code
 	</select>
 	
 	<insert id="contractInsert" parameterType="com.cafe24.eduManger.ContractVo.Contract">
@@ -78,7 +83,7 @@
 		FROM 
 			contract
 		WHERE 
-			contract_code = #{contract_code}
+			contract_code 			=#{contract_code}
 	</select>
 	
 	<update id="contractUpdate" parameterType="com.cafe24.eduManger.ContractVo.Contract">

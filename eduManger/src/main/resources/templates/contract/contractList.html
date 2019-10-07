@@ -28,7 +28,7 @@
 							  	<input type="text" class="form-control" placeholder="Search">
 							  </div>
 							  	<button type="button" class="btn btn-theme">검색</button>
-							  	<button type="button" class="btn btn-theme pull-right"><a th:href="@{/contractInsert}" style="color:#ffffff">계약 추가</a></button>				
+							  	<button type="button" class="btn btn-theme pull-right" th:if="${session.SID.equals('MASTER1')}"><a th:href="@{/contractInsert}" style="color:#ffffff">계약 추가</a></button>				
 			                <!--  조건입력END -->
 			                <br/>
 			                <br/>
@@ -36,7 +36,8 @@
 			                  <tr>
 			                    <th th:if="${session.SID.equals('MASTER1')}">계약코드</th>
 			                    <th th:if="${session.SID.equals('MASTER1')}">계약단가코드</th>
-			                    <th>학원코드</th>
+			                    <th th:if="${session.SID.equals('MASTER1')}">학원코드</th>
+			                    <th>학원이름</th>
 			                    <th>계약담당자</th>
 			                    <th>계약일</th>
 			                    <th>서비스시작일</th>
@@ -55,7 +56,8 @@
 			                  <tr th:each="c: ${list}">
 			                    <td th:if="${session.SID.equals('MASTER1')}" th:text="${c.contract_code}"></td>
 			                    <td th:if="${session.SID.equals('MASTER1')}" th:text="${c.contract_price_code}"></td>
-			                    <td th:text="${c.ac_code}"></td>
+			                    <td th:if="${session.SID.equals('MASTER1')}" th:text="${c.ac_code}"></td>
+			                    <td th:text="${c.ac_name}"></td>
 			                    <td th:text="${c.member_id}"></td>
 			                    <td th:text="${c.contract_date}"></td>
 			                    <td th:text="${c.contract_start}"></td>
@@ -106,7 +108,7 @@
 					var contract_code = $(this).val();									
 					//alert(contract_code);
 					location.href = '/contractDelete?contract_code='+ contract_code;
-				});
+				});				
 			});
 		</script>	
 	</th:block>

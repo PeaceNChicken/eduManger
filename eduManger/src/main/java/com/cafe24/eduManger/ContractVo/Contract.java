@@ -1,6 +1,6 @@
 package com.cafe24.eduManger.ContractVo;
 
-public class Contract {
+public class Contract extends ContractAcademy{
 
 	private String contract_code;
 	private String contract_price_code;
