@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <div id="leftmenu" th:fragment="leftmenuFragment">
+
 	  <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
     <aside>
-      <div id="sidebar" class="nav-collapse ">
+      <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
         <!--  사진 -->
           <p class="centered"><a href="#profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h4 class="centered" style="color:#ffffff"> [[${session.SNAME}]]</h4>
-          <h5 class="centered" > [[${session.SLEVEL}]] </h5>
+          <h4 class="centered" style="color:#ffffff">[[${session.SNAME}]]</h4>
+          <h5 id="level" class="centered" >[[${session.SLEVEL}]]</h5>
           <li class="mt">
             <a class="active" href="/">
               <i class="fa fa-dashboard"></i>
@@ -101,4 +102,5 @@
     </aside>
     <!--sidebar end-->
 </div>
+
 </html>

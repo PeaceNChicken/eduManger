@@ -19,9 +19,10 @@ public class StuCounselController {
 	@Autowired
 	private StuCounselService stuCounselService;
 	
+	//학생리스트 출력
 	@GetMapping("/stuCounsel")
-	public String stuCounsel(Model model) {								
-		stuCounselService.stuList(model);
+	public String stuCounsel(Model model, HttpSession session) {								
+		stuCounselService.stuList(model,session);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	
@@ -68,11 +69,12 @@ public class StuCounselController {
 	@GetMapping("/stuCounselUpdateForm")
 	public String stuCounselUpdateForm(@RequestParam(value="counsel_code")String stuCounselCode
 								  	  ,@RequestParam(value="mId")String mId
-								  	  ,Model model) { 
+								  	  ,Model model
+								  	  ,HttpSession session) { 
 		//System.out.println(stuCounselCode + "<----- stuCounselCode com.cafe24.eduManger.StudentController.StuCounselController.stuCounselUpdateForm");
 		//System.out.println(mId + "<----- mId com.cafe24.eduManger.StudentController.StuCounselController.stuCounselUpdateForm");
 		
-		stuCounselService.stuCounselUpdateForm(stuCounselCode, mId, model);
+		stuCounselService.stuCounselUpdateForm(stuCounselCode, mId, model,session);
 		return "/students/stuCounsel/stuCounsel";
 	}
 	

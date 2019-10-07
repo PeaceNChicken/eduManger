@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,10 @@ public class StuPiService {
 	@Autowired
 	private StuPiMapper stuPiMapper;
 	
-	public List<Stu_pi> stuList(){
-		return stuPiMapper.stuList();
+	public List<Stu_pi> stuList(HttpSession session){
+		String ac_code = (String)session.getAttribute("SACODE");
+		//System.out.println(ac_code + "<---- ac_code");
+		return stuPiMapper.stuList(ac_code);
 	}
 	
 	public Stu_pi stuPi(String stuInfo) {		

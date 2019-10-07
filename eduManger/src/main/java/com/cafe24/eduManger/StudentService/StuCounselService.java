@@ -20,12 +20,15 @@ public class StuCounselService {
 	private StuCounselMapper stuCounselMapper;
 	
 //*******************학생리스트 출력**************
-	public Map<String,Object> stuList(Model model){
+	public Map<String,Object> stuList(Model model,HttpSession session){
 		Map<String,Object> map = new HashMap<String, Object>();
 		
+		String ac_code = (String)session.getAttribute("SACODE");
+		//상담리스트 초기화
+		System.out.println(ac_code);
 		StuCounsel stucounsel = new StuCounsel();
 		map.put("stuCounselUpdateForm", model.addAttribute("stuCounselUpdateForm", stucounsel));
-		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList()));
+		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList(ac_code)));
 		
 		return map;		
 	}
@@ -44,6 +47,7 @@ public class StuCounselService {
 	public Map<String,Object> stuCounselList(String mId, HttpSession session, Model model){
 		Map<String,Object> map = new HashMap<String, Object>();
 		
+		String ac_code = (String)session.getAttribute("SACODE");
 		//StuCounsel vo 초기화
 		StuCounsel stucounsel = new StuCounsel();
 		String sessionId = "";
@@ -63,7 +67,7 @@ public class StuCounselService {
 		//상담내용 초기화
 		map.put("stuCounselUpdateForm", model.addAttribute("stuCounselUpdateForm", stucounsel));
 		//학생리스트
-		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList()));
+		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList(ac_code)));
 		//상담리스트
 		map.put("stuCounselList", model.addAttribute("stuCounselList", stuCounselMapper.stuCounselList(sessionId)));
 		
@@ -85,11 +89,12 @@ public class StuCounselService {
 	}
 	
 //*************학생상담수정 폼****************
-	public Map<String,Object> stuCounselUpdateForm(String stuCounselCode, String mId, Model model) {		
+	public Map<String,Object> stuCounselUpdateForm(String stuCounselCode, String mId, Model model,HttpSession session) {		
 		Map<String,Object> map = new HashMap<String, Object>();
 		
+		String ac_code = (String)session.getAttribute("SACODE");
 		//학생리스트출력
-		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList()));
+		map.put("stuList", model.addAttribute("stuList", stuCounselMapper.stuList(ac_code)));
 		//상담리스트출력
 		map.put("stuCounselList", model.addAttribute("stuCounselList", stuCounselMapper.stuCounselList(mId)));
 		//상담내용출력

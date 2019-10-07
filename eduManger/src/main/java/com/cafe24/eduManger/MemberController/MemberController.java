@@ -2,6 +2,8 @@ package com.cafe24.eduManger.MemberController;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +21,9 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@GetMapping("/memberList")
-	public String memberList(Model model) {
+	public String memberList(Model model, HttpSession session) {
 		
-		model.addAttribute("memberList", memberService.memberList());
+		model.addAttribute("memberList", memberService.memberList(session));
 		return "/member/memberList/memberList";
 	}
 	

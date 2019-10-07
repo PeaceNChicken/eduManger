@@ -9,7 +9,7 @@ import com.cafe24.eduManger.MemberVo.Member;
 @Mapper
 public interface MemberMapper {
 	
-	public List<Member> memberList();
+	public List<Member> memberList(String ac_code);
 			
 	public Member memberUpdateForm(String m_id);
 	

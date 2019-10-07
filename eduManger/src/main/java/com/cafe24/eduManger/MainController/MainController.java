@@ -44,12 +44,29 @@ public class MainController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/levelLogin")
+	public String login(@RequestParam(value="m_id" ,required = false)String m_id
+					   ,@RequestParam(value="m_pw" ,required = false)String m_pw
+					   ,HttpSession session) {
+		
+		Member member = new Member();
+		member.setM_id(m_id);
+		member.setM_pw(m_pw);
+		mainService.login(member, session);
+		return "redirect:/";
+	}
+	
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}
+	@GetMapping("/index2")
+	public String test() {
+		return "/index2";
+	}
+	
 
 	/*
 	 * @GetMapping("/") public String MainList(Model model) { Map<String, Object>
