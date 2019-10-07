@@ -92,8 +92,7 @@ public class ContractAcademyController {
 	public String contractAcademyUpdateById(@RequestParam(value = "ac_code") String ac_code, Model model) {
 		// System.out.println(ac_code + "<-- ContractAcademyController");
 		model.addAttribute("list", contractAcademyService.contractAcademyUpdateById(ac_code));
-		// System.out.println(contractAcademyService.contractAcademyUpdateById(acCode) +
-		// "<-- controller");
+		// System.out.println(contractAcademyService.contractAcademyUpdateById(acCode) + "<-- controller");
 		return "/contract/contractAcademy/contractAcademyUpdate";
 	}
 
