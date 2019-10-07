@@ -1,5 +1,7 @@
 package com.cafe24.eduManger.StudentController;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,23 +20,24 @@ public class StuPiController {
 	
 	
 	@GetMapping("/stuPi") 
-	public String stuList(Model model) {
+	public String stuList(Model model,HttpSession session) {
 		
 		Stu_pi stuPi = new Stu_pi();
 		model.addAttribute("stuPi", stuPi);
-		model.addAttribute("stuList", stuService.stuList()); 
+		model.addAttribute("stuList", stuService.stuList(session)); 
 		return "/students/stuPi/stuPi"; 
 	}
 	 
 	
 	@GetMapping("/stuPiList")
 	public String stuPi(@RequestParam(value="stu_info_code")String stuInfo
-					   ,Model model) {		
+					   ,Model model
+					   ,HttpSession session) {		
 		
 		//System.out.println(stuService.stuPi(stuId).toString() + "<-----Stu_Pi");
 		
 		model.addAttribute("stuPi", stuService.stuPi(stuInfo));
-		model.addAttribute("stuList", stuService.stuList());
+		model.addAttribute("stuList", stuService.stuList(session));
 		return "/students/stuPi/stuPi";
 	}
 	

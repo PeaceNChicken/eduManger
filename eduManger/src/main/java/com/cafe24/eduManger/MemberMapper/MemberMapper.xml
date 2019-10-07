@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="com.cafe24.eduManger.MemberMapper.MemberMapper">
- 	<select id="memberList" resultType="com.cafe24.eduManger.MemberVo.Member">
+ 	<select id="memberList" parameterType="String" resultType="com.cafe24.eduManger.MemberVo.Member">
  		SELECT 
 			member_id AS m_id, 
 			ac_code AS ac_code, 
@@ -16,6 +16,7 @@
 			member_phone AS m_phone, 
 			member_date AS m_date
 		FROM member
+			WHERE ac_code LIKE CONCAT ('%',#{ac_code},'%')
  	</select>
  	
  	<select id="memberUpdateForm" parameterType="String" resultType="com.cafe24.eduManger.MemberVo.Member">

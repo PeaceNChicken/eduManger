@@ -2,6 +2,8 @@ package com.cafe24.eduManger.MemberService;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,12 @@ public class MemberService {
 	private MemberMapper memberMapper;
 	
 	//맴버 list
-	public List<Member> memberList(){
-		List<Member> memberList = memberMapper.memberList();
+	public List<Member> memberList(HttpSession session){
+		
+		String ac_code = (String)session.getAttribute("SACODE");
+		
+		System.out.println(ac_code + "<--- ac_code");
+		List<Member> memberList = memberMapper.memberList(ac_code);
 		//System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
 		
 		return memberList;
