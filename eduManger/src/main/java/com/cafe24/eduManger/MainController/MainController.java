@@ -33,26 +33,40 @@ public class MainController {
 	
 	@PostMapping("/login")
 	public String login(HttpSession session, Member member,Model model) {
-		
-		Map<String,Object> loginCk = mainService.login(session, member);
+		Map<String,Object> loginCk = mainService.login(member,session);		
 		String result = (String)loginCk.get("result");
-		
+					
 		if(result.equals("notId") || result.equals("notPw")) {
 			model.addAttribute("result", "아이디 혹은 비밀번호가 불일치합니다");
 			return "/login/login";
-		}
-		
-		model.addAttribute("SNAME", (String)session.getAttribute("SNAME"));
-		model.addAttribute("SLEVEL", (String)session.getAttribute("SLEVEL"));
+		}			
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("/levelLogin")
+	public String login(@RequestParam(value="m_id" ,required = false)String m_id
+					   ,@RequestParam(value="m_pw" ,required = false)String m_pw
+					   ,HttpSession session) {
+		
+		Member member = new Member();
+		member.setM_id(m_id);
+		member.setM_pw(m_pw);
+		mainService.login(member, session);
+		return "redirect:/";
+	}
+	
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}
+	@GetMapping("/index2")
+	public String test() {
+		return "/index2";
+	}
+	
 
 	/*
 	 * @GetMapping("/") public String MainList(Model model) { Map<String, Object>

@@ -3,34 +3,33 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/default}">
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 </head>
-	<th:block layout:fragment="customTitle">
-		<title>index</title>
-	</th:block>
-	<th:block layout:fragment="customContents">
-		
-    <!-- **********************************************************************************************************************************************************
+<th:block layout:fragment="customTitle">
+	<title>index</title>
+</th:block>
+<th:block layout:fragment="customContents">
+
+	<!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
+	<!--main content start-->
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
 				<div class="col-lg-9 main-chart">
-				<div class="content-panel">
-            		<div class="form-panel">
-					 <h2 class="mb"><i class="fa fa-angle-right"></i>개설된 강의 전체리스트</h2> <!-- 개설될 강의 등록, 수정, 삭제, 조회 관리 / 리스트만 CRUD -->
-					<br/>				
-				<button type="button" class="btn btn-theme pull-right" onclick="location.href='lectureInsert'">강의 추가하기</button>
-				
-					<!-- ************************************************* 
+					<div class="content-panel">
+						<div class="form-panel">
+							<h2 class="mb"><i class="fa fa-angle-right"></i>개설된 강의 전체리스트</h2>	<!-- 개설될 강의 등록, 수정, 삭제, 조회 관리 / 리스트만 CRUD -->	
+							<div align="right">
+								<button type="button" class="btn btn-theme" onclick="location.href='lectureInsert'">강의 추가하기</button>
+							</div>
+							<br /> 
+							<!-- ************************************************* 
 							검색하기 
 						*************************************************-->
-					<table>
-						<tr>
-							<td>
-								<select class="form-control" style="width:200px;">
+							<div class="col-lg-3">
+								<select class="form-control" style="width: 200px;">
 									<option>검색목록</option>
 									<option>강의코드</option>
 									<option>학원코드</option>
@@ -38,164 +37,163 @@
 									<option>강의실코드</option>
 									<option>과목코드</option>
 								</select>
-							</td>
-							<td>
-								<input type="text" class="form-control" style="width:700px;"> 
-							</td>
-							<td>
-								<button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-							</td>
-						</tr>
-					</table>
-					<!-- *************************************************
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-lg-1">
+								<button type="button" class="btn btn-secondary">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+							<!-- *************************************************
 							검색END 
 						*************************************************-->
-						 <br/>
-						 <br/>
-						 <table class="table table-striped table-advance table-hover">
-						    <thead>
-						      <tr>
-						        <th>강의코드</th>
-						        <th>학원코드</th>
-						        <th>강사아이디</th>
-						        <th>강의실코드</th>
-						        <th>과목코드</th>
-						        <th>등록학생인원</th> <!-- 쿼리문 count쓰면됨 -->
-						        <th>학년 및 수업과정 분류 코드</th>
-						        <th>등록자아이디</th>
-						        <th>등록날짜</th>
-						        <th>수정</th>
-						        <th>삭제</th>
-						      </tr>
-						    </thead>
-						    <tbody> <!-- thymeleaf로 반복문을 돌려 내용을 삽입...! -->
-						      <tr>
-						        <td>lecture001</td>
-						        <td>ac001</td>
-						        <td>idpr001</td>
-						        <td>cla201</td>
-						        <td>subject001</td>
-						        <td>14</td>
-						        <td>class_level001</td>
-						        <td>idad001</td>
-						        <td>2019-08-03</td>
-						        <td><button class="btn btn-primary btn-xs" onclick="location.href='/lectureUpdate'"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs" onclick="location.href='/lectureDelete'"><i class="fa fa-trash-o "></i></button></td>
-						      </tr>
-						    </tbody>
-						  </table>
-					</div> <!-- form-panelEnd -->
-					</div> <!-- content-panel divEnd -->
-					<div class="content-panel">
-		            	<div class="form-panel">
-		            		<h2 class="mb"><i class="fa fa-angle-right"></i>강의 상세페이지</h2>
-		            		
-		            		<table>
-		            			<thead>
-		            				<tr>
-		            					<th>
-		            						<h4>강의코드</h4>
-		            					</th>
-		            					<th>
-		            						<div> <h4><p><mark>lecture001</mark></p></h4> </div>
-		            					</th>
-		            				</tr>
-		            			</thead>
-		            		</table>
-		            		
-		            		<table class="table table-bordered">
-		            			<tbody>
-		            				<tr>
-		            					<td> 과목 </td>
-		            					<td> 국어 </td>
-		            					<td> 학년 및 수업과정 분류 </td>
-		            					<td> 중학교 1학년 </td>
-		            				</tr>
-		            				<tr>
-		            					<td> 강사명 </td>
-		            					<td> 홍1 </td>
-		            					<td> 강의실 </td>
-		            					<td> 201호 </td>
-		            				</tr>	            			
-		            			</tbody>
-		               		</table>
-		              
-		              <br/><br/>
-		               <h4> 강의를 등록한 학생 리스트 </h4>	
-		               	<table class="table table-striped table-advance table-hover">
-		               		<thead>
-		               			<tr>
-		               				<th>학생명</th>
-		               				<th>재학중인 학교</th>
-		               				<th>본인연락처</th>
-		               				<th>강의등록일</th>
-		               			</tr>
-		               		</thead>
-		               		<tbody>
-		               			<tr>
-		               				<td> 김1</td>
-		               				<td> 전주중학교 </td>
-		               				<td> 010-1111-1111</td>
-		               				<td> 2019-01-01</td>
-		               			</tr>
-		               		</tbody>
-		               	</table>
-		            		
-		            		
-		            		
-		            		
-		            		
-		            		
-		            		
-		            		
-		            		
-		            	</div>
-		            </div>
-					</div> <!-- grid9 divEnd -->
-						
-				<!-- *********************right panel************************** -->
-			
-					<div class="col-lg-3 ds">
-						         <!--COMPLETED ACTIONS DONUTS CHART-->
-						<div class="donut-main">
-						<h2 class="mb"><i class="fa fa-angle-right"></i>지점별 강의리스트</h2>
-					<!--********** 조건입력창************** -->
-							<div class="col-sm-9">
-								<select class="form-control">
-									<option>이름</option>
-									<option>재학학교</option>
-									<option>전화번호</option>
-								</select>
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="button" class="btn btn-theme">검색</button>				
-					<!--  **********조건입력END*********** -->
-							<br/>
-							<br/>
-							<br/>
-							<table class="table table-striped table-advance table-hover table-bordered">
-							  	<thead>
-							  		<tr>
-							  			<th>강의코드</th>
-							  			<th>강사아이디</th>
-							  			<th>과목</th>
-							  			<th>강의실</th>
-							  		</tr>
-							  	</thead>
-							  	<tbody>
-							  		<tr>
-							  			<td>lecture001</td>
-							  			<td>idpr01</td>
-							  			<td>subject001</td>
-							  			<td>cla201</td>
-							  		</tr>
-							  	</tbody>
+							<br /> <br />
+							<table class="table table-striped table-advance table-hover">
+								<thead>
+									<tr>
+										<th>강의코드</th>
+										<th>학원코드</th>
+										<th>강사아이디</th>
+										<th>강의실코드</th>
+										<th>과목코드</th>
+										<th>등록학생인원</th> <!-- 쿼리문 count쓰면됨 -->
+										<th>학년 및 수업과정 분류 코드</th>
+										<th>등록자아이디</th>
+										<th>등록날짜</th>
+										<th>수정</th>
+										<th>삭제</th>
+									</tr>
+								</thead>
+								<tbody> <!-- thymeleaf로 반복문을 돌려 내용을 삽입...! -->
+									<tr>
+										<td>lecture001</td>
+										<td>ac001</td>
+										<td>idpr001</td>
+										<td>cla201</td>
+										<td>subject001</td>
+										<td>14</td>
+										<td>class_level001</td>
+										<td>idad001</td>
+										<td>2019-08-03</td>
+										<td>
+											<button class="btn btn-primary btn-xs" onclick="location.href='/lectureUpdate'">
+												<i class="fa fa-pencil"></i>
+											</button>
+										</td>
+										<td>
+											<button class="btn btn-danger btn-xs" onclick="location.href='/lectureDelete'">
+												<i class="fa fa-trash-o "></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
 							</table>
+						</div>	<!-- form-panelEnd -->
+					</div>	<!-- content-panel divEnd -->
+					
+					<div class="content-panel">
+						<div class="form-panel">
+							<h2 class="mb">
+								<i class="fa fa-angle-right"></i>강의 상세페이지
+							</h2>
+
+							<table>
+								<thead>
+									<tr>
+										<th>
+											<h4>강의코드</h4>
+										</th>
+										<th>
+											<div>
+												<h4>
+													<p><mark>${lecture001}</mark></p>
+												</h4>
+											</div>
+										</th>
+									</tr>
+								</thead>
+							</table>
+
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>과목</td>
+										<td>국어</td>
+										<td>학년 및 수업과정 분류</td>
+										<td>중학교 1학년</td>
+									</tr>
+									<tr>
+										<td>강사명</td>
+										<td>홍1</td>
+										<td>강의실</td>
+										<td>201호</td>
+									</tr>
+								</tbody>
+							</table>
+							<br /> <br />
+						</div> <!-- form panel div END -->
+					</div> <!-- content panel div END -->
+				
+				<!-- 수강생 리스트 Map -->
+					<div class="content-panel">
+						<div class="form-panel">
+							<div th:text="${lectureStuGroupList}"></div>
 						</div>
-					</div> <!-- /col-lg-3 -->	
-				</div> 
+					</div>				
+				</div>	<!-- grid9 div END -->
+
+
+	<!-- *********************right panel************************** -->
+
+				<div class="col-lg-3 ds">
+					<!--COMPLETED ACTIONS DONUTS CHART-->
+					<div class="donut-main">
+
+				<!--********** 조건입력창************** -->
+						<div class="col-lg-4">
+							<select class="form-control">
+								<option>검색목록</option>
+								<option>강의코드</option>
+								<option>학원코드</option>
+								<option>강사아이디</option>
+								<option>강의실코드</option>
+								<option>과목코드</option>
+							</select> 
+						</div>
+						<div class="col-lg-6">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<div class="col-lg-2">
+							<button type="button" class="btn btn-theme">검색</button>
+						</div>
+						
+				<!--**********조건입력END*********** -->
+						<br /> <br />
+						<table
+							class="table table-striped table-advance table-hover table-bordered">
+							<thead>
+								<tr>
+									<th>강의코드</th>
+									<th>강사아이디</th>
+									<th>과목</th>
+									<th>강의실</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>lecture001</td>
+									<td>idpr01</td>
+									<td>subject001</td>
+									<td>cla201</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>	<!-- /col-lg-3 -->
+			</div>
 		</section>
-	</section>	
-	</th:block>
+	</section>
+</th:block>
 </html>
-         

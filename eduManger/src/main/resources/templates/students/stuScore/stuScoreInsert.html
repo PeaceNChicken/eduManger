@@ -29,8 +29,9 @@
 						*************************************************-->
 						<form action="/postStuScoreList" method="post">
 						
+						<div class="col-lg-4">
 							학년
-							<select>
+							<select class="form-control">
 								<option>중학교 1학년</option>
 								<option>중학교 2학년</option>
 								<option>중학교 3학년</option>
@@ -38,29 +39,34 @@
 								<option>고등학교 2학년</option>
 								<option>고등학교 3학년</option>
 							</select>
+						</div>	
+						<div class="col-lg-4">
 							학기
-							<select>
+							<select class="form-control">
 								<option>1학기</option>
 								<option>2학기</option>
 	
 							</select>
+						</div>
+						<div class="col-lg-4">	
 							시험분류
-							<select>
+							<select class="form-control">
 								<option>중간고사</option>
 								<option>기말고사</option>
 								<option>모의고사</option>
 							</select>
-							 <p class="text-right"> <input type="submit" class="btn btn-theme" value="저장"></p>      
+						</div>
+						<br>   
 							 <table class="table table table-striped table-advance table-hover  text-center">
 							    <thead> <!-- 왜 텍스트 가운데정렬이 안되냐!!!!!!!!!!!!!!!11 -->
 							      <tr>
 							        <!-- <th>학생별학교성적정보코드</th>
 							        <th>학원코드</th>
 							        <th>학생아이디</th> 아이디에 권한정보 설정되어있으므로 자동등록가능 -->
-							        <th>과목명</th>
-							        <th>점수</th>
-							        <th>등급</th>
-							        <th>시험일</th> 
+							        <th class="text-center">과목명</th>
+							        <th class="text-center">점수</th>
+							        <th class="text-center">등급</th>
+							        <th class="text-center">시험일</th> 
 							      </tr>
 							    </thead>
 							    <tbody>
@@ -105,6 +111,9 @@
 							      </tr>
 							    </tbody>
 							  </table>
+							 
+							  <input type="submit" class="btn btn-theme" value="저장">
+							  <br>
 						 </form>
 		<!-- *************************************************
 						성적정보 등록 폼 END 

@@ -9,7 +9,7 @@ import com.cafe24.eduManger.StudentVo.Stu_pi;
 @Mapper
 public interface StuPiMapper {
 	
-	public List<Stu_pi> stuList();
+	public List<Stu_pi> stuList(String ac_code);
 	
 	public Stu_pi stuPi(String stuInfo);
 	
