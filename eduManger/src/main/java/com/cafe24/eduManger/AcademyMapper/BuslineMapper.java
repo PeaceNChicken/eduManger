@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.cafe24.eduManger.AcademyVo.Busline;
+
 @Mapper
 public interface BuslineMapper {
 
-	public List<BuslineMapper> getBuslineList();
+	public List<Busline> getBuslineList();
 	
-	public BuslineMapper getBuslineUpdate(String busline);
+	public Busline getBuslineUpdate(String busline);
 }

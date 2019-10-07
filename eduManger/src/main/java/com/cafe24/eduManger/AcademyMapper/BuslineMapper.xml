@@ -17,4 +17,21 @@
 		bus_line
 			
 	</select>
+	
+	<select id="getBuslineUpdate" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Busline">
+	
+	SELECT 
+		line_code
+		,ac_code
+		,member_id
+		,line_num
+		,line_info
+		,line_date
+	FROM 
+		bus_line
+	WHERE 
+		line_code=#{busline}
+	
+	</select>
+	
 </mapper>

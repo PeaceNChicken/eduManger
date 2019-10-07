@@ -31,7 +31,6 @@
 			                <thead>
 			                  <tr>
 			                  	<th>차량등록번호</th>
-						        <th>학원코드</th>
 						        <th>차량번호</th>
 						        <th>차종</th>
 						        <th>호차번호</th>
@@ -47,7 +46,6 @@
 			                <tbody>
 			                <tr th:each="u: ${bus}">
 			                    <td th:text="${u.bus_code}"></td>
-						        <td th:text="${u.ac_code}"></td>
 						        <td th:text="${u.bus_number}"></td>
 						        <td th:text="${u.bus_cate}"></td>
 						        <td th:text="${u.bus_num}"></td>
