@@ -34,4 +34,10 @@ public class BusController {
 		model.addAttribute("busUpdate", busService.getBusUpdate(bus));
 		return "/academy/bus/busUpdate";
 	}
+	
+	@GetMapping("/busDelete")
+	public String getBusDelete(@RequestParam(value="bus")String bus, Model model) {
+		model.addAttribute("busDelete", busService.getBusDelete(bus));
+		return "redirect:/busList";
+	}
 }

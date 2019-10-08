@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		#btnBox { text-align: center; }
+	</style>
+</head>
+	<th:block layout:fragment="customTitle">
+		<title>index</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<div class="col-lg-9 main-chart">     			
+          			<div class="content-panel">
+    		    		<div class="form-panel">
+			              <h2 class="mb"><i class="fa fa-angle-right"></i> 계약 지점 삭제</h2>
+			              <form action="/contractAcademyDelete" class="form-horizontal style-form" method="post">
+				                <div class="form-group" style="display:none"> <!-- style="display:none"  -->
+				                  <label class="col-sm-2 col-sm-2 control-label">학원코드</label>
+				                  <div class="col-sm-10" style="display:none">
+				                    <input id="ac_code" name="ac_code" type="text" class="form-control" th:value="${list.ac_code}" readonly="readonly" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">학원이름</label>
+				                  <div class="col-sm-10">
+								  	<input id="ac_name" name="ac_name" type="text" class="form-control" th:value="${list.ac_name}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">지점명</label>
+				                  <div class="col-sm-10">
+				                    <input id="ac_location" name="ac_location" type="text" class="form-control" th:value="${list.ac_location}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">전화번호</label>
+				                  <div class="col-sm-10">
+				                    <input id="ac_phone" name="ac_phone" class="form-control" type="text" th:value="${list.ac_phone}" />
+				                  </div>
+				                </div>		
+				                <div class="form-group" style="display:none">
+				                  <label class="col-sm-2 col-sm-2 control-label">지점등록일</label>
+				                  <div class="col-sm-10">
+				                    <input id="ac_date" name="ac_date" type="date" class="form-control" th:value="${list.ac_date}" />
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">계약담당자</label>
+				                  <div class="col-sm-10">
+				                    <input id="member_id" name="member_id" class="form-control" type="text" th:value="${list.member_id}" />
+				                  </div>
+				                </div>	
+				                <div style="text-align:center">
+				                	<button type="submit" class="btn btn-theme btn-lg">삭제하기</button>
+				                </div>			
+			              </form>
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</section>
+	</section>
+	</th:block>
+</html>
+           
+          
+           

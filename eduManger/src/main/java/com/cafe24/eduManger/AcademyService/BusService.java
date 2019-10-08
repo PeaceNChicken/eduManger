@@ -25,4 +25,8 @@ public class BusService {
 	public Bus getBusUpdate(String bus) {
 		return busMapper.getBusUpdate(bus);
 	}
+	
+	public int getBusDelete(String bus) {
+		return busMapper.getBusDelete(bus);
+	}
 }

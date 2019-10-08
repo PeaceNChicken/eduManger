@@ -58,16 +58,44 @@
 			                      <a th:href="@{/busUpdate(bus=${u.bus_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
 			                   </td>
 			                    <td>
-			                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+			                      <button class="btn btn-danger btn-xs btnDelete" th:data-bus="${u.bus_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                 </tr>
 			                </tbody>
 				            </table>
+				            <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          <h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						          <button class="btn btn-danger" id="NoBtn" data-dismiss="modal">No</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
 		        		 </div>
 						</div>
 						</div>
 						</div>
 				</section>
 			</section>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnDelete').click(function(){				
+					var bus = $(this).attr('data-bus');
+					$('#deleteBtn').val(bus);			
+					$('#deleteModal').modal('show');
+				});
+				
+				$('#deleteBtn').click(function(){
+					var bus = $(this).val();									
+					//alert(data-bus);
+					location.href = '/busDelete?bus='+ bus;
+				});				
+			});
+		</script>	
 	</th:block>
 </html>
