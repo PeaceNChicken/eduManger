@@ -1,14 +1,21 @@
 package com.cafe24.eduManger.LectureController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.cafe24.eduManger.LectureService.LectureService;
+
 @Controller
 public class LectureController {
 	
+	@Autowired
+	private LectureService lectureService;
+	
 	@GetMapping("/getlecture")
-	public String lectureSelect() {
+	public String lectureSelect(Model model) {
+		model.addAttribute("lectureList", lectureService.lectureList());
 		return "/lecture/lectureList/lectureList";
 	}
 	

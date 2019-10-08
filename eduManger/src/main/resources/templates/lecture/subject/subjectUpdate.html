@@ -35,21 +35,16 @@
 						    <tbody>
 						      <tr>
 						      	<td>
-						      		<span th:text="${sub_code}"></span>
+						      		<input th:value="${subjectUpdate.sub_code}" readonly="readonly">
 						      	</td>
 						      	<td> 
-						      		<select class="form-control" style="width:200px;">
-										<option>검색목록</option>
-										<option>과목코드</option>
-										<option>학원코드</option>
-										<option>과목명</option>
-									</select>
+						      		<input th:valye="${subjectUpdate.ac_code}">
 						      	</td>
 						        <td>
-						        	<input type="text" class="form-control" style="width:200px;">
+						        	<input type="text" class="form-control" style="width:200px;" th:value="${subjectUpdate.sub_name}">
 						        </td>
 						        <td>
-						        	<input type="button" class="btn btn-theme" onclick="location.href='/getsubjectList'" value="수정완료">
+						        	<a href="@{/getsubjectList}"><button type="button" class="btn btn-theme">수정완료</button></a>
 						        </td>
 						      </tr>						     
 						    </tbody>
