@@ -17,13 +17,26 @@ public class SubjectService {
 	//과목 list
 	public List<Subject> subjectList() {
 		List<Subject> subjectList = subjectMapper.subjectList();
-		System.out.println(subjectList.toString() + "<--- subjectList com.cafe24.eduManger.LectureService.SubjectService.java");
+		//System.out.println(subjectList.toString() + "<--- subjectList com.cafe24.eduManger.LectureService.SubjectService.java");
 		return subjectList;		
 	}
 	
 	// 과목 insert
+	public int subjectInsert(Subject subject) {
+		//subjectMapper.subjectInsert(subject);
+		return subjectMapper.subjectInsert(subject);
+	}
 	
-		
 	
+	//과목 delete
+	public int subjectDelete(String subcodeDel) {
+		//subjectMapper.subjectDelete(subcodeDel);
+		return subjectMapper.subjectDelete(subcodeDel);
+	}
 	
+	//과목 update
+	public Subject subjectUpdate(String subcodeUp) {
+		//subjectMapper.subjectUpdate(subcodeUp);
+		return subjectMapper.subjectUpdate(subcodeUp);
+	}
 }

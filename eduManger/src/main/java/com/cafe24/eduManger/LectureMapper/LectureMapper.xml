@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.cafe24.eduManger.LectureMapper.LectureMapper">
+  
+  <select id="lectureList" resultType="com.cafe24.eduManger.LectureVo.Lecture">
+  	SELECT 
+		lecture_code AS lec_code
+		, ac_code AS ac_code
+		, member_id AS m_id
+		, room_code AS room_code
+		, member_id2 AS mem_id
+		, subject_code AS sub_code
+		, class_level_code AS clle_code
+		, lecture_stu_num AS lec_stu_num
+		, lecture_start AS lec_start
+		, lecture_end AS lec_end
+		, lecture_date AS lec_date
+	FROM
+		lecture
+  </select>
+  
+  </mapper>

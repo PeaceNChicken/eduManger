@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <!-- 
+  		*** 입력값이 무엇인지, 리턴값이 무엇인지 항상 생각해야한다..!!!!!
 		resultType : 결과반환 Object
 		parameterType : 조회결과 Object
 		파라미터의 값은 #{이름}
@@ -23,10 +24,45 @@
 			subject	
   	</select>
   		
-  	<insert id="subjectInsert" >
-  		
+  	<!-- 어차피 int로 정해져있기때문에 resultType자체를 쓰지말라고 함;; 쓰면 에러남.. -->	
+  	<insert id="subjectInsert" parameterType="com.cafe24.eduManger.LectureVo.Subject">
+  		INSERT INTO 
+			subject (
+			subject_code
+			, ac_code
+			, member_id
+			, subject_name
+			, subject_date
+			)
+		VALUES (
+			#{sub_code}
+			, 'ac001'
+			, 'id001'
+			, #{sub_name}
+			, #{sub_date}
+			)
   	</insert>
   
+  	<delete id="subjectDelete" parameterType="String">
+  		DELETE FROM 
+  			subject 
+  		WHERE 
+  			subject_code=#{subcodeDel}		
+  	</delete>
   
+  <!-- update를 하기 위해서 일단 정보를 받아와야 함 -->
+  	<select id="subjectUpdate" parameterType="String" resultType="com.cafe24.eduManger.LectureVo.Subject" >
+  		SELECT 
+			subject_code as sub_code, 
+			ac_code as ac_code, 
+			member_id as m_id, 
+			subject_name as sub_name, 
+			subject_date as sub_date
+				FROM subject
+		WHERE 
+			subject_code = #{subcodeUp}
+  	</select>
+  	
+  	
   
   </mapper>
