@@ -41,23 +41,23 @@
 				                    <th>수강료</th>
 				                    <th>비고</th>
 				                    <th>최종수정일</th>
-				                    <th>수정/삭제</th>
+				                    <th>수정</th>
+				                    <th>삭제</th>
 				                  </tr>
 				                </thead>
 				                <tbody>
-				                  <tr>
+				                  <tr th:each="l: ${list}">
+				                    <td th:text="${l.price_list_code}"></td>
+				                    <td th:text="${l.ac_code}"></td>
+				                    <td th:text="${l.lecture_code}"></td>
+				                    <td th:text="${l.member_id}"></td>
+				                    <td th:text="${l.lecture_price}"></td>
+				                    <td th:text="${l.price_list_etc}"></td>
+				                    <td th:text="${l.price_list_date}"></td>
 				                    <td>
-				                      <a href="basic_table.html#">priceLecture001</a>
-				                    </td>
-				                    <td>ac001</td>
-				                    <td>lecture001</td>
-				                    <td>idad001</td>
-				                    <td>600,000</td>
-				                    <td>월, 주5회</td>
-				                    <td>2019-09-03</td>
-				                    <td>
-				                      <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-check"></i></button>
 				                      <button class="btn btn-primary btn-xs"><a href="/priceLectureUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+				                    </td>
+				                    <td>
 				                      <button class="btn btn-danger btn-xs"><a href="/priceLectureDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 				                    </td>
 				                  </tr>				                     				                 
