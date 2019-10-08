@@ -71,11 +71,26 @@
 		                      <a th:href="@{/boardUpdate(board=${b.board_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
 		                   </td>
 		                    <td>
-		                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-		                    </td>					                    
+		                      <button class="btn btn-danger btn-xs btnDelete" th:data-board="${b.board_code}"><i class="fa fa-trash-o "></i></button>
+		                    </td>
 		                  </tr>
 		                </tbody>
 	              </table>
+	              <!-- The Modal -->
+						  <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          <h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						          <button class="btn btn-danger" data-dismiss="modal">No</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						<!-- The Modal END -->
 	               <ul class="pagination">
 					  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 					  <li class="page-item"><a class="page-link" href="boardList">1</a></li>
@@ -89,5 +104,20 @@
 				</div>
 			</section>
 			</section>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnDelete').click(function(){				
+					var board = $(this).attr('data-board');
+					$('#deleteBtn').val(board);			
+					$('#deleteModal').modal('show');
+				});
+				
+				$('#deleteBtn').click(function(){
+					var board = $(this).val();									
+					//alert(data-board);
+					location.href = '/boardDelete?board='+ board;
+				});				
+			});
+		</script>	
 	</th:block>
 </html>

@@ -12,4 +12,6 @@ public interface BusMapper {
 	public List<Bus> getBusList();
 	
 	public Bus getBusUpdate(String bus);
+	
+	public int getBusDelete(String bus);
 }

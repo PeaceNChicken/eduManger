@@ -26,5 +26,8 @@ public class BoardService {
 		return boardMapper.getBoardUpdate(board);
 	}
 	
+	public int getBoardDelete(String board) {
+		return boardMapper.getBoardDelete(board);    
+	}
 }
 

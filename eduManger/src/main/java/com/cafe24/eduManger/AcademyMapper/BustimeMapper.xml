@@ -6,18 +6,28 @@
  <mapper namespace="com.cafe24.eduManger.AcademyMapper.BustimeMapper">
  <select id="getBusTimeList" resultType="com.cafe24.eduManger.AcademyVo.Bustime">
  
-	 SELECT 
-	 	bus_time_code
-		 	,member_id
-		 	,ac_code
-		 	,bus_A_time
-		 	,bus_B_time
-		 	,car_info
-		 	,bus_station
-		 	,bus_day
-		 	,bus_time_date
-		FROM 
-			bus_time
+	SELECT 
+		bus_time_code
+		,member_id
+		,ac_code
+		,bus_A_time
+		,bus_B_time
+		,car_info
+		,bus_station
+		,bus_day
+		,bus_time_date
+	FROM 
+		bus_time
+	WHERE 
+		 bus_time_code='bus_time01' 
+		or bus_time_code='bus_time02' 
+		or bus_time_code='bus_time03' 
+		or bus_time_code='bus_time04' 
+		or bus_time_code='bus_time05'
+		or bus_time_code='bus_time06'
+		or bus_time_code='bus_time07'
+		or bus_time_code='bus_time08'	
+	
  
  </select>
  

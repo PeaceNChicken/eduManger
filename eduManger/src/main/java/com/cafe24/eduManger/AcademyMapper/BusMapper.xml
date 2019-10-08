@@ -43,4 +43,11 @@
 	
 	</select>
  
+	<delete id="getBusDelete" parameterType="String">
+		
+		DELETE FROM bus WHERE bus_code=#{bus}
+		
+	</delete>
+ 
+ 
  </mapper>

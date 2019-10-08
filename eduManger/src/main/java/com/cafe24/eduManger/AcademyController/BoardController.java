@@ -36,4 +36,12 @@ public class BoardController {
 		model.addAttribute("boardUpdate", boardService.getBoardUpdate(board));
 		return "/academy/board/boardUpdate";
 	}
+	
+	@GetMapping("/boardDelete")
+	public String getBoardDelete(@RequestParam(value="board") String board) {
+		System.out.println("게시글 삭제 완료");
+		int a = boardService.getBoardDelete(board);
+		System.out.println(a +"<-- delete 결과");
+		return "redirect:/boardList";
+	}
 }
