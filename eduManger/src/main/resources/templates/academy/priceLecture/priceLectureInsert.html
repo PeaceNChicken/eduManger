@@ -28,37 +28,43 @@
 				                <div class="form-group" style="display:none">
 				                  <label class="col-sm-2 col-sm-2 control-label">수강료 코드</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureCode" name="priceLectureCode" type="text" class="form-control" value="priceLecture001">
+				                    <input id="price_list_code" name="price_list_code" type="text" class="form-control" value="priceLecture001">
 				                  </div>
 				                </div>
-				                <div class="form-group" style="display:none">
+				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">학원 코드</label>
 				                  <div class="col-sm-10">
-				                    <input id="academyCode" name="academyCode" type="text" class="form-control" value="ac001">
+				                    <input id="ac_code" name="ac_code" type="text" class="form-control" th:value="${session.SACODE}">
 				                  </div>
 				                </div>
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">강의종류(코드)</label>
 				                  <div class="col-sm-10">
-								  	<input id="lectureCode" name="lectureCode" type="text" class="form-control">
+								  	<input id="lecture_code" name="lecture_code" type="text" class="form-control" th:value="">
+				                  </div>
+				                </div>
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">등록자아이디</label>
+				                  <div class="col-sm-10">
+				                    <input id="member_id" name="member_id" class="form-control" type="text">
 				                  </div>
 				                </div>
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">수강료</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLecture" name="priceLecture" class="form-control" type="text">
+				                    <input id="lecture_price" name="lecture_price" class="form-control" type="text">
 				                  </div>
 				                </div>				         
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">비고</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureDetail" name="priceLectureDetail" type="text" class="form-control">
+				                    <input id="price_list_etc" name="price_list_etc" type="text" class="form-control">
 				                  </div>
 				                </div>
-				                <div class="form-group">
+				                <div class="form-group" style="display:none">
 				                  <label class="col-sm-2 col-sm-2 control-label">등록날짜</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureDate" name="priceLectureDate" type="date" class="form-control" placeholder="">
+				                    <input id="price_list_date" name="price_list_date" type="date" class="form-control">
 				                  </div>
 				                </div>
 				                <div style="text-align:center">

@@ -1,22 +1,34 @@
 package com.cafe24.eduManger.AcademyController;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import java.util.Map;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.cafe24.eduManger.AcademyService.PriceLectureService;
+
 @Controller
 public class PriceLectureController {
 
-	/* @param  /priceLectureList url
-	 * @return /academy/priceLecture/priceLectureList.html 화면
-	 * @detail 학원관리-수강료 및 할인 정보를 누르면 목록 화면으로 이동한다.
+	@Autowired private PriceLectureService priceLectureService;
+	/* @param  	priceLectureList url
+	 * @return 	수강료 및 수강료 할인 정보 페이지 priceLectureList.html
+	 * @detail 	학원관리-수강료 및 할인 정보를 눌렀을 때 priceLectureList url 요청하면 priceLectureList메서드를 호출한다.
+	 * 			service단의 priceLectureList 메서드 호출해서 수강료 목록이 담긴 map객체를 리턴받아  Map 데이터 타입으로 선언한 
+	 * 			map 변수에 담고 model객체에 list라는 이름으로 map에 담겨있던 주소값들을 담는다. priceLectureList.html
+	 * 			화면으로 이동해서 타임리프 반복문으로 화면에 목록을 보여준다.
 	 */ 
 	@GetMapping("/priceLectureList")
-	public String priceLectureList() {
-		
+	public String priceLectureList(Model model) {
+		Map<String, Object> map = priceLectureService.priceLectureList();
+		System.out.println(map +"<-- priceLectureController");
+		model.addAttribute("list", map.get("list"));
 		return "/academy/priceLecture/priceLectureList";
 	}
 	
@@ -26,7 +38,6 @@ public class PriceLectureController {
 	 */
 	@GetMapping("/priceLectureInsert")
 	public String priceLectureInsert() {
-		
 		System.out.println("수강료등록화면이동");
 		return "/academy/priceLecture/priceLectureInsert";
 	}
@@ -59,7 +70,6 @@ public class PriceLectureController {
 	 */
 	@PostMapping("/priceLectureUpdate")
 	public String priceLectureUpdate(Model model) {
-		
 		System.out.println("수강료수정완료");
 		return "redirect:/priceLectureList";
 	}
