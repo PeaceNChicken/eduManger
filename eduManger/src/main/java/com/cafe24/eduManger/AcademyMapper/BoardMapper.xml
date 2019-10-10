@@ -43,4 +43,14 @@
 		 	DELETE FROM board WHERE board_code=#{board}
  
  		</delete>	
+ 		
+ 	<select id="getBoardSearch" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Bustime">
+ 	
+ 	SELECT * FROM 
+ 		board
+	WHERE 
+		board_content LIKE CONCAT ('%','board','%')
+ 	
+ 	
+ 	</select>
  </mapper>

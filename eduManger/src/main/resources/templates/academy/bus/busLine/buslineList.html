@@ -47,16 +47,46 @@
 			                      <a th:href="@{/buslineUpdate(busline=${l.line_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
 			                   </td>
 			                    <td>
-			                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+			                      <button class="btn btn-danger btn-xs btnDelete" th:data-busline="${l.line_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                 </tr>
 			               </tbody>
 		              	  </table>
+		              	     <!-- The Modal -->
+						  <div class="modal fade" id="deleteModal">
+						    <div class="modal-dialog modal-sm">
+						      <div class="modal-content">
+						        <div class="modal-body">
+						          <h4>정말 삭제하시겠습니까?</h4>
+						        </div>
+						        <div class="modal-footer">
+						          <button class="btn btn-danger" id="deleteBtn">YES</button>
+						          <button class="btn btn-danger" data-dismiss="modal">No</button>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						<!-- The Modal END -->
         			 	</div>
 					</div>
 					</div>
 				</div>
 			</section>
 			</section>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnDelete').click(function(){				
+					var busline = $(this).attr('data-busline');
+					$('#deleteBtn').val(busline);			
+					$('#deleteModal').modal('show');
+				});
+				
+				$('#deleteBtn').click(function(){
+					var busline = $(this).val();									
+					//alert(busline);
+					location.href = '/buslineDelete?busline='+ busline;
+				});				
+			});
+		</script>	
 	</th:block>
 </html>

@@ -34,4 +34,10 @@ public class BustimeController {
 		model.addAttribute("busT", bustimeService.getBustimeUpdate(busstation));
 		return "/academy/bus/busTime/bustimeUpdate";
 	}
+	
+	@GetMapping("/bustimeDelete")
+	public String getBustimeDelete(@RequestParam(value="bustime")String bustime, Model model) {
+		model.addAttribute("bustimeDelete", bustimeService.getBustimeDelete(bustime));
+		return "redirect:/bustimeList";
+	}
 }

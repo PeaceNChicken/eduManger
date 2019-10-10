@@ -12,4 +12,6 @@ public interface BuslineMapper {
 	public List<Busline> getBuslineList();
 	
 	public Busline getBuslineUpdate(String busline);
+	
+	public int getBuslineDelete(String busline);
 }

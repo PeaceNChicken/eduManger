@@ -15,4 +15,6 @@ public interface BoardMapper {
 	public Board getBoardUpdate(String board);
 
 	public int getBoardDelete(String board);
+	
+	public List<Board> getBoardSearch(String sk, String sv);
 }

@@ -28,19 +28,21 @@
 				  	<br/>
 	                <br/>
 					  	<h4>게시글검색</h4>
+					  <form action="/boardSearch">
 					  <div class="col-sm-2">								  
-					  	<select class="form-control">
-					  		<option>공지사항</option>
-							<option>자료</option>
-							<option>Q&A</option>
-							<option>입시뉴스</option>
+					  	<select  name="sk" class="form-control">
+					  		<option value="board_cate">공지사항</option>
+							<option value="board_cate">자료</option>
+							<option value="board_cate">Q&A</option>
+							<option value="board_cate">입시뉴스</option>
 					  	</select>
 					  	<br/>								  	
 					  </div>
 					  <div class="col-sm-8">
-						<input type="text" class="form-control" placeholder="Search">
+						<input name="sv" type="text" class="form-control" placeholder="Search">
 					  </div>
-					  <button type="button" class="btn btn-theme">검색</button>								  			
+					  <button type="submit" class="btn btn-theme" >검색</button>	
+					  </form>							  			
 	                <!--  조건입력END -->
 	                <br/>
 	                <br/>

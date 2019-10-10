@@ -29,5 +29,10 @@ public class BoardService {
 	public int getBoardDelete(String board) {
 		return boardMapper.getBoardDelete(board);    
 	}
+	
+	public List<Board> getBoardSearch(String sk, String sv) {
+		return boardMapper.getBoardSearch(sk, sv);
+		
+	}
 }
 

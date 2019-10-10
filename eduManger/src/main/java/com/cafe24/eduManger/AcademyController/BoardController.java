@@ -44,4 +44,15 @@ public class BoardController {
 		System.out.println(a +"<-- delete 결과");
 		return "redirect:/boardList";
 	}
+	
+	@GetMapping("boardSearch")
+	public String getBoardSearch(@RequestParam(value="sk")String sk
+								,@RequestParam(value="sv")String sv
+								,Model model) {
+		if(sv.equals("select")) {
+			return "redirect:/boardList";
+		}
+		model.addAttribute("boardList", boardService.getBoardSearch(sk, sv));		
+		return "/academy/board/boardList";
+	}
 }
