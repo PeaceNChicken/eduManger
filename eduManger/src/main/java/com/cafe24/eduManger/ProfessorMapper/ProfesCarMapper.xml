@@ -7,14 +7,14 @@
 
 <select id="ProfesCarList" resultType="com.cafe24.eduManger.ProfessorVo.ProfesCar">
 	SELECT 
-		idprcar_code
+		idprcar_code AS car_code
 		, member_id AS pr_id
 		, member2_id AS ad_id
-		, idprcar_title
-		, idprcar_co
-		, idprcar_co_start
-		, idprcar_co_end
-		, idprcar_date
+		, idprcar_title AS car_title
+		, idprcar_co AS car_co
+		, idprcar_co_start AS car_co_start
+		, idprcar_co_end AS car_co_end
+		, idprcar_date AS date
 	FROM 
 		profes_car
 

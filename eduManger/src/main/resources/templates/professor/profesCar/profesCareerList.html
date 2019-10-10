@@ -47,14 +47,14 @@
 								 </thead>
 								 <tbody>
 									<tr th:each="l:${profesCarList}">
-										<td th:text="${l.idprcar_code}"></a></td>
+										<td th:text="${l.car_code}"></a></td>
 										<td th:text="${l.pr_id}"></td>
-										<td th:text="${l.idprcar_title}"></td>
-										<td th:text="${l.idprcar_co}"></td>
-										<td th:text="${l.idprcar_co_start}"></td>
-										<td th:text="${l.idprcar_co_end}"></td>
+										<td th:text="${l.car_title}"></td>
+										<td th:text="${l.car_co}"></td>
+										<td th:text="${l.car_co_start}"></td>
+										<td th:text="${l.car_co_end}"></td>
 										<td th:text="${l.ad_id}"></td>
-										<td th:text="${l.idprcar_date}"></td>
+										<td th:text="${l.date}"></td>
 										<td><button class="btn btn-primary btn-xs" onclick="location.href='profesCarUpdate'">
 												<i class="fa fa-pencil"></i>
 											</button>

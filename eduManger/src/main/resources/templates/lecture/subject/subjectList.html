@@ -4,6 +4,12 @@
 	layout:decorate="~{layout/default}">
 <head>
 	<meta charset="UTF-8">
+	<script>
+	$(document).ready(function(){
+	  $('[data-toggle="popover"]').popover();   
+	});
+	</script>
+	
 </head>
 	<th:block layout:fragment="customTitle">
 		<title>index</title>
@@ -23,14 +29,38 @@
 					<h2 class="mb"><i class="fa fa-angle-right"></i> 현재 개설된 과목</h2>
 					
 					<div class="container">			
-						<div align="right">
-							<button type="button" class="btn btn-theme" onclick="location.href='subjectInsert'">과목 추가하기</button>
-						</div>
-						
-						<br/>
+					
+					<div align="right">
+						<form action="/subjectInsert" method="post">
+							<!-- <label>Subcode</label>
+							<input id="sub_code" name="sub_code"> -->
+							<!-- <label>acCode</label>
+							<input id="ac_code" name="ac_code"> -->
+							<!-- <label>id</label>
+							<input id="m_id" name="m_id"> -->
+							<label>현재는 권한별 설정을 해놓지 않았기때문에 버튼을 누르면 에러가 나는 것이 맞음</label><br/><!-- PK,FK키가 null허용이 되지않기때문에..! -->
+							<table>
+								<tr>
+									<td>
+										<label>과목명</label>
+									</td>
+									<td>
+										<input id="sub_name" name="sub_name" class="form-control" style="width:200px">
+									</td>
+									<td>
+										<button type="submit" class="btn btn-theme">과목 추가하기</button>	 
+									</td>
+								</tr>
+							</table>
+							<!-- <label>suDate</label>
+							<input id="sub_date" name="sub_date" type="date"> -->			 		
+						</form>	 
+					</div>	
+		
+						<br/> <br/>
 					<!-- ************************************************* 
 							검색하기 
-						*************************************************-->
+						************************************************-->
 				
 							<div class="col-md-2">
 								<select class="form-control" style="width:200px;">
@@ -83,19 +113,7 @@
 						      </tr>
 						    </tbody>
 						  </table>
-						  <form action="/subjectInsert" method="post">
-						  		<label>Subcode</label>
-						  		<input id="sub_code" name="sub_code">
-						  		<label>acCode</label>
-						  		<input id="ac_code" name="ac_code">
-						  		<label>id</label>
-						  		<input id="m_id" name="m_id">
-						  		<label>subName</label>
-						  		<input id="sub_name" name="sub_name">
-						  		<label>suDate</label>
-						  		<input id="sub_date" name="sub_date" type="date">		
-						  		<button type="submit">등록</button>	  		
-						  </form>
+						  
 					</div> <!-- table divEnd -->
 					</div> <!-- content-panelEnd -->
 					</div> <!-- form-panelEnd -->
