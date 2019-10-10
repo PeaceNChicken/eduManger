@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.AcademyService.PriceLectureService;
+import com.cafe24.eduManger.AcademyVo.PriceLecture;
 
 @Controller
 public class PriceLectureController {
@@ -37,8 +39,10 @@ public class PriceLectureController {
 	 * @detail 수강료 등록 버튼을 누르면 수강료 등록 폼이 있는 화면으로 이동한다.
 	 */
 	@GetMapping("/priceLectureInsert")
-	public String priceLectureInsert() {
+	public String priceLectureInsert(Model model) {
 		System.out.println("수강료등록화면이동");
+		model.addAttribute("subjectList", priceLectureService.subjectList());
+		model.addAttribute("classLevelList", priceLectureService.classLevelList());
 		return "/academy/priceLecture/priceLectureInsert";
 	}
 	
@@ -47,9 +51,12 @@ public class PriceLectureController {
 	 * @detail 수강료 정보를 입력하고 등록을 누르면 priceLectureList화면으로 리다이렉트 한다(DB연결 전)
 	 */
 	@PostMapping("/priceLectureInsert")
-	public String priceLectureInsert(Model model) {
-		
+	public String priceLectureInsert(@RequestParam(value="sub_code") String sub_code
+									,@RequestParam(value="class_level_code") String class_level_code
+									,PriceLecture priceLecture, HttpSession session) {
 		System.out.println("수강료등록완료");
+		priceLectureService.priceLectureInsert(sub_code, class_level_code, priceLecture, session);
+		System.out.println(sub_code +"<- sub_code priceLectureController");
 		return "redirect:/priceLectureList";
 	}
 	
