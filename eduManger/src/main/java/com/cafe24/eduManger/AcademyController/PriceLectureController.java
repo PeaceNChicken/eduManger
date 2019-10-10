@@ -42,7 +42,6 @@ public class PriceLectureController {
 	 */
 	@GetMapping("/priceLectureInsert")
 	public String priceLectureInsert(Model model) {
-		System.out.println("수강료등록화면이동");
 		model.addAttribute("subjectList", priceLectureService.subjectList());
 		model.addAttribute("classLevelList", priceLectureService.classLevelList());
 		return "/academy/priceLecture/priceLectureInsert";
@@ -56,7 +55,6 @@ public class PriceLectureController {
 	public String priceLectureInsert(@RequestParam(value="sub_code") String sub_code
 									,@RequestParam(value="class_level_code") String class_level_code
 									,PriceLecture priceLecture, HttpSession session) {
-		System.out.println("수강료등록완료");
 		priceLectureService.priceLectureInsert(sub_code, class_level_code, priceLecture, session);
 		System.out.println(sub_code +"<- sub_code priceLectureController");
 		System.out.println(class_level_code +"<- class_level_code priceLectureController");
@@ -67,10 +65,10 @@ public class PriceLectureController {
 	 * @return /academy/priceLecture/priceLectureList.html 화면
 	 * @detail 연필 모양 버튼을 누르면 priceLectureUpdate화면으로 이동
 	 */	
-	@GetMapping("/priceLectureUpdate")
-	public String priceLectureUpdate() {
-		
-		System.out.println("수강료수정화면이동");
+	@GetMapping("/priceLectureUpdateById")
+	public String priceLectureUpdateById(@RequestParam(value="price_list_code") String price_list_code) {
+		//System.out.println(price_list_code);
+		priceLectureService.priceLectureUpdateById(price_list_code);
 		return "/academy/priceLecture/priceLectureUpdate";
 	}
 	

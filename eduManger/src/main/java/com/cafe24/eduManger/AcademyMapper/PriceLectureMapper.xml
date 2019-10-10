@@ -5,30 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.cafe24.eduManger.AcademyMapper.PriceLectureMapper">
-
-	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
-		SELECT 
-			subject_code	as sub_code, 
-			ac_code, 
-			member_id		as m_id, 
-			subject_name	as sub_name, 
-			subject_date	as sub_date
-		FROM 
-			subject
-	</select>
 	
-	<select id="classLevelList" resultType="com.cafe24.eduManger.LectureVo.ClassLevel">
-		SELECT 
-			class_level_code, 
-			ac_code, 
-			member_id, 
-			class_grade, 
-			class_course, 
-			class_level_date
-		FROM 
-			class_level
-	</select>
-
 	<select id="priceLectureList" resultType="com.cafe24.eduManger.AcademyVo.PriceLectureList">
 		SELECT
 			p.price_list_code		AS price_list_code,
@@ -62,6 +39,29 @@
 			l.subject_code = s.subject_code
 	</select>
 
+	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
+		SELECT 
+			subject_code	as sub_code, 
+			ac_code, 
+			member_id		as m_id, 
+			subject_name	as sub_name, 
+			subject_date	as sub_date
+		FROM 
+			subject
+	</select>
+	
+	<select id="classLevelList" resultType="com.cafe24.eduManger.LectureVo.ClassLevel">
+		SELECT 
+			class_level_code, 
+			ac_code, 
+			member_id, 
+			class_grade, 
+			class_course, 
+			class_level_date
+		FROM 
+			class_level
+	</select>
+	
 	<select id="priceLectureMaxCount" resultType="int">
 		SELECT 
 			MAX(CAST(SUBSTRING(price_list_code, 10) AS DECIMAL))
@@ -99,6 +99,20 @@
 			)
 	</insert>
 
+	<select id="priceLectureUpdateById" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.PriceLecture">
+	SELECT 
+		price_list_code, 
+		ac_code, 
+		lecture_code, 
+		member_id, 
+		lecture_price, 
+		price_list_etc, 
+		price_list_date
+	FROM 
+		price_lecture
+	WHERE
+		price_list_code = #{price_list_code}
+	</select>
 
 </mapper>
 

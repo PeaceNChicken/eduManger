@@ -54,4 +54,9 @@ public class PriceLectureService {
 		//System.out.println(priceLecture.toString() + "<- priceLecture priceLectureService");
 		return priceLectureMapper.priceLectureInsert(priceLecture);
 	}
+	
+	public PriceLecture priceLectureUpdateById(String price_list_code) {
+		System.out.println(priceLectureMapper.priceLectureUpdateById(price_list_code) + "<-priceLectureUpdateById");
+		return priceLectureMapper.priceLectureUpdateById(price_list_code);
+	}
 }
