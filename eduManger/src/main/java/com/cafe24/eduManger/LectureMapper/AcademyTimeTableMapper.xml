@@ -5,10 +5,26 @@
   
  <mapper namespace="com.cafe24.eduManger.LectureMapper.AcademyTimeTableMapper">
  	
- 	<select id="academyTimeTableList" resultType="com.cafe24.eduManger.LectureVo.AcademyTimeTable">
- 		SELECT 
+ 	<select id="adminList" parameterType="String" resultType="com.cafe24.eduManger.MemberVo.Member">
+ 		SELECT
+			member_name AS m_name, 
+			ac_code
+		FROM member
+		WHERE member_level LIKE CONCAT ('%','관리자','%')
+		AND ac_code LIKE CONCAT ('%',#{acCode},'%')
+ 	</select>
+ 	
+ 	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
+ 		SELECT
+			subject_name AS sub_name
+		FROM subject
+ 	</select>
+ 	
+ 	<select id="academyTimeTableList" parameterType="String" resultType="com.cafe24.eduManger.LectureVo.AcademyTimeTable">
+	 	SELECT 
 			*
 		FROM ac_timetable
+		WHERE ac_code LIKE CONCAT ('%',#{acCode},'%')
  	</select>
  	
  	<select id="academyTimeTableMaxCount" resultType="int">
@@ -29,7 +45,8 @@
 			username, 
 			backgroundColor, 
 			textColor, 
-			allDay
+			allDay,
+			ac_code
 			)
 			VALUES (
 			#{_id}, 
@@ -41,7 +58,8 @@
 			#{username}, 
 			#{backgroundColor}, 
 			#{textColor}, 
-			#{allDay}
+			#{allDay},
+			#{ac_code}
 			)
  	</insert>
  	

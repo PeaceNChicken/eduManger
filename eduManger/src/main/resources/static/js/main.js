@@ -34,7 +34,7 @@ function filtering(event) {
       show_type = types.indexOf(event.type) >= 0;
     }
   }
-
+//필터링 적용시 리턴값 
   return show_username && show_type;
 }
 
@@ -158,10 +158,11 @@ var calendar = $('#calendar').fullCalendar({
    *  일정 받아옴 
    * ************** */
   events: function (start, end, timezone, callback) {
-    var request = $.ajax({
+	  var request = $.ajax({
       type: "get",
       url: "/fullCalendar",
       data: {
+    	  acCode : $('#edit-acCode').val()
         // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
       },
       success: function (response) {
@@ -238,8 +239,7 @@ var calendar = $('#calendar').fullCalendar({
       data: {
     	  id : event._id,
     	  start : newDates.startDate,
-    	  end : newDates.endDate,
-    	  
+    	  end : newDates.endDate,  	  
       },
       success: function (response) {
         alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);

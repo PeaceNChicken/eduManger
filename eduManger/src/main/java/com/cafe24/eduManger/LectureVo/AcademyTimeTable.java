@@ -1,6 +1,7 @@
 package com.cafe24.eduManger.LectureVo;
 
-public class AcademyTimeTable {
+
+public class AcademyTimeTable{
 	
 	private String _id;
 	private String title;
@@ -12,6 +13,8 @@ public class AcademyTimeTable {
 	private String backgroundColor;
 	private String textColor;
 	private boolean allDay = false;
+	private String admin_id;
+	private String ac_code;
 	public String get_id() {
 		return _id;
 	}
@@ -66,19 +69,33 @@ public class AcademyTimeTable {
 	public void setTextColor(String textColor) {
 		this.textColor = textColor;
 	}
-	public boolean getAllDay() {
+	public boolean isAllDay() {
 		return allDay;
 	}
 	public void setAllDay(boolean allDay) {
 		this.allDay = allDay;
+	}
+	public String getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
+	public String getAc_code() {
+		return ac_code;
+	}
+	public void setAc_code(String ac_code) {
+		this.ac_code = ac_code;
 	}
 	
 	@Override
 	public String toString() {
 		return "AcademyTimeTable [_id=" + _id + ", title=" + title + ", description=" + description + ", start=" + start
 				+ ", end=" + end + ", type=" + type + ", username=" + username + ", backgroundColor=" + backgroundColor
-				+ ", textColor=" + textColor + ", allDay=" + allDay + "]";
+				+ ", textColor=" + textColor + ", allDay=" + allDay + ", admin_id=" + admin_id + ", ac_code=" + ac_code
+				+ "]";
 	}
+	
 	
 	
 	
