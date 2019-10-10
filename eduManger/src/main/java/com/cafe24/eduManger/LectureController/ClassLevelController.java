@@ -1,15 +1,30 @@
 package com.cafe24.eduManger.LectureController;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.cafe24.eduManger.LectureService.ClassLevelService;
+import com.cafe24.eduManger.LectureVo.ClassLevel;
+
 
 @Controller
 public class ClassLevelController {
-	//학년 및 수업과정 분류 리스트
+	
+	@Autowired
+	private ClassLevelService ClassLevelService;
+	
+	
+	//학년 및 수업과정 분류 리스트 - db연결
 	@GetMapping("/getclassLevel")
-		public String classLevelSelect() {
+		public String classLevelSelect(Model model) {	
+			model.addAttribute("ClassLevelList", ClassLevelService.ClassLevelList());
 			return "/lecture/classLevel/classLevelList";
 		}
+
 	
 	//학년 및 수업과정 분류 추가
 	@GetMapping("/classLevelInsert")

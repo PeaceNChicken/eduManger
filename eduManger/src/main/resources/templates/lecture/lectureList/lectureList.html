@@ -4,6 +4,11 @@
 	layout:decorate="~{layout/default}">
 <head>
 <meta charset="UTF-8">
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
+</script>
 </head>
 <th:block layout:fragment="customTitle">
 	<title>index</title>
@@ -46,7 +51,7 @@
 									<i class="fa fa-search"></i>
 								</button>
 							</div>
-							<!-- *************************************************
+					<!-- *************************************************
 							검색END 
 						*************************************************-->
 							<br /> <br />
@@ -73,23 +78,27 @@
 										<td th:text="${l.lec_code}"></td>
 										<td th:text="${l.ac_code}"></td>
 										<td th:text="${l.m_id}"></td>
-										<td th:text="${room_code}"></td>
-										<td th:text="${sub_code}"></td>
-										<td th:text="${lec_stu_num}"></td>
-										<td th:text="${clle_code}"></td>
-										<td th:text="${lec_start}"></td>
-										<td th:text="${lec_end}"></td>
-										<td th:text="${mem_id}"></td>
-										<td th:text="${lec_date}"></td>
+										<td th:text="${l.room_code}"></td>
+										<td th:text="${l.sub_code}"></td>
+										<td th:text="${l.lec_stu_num}"></td>
+										<td th:text="${l.clle_code}"></td>
+										<td th:text="${l.lec_start}"></td>
+										<td th:text="${l.lec_end}"></td>
+										<td th:text="${l.mem_id}"></td>
+										<td th:text="${l.lec_date}"></td>
 										<td>
-											<button class="btn btn-primary btn-xs" onclick="location.href='/lectureUpdate'">
+											<a href="@{/lectureUpdate(lecUp=${l.lec_code})}">
+												<button class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil"></i>
-											</button>
+												</button>
+											</a>
 										</td>
 										<td>
-											<button class="btn btn-danger btn-xs" onclick="location.href='/lectureDelete'">
+											<a href="@{/lectureDelete(lecDel=${l.lec_code})}">
+											<button class="btn btn-danger btn-xs">
 												<i class="fa fa-trash-o "></i>
 											</button>
+											</a>
 										</td>
 									</tr>
 								</tbody>

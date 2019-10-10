@@ -46,15 +46,15 @@
 									</tr>
 								 </thead>
 								 <tbody>
-									<tr>
-										<td><a href="#">idprcar001</a></td>
-										<td>idpr01</td>
-										<td>하버드수석입학</td>
-										<td>하버드대학교</td>
-										<td>2007-10-11</td>
-										<td>2011-11-12</td>
-										<td>idad001</td>
-										<td>2019-12-31</td>
+									<tr th:each="l:${profesCarList}">
+										<td th:text="${l.idprcar_code}"></a></td>
+										<td th:text="${l.pr_id}"></td>
+										<td th:text="${l.idprcar_title}"></td>
+										<td th:text="${l.idprcar_co}"></td>
+										<td th:text="${l.idprcar_co_start}"></td>
+										<td th:text="${l.idprcar_co_end}"></td>
+										<td th:text="${l.ad_id}"></td>
+										<td th:text="${l.idprcar_date}"></td>
 										<td><button class="btn btn-primary btn-xs" onclick="location.href='profesCarUpdate'">
 												<i class="fa fa-pencil"></i>
 											</button>
