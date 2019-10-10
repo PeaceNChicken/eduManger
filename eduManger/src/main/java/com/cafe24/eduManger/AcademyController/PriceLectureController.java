@@ -34,9 +34,11 @@ public class PriceLectureController {
 		return "/academy/priceLecture/priceLectureList";
 	}
 	
-	/* @param  /priceLectureInsert url
-	 * @return /academy/priceLecture/priceLectureInsert.html 화면
-	 * @detail 수강료 등록 버튼을 누르면 수강료 등록 폼이 있는 화면으로 이동한다.
+	/* @param  	priceLectureInsert url, 과목, 학년 및 수업과정분류 VO객체
+	 * @return 	academy/priceLecture/priceLectureInsert.html 화면
+	 * @detail 	수강료 등록 버튼을 누르면 과목과 학년 및 수업과정 분류를 선택하면 결과적으로 강의코드를 가져올 수 있도록
+	 * 			과목, 학년 및 수업과정분류 목록을 가져오는 메서드 실행하여 리턴받은 결과값을 model객체에 담아서
+	 * 			수강료 등록화면으로 넘어가고 과목이나 학년 및 수업과정은 코드가 아닌 알아보기 쉬운 이름으로 선택하게끔 보여준다.
 	 */
 	@GetMapping("/priceLectureInsert")
 	public String priceLectureInsert(Model model) {
@@ -57,6 +59,7 @@ public class PriceLectureController {
 		System.out.println("수강료등록완료");
 		priceLectureService.priceLectureInsert(sub_code, class_level_code, priceLecture, session);
 		System.out.println(sub_code +"<- sub_code priceLectureController");
+		System.out.println(class_level_code +"<- class_level_code priceLectureController");
 		return "redirect:/priceLectureList";
 	}
 	
