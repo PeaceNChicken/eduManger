@@ -3,7 +3,6 @@ package com.cafe24.eduManger.ProfessorService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import com.cafe24.eduManger.ProfessorMapper.ProfesCarMapper;
 import com.cafe24.eduManger.ProfessorVo.ProfesCar;
@@ -20,4 +19,9 @@ public class ProfesCarService {
 	return ProfesCarList;
 	}
 
+	
+	public int ProfesCarDelete(String idprcarDel) {
+		//ProfesCarMapper.ProfesCarDelete(idprcarDel);
+		return ProfesCarMapper.ProfesCarDelete(idprcarDel);
+	}
 }

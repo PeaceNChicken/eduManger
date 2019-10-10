@@ -5,6 +5,7 @@
   
 <mapper namespace="com.cafe24.eduManger.ProfessorMapper.ProfesCarMapper">
 
+<!-- 강사이력 리스트 -->
 <select id="ProfesCarList" resultType="com.cafe24.eduManger.ProfessorVo.ProfesCar">
 	SELECT 
 		idprcar_code AS car_code
@@ -17,7 +18,15 @@
 		, idprcar_date AS date
 	FROM 
 		profes_car
-
 </select>
+
+
+<!-- 강사이력 삭제 -->
+<delete id="ProfesCarDelete" parameterType="ProfesCar">
+	DELETE FROM 
+		profes_car 
+	WHERE 
+		idprcar_code AS car_code=#{idprcarDel}
+</delete>
 
 </mapper>
