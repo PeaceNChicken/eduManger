@@ -15,6 +15,7 @@
 			c.class_course			AS class_course,
 			l.class_level_code		AS class_level_code,
 			s.subject_name			AS subject_name,
+			m.member_id				AS member_id,
 			m.member_name			AS member_name,
 			p.lecture_price			AS lecture_price,
 			p.price_list_etc		AS price_list_etc,
@@ -24,28 +25,28 @@
 		INNER JOIN
 			lecture l
 		ON
-			p.lecture_code = l.lecture_code
+			p.lecture_code 		= l.lecture_code
 		INNER JOIN
 			class_level c
 		ON 
-			l.class_level_code = c.class_level_code
+			l.class_level_code 	= c.class_level_code
 		INNER JOIN
 			member m
 		ON
-			p.member_id = m.member_id
+			p.member_id 		= m.member_id
 		INNER JOIN
 			subject s
 		ON
-			l.subject_code = s.subject_code
+			l.subject_code 		= s.subject_code
 	</select>
 
 	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
 		SELECT 
-			subject_code	as sub_code, 
+			subject_code	AS sub_code, 
 			ac_code, 
-			member_id		as m_id, 
-			subject_name	as sub_name, 
-			subject_date	as sub_date
+			member_id		AS m_id, 
+			subject_name	AS sub_name, 
+			subject_date	AS sub_date
 		FROM 
 			subject
 	</select>
@@ -54,7 +55,7 @@
 		SELECT 
 			class_level_code, 
 			ac_code, 
-			member_id, 
+			member_id			AS m_id, 
 			class_grade, 
 			class_course, 
 			class_level_date
@@ -99,20 +100,60 @@
 			)
 	</insert>
 
-	<select id="priceLectureUpdateById" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.PriceLecture">
-	SELECT 
-		price_list_code, 
-		ac_code, 
-		lecture_code, 
-		member_id, 
-		lecture_price, 
-		price_list_etc, 
-		price_list_date
-	FROM 
-		price_lecture
-	WHERE
-		price_list_code = #{price_list_code}
+	<select id="priceLectureUpdateById" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.PriceLectureList">
+		SELECT
+			p.price_list_code		AS price_list_code,
+			p.ac_code				AS ac_code,
+			p.lecture_code			AS lecture_code,
+			c.class_grade			AS class_grade,
+			c.class_course			AS class_course,
+			l.class_level_code		AS class_level_code,
+			s.subject_name			AS subject_name,
+			m.member_id				AS member_id,
+			m.member_name			AS member_name,
+			p.lecture_price			AS lecture_price,
+			p.price_list_etc		AS price_list_etc,
+			p.price_list_date		AS price_list_date
+		FROM 
+			price_lecture p
+		INNER JOIN
+			lecture l
+		ON
+			p.lecture_code 		= l.lecture_code
+		INNER JOIN
+			class_level c
+		ON 
+			l.class_level_code 	= c.class_level_code
+		INNER JOIN
+			member m
+		ON
+			p.member_id 		= m.member_id
+		INNER JOIN
+			subject s
+		ON
+			l.subject_code 		= s.subject_code
+		WHERE
+			price_list_code = #{price_list_code}
 	</select>
 
+	<update id="priceLectureUpdate" parameterType="com.cafe24.eduManger.AcademyVo.PriceLectureList">
+		UPDATE 
+			price_lecture
+		SET
+			member_id = #{member_id},
+			lecture_price=#{lecture_price},
+			price_list_etc=#{price_list_etc},
+			price_list_date=NOW()
+		WHERE 
+			price_list_code=#{price_list_code}
+	</update>
+	
+	<delete id="priceLectureDelete" parameterType="String">
+	DELETE FROM 
+		price_lecture
+	WHERE 
+		price_list_code = #{price_list_code}
+	</delete>
+	
 </mapper>
 

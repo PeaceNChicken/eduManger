@@ -4,7 +4,7 @@ public class ClassLevel {
 
 	private String class_level_code;
 	private String ac_code;
-	private String member_id;
+	private String m_id;
 	private String class_grade;
 	private String class_course;
 	private String class_level_date;
@@ -21,11 +21,11 @@ public class ClassLevel {
 	public void setAc_code(String ac_code) {
 		this.ac_code = ac_code;
 	}
-	public String getMember_id() {
-		return member_id;
+	public String getM_id() {
+		return m_id;
 	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	public String getClass_grade() {
 		return class_grade;
@@ -47,7 +47,7 @@ public class ClassLevel {
 	}
 	@Override
 	public String toString() {
-		return "ClassLevel [class_level_code=" + class_level_code + ", ac_code=" + ac_code + ", member_id=" + member_id
+		return "ClassLevel [class_level_code=" + class_level_code + ", ac_code=" + ac_code + ", m_id=" + m_id
 				+ ", class_grade=" + class_grade + ", class_course=" + class_course + ", class_level_date="
 				+ class_level_date + "]";
 	}

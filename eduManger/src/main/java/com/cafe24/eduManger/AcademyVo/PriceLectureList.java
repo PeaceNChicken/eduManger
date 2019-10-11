@@ -9,11 +9,11 @@ public class PriceLectureList {
 	private String class_course;
 	private String class_level_code;
 	private String subject_name;
+	private String member_id;
 	private String member_name;
 	private String lecture_price;
 	private String price_list_etc;
 	private String price_list_date;
-	
 	public String getPrice_list_code() {
 		return price_list_code;
 	}
@@ -56,6 +56,12 @@ public class PriceLectureList {
 	public void setSubject_name(String subject_name) {
 		this.subject_name = subject_name;
 	}
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
 	public String getMember_name() {
 		return member_name;
 	}
@@ -84,9 +90,9 @@ public class PriceLectureList {
 	public String toString() {
 		return "PriceLectureList [price_list_code=" + price_list_code + ", ac_code=" + ac_code + ", lecture_code="
 				+ lecture_code + ", class_grade=" + class_grade + ", class_course=" + class_course
-				+ ", class_level_code=" + class_level_code + ", subject_name=" + subject_name + ", member_name="
-				+ member_name + ", lecture_price=" + lecture_price + ", price_list_etc=" + price_list_etc
-				+ ", price_list_date=" + price_list_date + "]";
+				+ ", class_level_code=" + class_level_code + ", subject_name=" + subject_name + ", member_id="
+				+ member_id + ", member_name=" + member_name + ", lecture_price=" + lecture_price + ", price_list_etc="
+				+ price_list_etc + ", price_list_date=" + price_list_date + "]";
 	}
 	
 }

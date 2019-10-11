@@ -28,37 +28,36 @@
 				                <div class="form-group" style="display:none">
 				                  <label class="col-sm-2 col-sm-2 control-label">수강료 코드</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureCode" name="priceLectureCode" type="text" class="form-control" th:value="${price_list_code}" />
+				                    <input id="price_list_code" name="price_list_code" type="text" class="form-control" th:value="${list.price_list_code}" />
 				                  </div>
-				                </div>
-				                <div class="form-group" style="display:none">
-				                  <label class="col-sm-2 col-sm-2 control-label">학원 코드</label>
+				                </div>				              
+				                <div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">강의 종류</label>
 				                  <div class="col-sm-10">
-				                    <input id="academyCode" name="academyCode" type="text" class="form-control" th:value="${ac_code}" />
+				                  	<div class="col-sm-6">
+				                  	  <input type="text" class="form-control" th:value="${list.subject_name}" readonly="readonly" />
+								  	</div>
+								  	<div class="col-sm-6">
+								  	  <input type="text" class="form-control" th:value="${list.class_grade}+' - '+ ${list.class_course}" readonly="readonly" />
+								  	</div>
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">강의종류(코드)</label>
+				                  <label class="col-sm-2 col-sm-2 control-label">수강료(원)</label>
 				                  <div class="col-sm-10">
-								  	<input id="lectureCode" name="lectureCode" type="text" class="form-control" th:value="${lecture_code}" />
-				                  </div>
-				                </div>
-				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">수강료</label>
-				                  <div class="col-sm-10">
-				                    <input id="priceLecture" name="priceLecture" class="form-control" type="text" th:value="${lecture_price}" />
+				                    <input id="lecture_price" name="lecture_price" class="form-control" type="text" th:value="${list.lecture_price}" />
 				                  </div>
 				                </div>				         
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">비고</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureDetail" name="priceLectureDetail" type="text" class="form-control" th:value="${price_lecture_etc}" />
+				                    <input id="price_list_etc" name="price_list_etc" type="text" class="form-control" th:value="${list.price_list_etc}" />
 				                  </div>
 				                </div>
 				                <div class="form-group">
 				                  <label class="col-sm-2 col-sm-2 control-label">등록날짜</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceLectureDate" name="priceLectureDate" type="date" class="form-control" th:value="${price_list_date}" />
+				                    <input id="price_list_date" name="price_list_date" type="date" class="form-control" th:value="${list.price_list_date}" readonly="readonly" />
 				                  </div>
 				                </div>
 				                <div style="text-align:center">
@@ -73,7 +72,4 @@
 		</section>
 	</section>
 	</th:block>
-</html>
-           
-          
-           
+</html>      

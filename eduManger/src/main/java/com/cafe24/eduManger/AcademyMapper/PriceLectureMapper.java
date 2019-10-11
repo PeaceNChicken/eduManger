@@ -21,6 +21,10 @@ public interface PriceLectureMapper {
 		
 	public int priceLectureInsert(PriceLecture priceLecture);
 	
-	public PriceLecture priceLectureUpdateById(String price_list_code); 
+	public PriceLectureList priceLectureUpdateById(String price_list_code); 
+	
+	public int priceLectureUpdate(PriceLectureList priceLectureList);
+	
+	public int priceLectureDelete(String price_list_code);
 	
 }
