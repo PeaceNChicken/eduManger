@@ -11,4 +11,5 @@ public interface ClassLevelMapper {
 
 	public List<ClassLevel> ClassLevelList();
 
+	public int ClassLevelDel(String classLevelDelete);
 }

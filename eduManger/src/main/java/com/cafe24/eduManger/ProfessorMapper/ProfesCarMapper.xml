@@ -22,11 +22,11 @@
 
 
 <!-- 강사이력 삭제 -->
-<delete id="ProfesCarDelete" parameterType="ProfesCar">
+<delete id="ProfesCarDelete" parameterType="String">
 	DELETE FROM 
 		profes_car 
 	WHERE 
-		idprcar_code AS car_code=#{idprcarDel}
+		idprcar_code=#{idprcarDel}
 </delete>
 
 </mapper>

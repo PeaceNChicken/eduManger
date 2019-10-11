@@ -20,8 +20,8 @@ public class ProfesCarService {
 	}
 
 	
-	public int ProfesCarDelete(String idprcarDel) {
+	public int ProfesCarDelete(String profesCarDel) {
 		//ProfesCarMapper.ProfesCarDelete(idprcarDel);
-		return ProfesCarMapper.ProfesCarDelete(idprcarDel);
+		return ProfesCarMapper.ProfesCarDelete(profesCarDel);
 	}
 }

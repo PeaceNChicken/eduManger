@@ -31,8 +31,8 @@ public class ProfesCarController {
 	}
 	
 	@GetMapping("/profesCarDelete")
-	public String professorCareerDelete(@RequestParam(value="idprcarDel") String idprcarDel) {
-		profesCarService.ProfesCarDelete(idprcarDel);
+	public String professorCareerDelete(@RequestParam(value="profesCarDel") String profesCarDel) {
+		profesCarService.ProfesCarDelete(profesCarDel);
 		return "redirect:/getprofesCareer";
 	}
 	

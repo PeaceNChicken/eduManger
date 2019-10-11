@@ -17,5 +17,11 @@
 			class_level
  	</select>
  
- 
+ 	<delete id="ClassLevelDel" parameterType="String">
+ 		DELETE FROM 
+			class_level 
+		WHERE 
+			class_level_code=#{l.class_level_code}
+ 	
+ 	</delete>
  </mapper>

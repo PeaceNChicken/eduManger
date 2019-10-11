@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.LectureService.ClassLevelService;
 import com.cafe24.eduManger.LectureVo.ClassLevel;
@@ -40,7 +41,8 @@ public class ClassLevelController {
 	
 	//학년 및 수업과정 분류 삭제
 	@GetMapping("/classLevelDelete")
-		public String classLevelDelete() {
+		public String classLevelDelete(@RequestParam(value="classLevelDel") String classLevelDel) {
+		classLevelDel = classLevelService.
 			return "/lecture/classLevel/classLevelDelete";
 	}
 	

@@ -47,7 +47,7 @@
 								 </thead>
 								 <tbody>
 									<tr th:each="l:${profesCarList}">
-										<td th:text="${l.car_code}"></a></td>
+										<td th:text="${l.car_code}"></td>
 										<td th:text="${l.pr_id}"></td>
 										<td th:text="${l.car_title}"></td>
 										<td th:text="${l.car_co}"></td>
@@ -55,13 +55,19 @@
 										<td th:text="${l.car_co_end}"></td>
 										<td th:text="${l.ad_id}"></td>
 										<td th:text="${l.date}"></td>
-										<td><button class="btn btn-primary btn-xs" onclick="location.href='profesCarUpdate'">
+										<td>
+											<a th:href="@{/profesCarUpdate(profesCarUp=${l.car_code})}">
+											<button class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil"></i>
 											</button>
+											</a>
 										</td>
-										<td><button class="btn btn-danger btn-xs" onclick="location.href='profesCarDelete'">
+										<td>
+											<a th:href="@{/profesCarDelete(profesCarDel=${l.car_code})}">
+											<button class="btn btn-danger btn-xs">
 												<i class="fa fa-trash-o"></i>
 											</button>
+											</a>
 										</td>
 									</tr>
 								 </tbody>
@@ -108,8 +114,8 @@
 									</tr>
 								</table>
 							</div>
-					</div>
-					</form>
+						</div>
+						</form>
 			<!-- **********
 				조건입력END
 				*********** -->

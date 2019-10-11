@@ -11,5 +11,5 @@ public interface ProfesCarMapper {
 
 	public List<ProfesCar> ProfesCarList();
 	
-	public int ProfesCarDelete(String idprcarDel);
+	public int ProfesCarDelete(String profesCarDel);
 }
