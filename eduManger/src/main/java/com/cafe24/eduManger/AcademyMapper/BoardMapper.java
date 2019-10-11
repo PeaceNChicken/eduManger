@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.cafe24.eduManger.AcademyVo.Board;
 
-
 @Mapper
 public interface BoardMapper {
 

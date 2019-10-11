@@ -44,13 +44,20 @@
  
  		</delete>	
  		
- 	<select id="getBoardSearch" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Bustime">
+ 	<select id="getBoardSearch" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Board">
  	
  	SELECT * FROM 
  		board
-	WHERE 
-		board_content LIKE CONCAT ('%','board','%')
- 	
- 	
+	<trim prefix="WHERE" prefixOverrides="AND|OR">
+		<if test="sk neq null and sk neq ''.toString()">
+	 		AND
+	 		board_cate=#{sk}
+		</if>
+		<if test="sv neq null and sv neq ''.toString()">
+	 		AND
+	 		board_content LIKE CONCAT ('%',#{sv},'%')
+		</if>
+		
+	</trim>
  	</select>
  </mapper>
