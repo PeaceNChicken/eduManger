@@ -11,7 +11,11 @@ import com.cafe24.eduManger.StudentVo.Stu_pi;
 
 @Mapper
 public interface MemberInsertMapper {
-
+	
+	//아이디 중복 조회
+	public String idDuplicateCheck(String mId);
+	
+	//학원리스트
 	public List<ContractAcademy> academyList();
 	
 	public int masterInsert(Member member);

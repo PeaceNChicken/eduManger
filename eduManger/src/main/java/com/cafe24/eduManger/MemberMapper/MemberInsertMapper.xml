@@ -5,6 +5,13 @@
   
  <mapper namespace="com.cafe24.eduManger.MemberMapper.MemberInsertMapper">
  	
+ 	<select id="idDuplicateCheck" parameterType="String" resultType="String">
+ 		SELECT
+			member_id
+		FROM member
+		WHERE member_id = #{mId}
+ 	</select>
+ 	
  	<select id="academyList" resultType="com.cafe24.eduManger.ContractVo.ContractAcademy">
  		SELECT
 			ac_code, 
