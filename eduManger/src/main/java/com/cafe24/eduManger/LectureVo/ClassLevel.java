@@ -54,11 +54,6 @@ public class ClassLevel {
 		return "ClassLevel [class_level_code=" + class_level_code + ", ac_code=" + ac_code + ", m_id=" + m_id
 				+ ", class_level=" + class_grade + ", class_course=" + class_course + ", class_level_date="
 				+ class_level_date + "]";
-	}
-	
-	
-	
-	
-	
-	
+	}	
 }
+

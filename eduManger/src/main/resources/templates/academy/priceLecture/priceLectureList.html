@@ -34,11 +34,11 @@
 				                <br/>
 				                <thead>
 				                  <tr>
-				                    <th>수강료코드</th>
-				                    <th>학원코드</th>
-				                    <th>강의코드</th>
-				                    <th>등록자아이디</th>
-				                    <th>수강료</th>
+				                    <th>수업과정</th>
+				                    <th>학년</th>
+				                    <th>과목</th>
+				                    <th>등록자이름</th>
+				                    <th>수강료(원)</th>
 				                    <th>비고</th>
 				                    <th>최종수정일</th>
 				                    <th>수정</th>
@@ -47,24 +47,24 @@
 				                </thead>
 				                <tbody>
 				                  <tr th:each="l: ${list}">
-				                    <td th:text="${l.price_list_code}"></td>
-				                    <td th:text="${l.ac_code}"></td>
-				                    <td th:text="${l.lecture_code}"></td>
-				                    <td th:text="${l.member_id}"></td>
+				                    <td th:text="${l.class_grade}"></td>
+				                    <td th:text="${l.class_course}"></td>
+				                    <td th:text="${l.subject_name}"></td>
+				                    <td th:text="${l.member_name}"></td>				                    
 				                    <td th:text="${l.lecture_price}"></td>
 				                    <td th:text="${l.price_list_etc}"></td>
 				                    <td th:text="${l.price_list_date}"></td>
 				                    <td>
-				                      <button class="btn btn-primary btn-xs"><a href="/priceLectureUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+				                      <button class="btn btn-primary btn-xs"><a th:href="@{/priceLectureUpdateById(price_list_code=${l.price_list_code})}"  style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
 				                    </td>
 				                    <td>
-				                      <button class="btn btn-danger btn-xs"><a href="/priceLectureDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+				                      <button class="btn btn-danger btn-xs btnDelete" data-toggle="modal" th:data-price_list_code="${l.price_list_code}"><i class="fa fa-trash-o "></i></button>
 				                    </td>
 				                  </tr>				                     				                 
 				                </tbody>
 				              </table>
 				              <!-- The Modal -->
-							  <div class="modal fade" id="myModal">
+							  <div class="modal fade" id="deleteModal">
 							    <div class="modal-dialog modal-sm">
 							      <div class="modal-content">
 							        <!-- Modal body -->
@@ -73,7 +73,7 @@
 							        </div>
 							        <!-- Modal footer -->
 							        <div class="modal-footer">
-							          <a href="/priceLectureDelete" style="color:#ffffff"><button type="button" class="btn btn-danger">YES</button></a>
+							          <button class="btn btn-danger" id="deleteBtn">YES</button>
 							        </div>
 							      </div>
 							    </div>
@@ -130,5 +130,19 @@
 			</div>
 		</section>
 		</section>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.btnDelete').click(function(){				
+						var price_list_code = $(this).attr('data-price_list_code');
+						$('#deleteBtn').val(price_list_code);			
+						$('#deleteModal').modal('show');
+					})
+					$('#deleteBtn').click(function(){
+						var price_list_code = $(this).val();									
+						//alert(price_list_code);
+						location.href = '/priceLectureDelete?price_list_code='+ price_list_code;
+					});
+				});
+			</script>
 	</th:block>
 </html>
