@@ -20,7 +20,7 @@ public class BoardController {
 	public String getBoard(Model model) {
 		Map<String, Object> map = boardService.getBoard();
 		System.out.println(map+"<-- map board");
-		model.addAttribute("board", map.get("board"));
+		model.addAttribute("boardList", map.get("board"));
 		return "/academy/board/boardList";
 	}
 	
@@ -30,7 +30,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardUpdate")
-	public String getBoardUpdate(@RequestParam(value="board") String board, Model model) {
+	public String getBoardUpdate(@RequestParam(value="boardList") String board, Model model) {
 		System.out.println(board+"<--dd");
 		System.out.println(boardService.getBoardUpdate(board)+"<--");
 		model.addAttribute("boardUpdate", boardService.getBoardUpdate(board));
@@ -43,5 +43,15 @@ public class BoardController {
 		int a = boardService.getBoardDelete(board);
 		System.out.println(a +"<-- delete 결과");
 		return "redirect:/boardList";
+	}
+	
+	@GetMapping("boardSearch")
+	public String getBoardSearch(@RequestParam(value="sk", required = false)String sk
+								,@RequestParam(value="sv", required = false)String sv
+								,Model model) {
+		System.out.println(sk+"<--sk");
+		System.out.println(sv+"<--sv");
+		model.addAttribute("boardList", boardService.getBoardSearch(sk, sv));		
+		return "/academy/board/boardList";
 	}
 }

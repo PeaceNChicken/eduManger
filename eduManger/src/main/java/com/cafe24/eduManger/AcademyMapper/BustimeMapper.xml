@@ -35,19 +35,25 @@
  
  SELECT 
 	 	bus_time_code
-	 	, member_id
-	 	, ac_code
-	 	, bus_A_time
-	 	, bus_B_time
-	 	, car_info
-	 	, bus_station
-	 	, bus_day
-	 	, bus_time_date
+	 	,member_id
+	 	,ac_code
+	 	,bus_A_time
+	 	,bus_B_time
+	 	,car_info
+	 	,bus_station
+	 	,bus_day
+	 	,bus_time_date
 	FROM 
 		bus_time	
 	WHERE 
 		bus_station=#{busstation}
  
  </select>
+ 
+ <delete id="getBustimeDelete" parameterType="String">
+ 
+ DELETE FROM bus_time WHERE bus_time_code=#{bustime}
+ 
+ </delete>
  
  </mapper>

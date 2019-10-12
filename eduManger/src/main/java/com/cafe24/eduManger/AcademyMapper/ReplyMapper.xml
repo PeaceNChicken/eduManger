@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.cafe24.eduManger.AcademyMapper.ReplyMapper">
+	<select	id="getReply" resultType="com.cafe24.eduManger.AcademyVo.Reply">
+
+	SELECT 
+		reply_code
+		,ac_code
+		,board_code
+		,member_id
+		,reply_count
+		,reply_content
+		,reply_date
+	FROM 
+		reply
+
+    </select>
+
+</mapper>

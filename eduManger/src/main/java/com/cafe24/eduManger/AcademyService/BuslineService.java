@@ -25,4 +25,8 @@ public class BuslineService {
 	public Busline getBuslineUpdate(String busline) {
 		return buslineMapper.getBuslineUpdate(busline);
 	}
+	
+	public int getBuslineDelete(String busline) {
+		return buslineMapper.getBuslineDelete(busline);
+	}
 }

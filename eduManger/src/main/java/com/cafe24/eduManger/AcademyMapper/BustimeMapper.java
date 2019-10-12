@@ -12,4 +12,6 @@ public interface BustimeMapper {
 	public List<Bustime> getBusTimeList();
 	
 	public Bustime getBustimeUpdate(String busstation);
+	
+	public int getBustimeDelete(String bustime);
 }
