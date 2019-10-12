@@ -2,8 +2,10 @@ package com.cafe24.eduManger.ProfessorController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.ProfessorService.ProfesCarService;
 
@@ -13,7 +15,8 @@ public class ProfesCarController {
 	private ProfesCarService profesCarService;
 	
 	@GetMapping("/getprofesCareer")
-	public String professorCareerSelect() {
+	public String professorCareerSelect(Model model) {
+		model.addAttribute("profesCarList", profesCarService.ProfesCarList());
 		return "/professor/profesCar/profesCareerList";
 	}
 	
@@ -28,8 +31,9 @@ public class ProfesCarController {
 	}
 	
 	@GetMapping("/profesCarDelete")
-	public String professorCareerDelete() {
-		return "/professor/profesCar/profesCareerDelete";
+	public String professorCareerDelete(@RequestParam(value="profesCarDel") String profesCarDel) {
+		profesCarService.ProfesCarDelete(profesCarDel);
+		return "redirect:/getprofesCareer";
 	}
 	
 	//강사경력추가할 때, 저장한 값을 post로 보내고 페이지는 리스트로 이동

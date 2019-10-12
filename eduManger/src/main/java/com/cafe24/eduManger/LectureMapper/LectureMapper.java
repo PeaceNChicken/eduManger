@@ -11,4 +11,6 @@ public interface LectureMapper {
 
 	public List<Lecture> lectureList();
 	
+	public int LectureDelete(String lectureDel);
+	
 }

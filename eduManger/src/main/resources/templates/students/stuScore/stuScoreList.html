@@ -47,18 +47,18 @@
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <tr>
-						      	<td>stu_score001</td>
-						        <td>ac001</td>
-						        <td>id001</td>
-						        <td>subject001</td>
-						        <td>1학기</td>
-						        <td>중간고사</td>
-						        <td>72</td>
-						        <td>4</td>
-						        <td>2019-07-03</td>
-						        <td>2019-08-16</td>
-						        <td>idad001</td>
+						      <tr th:each="l:${StuScoreList}">
+						      	<td th:text="${l.stu_score_code}">stu_score001</td>
+						        <td th:text="${l.ac_code}">ac001</td>
+						        <td th:text="${l.stu_id}">id001</td>
+						        <td th:text="${l.subject_code}">subject001</td>
+						        <td th:text="${l.test_season}">1학기</td>
+						        <td th:text="${l.test_cate}">중간고사</td>
+						        <td th:text="${l.test_score}">72</td>
+						        <td th:text="${l.test_level}">4</td>
+						        <td th:text="${l.test_date}">2019-07-03</td>
+						        <td th:text="${l.stu_score_date}">2019-08-16</td>
+						        <td th:text="${l.m_id}">idad001</td>
 						        <td><button class="btn btn-primary btn-xs" onclick="location.href='stuScoreUpdate'"><i class="fa fa-pencil"></i></button></td>
 						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o" onclick="location.href='stuScoreDelete'"></i></button></td>
 						      </tr>						     

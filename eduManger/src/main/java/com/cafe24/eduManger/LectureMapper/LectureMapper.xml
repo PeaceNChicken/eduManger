@@ -22,4 +22,12 @@
 		lecture
   </select>
   
+  
+  <delete id="LectureDelete" parameterType="String">
+  	DELETE FROM 
+		lecture 
+	WHERE 
+		lecture_code=#{lectureDel}	
+  </delete>
+  
   </mapper>
