@@ -8,6 +8,8 @@ var editEnd = $('#edit-end');
 var editType = $('#edit-type');
 var editColor = $('#edit-color');
 var editDesc = $('#edit-desc');
+var editName = $('#edit-name');
+var acCode = $('#edit-acCode');
 
 var addBtnContainer = $('.modalBtnContainer-addEvent');
 var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
@@ -36,7 +38,6 @@ var newEvent = function (start, end, eventType) {
     //새로운 일정 저장버튼 클릭
     $('#save-event').unbind();
     $('#save-event').on('click', function () {
-
         var eventData = {
             _id: eventId,
             title: editTitle.val(),
@@ -44,10 +45,11 @@ var newEvent = function (start, end, eventType) {
             end: editEnd.val(),
             description: editDesc.val(),
             type: editType.val(),
-            username: '사나',
+            username: editName.val(),
             backgroundColor: editColor.val(),
             textColor: '#ffffff',
-            allDay: false
+            allDay: false,
+            ac_code: acCode.val()
         };
         console.log(eventData);
         if (eventData.start > eventData.end) {

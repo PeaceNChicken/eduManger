@@ -25,29 +25,39 @@
 						<div class="form-panel">
 							<h2 class="mb"><i class="fa fa-angle-right"></i> 수강생 회원등록</h2>
 							<form action="/studentInsert" class="form-horizontal style-form" method="post">
-								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">아이디</label>
+								<div class="form-group" th:if="${session.SLEVEL} == '최고관리자'">
+									<label class="col-sm-2 col-sm-2 control-label">학원목록</label>
 									<div class="col-sm-10">
-									  <input id="m_id" name="m_id" class="form-control" >
+										<select id="ac_code" name="ac_code" class="form-control">
+											<option th:each="list : ${academyList}" th:value ="${list.ac_code}" th:text="${list.ac_code}"></option>
+										</select> 
 									</div>
-					         	</div>
+								</div>
+								<div class="form-group">
+				                  <label class="col-sm-2 col-sm-2 control-label">아이디</label>
+				                  <div class="col-sm-10">
+				                    <input id="m_id" name="m_id" class="form-control" required>
+				                    <br/>
+				                    <button id="idCheck" name="idCheck" type="button" class="btn btn-theme" data-toggle="modal">아이디중복체크</button>
+				                  </div>
+				                </div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">비밀번호</label>
 									<div class="col-sm-10">
-						             	<input id="m_pw" name="m_pw" type="text" class="form-control" >
+						             	<input id="m_pw" name="m_pw" type="text" class="form-control" required>
 										<span class="help-block">영문,숫자 포함 8글자이상</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">권한</label>
 									<div class="col-sm-10">
-										<input name="m_level" class="form-control" value="수강생" readonly>
+										<input name="m_level" class="form-control" value="수강생" readonly >
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">이름</label>
 									<div class="col-sm-10">
-										<input id="m_name" name="m_name" class="form-control" type="text" placeholder="이름을 입력하세요" >
+										<input id="m_name" name="m_name" class="form-control" type="text" placeholder="이름을 입력하세요" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -68,13 +78,13 @@
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">생년월일</label>
 									<div class="col-sm-10">
-										<input id="m_date" name="m_birth" type="date" class="form-control" >
+										<input id="m_date" name="m_birth" type="date" class="form-control" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">휴대폰번호</label>
 									<div class="col-sm-10">
-										<input id="m_phone" name="m_phone" type="text" class="form-control" placeholder="" >
+										<input id="m_phone" name="m_phone" type="text" class="form-control" placeholder="010-0000-0000" required>
 									</div>
 								</div>
          <!-- ****************수강생 추가정보 ************-->
@@ -82,13 +92,13 @@
 								<div class="form-group">
 								<label class="col-sm-2 col-sm-2 control-label">재학중인 학교</label>
 								<div class="col-sm-10">
-								  	<input id="stu_school" name="stu_school" class="form-control" >
+								  	<input id="stu_school" name="stu_school" class="form-control" required>
 								</div>
 					            </div> 
 					            <div class="form-group">
 								<label class="col-sm-2 col-sm-2 control-label">보호자 연락처</label>
 									<div class="col-sm-10">
-									  	<input id="parents_phone" name="parents_phone" class="form-control" >
+									  	<input id="parents_phone" name="parents_phone" class="form-control" required>
 									</div>
 					            </div>
 					            <div class="form-group">
@@ -115,7 +125,7 @@
 									</div>
 					            </div>				
 					            <div style="text-align:center">
-								 	<button type="submit" class="btn btn-theme btn-lg">회원등록</button>
+								 	<button id="addBtn" type="submit" class="btn btn-theme btn-lg">회원등록</button>
 								</div>
 							</form>
 			<!-- ****************수강생 추가정보 END ************-->
@@ -125,5 +135,52 @@
 			</div>
 		</section>
 	</section>
+	 <script type="text/javascript">
+		$(document).ready(function(){
+			var ckId = 'dataId';
+			
+			$('#idCheck').click(function(){									
+				var mId = $('#m_id').val()
+				//console.log(mId + "<--mId");
+				
+				$.ajax({
+					url: "/idCheck", //호출url
+					method: "get", //전송방식
+					data: { mId : mId }, //파라미터
+					dataType: "json" , //전송받을 타입 xml, html, text, json
+					success : function(data) {
+						console.log(data);
+						if(mId == ''){
+							alert('아이디를 입력해주세요');
+						}else if(mId != ''){
+							if(data.mId == null){
+								alert('사용할 수 있는 아이디 입니다.');
+								ckId = null;						
+							}
+							else if(data.mId != null){
+								alert('중복된 아이디 입니다.');
+								ckId = data.mId;
+							}
+						}
+					},
+					 error : function(error) {			                
+			                alert("error : " + error);
+			        }
+				});						
+			});	
+			$('#addBtn').click(function(){
+				if(confirm('회원가입을 하시겠습니까?')){
+					if(ckId != null){
+						alert('아이디 중복 체크를 해주세요');
+						return false;
+					}else if(ckId == null){
+						alert('회원가입 성공');
+						this.submit();
+					}					
+				}
+			});
+		});
+		
+	</script>
 	</th:block>
 </html>      

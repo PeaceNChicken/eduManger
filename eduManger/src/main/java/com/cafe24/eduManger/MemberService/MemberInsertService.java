@@ -20,13 +20,19 @@ public class MemberInsertService {
 	@Autowired
 	private MemberInsertMapper memberInsertMapper;
 	
+	//아이디 중복 체크
+		public String idDuplicateCheck(String mId) {			
+			//System.out.println(memberInsertMapper.idDuplicateCheck(mId) + "<--idDuplicateCheck com.cafe24.eduManger.MemberService.MemberInsertService.idDuplicateCheck");
+			return memberInsertMapper.idDuplicateCheck(mId);
+		}
+	
 	//학원리스트
 		public List<ContractAcademy> academyList(){
 			return memberInsertMapper.academyList();
 		}
 	
 	//관리자 insert
-		public int masterInsert(Member member) {					
+		public int masterInsert(Member member) {											
 			return memberInsertMapper.masterInsert(member);
 		}
 		

@@ -22,9 +22,9 @@ public class MemberService {
 		
 		String ac_code = (String)session.getAttribute("SACODE");
 		
-		System.out.println(ac_code + "<--- ac_code");
+		//System.out.println(ac_code + "<--- ac_code com.cafe24.eduManger.MemberService.MemberService.memberList");
 		List<Member> memberList = memberMapper.memberList(ac_code);
-		//System.out.println(memberList.toString() + "<--- memberList com.cafe24.eduManger.MemberService memberList");
+		//System.out.println(memberList.toString() + "<--- com.cafe24.eduManger.MemberService.MemberService.memberList");
 		
 		return memberList;
 	}
@@ -44,6 +44,7 @@ public class MemberService {
 		return memberMapper.memberDelete(m_id);
 	}
 	
+	//맴버 Search
 	public List<Member> memberSearch(String sk, String sv){	
 		return memberMapper.memberSearch(sk, sv);
 	}

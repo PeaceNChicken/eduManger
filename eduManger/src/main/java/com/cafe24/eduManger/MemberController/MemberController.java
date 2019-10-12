@@ -35,10 +35,10 @@ public class MemberController {
 	@GetMapping("/memberUpdate")
 	public String memberUpdate(@RequestParam(value="memberId")String m_id,
 								Model model) {
-		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberUpdate");
+		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController.MemberController.memberUpdate");
 		
 		Member memberList = memberService.memberUpdateForm(m_id);
-		//System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController memberUpdateForm");
+		//System.out.println(memberList.toString() + "<--- memberList.toString() com.cafe24.eduManger.MemberController.MemberController.memberUpdate");
 		
 		model.addAttribute("memberList", memberList);
 		return "/member/memberUpdate/memberUpdate";
@@ -46,14 +46,14 @@ public class MemberController {
 	
 	@PostMapping("/memberUpdate")
 	public String memberUpdate(Member member) {
-		//System.out.println(member + "<--- member com.cafe24.eduManger.MemberController memberUpdate");
+		//System.out.println(member + "<--- member ccom.cafe24.eduManger.MemberController.MemberController.memberUpdate");
 		memberService.memberUpdate(member);
 		return "redirect:/memberList";
 	}
 	
 	@GetMapping("/memberDelete")
 	public String memberDelete(@RequestParam(value="memberId")String m_id ) {
-		System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController memberDelete");
+		//System.out.println(m_id + "<---- m_id com.cafe24.eduManger.MemberController.MemberController.memberDelete");
 		memberService.memberDelete(m_id);
 		return "redirect:/memberList";
 	}
@@ -64,8 +64,8 @@ public class MemberController {
 							  ,@RequestParam(value="sv")String sv
 							  ,Model model
 							  ) {		
-		System.out.println(sk + "<--- sk com.cafe24.eduManger.MemberController memberSearch" );
-		System.out.println(sv + "<--- sv com.cafe24.eduManger.MemberController memberSearch" );
+		//System.out.println(sk + "<--- sk com.cafe24.eduManger.MemberController.MemberController.memberSearch" );
+		//System.out.println(sv + "<--- sv com.cafe24.eduManger.MemberController.MemberController.memberSearch" );
 		
 		if(sk.equals("select")) {
 			return "redirect:/memberList";
