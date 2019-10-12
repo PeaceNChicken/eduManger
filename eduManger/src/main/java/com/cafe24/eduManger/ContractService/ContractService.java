@@ -24,7 +24,7 @@ public class ContractService {
 	 * 			생성된 map 변수에 contractList라고 명명한 주머니에 실행 결과값을 담아 controller단에 리턴시켜준다.
 	 */
 	public Map<String, Object> contractList(){
-		//System.out.println(contractMapper.contractList()+"<-- contractMapper.contractList() ContractService.java");
+		System.out.println(contractMapper.contractList()+"<-- contractMapper.contractList() ContractService.java");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("contractList", contractMapper.contractList());
 		return map;

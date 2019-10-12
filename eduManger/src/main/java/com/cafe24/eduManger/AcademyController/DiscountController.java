@@ -1,12 +1,17 @@
 package com.cafe24.eduManger.AcademyController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.cafe24.eduManger.AcademyService.DiscountService;
+
 @Controller
 public class DiscountController {
+	
+	@Autowired private DiscountService discountService;
 	
 	/* @param  /discountInsert url
 	 * @return /academy/priceLecture/discountInsert.html 화면

@@ -97,28 +97,24 @@
 				                <br/>
 				                <thead>
 				                  <tr>
-				                    <th>할인코드</th>
-				                    <th>학원코드</th>
-				                    <th>등록자아이디</th>
-				                    <th>할인방식</th>
-				                    <th>할인내용</th>
-				                    <th>최종수정일</th>
-				                    <th>수정/삭제</th>
+				                    <th>할인내역</th>
+				                    <th>할인금액</th>
+				                    <th>등록자이름</th>
+				                    <th>등록날짜</th>
+				                    <th>수정</th>
+				                    <th>삭제</th>
 				                  </tr>
 				                </thead>
 				                <tbody>
-				                  <tr>
+				                  <tr th:each="d: ${dList}">
+				                    <td th:text="${d.discount_content}"></td>
+				                    <td th:text="${d.discount_cate}"></td>
+				                    <td th:text="${d.m_name}"></td>
+				                    <td th:text="${d.discount_date}"></td>
 				                    <td>
-				                      <a href="basic_table.html#">discount001</a>
-				                    </td>
-				                    <td>ac001</td>
-				                    <td>idad001</td>
-				                    <td>5%할인</td>
-				                    <td>첫등록할인</td>
-				                    <td>2019-09-03</td>
-				                    <td>
-				                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
 				                      <button class="btn btn-primary btn-xs"><a href="/discountUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+				                    </td>
+				                    <td>  
 				                      <button class="btn btn-danger btn-xs"><a href="/discountDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 				                    </td>
 				                  </tr>				                     				                 
@@ -132,11 +128,13 @@
 		</section>
 			<script type="text/javascript">
 				$(document).ready(function(){
-					$('.btnDelete').click(function(){				
+					//수강료 부분 삭제 버튼 눌렀을 때 수강료 코드를 받아서 모달창 띄우기
+					$('.btnDelete').click(function(){			
 						var price_list_code = $(this).attr('data-price_list_code');
 						$('#deleteBtn').val(price_list_code);			
 						$('#deleteModal').modal('show');
 					})
+					//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 코드를 담아서 삭제 처리 url 요청
 					$('#deleteBtn').click(function(){
 						var price_list_code = $(this).val();									
 						//alert(price_list_code);
