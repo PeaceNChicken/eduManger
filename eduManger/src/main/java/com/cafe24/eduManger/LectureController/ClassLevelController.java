@@ -42,7 +42,7 @@ public class ClassLevelController {
 	//학년 및 수업과정 분류 삭제
 	@GetMapping("/classLevelDelete")
 		public String classLevelDelete(@RequestParam(value="classLevelDel") String classLevelDel) {
-		classLevelDel = classLevelService.
+		//classLevelDel = classLevelService.
 			return "/lecture/classLevel/classLevelDelete";
 	}
 	
