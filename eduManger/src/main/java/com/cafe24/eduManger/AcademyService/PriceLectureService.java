@@ -47,7 +47,7 @@ public class PriceLectureService {
 	public List<ClassLevel> classLevelList(){
 		return priceLectureMapper.classLevelList();
 	}
-	/* @param  	priceLecture 객체 타입 데이터, 과목코드, 학년 및 수업과정 분류 코드, session에 담겨있는 데이터
+	/* @param  	PriceLecture 객체 타입 데이터, 과목코드, 학년 및 수업과정 분류 코드, session에 담겨있는 데이터
 	 * @return 	priceLectureMapper.priceLectureInsert(priceLecture) 실행결과(정수값)
 	 * @detail 	수강료 등록화면에서 추가하기 버튼을 눌러 controller단에 매개변수에 담긴 값들이 전달되고 그 값들을 service단에서
 	 * 			priceLectureInsert() 메서드에 매개변수로 담아서 호출한다. insert 쿼리문 추가 결과값은 정수로 표현되기에 

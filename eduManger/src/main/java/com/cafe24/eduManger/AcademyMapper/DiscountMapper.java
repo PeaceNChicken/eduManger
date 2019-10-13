@@ -10,4 +10,10 @@ import com.cafe24.eduManger.AcademyVo.Discount;
 public interface DiscountMapper {
 
 	public List<Discount> discountList();
+	
+	public int discountMaxCount();
+	
+	public int discountInsert(Discount discount);
+	
+	
 }
