@@ -120,27 +120,29 @@
 					<!--  **********조건입력END*********** -->
 							<br/>
 							<br/>
-							<br/>		
-							<table class="table table-striped table-advance table-hover table-bordered">
-							  	<thead>
-							  		<tr>
-							  			<th th:if="${session.SLEVEL} == '최고관리자'">학원코드</th>
-							  			<th>아이디</th>
-							  			<th>이름</th>
-							  			<th>성별</th>
-							  			<th>조회</th>
-							  		</tr>
-							  	</thead>
-							  	<tbody>
-							  		<tr th:each="l : ${stuList}">
-							  			<td th:if="${session.SLEVEL} == '최고관리자'" th:text="${l.ac_code}"></td>
-							  			<td th:text="${l.m_id}"></td>
-							  			<td th:text="${l.m_name}"></td>
-							  			<td th:text="${l.m_gender}"></td>
-							  			<td><a th:href="@{/stuPiList(stu_info_code=${l.stu_info_code})}">조회</a></td>
-							  		</tr>
-							  	</tbody>
-							</table>
+							<br/>	
+							<div style=" height: 600px;overflow-y:auto">	
+								<table class="table table-striped table-advance table-hover table-bordered">
+								  	<thead>
+								  		<tr>
+								  			<th th:if="${session.SLEVEL} == '최고관리자'">학원코드</th>
+								  			<th>아이디</th>
+								  			<th>이름</th>
+								  			<th>성별</th>
+								  			<th>조회</th>
+								  		</tr>
+								  	</thead>
+								  	<tbody>
+								  		<tr th:each="l : ${stuList}">
+								  			<td th:if="${session.SLEVEL} == '최고관리자'" th:text="${l.ac_code}"></td>
+								  			<td th:text="${l.m_id}"></td>
+								  			<td th:text="${l.m_name}"></td>
+								  			<td th:text="${l.m_gender}"></td>
+								  			<td><a th:href="@{/stuPiList(stu_info_code=${l.stu_info_code})}">조회</a></td>
+								  		</tr>
+								  	</tbody>
+								</table>
+							</div>
 						</div>
 						<!-- /col-lg-3 -->
 					</div>

@@ -46,8 +46,11 @@ public class MemberInsertService {
 			//등록자 아이디
 			profesInfo.setAdmin_id((String)session.getAttribute("SID"));
 			//학원코드
-			profesInfo.setAc_code((String)session.getAttribute("SACODE"));
-			
+			String acCode = profesInfo.getAc_code();
+			if(acCode == null) {
+				profesInfo.setAc_code((String)session.getAttribute("SACODE"));
+			}
+								
 			//System.out.println(profesInfo.toString() + "<----- profesInfo.toStirng() com.cafe24.eduManger.MemberService professorInsert");
 			//System.out.println(profesInfo.getM_id() + "<------profesInfo.getM_id() com.cafe24.eduManger.MemberService professorInsert");
 			//System.out.println(profesInfo.getAc_code() + "<--------profesInfo.getAc_code com.cafe24.eduManger.MemberService professorInsert");
@@ -65,7 +68,12 @@ public class MemberInsertService {
 			String tempCode = "stuInfo_";
 			stuPi.setStu_info_code(tempCode + count);
 			stuPi.setAdmin_id((String)session.getAttribute("SID"));
-			stuPi.setAc_code((String)session.getAttribute("SACODE"));
+			
+			String acCode = stuPi.getAc_code();
+			if(acCode == null) {
+				stuPi.setAc_code((String)session.getAttribute("SACODE"));
+			}
+			
 			
 			//System.out.println(stuPi.toString() + "<------- stuPi.toString MemberInsertService studentInfoInsert");
 			map.put("studentInsert", memberInsertMapper.masterInsert(stuPi));
