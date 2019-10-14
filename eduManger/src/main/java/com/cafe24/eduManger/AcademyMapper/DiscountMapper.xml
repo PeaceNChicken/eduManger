@@ -50,4 +50,34 @@
 			NOW()
 			)
 	</insert>
+	
+	<select id="discountUpdateById" parameterType="String" resultType="com.cafe24.eduManger.AcademyVo.Discount">
+		SELECT 
+			d.discount_code		AS discount_code, 
+			d.member_id			AS member_id, 
+			m.member_name		AS m_name,
+			d.ac_code			AS ac_code, 
+			d.discount_cate		AS discount_cate, 
+			d.discount_content	AS discount_content, 
+			d.discount_date		AS discount_date
+		FROM 
+			discount d
+		INNER JOIN
+			member m
+		ON
+			d.member_id = m.member_id
+		WHERE
+			discount_code = #{discountCode}
+	</select>
+	
+	<update id="discountUpdate" parameterType="com.cafe24.eduManger.AcademyVo.Discount">
+		UPDATE discount
+		SET
+			member_id=#{member_id},
+			discount_cate=#{discount_cate},
+			discount_content=#{discount_content},
+			discount_date=NOW()
+		WHERE 
+			discount_code=#{discount_code}
+	</update>
 </mapper>

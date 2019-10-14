@@ -91,7 +91,7 @@ public class PriceLectureService {
 	 * 			매개변수로 수정폼에 입력된 priceLectureList 타입의 데이터와 session 데이터를 받아서 메서드 실행한다. 
 	 * 			이전 등록자와 현재 등록자가 다를경우 등록자아이디 데이터를 갱신해주기 위해 session에서 아이디 값을 가져와서 
 	 * 			priceLectureList 매개변수에 세팅해주고 priceLectureList 객체를 매개변수로 mapper에 있는 
-	 * 			priceLectureUpdate() 메서드 호출한다. 	그리고나서 수정 처리 후 결과값을 controller단으로 리턴시켜준다.
+	 * 			priceLectureUpdate() 메서드 호출한다. 그리고나서 수정 처리 후 결과값을 controller단으로 리턴시켜준다.
 	 */
 	public int priceLectureUpdate(PriceLectureList priceLectureList, HttpSession session) {
 		priceLectureList.setMember_id((String)session.getAttribute("SID"));//이전 등록자와 다른사람이 수정할 경우 등록자 갱신하기 위한 코드

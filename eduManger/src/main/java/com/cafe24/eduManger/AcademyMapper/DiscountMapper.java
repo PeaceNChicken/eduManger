@@ -15,5 +15,7 @@ public interface DiscountMapper {
 	
 	public int discountInsert(Discount discount);
 	
+	public Discount discountUpdateById(String discountCode);
 	
+	public int discountUpdate(Discount discount);
 }
