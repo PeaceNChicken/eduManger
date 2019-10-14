@@ -12,9 +12,9 @@ import com.cafe24.eduManger.AcademyService.PriceInfoService;
 public class PriceInfoController {
 	@Autowired private PriceInfoService priceInfoService;
 	
-	/* @param  /priceInfoInsert url
-	 * @return /academy/priceInfo/priceInfoInsert.html 화면
-	 * @detail 학원비 납부 내역 추가를 누르면 학원비 납부 안내를 추가할 수 있는 화면으로 이동한다
+	/* @param  	priceInfoInsert url
+	 * @return 	학원비 납부 추가 폼이 있는 priceInfoInsert.html 화면
+	 * @detail 	수납 및 납부 안내 화면에서 학원비 납부 안내 내역 추가를 누르면 추가 폼이 있는 화면으로 이동한다.
 	 */
 	@GetMapping("/priceInfoInsert")
 	public String priceInfoInsert() {
