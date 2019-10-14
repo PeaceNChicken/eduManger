@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.cafe24.eduManger.AcademyMapper.PriceInfoMapper">
+
+	<select id="priceInfoList" resultType="com.cafe24.eduManger.AcademyVo.PriceInfoList">
+		SELECT 
+			pinfo.price_info_code		AS price_info_code,
+			m.member_name				AS member_name, 
+			spi.stu_school				AS stu_school,
+			s.subject_name				AS subject_name,
+			c.class_grade				AS class_grade,
+			c.class_course				AS class_course,
+		CASE WHEN 
+			pinfo.admin_id = 'idad001' 	THEN '김현영' 
+		END admin_name,
+			plec.lecture_price			AS lecture_price,
+			dis.discount_cate			AS discount_cate, 
+			pinfo.price_info_desc		AS price_info_desc, 
+			pinfo.price_info_date		AS price_info_date
+		FROM 
+			price_info pinfo
+		INNER JOIN
+			academy a
+		ON
+			pinfo.ac_code 				= a.ac_code
+		INNER JOIN
+			member m
+		ON
+			pinfo.member_id 			= m.member_id
+		INNER JOIN
+			lecture l
+		ON 
+			pinfo.lecture_code 			= l.lecture_code
+		INNER JOIN
+			subject s
+		ON
+			s.subject_code 				= l.subject_code
+		INNER JOIN
+			class_level c
+		ON
+			c.class_level_code			= l.class_level_code
+		INNER JOIN
+			price_lecture plec
+		ON
+			plec.price_list_code 		= pinfo.price_list_code
+		LEFT OUTER JOIN
+			discount dis
+		ON
+			dis.discount_code 			= pinfo.discount_code
+		LEFT OUTER JOIN
+			Stu_PI spi
+		ON
+			spi.stu_id 					= m.member_id
+	</select>
+</mapper>

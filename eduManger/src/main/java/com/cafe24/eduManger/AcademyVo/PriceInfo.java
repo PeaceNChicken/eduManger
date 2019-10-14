@@ -10,6 +10,7 @@ public class PriceInfo {
 	private String price_list_code;
 	private String book_code;
 	private String discount_code;
+	private String price_info_desc;
 	private String price_info_date;
 	
 	public String getPrice_info_code() {
@@ -60,6 +61,12 @@ public class PriceInfo {
 	public void setDiscount_code(String discount_code) {
 		this.discount_code = discount_code;
 	}
+	public String getPrice_info_desc() {
+		return price_info_desc;
+	}
+	public void setPrice_info_desc(String price_info_desc) {
+		this.price_info_desc = price_info_desc;
+	}
 	public String getPrice_info_date() {
 		return price_info_date;
 	}
@@ -71,7 +78,7 @@ public class PriceInfo {
 		return "PriceInfo [price_info_code=" + price_info_code + ", ac_code=" + ac_code + ", member_id=" + member_id
 				+ ", lecture_code=" + lecture_code + ", member_id2=" + member_id2 + ", price_list_code="
 				+ price_list_code + ", book_code=" + book_code + ", discount_code=" + discount_code
-				+ ", price_info_date=" + price_info_date + "]";
+				+ ", price_info_desc=" + price_info_desc + ", price_info_date=" + price_info_date + "]";
 	}
 	
 }

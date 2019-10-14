@@ -1,21 +1,29 @@
 package com.cafe24.eduManger.AcademyController;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.cafe24.eduManger.AcademyService.IncomeService;
+import com.cafe24.eduManger.AcademyService.PriceInfoService;
+
 @Controller
 public class IncomeController {
-
+	@Autowired private IncomeService incomeService;
+	@Autowired private PriceInfoService priceInfoService;
 	/* @param  /incomeList url
 	 * @return /academy/income/incomeList.html 화면
 	 * @detail 수납 및 납부 안내 버튼을 누르면 할인 수납 및 납부 안내 목록 화면으로 이동한다.
 	 */
 	@GetMapping("/incomeList")
-	public String incomeList() {
-		
-		System.out.println("수납 및 납부 안내 화면이동");
+	public String incomeList(Model model) {
+		Map<String, Object> pMap = priceInfoService.priceInfoList(); 
+		model.addAttribute("pList", pMap.get("pList"));
+		System.out.println(pMap);
 		return "/academy/income/incomeList";
 	}
 	

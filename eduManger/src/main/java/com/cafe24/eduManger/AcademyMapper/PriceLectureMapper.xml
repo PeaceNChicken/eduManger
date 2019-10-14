@@ -149,8 +149,7 @@
 	</update>
 	
 	<delete id="priceLectureDelete" parameterType="String">
-	DELETE FROM 
-		price_lecture
+	DELETE FROM price_lecture 
 	WHERE 
 		price_list_code = #{price_list_code}
 	</delete>

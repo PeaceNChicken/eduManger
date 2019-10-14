@@ -1,13 +1,17 @@
 package com.cafe24.eduManger.AcademyController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.cafe24.eduManger.AcademyService.PriceInfoService;
+
 @Controller
 public class PriceInfoController {
-
+	@Autowired private PriceInfoService priceInfoService;
+	
 	/* @param  /priceInfoInsert url
 	 * @return /academy/priceInfo/priceInfoInsert.html 화면
 	 * @detail 학원비 납부 내역 추가를 누르면 학원비 납부 안내를 추가할 수 있는 화면으로 이동한다

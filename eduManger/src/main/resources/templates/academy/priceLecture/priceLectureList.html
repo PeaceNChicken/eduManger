@@ -34,8 +34,8 @@
 			                <br/>
 			                <thead>
 			                  <tr>
-			                    <th>수업과정</th>
 			                    <th>학년</th>
+			                    <th>수업과정</th>
 			                    <th>과목</th>
 			                    <th>등록자이름</th>
 			                    <th>수강료(원)</th>
@@ -97,8 +97,8 @@
 			                <br/>
 			                <thead>
 			                  <tr>
-			                    <th>할인내역</th>
-			                    <th>할인금액</th>
+			                    <th>할인종류</th>
+			                    <th>할인률</th>
 			                    <th>등록자이름</th>
 			                    <th>등록날짜</th>
 			                    <th>수정</th>
@@ -133,24 +133,24 @@
 						var price_list_code = $(this).attr('data-price_list_code');
 						$('#deleteBtn').val(price_list_code);			
 						$('#deleteModal').modal('show');
-					})
-					//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 코드를 담아서 삭제 처리 url 요청
-					$('#deleteBtn').click(function(){
-						var price_list_code = $(this).val();									
-						//alert(price_list_code);
-						location.href = '/priceLectureDelete?price_list_code='+ price_list_code;
-					});
+						//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 코드를 담아서 삭제 처리 url 요청
+						$('#deleteBtn').click(function(){
+							var price_list_code = $(this).val();									
+							//alert(price_list_code);
+							location.href = '/priceLectureDelete?price_list_code='+ price_list_code;
+						});
+					})					
 					//수강료 할인 목록에서 삭제 버튼 눌렀을 때 수강료 할인 코드를 받아서 모달창 띄우기
 					$('.btnDDelete').click(function(){			
 						var discountCode = $(this).attr('data-discountCode');
 						$('#deleteBtn').val(discountCode);			
 						$('#deleteModal').modal('show');
-					})
-					//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 할인 코드를 담아서 삭제 처리 url 요청
-					$('#deleteBtn').click(function(){
-						var discountCode = $(this).val();									
-						//alert(discountCode);
-						location.href = '/discountDelete?discountCode='+ discountCode;
+						//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 할인 코드를 담아서 삭제 처리 url 요청
+						$('#deleteBtn').click(function(){
+							var discountCode = $(this).val();									
+							//alert(discountCode);
+							location.href = '/discountDelete?discountCode='+ discountCode;
+						});
 					});
 				});
 			</script>

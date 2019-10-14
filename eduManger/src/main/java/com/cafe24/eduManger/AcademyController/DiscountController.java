@@ -59,7 +59,7 @@ public class DiscountController {
 	 * @return 	수정 처리 후 할인 목록 화면 priceLectureList.html
 	 * @detail 	할인 수정 페이지에서 수정하기를 누르면 post방식으로 discountUpdate url 요청되고
 	 * 			입력된 Discount 타입의 데이터와 session 영역에 담긴	데이터를 매개변수로 담아  discountUpdate() 메서드 호출한다.
-	 * 			실행되면 service단의 discountUpdate() 메서드에 매개변수를 전달하며 discountUpdate() 메서드 호출하고
+	 * 			실행되면 service단의 discountUpdate() 메서드에 매개변수를 전달하면서 메서드 호출하고
 	 * 			할인 목록 화면으로 리다이렉트한다.
 	 */
 	@PostMapping("/discountUpdate")
@@ -78,6 +78,7 @@ public class DiscountController {
 	 */
 	@GetMapping("/discountDelete")
 	public String discountDelete(@RequestParam(value="discountCode") String discountCode) {
+		//System.out.println(discountCode);
 		discountService.discountDelete(discountCode);
 		return "redirect:/priceLectureList";
 	}
