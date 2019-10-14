@@ -11,4 +11,7 @@ public interface StuScoreMapper {
 
 	public List<StuScore> StuScoreList();
 	
+	public int stuScoreInsert(StuScore stuScore);
+	
+	
 }

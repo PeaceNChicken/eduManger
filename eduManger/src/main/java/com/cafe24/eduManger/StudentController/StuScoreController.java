@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.cafe24.eduManger.StudentService.StuScoreService;
+import com.cafe24.eduManger.StudentVo.StuScore;
 
 @Controller
 public class StuScoreController {
@@ -13,20 +14,22 @@ public class StuScoreController {
 		private StuScoreService StuScoreService;
 	
 		@GetMapping("/getStuScoreList")
-	public String stuScoreSelect(Model model) {
+		public String stuScoreSelect(Model model) {
 			model.addAttribute("StuScoreList", StuScoreService.StuScoreList());
-		return "/students/stuScore/stuScoreList";
-	}
+			return "/students/stuScore/stuScoreList";
+		}
 		
-		@GetMapping("/stuScoreInsert")
-		public String stuScoreInsert() {
+		
+		//성적입력폼으로 이동
+		@GetMapping("/stuScoreInsertForm")
+		public String stuScoreInsertForm() {		
 			return "/students/stuScore/stuScoreInsert";
 		}
-
-		
-		@PostMapping("/postStuScoreList")
-		public String poststuScore() {
-			return "/students/stuScore/stuScoreList";
+		//성적입력, 저장
+		@PostMapping("/StuScoreInsert")
+		public String stuScoreInsert(StuScore stuScore) {
+			StuScoreService.StuScoreInsert(stuScore);
+			return "redirect:/getStuScoreList";
 		}
 		
 		

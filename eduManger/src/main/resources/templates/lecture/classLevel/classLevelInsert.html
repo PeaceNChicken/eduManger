@@ -24,46 +24,50 @@
 							<h2 class="mb"><i class="fa fa-angle-right"></i> 학년 및 수업과정 추가하기</h2>
 							<br />
 								<div class="container">
+									<form action="/classLevelInsert" method="post">
 									<table >
 										<tr>
 											<td>학원코드</td>
 											<td>
-												<select class="form-control" style="width: 250px;">
+												<select class="form-control" style="width: 250px;" id="ac_code" name="ac_code">
 													<option>지점명</option>
-													<option></option>
+													<option>ac_001</option>
+													<option>ac_002</option>
+													<option>ac_003</option>
+													<option>ac_004</option>
+													<option>ac_005</option>
+													<option>ac_006</option>
 												</select>
 											</td>
 										</tr>										
 										<tr>
 											<td>학년명</td>
 											<td>
-												<select class="form-control pull-right">
-													<option>중학교</option>
-													<option>고등학교</option>
-												</select>
-											</td>
-											<td>														
-												<select class="form-control" style="width: 250px;">
-													<option>1학년</option>
-													<option>2학년</option>
-													<option>3학년</option>
+												<select class="form-control" id="class_grade" name="class_grade">
+													<option>학교/학년</option>
+													<option>중학교1학년</option>
+													<option>중학교2학년</option>
+													<option>중학교3학년</option>
+													<option>고등학교1학년</option>
+													<option>고등학교2학년</option>
+													<option>고등학교3학년</option>
 												</select>
 											</td>
 										</tr>
 										<tr>
 											<td>수업과정</td>
 											<td>
-												<select class="form-control">
+												<select class="form-control" id="class_course" name="class_course">
+													<option>수업레벨</option>
 													<option>기초반</option>
 													<option>심화반</option>
 												</select>
 											</td>
 										</tr>
-									
 									</table>
 									<p/><br/>
-									
-									<button type="button" class="btn btn-theme" onclick="location.href='getclassLevel'">추가</button>
+									<button type="submit" class="btn btn-theme">추가</button>
+									</form>
 								</div>
 						</div>
 						<!-- content-panelEnd -->

@@ -17,14 +17,20 @@ public class ClassLevelService {
 	//리스트
 	public List<ClassLevel> ClassLevelList() {
 		List<ClassLevel> ClassLevelList = classLevelMapper.ClassLevelList();
-		System.out.println(ClassLevelList + " <-- com.cafe24.eduManger.LectureService.ClassLevelService.ClassLevelList()");
+		//System.out.println(ClassLevelList + " <-- com.cafe24.eduManger.LectureService.ClassLevelService.ClassLevelList()");
 		return ClassLevelList;
 	}
 	
 	//삭제
-	public int classLevelDelete(String classLevelDelete) {
-
-		return classLevelMapper.ClassLevelDel(classLevelDelete);
+	public int classLevelDelete(String classLevelDel) {
+		//classLevelMapper.ClassLevelDel(classLevelDel);
+		return classLevelMapper.classLevelDel(classLevelDel);
 	}
 	
+	
+	//입력
+	public int classLevelInsert(ClassLevel classLevel) {
+		//classLevelMapper.classLevelInsert(classLevel);
+		return classLevelMapper.classLevelInsert(classLevel);
+	}
 }

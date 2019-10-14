@@ -9,8 +9,7 @@ public class ClassLevel {
 	private String class_grade;
 	private String class_course;
 	private String class_level_date;
-	
-	
+
 	public String getClass_level_code() {
 		return class_level_code;
 	}
@@ -32,7 +31,7 @@ public class ClassLevel {
 	public String getClass_grade() {
 		return class_grade;
 	}
-	public void setClass_level(String class_grade) {
+	public void setClass_grade(String class_grade) {
 		this.class_grade = class_grade;
 	}
 	public String getClass_course() {
@@ -48,12 +47,14 @@ public class ClassLevel {
 		this.class_level_date = class_level_date;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "ClassLevel [class_level_code=" + class_level_code + ", ac_code=" + ac_code + ", m_id=" + m_id
-				+ ", class_level=" + class_grade + ", class_course=" + class_course + ", class_level_date="
+				+ ", class_grade=" + class_grade + ", class_course=" + class_course + ", class_level_date="
 				+ class_level_date + "]";
-	}	
+	}
+	
+	
+	
+	
 }
-

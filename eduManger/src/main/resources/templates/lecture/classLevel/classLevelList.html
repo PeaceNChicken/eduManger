@@ -27,7 +27,7 @@
 							<div class="container">
 								<br />
 								<button type="button" class="btn btn-theme pull-right"
-									onclick="location.href='classLevelInsert'">수업과정 추가하기</button>
+									onclick="location.href='classLevelInsertForm'">수업과정 추가하기</button>
 								<p />
 								<!-- ************ 검색 ************************************************************************************************** -->
 								<table>
@@ -73,13 +73,15 @@
 											<td th:text="${l.m_id}"></td>
 											<td th:text="${l.class_level_date}"></td>
 											<td>
-												<a href="@{/classLevelUpdate(classLevelUp=${l.class_level_code})}">
-												<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></td>
+												<a th:href="@{/classLevelUpdate(classLevelUp=${l.class_level_code})}">
+												<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
 												</a>
+											</td>		
 											<td>
-												<a href="@{/classLevelDelete(classLevelDel={l.class_level_code})}">
-												<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
+												<a th:href="@{/classLevelDelete(classLevelDel=${l.class_level_code})}">
+												<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
 												</a>
+											</td>
 										</tr>
 									</tbody>
 								</table>

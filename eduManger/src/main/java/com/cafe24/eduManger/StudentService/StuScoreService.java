@@ -13,10 +13,21 @@ public class StuScoreService {
 	@Autowired
 	private StuScoreMapper StuScoreMapper;
 	
+	//리스트
 	public List<StuScore> StuScoreList() {
 		List<StuScore> StuScoreList = StuScoreMapper.StuScoreList();
 		System.out.println(StuScoreList + " <--com.cafe24.eduManger.StudentService.StuScoreService.StuScoreList()");
 		return StuScoreList; 
 	}
+	
+	//추가
+	public int StuScoreInsert(StuScore stuScore) {
+		//StuScoreMapper.stuScoreInsert();
+		System.out.println(StuScoreMapper.toString() + " <--StuScoreMapper.toString().com.cafe24.eduManger.StudentService");
+		return StuScoreMapper.stuScoreInsert(stuScore);
+		
+	}
+	
+	
 	
 }

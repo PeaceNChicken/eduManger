@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.LectureService.ClassLevelService;
@@ -27,11 +28,20 @@ public class ClassLevelController {
 		}
 
 	
-	//학년 및 수업과정 분류 추가
-	@GetMapping("/classLevelInsert")
-		public String classLevelInsert() {
-			return "/lecture/classLevel/classLevelInsert";
+	//학년 및 수업과정 분류 추가폼으로 이동
+	@GetMapping("/classLevelInsertForm")
+		public String classLevelInsertForm() {
+		return "/lecture/classLevel/classLevelInsert";
 	}
+	
+	//학년 및 수업과정 분류 추가
+	@PostMapping("/classLevelInsert")
+		public String classLevelInsert(ClassLevel classLevel) {
+		System.out.println(classLevel.toString() +" <--classLevel.toString() com.cafe24.eduManger.LectureController.ClassLevelController");
+		ClassLevelService.classLevelInsert(classLevel);
+			return "redirect:/getclassLevel";
+	}
+	
 	
 	//학년 및 수업과정 분류 수정
 	@GetMapping("/classLevelUpdate")
@@ -42,8 +52,8 @@ public class ClassLevelController {
 	//학년 및 수업과정 분류 삭제
 	@GetMapping("/classLevelDelete")
 		public String classLevelDelete(@RequestParam(value="classLevelDel") String classLevelDel) {
-		//classLevelDel = classLevelService.
-			return "/lecture/classLevel/classLevelDelete";
+		ClassLevelService.classLevelDelete(classLevelDel);
+			return "redirect:/getclassLevel";
 	}
 	
 	

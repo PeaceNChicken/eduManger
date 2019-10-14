@@ -5,21 +5,67 @@
   
 
 <mapper namespace="com.cafe24.eduManger.StudentMapper.StuScoreMapper">
-<select id="StuScoreList" resultType="com.cafe24.eduManger.StudentVo.StuScore">
-	SELECT 
-		stu_score_code
-		, ac_code
-		, member_id2 AS stu_id
-		, subject_code
-		, member_id AS m_id
-		, test_season
-		, test_cate
-		, test_score
-		, test_level
-		, test_date
-		, stu_score_date
-	FROM 
-		stu_score
-</select>
+	<select id="StuScoreList" resultType="com.cafe24.eduManger.StudentVo.StuScore">
+		SELECT 
+			stu_score_code
+			, ac_code
+			, member_id2 AS stu_id
+			, subject_code
+			, member_id AS m_id
+			, test_season
+			, test_cate
+			, test_score
+			, test_level
+			, test_date
+			, stu_score_date
+		FROM 
+			stu_score
+	</select>
+
+
+	<insert id="stuScoreInsert" parameterType="com.cafe24.eduManger.StudentVo.StuScore">
+		INSERT INTO 
+			stu_score(
+			stu_score_code
+			, ac_code
+			, member_id2
+			, subject_code
+			, member_id
+			, test_season
+			, test_cate
+			, test_score
+			, test_level
+			, test_date
+			, stu_score_date
+			)
+		VALUES (
+			'stu_score_code'
+			, 'ac_code'
+			, 'stu_id'
+			, #{subject_code}
+			, 'm_id'
+			, #{test_season}
+			, #{test_cate}
+			, #{test_score}
+			, #{test_level}
+			, #{test_date}
+			, NOW()
+			)
+	</insert>
+	
+	
+	<!-- right panel list -->
+	<select id="stuScoreRightList" resultType="com.cafe24.eduManger.StudentVo.StuScore">
+		SELECT 
+			stu_s.member_id2, member_name, stu_m.member_gender
+		FROM 
+			stu_score AS stu_s
+		JOIN 
+			member AS stu_m
+		ON 
+			stu_s.member_id2 = stu_m.member_id
+		
+	</select>
+
 
 </mapper>

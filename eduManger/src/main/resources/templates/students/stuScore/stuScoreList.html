@@ -23,7 +23,7 @@
 					<h2 class="mb"><i class="fa fa-angle-right"></i> 학생 개인별 성적정보</h2>
 					<br/>
 					<!-- <div class="container"> -->
-					<button type="button" class="btn btn-theme" onclick="location.href='stuScoreInsert'">성적 입력하기</button>
+					<button type="button" class="btn btn-theme" onclick="location.href='stuScoreInsertForm'">성적 입력하기</button>
 					<p/>
 					<!-- *************************************************
 							성적 리스트 
@@ -48,19 +48,27 @@
 						    </thead>
 						    <tbody>
 						      <tr th:each="l:${StuScoreList}">
-						      	<td th:text="${l.stu_score_code}">stu_score001</td>
-						        <td th:text="${l.ac_code}">ac001</td>
-						        <td th:text="${l.stu_id}">id001</td>
-						        <td th:text="${l.subject_code}">subject001</td>
-						        <td th:text="${l.test_season}">1학기</td>
-						        <td th:text="${l.test_cate}">중간고사</td>
-						        <td th:text="${l.test_score}">72</td>
-						        <td th:text="${l.test_level}">4</td>
-						        <td th:text="${l.test_date}">2019-07-03</td>
-						        <td th:text="${l.stu_score_date}">2019-08-16</td>
-						        <td th:text="${l.m_id}">idad001</td>
-						        <td><button class="btn btn-primary btn-xs" onclick="location.href='stuScoreUpdate'"><i class="fa fa-pencil"></i></button></td>
-						        <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o" onclick="location.href='stuScoreDelete'"></i></button></td>
+						      	<td th:text="${l.stu_score_code}"></td>
+						        <td th:text="${l.ac_code}"></td>
+						        <td th:text="${l.stu_id}"></td>
+						        <td th:text="${l.subject_code}"></td>
+						        <td th:text="${l.test_season}"></td>
+						        <td th:text="${l.test_cate}"></td>
+						        <td th:text="${l.test_score}"></td>
+						        <td th:text="${l.test_level}"></td>
+						        <td th:text="${l.test_date}"></td>
+						        <td th:text="${l.stu_score_date}"></td>
+						        <td th:text="${l.m_id}"></td>
+						        <td>
+						        	<a th:href="@{/stuScoreUpdate(stuScoreUp=${l.stu_score_code})}">
+						        		<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+						        	</a>
+						        </td>
+						        <td>
+						        	<a th:href="@{/stuScoreDelete(stuScoreDel=${l.stu_score_code})}">
+						        	<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+						        	</a>	
+						        </td>
 						      </tr>						     
 						    </tbody>
 						  </table>
@@ -129,11 +137,7 @@
 					</div> <!-- content-panel End -->
 				</div> <!-- grid9 div End -->
 	
-	
-	
-	
-	
-	
+
 	
 	<!-- *********************right panel************************** -->
 			
@@ -157,10 +161,10 @@
 							<table class="table table-striped table-advance table-hover table-bordered">
 							  	<thead>
 							  		<tr>
+							  			<th>학생아이디</th>
 							  			<th>이름</th>
 							  			<th>성별</th>
 							  			<th>재학학교</th>
-							  			<th>전화번호</th>
 							  		</tr>
 							  	</thead>
 							  	<tbody>
@@ -174,7 +178,7 @@
 							</table>
 						</div>
 						</div> <!-- /col-lg-3 -->	
-			</div> 		
+			</div> 	<!-- row divEND -->	
 		</section>
 	</section>
 	</th:block>

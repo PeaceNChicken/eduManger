@@ -17,11 +17,33 @@
 			class_level
  	</select>
  
- 	<delete id="ClassLevelDel" parameterType="String">
+ 	
+ 	<delete id="classLevelDel" parameterType="String">
  		DELETE FROM 
 			class_level 
 		WHERE 
-			class_level_code=#{l.class_level_code}
- 	
+			class_level_code=#{classLevelDel}
  	</delete>
+ 	
+ 	
+ 	<insert id="classLevelInsert" parameterType="com.cafe24.eduManger.LectureVo.ClassLevel">
+ 		INSERT INTO
+			class_level (
+				class_level_code
+				, ac_code
+				, member_id
+				, class_grade
+				, class_course
+				, class_level_date
+				)
+			VALUES (
+				'classLevel16'
+				, 'ac003'
+				, 'idad003'
+				, #{class_grade}
+				, #{class_course}
+				, NOW()
+				)
+ 		
+ 	</insert>
  </mapper>
