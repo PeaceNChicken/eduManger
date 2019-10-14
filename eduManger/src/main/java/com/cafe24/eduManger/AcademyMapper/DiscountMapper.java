@@ -18,4 +18,6 @@ public interface DiscountMapper {
 	public Discount discountUpdateById(String discountCode);
 	
 	public int discountUpdate(Discount discount);
+	
+	public int discountDelete(String discountCode);
 }

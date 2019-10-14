@@ -37,7 +37,7 @@ public class DiscountController {
 	@PostMapping("/discountInsert")
 	public String discountInsert(Discount discount, HttpSession session) {
 		discountService.discountInsert(discount, session);
-		System.out.println("할인정보입력완료");
+		//System.out.println("할인정보입력완료");
 		return "redirect:/priceLectureList";
 	}
 
@@ -69,25 +69,16 @@ public class DiscountController {
 		return "redirect:/priceLectureList";
 	}
 	
-	/* @param  /할인 정보 삭제 폼 화면
-	 * @return /academy/discount/discountDelete 화면
-	 * @detail 휴지통 모양의 버튼을 누르면 할인 정보를 삭제할 수 있는 화면으로 이동
+	/* @param  	discountDelete url, 할인 코드 값 discountCode
+	 * @return 	삭제 처리 후 리다이렉트한 수강료 및 할인 목록 화면 priceLectureList.html
+	 * @detail 	할인 목록 화면에서 삭제 버튼을 누르면 해당 행의 할인 코드 값을 받아오면서 모달로 경고창을 띄운다.
+	 * 			모달창에서 YES를 누르면 discountDelete url 요청하면서 받아온 할인 코드 값을 매개변수로 담아
+	 * 			discountDelete() 메서드 호출한다. 실행하면서 service단의 discountDelete() 메서드에
+	 * 			할인 코드를 매개변수로 전달하여 호출하고 수강료 및 할인 목록 화면으로 리다이렉트 한다.  
 	 */
 	@GetMapping("/discountDelete")
-	public String discountDelete() {
-		
-		System.out.println("할인정보삭제화면이동");
-		return "/academy/discount/discountDelete";
-	}
-	
-	/* @param  /할인 정보 수정 폼에 입력된 데이터
-	 * @return redirect:/priceLectureList 화면
-	 * @detail 삭제하기 버튼을 누르면 할인 정보 목록 화면으로 리다이렉트한다 (DB연결 전)
-	 */
-	@PostMapping("/discountDelete")
-	public String discountDelete(Model model) {
-		
-		System.out.println("할인정보삭제완료");
+	public String discountDelete(@RequestParam(value="discountCode") String discountCode) {
+		discountService.discountDelete(discountCode);
 		return "redirect:/priceLectureList";
 	}
 }

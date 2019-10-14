@@ -115,7 +115,7 @@
 			                      <button class="btn btn-primary btn-xs"><a th:href="@{/discountUpdateById(discountCode=${d.discount_code})}" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
 			                    </td>
 			                    <td>  
-			                      <button class="btn btn-danger btn-xs"><a href="/discountDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
+			                      <button class="btn btn-danger btn-xs btnDDelete" data-toggle="modal" th:data-discountCode="${d.discount_code}"><i class="fa fa-trash-o "></i></button>
 			                    </td>
 			                  </tr>				                     				                 
 			                </tbody>
@@ -139,6 +139,18 @@
 						var price_list_code = $(this).val();									
 						//alert(price_list_code);
 						location.href = '/priceLectureDelete?price_list_code='+ price_list_code;
+					});
+					//수강료 할인 목록에서 삭제 버튼 눌렀을 때 수강료 할인 코드를 받아서 모달창 띄우기
+					$('.btnDDelete').click(function(){			
+						var discountCode = $(this).attr('data-discountCode');
+						$('#deleteBtn').val(discountCode);			
+						$('#deleteModal').modal('show');
+					})
+					//모달창에서 YES버튼을 눌렀을 때 받아온 수강료 할인 코드를 담아서 삭제 처리 url 요청
+					$('#deleteBtn').click(function(){
+						var discountCode = $(this).val();									
+						//alert(discountCode);
+						location.href = '/discountDelete?discountCode='+ discountCode;
 					});
 				});
 			</script>

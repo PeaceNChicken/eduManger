@@ -78,4 +78,13 @@ public class DiscountService {
 		discount.setMember_id((String)session.getAttribute("SID")); //이전등록자와 다른 사람이 수정할 경우 등록자 갱신하기 위한 코드
 		return discountMapper.discountUpdate(discount);
 	}
+	/* @param  	discountDelete() 호출, 수강료 코드 값 discountCode
+	 * @return 	discountMapper.discountDelete(discountCode) 실행 결과값(정수값)
+	 * @detail 	controller단에서 매개변수로 할인 코드값을 받아오고 쿼리문 실행결과값이 정수값이기에 int로 선언하여
+	 * 			discountDelete() 메서드 실행한다. mapper에 있는 discountDelete()메서드 호출
+	 * 			하면서 매개변수에 할인 코드값을 담는다. 삭제 처리 후 메서드 실행결과 값을 controller단에 리턴시켜준다.
+	 */
+	public int discountDelete(String discountCode) {
+		return discountMapper.discountDelete(discountCode);
+	}
 }

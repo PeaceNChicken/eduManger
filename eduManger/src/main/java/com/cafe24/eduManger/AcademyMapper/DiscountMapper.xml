@@ -80,4 +80,10 @@
 		WHERE 
 			discount_code=#{discount_code}
 	</update>
+	
+	<delete id="discountDelete" parameterType="String">
+		DELETE FROM discount 
+		WHERE 
+			discount_code=#{discountCode}
+	</delete>
 </mapper>
