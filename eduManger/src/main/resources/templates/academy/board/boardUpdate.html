@@ -21,18 +21,18 @@
 <!-- **********************************************form 화면******************************************************** -->		
       			<div class="content-panel">
         		    <div class="form-panel">
-             <h2 class="mb"><i class="fa fa-angle-right"></i>글조회</h2>
+             <h2 class="mb"><i class="fa fa-angle-right"></i>수정</h2>
              <form class="form-horizontal style-form" method="get">
                <div class="form-group">
                  <label class="col-sm-2 col-sm-2 control-label">게시글코드</label>
                  <div class="col-sm-7">
-                   <input type="text" class="form-control" th:value="${boardUpdate.board_code}">
+                   <input type="text" class="form-control" th:value="${boardUpdate.board_code}" readonly>
                  </div>
                </div>
                <div class="form-group">
                  <label class="col-sm-2 col-sm-2 control-label">학원코드</label>
                  <div class="col-sm-7">
-                   <input type="text" class="form-control" th:value="${boardUpdate.ac_code}">
+                   <input type="text" class="form-control" th:value="${boardUpdate.ac_code}" readonly>
                  </div>
                </div>
                <div class="form-group">
@@ -48,7 +48,7 @@
                  </div>
                </div>
                <div class="form-group">
-                 <label class="col-sm-2 col-sm-2 control-label">그룹</label>
+                 <label class="col-sm-2 col-sm-2 control-label">주제</label>
                  <div class="col-sm-7">
                   <input type="text" class="form-control" th:value="${boardUpdate.board_title}">
                  </div>
@@ -56,43 +56,35 @@
                <div class="form-group">
                  <label class="col-sm-2 col-sm-2 control-label">내용</label>
                  <div class="col-sm-4">
-                  <input type="text" class="form-control" th:value="${boardUpdate.board_content}" >
+                  <input type="text" class="form-control" th:value="${boardUpdate.board_content}">
+	  	     </div>
+	  	    </div> 
+	  	    <div class="form-group">
+                 <label class="col-sm-2 col-sm-2 control-label">글읽기권한</label>
+                 <div class="col-sm-4">
+                  <input type="text" class="form-control" th:value="${boardUpdate.read_level}">
 	  	     </div>
 	  	    </div>
 	  	    <div class="form-group">
+                 <label class="col-sm-2 col-sm-2 control-label">수정일자</label>
+                 <div class="col-sm-7">
+                    <input type="date" class="f_m hasDatepicker">
+                 </div>
+               </div>
+	  	    <div class="form-group">
 	            <label class="col-sm-2 col-sm-2 control-label">조회수</label>
 	            <div class="col-sm-2">
-	              <input type="text" class="form-control" th:value="${boardUpdate.board_count}" >
+	              <input type="text" class="form-control" th:value="${boardUpdate.board_count}">
 	            </div>
 	          </div>
+	          <div style="text-align:center">
+				<button type="submit" class="btn btn-theme btn-lg"><a href="/boardList">수정완료</a></button>
+				</div>
 		     </form>	
 		     </div>
 			 </div>
-			 <div class="content-panel">
-        		    <div class="form-panel">
-             <h2 class="mb"><i class="fa fa-angle-right"></i>댓글</h2>
-             !!!댓글수 카운팅 되게 해야함
-             <form class="form-horizontal style-form" method="get">
-               <div class="form-group">
-                 <label class="col-sm-2 col-sm-2 control-label">작성자</label>
-                 <div class="col-sm-7">
-                   <input type="text" class="form-control">
-                 </div>
-               </div>
-               <div class="form-group">
-                 <label class="col-sm-2 col-sm-2 control-label">내용</label>
-                 <div class="col-sm-4">
-               <div class="form-group">			                  
-		  <textarea class="form-control"></textarea>
-		</div>
-  	    <button type="button" class="btn btn btn-theme">댓글등록</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  	    <button type="button" class="btn btn btn-theme">댓글초기화</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  	    <a href="/boardList"><button type="button" class="btn btn btn-theme">목록</button></a>
-  	    </form>
-  	    </div>
-  	    </div>
 	    </div>
-  	    </div>
+  	    </div>	
 	 </section>
  	</section>
  </th:block>

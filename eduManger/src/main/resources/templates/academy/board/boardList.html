@@ -23,9 +23,9 @@
 	               <h2><i class="fa fa-angle-right" th:if="${session.SLEVEL.equals('관리자')}">관리자게시판</i></h2>
 	                <h2><i class="fa fa-angle-right" th:unless="${session.SLEVEL.equals('관리자')}">게시판</i></h2>
 	               
-	                <!-- 조건입력창 -->				               				                
-				  	<a href="boardInsert"><button type="button" class="btn btn-theme pull-right" th:if="${session.SLEVEL.equals('관리자')}">게시판생성</button></a>
-				  	<a href="boardInsert"><button type="button" class="btn btn-theme pull-right" th:unless="${session.SLEVEL.equals('관리자')}">글쓰기</button></a>	
+	                <!-- 조건입력창 -->
+				  	<a href="/boardInsert"><button type="button" class="btn btn-theme pull-right" th:if="${session.SLEVEL.equals('관리자')}">게시판생성</button></a>
+				  	<a href="/writeInsert"><button type="button" class="btn btn-theme pull-right">글쓰기</button></a>	
 				  	<br/>
 	                <br/>
 					  	<h4>게시글검색</h4>
@@ -53,8 +53,9 @@
 		                  <tr>
 						        <th>작성자</th>						     
 						        <th>카테고리</th>
-						        <th>그룹</th>
+						        <th>주제</th>
 						        <th>내용</th>
+						        <th>글읽기권한</th>
 						        <th>조회수</th>
 						        <th>등록날짜</th>
 						        <th>수정</th>
@@ -67,6 +68,7 @@
 					        <td th:text="${b.board_cate}"></td>
 					        <td th:text="${b.board_title}"></td>						        
 					        <td><a th:text="${b.board_content}" th:href="@{/replyList(replyList=${b.board_code})}"></a></td>
+					        <td th:text="${b.read_level}"></td>
 					        <td th:text="${b.board_count}"></td>
 					        <td th:text="${b.board_date}"></td>
 					        <td>

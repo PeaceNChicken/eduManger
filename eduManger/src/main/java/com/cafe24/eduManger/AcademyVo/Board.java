@@ -7,11 +7,10 @@ public class Board {
 	private String member_id;
 	private String board_cate;
 	private String board_title;
+	private String read_level;
 	private String board_content;
 	private int board_count;
 	private String board_date;
-	
-	
 	public String getBoard_code() {
 		return board_code;
 	}
@@ -42,6 +41,12 @@ public class Board {
 	public void setBoard_title(String board_title) {
 		this.board_title = board_title;
 	}
+	public String getRead_level() {
+		return read_level;
+	}
+	public void setRead_level(String read_level) {
+		this.read_level = read_level;
+	}
 	public String getBoard_content() {
 		return board_content;
 	}
@@ -63,8 +68,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [board_code=" + board_code + ", ac_code=" + ac_code + ", member_id=" + member_id + ", board_cate="
-				+ board_cate + ", board_title=" + board_title + ", board_content=" + board_content + ", board_count="
-				+ board_count + ", board_date=" + board_date + "]";
+				+ board_cate + ", board_title=" + board_title + ", read_level=" + read_level + ", board_content="
+				+ board_content + ", board_count=" + board_count + ", board_date=" + board_date + "]";
 	}
-	
 }
