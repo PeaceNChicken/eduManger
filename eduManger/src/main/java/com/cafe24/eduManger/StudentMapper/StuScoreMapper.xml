@@ -53,6 +53,14 @@
 			)
 	</insert>
 	
+	<delete id="stuScoreDelete" parameterType="String">
+		DELETE FROM 
+			stu_score 
+		WHERE 
+			stu_score_code=#{stuScoreDel}	
+	</delete>
+	
+	
 	
 	<!-- right panel list -->
 	<select id="stuScoreRightList" resultType="com.cafe24.eduManger.StudentVo.StuScore">

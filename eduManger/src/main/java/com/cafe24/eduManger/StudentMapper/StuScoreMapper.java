@@ -13,5 +13,6 @@ public interface StuScoreMapper {
 	
 	public int stuScoreInsert(StuScore stuScore);
 	
+	public int stuScoreDelete(String stuScoreDel);
 	
 }

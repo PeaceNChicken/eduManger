@@ -16,18 +16,23 @@ public class StuScoreService {
 	//리스트
 	public List<StuScore> StuScoreList() {
 		List<StuScore> StuScoreList = StuScoreMapper.StuScoreList();
-		System.out.println(StuScoreList + " <--com.cafe24.eduManger.StudentService.StuScoreService.StuScoreList()");
+		System.out.println(StuScoreList + " <-- StuScoreList() com.cafe24.eduManger.StudentService.StuScoreService");
 		return StuScoreList; 
 	}
 	
 	//추가
 	public int StuScoreInsert(StuScore stuScore) {
 		//StuScoreMapper.stuScoreInsert();
-		System.out.println(StuScoreMapper.toString() + " <--StuScoreMapper.toString().com.cafe24.eduManger.StudentService");
-		return StuScoreMapper.stuScoreInsert(stuScore);
-		
+		System.out.println(StuScoreMapper.toString() + " <--StuScoreMapper.toString() com.cafe24.eduManger.StudentService");
+		return StuScoreMapper.stuScoreInsert(stuScore);	
 	}
 	
-	
+	//리스트삭제
+	public int StuScoreDelete(String stuScoreDel) {
+		//StuScoreMapper.stuScoreDelete(stuScoreDel);
+		System.out.println(stuScoreDel + " <--StuScoreDelete() com.cafe24.eduManger.StudentService.StuScoreService");
+		return StuScoreMapper.stuScoreDelete(stuScoreDel);
+	}
+ 	
 	
 }
