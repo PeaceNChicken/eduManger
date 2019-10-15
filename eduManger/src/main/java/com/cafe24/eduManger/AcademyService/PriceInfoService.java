@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cafe24.eduManger.AcademyMapper.PriceInfoMapper;
 import com.cafe24.eduManger.AcademyVo.PriceInfo;
 import com.cafe24.eduManger.AcademyVo.PriceInfoList;
+import com.cafe24.eduManger.StudentVo.Stu_pi;
 
 @Service
 @Transactional
@@ -22,5 +25,10 @@ public class PriceInfoService {
 		List<PriceInfoList> list = priceInfoMapper.priceInfoList();
 		map.put("pList", list);
 		return map;
+	}
+	
+	public List<Stu_pi> stuList(HttpSession session){
+		String ac_code = (String)session.getAttribute("SACODE");
+		return priceInfoMapper.stuList(ac_code);
 	}
 }

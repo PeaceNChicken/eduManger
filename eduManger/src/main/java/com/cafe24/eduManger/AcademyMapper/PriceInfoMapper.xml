@@ -56,4 +56,32 @@
 		ON
 			spi.stu_id 					= m.member_id
 	</select>
+	
+	<!-- <select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
+		SELECT * 
+		FROM 
+			subject
+	</select> -->
+	
+	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
+		SELECT 
+			spi.stu_info_code	AS stu_info_code, 
+			m.ac_code			AS ac_code, 
+			spi.stu_id			AS stu_id,
+			m.member_name		AS m_name,
+			spi.admin_id		AS admin_id, 
+			spi.drive_code		AS drive_code, 
+			spi.stu_school		AS stu_school, 
+			spi.parents_phone	AS parents_phone, 
+			spi.stu_brother		AS stu_brother, 
+			spi.stu_info_etc	AS stu_info_etc
+		FROM 
+			Stu_PI spi
+		INNER JOIN
+			member m
+		ON
+			spi.stu_id 			= m.member_id
+		WHERE
+			m.ac_code 			= #{ac_code}
+	</select>
 </mapper>

@@ -73,8 +73,8 @@
 	<select id="getLectureCode" parameterType="String" resultType="String">
 		SELECT lecture_code
 		FROM lecture
-		WHERE subject_code = #{sub_code}
-		AND class_level_code = #{class_level_code}
+		WHERE subject_code		= #{sub_code}
+		AND class_level_code	= #{class_level_code}
 	</select>
 	
 	<insert id="priceLectureInsert" parameterType="com.cafe24.eduManger.AcademyVo.PriceLecture">
@@ -133,25 +133,25 @@
 		ON
 			l.subject_code 		= s.subject_code
 		WHERE
-			price_list_code = #{price_list_code}
+			price_list_code 	= #{price_list_code}
 	</select>
 
 	<update id="priceLectureUpdate" parameterType="com.cafe24.eduManger.AcademyVo.PriceLectureList">
 		UPDATE 
 			price_lecture
 		SET
-			member_id = #{member_id},
-			lecture_price=#{lecture_price},
-			price_list_etc=#{price_list_etc},
-			price_list_date=NOW()
+			member_id 		= #{member_id},
+			lecture_price	= #{lecture_price},
+			price_list_etc	= #{price_list_etc},
+			price_list_date	= NOW()
 		WHERE 
-			price_list_code=#{price_list_code}
+			price_list_code	= #{price_list_code}
 	</update>
 	
 	<delete id="priceLectureDelete" parameterType="String">
-	DELETE FROM price_lecture 
-	WHERE 
-		price_list_code = #{price_list_code}
+		DELETE FROM price_lecture 
+		WHERE 
+			price_list_code = #{price_list_code}
 	</delete>
 	
 </mapper>
