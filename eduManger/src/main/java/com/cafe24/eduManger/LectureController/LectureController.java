@@ -1,12 +1,16 @@
 package com.cafe24.eduManger.LectureController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.LectureService.LectureService;
+import com.cafe24.eduManger.LectureVo.Lecture;
 
 @Controller
 public class LectureController {
@@ -21,10 +25,19 @@ public class LectureController {
 		return "/lecture/lectureList/lectureList";
 	}
 	
-	@GetMapping("/lectureInsert")
-	public String lectureInsert() {
+	@GetMapping("/lectureInsertForm")
+	public String lectureInsertForm(Model model) {
+		List<Lecture> list = lectureService.lecInsertList();
+		System.out.println(list.toString());
+		model.addAttribute("lecInsertList", lectureService.lecInsertList());
 		return "/lecture/lectureList/lectureInsert";
 	}
+	@PostMapping("/lectureInsert")
+	public String lectureInsert(Lecture lecture) {
+		lectureService.lectureInsert(lecture);
+		return "redirect:/getlecture";
+	}
+	
 	
 	@GetMapping("/lectureUpdate")
 	public String lectureUpdate() {

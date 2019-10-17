@@ -29,4 +29,19 @@ public class LectureService {
 		return lectureMapper.LectureDelete(lectureDel);
 	}
 	
+	
+	//강의 등록
+	public int lectureInsert(Lecture lecture) {
+		//lectureMapper.LectureInsert(lecture);
+		System.out.println(lecture.toString() + " <--lectureInsert com.cafe24.eduManger.LectureService ");
+		return lectureMapper.LectureInsert(lecture);
+	}
+	
+	//강의등록 시 입력리스트
+	public List<Lecture> lecInsertList() {
+		List<Lecture> lecInsertList = lectureMapper.lecInsertList();
+		return lecInsertList;
+	}
+	
+	
 }

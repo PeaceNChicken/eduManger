@@ -26,36 +26,29 @@
 <!-- ******************************************************************************************************************
 		강의추가폼
 ****************************************************************************************************************** -->	
+						<form action="/lectureInsert" method="post">
 						강사아이디 
-						<select class="form-control" style="width:400px;">
+						<select class="form-control" id="m_id" name="m_id" style="width:400px;">
 							<option>강사선택하기</option>
-							<option>idpr001</option>
-							<option>idpr002</option>
-							<option>idpr003</option>
+							<option th:each="l:${lecInsertList}" th:value="${l.m_id}" th:text="${l.m_id}"></option>
 						</select>	
 						<br/><br/>
 						강의실코드
-						<select class="form-control" style="width:400px;">
+						<select class="form-control" id="room_code" name="room_code" style="width:400px;">
 							<option>강의실선택하기</option>
-							<option>cla201</option>
-							<option>cla202</option>
-							<option>cla301</option>
+							<option th:each="l:${lecInsertList}" th:value="${l.room_code}" th:text="${l.room_code}"></option>
 						</select>	
 						<br/><br/>
 						과목코드
-						<select class="form-control" style="width:400px;">
+						<select class="form-control" id="sub_code" name="sub_code" style="width:400px;">
 							<option>과목선택하기</option>
-							<option>국어</option>
-							<option>영어</option>
-							<option>수학</option>
+							<option th:each="l:${lecInsertList}" th:value="${l.sub_code}" th:text="${l.sub_code}"></option>
 						</select>	
 						<br/><br/>
 						학년 및 수업과정 분류 코드
-						<select class="form-control" style="width:400px;">
+						<select class="form-control" id="clle_code" name="clle_code" style="width:400px;">
 							<option>학년 및 수업과정 분류 코드</option>
-							<option>class_level001</option>
-							<option>class_level002</option>
-							<option>class_level003</option>
+							<option th:each="l:${lecInsertList}" th:value="${l.clle_code}" th:text="${l.clle_code}"></option>
 						</select>	
 						<br/><br/>
 						<table>
@@ -72,18 +65,20 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="date" id="lectureStartDate" class="form-control" style="width:400px;"> 
+									<input type="date" id="lec_start" name="lec_start" class="form-control" style="width:400px;"> 
 								</td>
 								<td>
 									~ 
 								</td>
 								<td>
-									<input type="date" id="lectureEndDate" class="form-control pull-rignt" style="width:400px;">
+									<input type="date" id="lec_end" name="lec_end" class="form-control pull-rignt" style="width:400px;">
 								</td>
 							</tr>
 						</table>
 						<br/>
-						<button type="button" class="btn btn-theme" onclick="location.href='/getlecture'"> 추가 </button>
+						<button type="submit" class="btn btn-theme"> 추가 </button>
+						</form>
+						
 <!-- ******************************************************************************************************************
 		강의추가폼END
 ****************************************************************************************************************** -->						
