@@ -13,6 +13,7 @@ public class Member{
 	private String m_birth;
 	private String m_phone;
 	private String m_date;
+	private String ac_name;
 	
 	public String getM_id() {
 		return m_id;
@@ -69,12 +70,20 @@ public class Member{
 		this.m_date = m_date;
 	}
 	
+	public String getAc_name() {
+		return ac_name;
+	}
+	public void setAc_name(String ac_name) {
+		this.ac_name = ac_name;
+	}
+	
 	@Override
 	public String toString() {
-		return "MemberVo [m_id=" + m_id + ", ac_code=" + ac_code + ", m_pw=" + m_pw + ", m_level=" + m_level
-				+ ", m_name=" + m_name + ", m_gender=" + m_gender + ", m_birth=" + m_birth + ", m_phone=" + m_phone
-				+ ", m_date=" + m_date + "]";
+		return "Member [m_id=" + m_id + ", ac_code=" + ac_code + ", m_pw=" + m_pw + ", m_level=" + m_level + ", m_name="
+				+ m_name + ", m_gender=" + m_gender + ", m_birth=" + m_birth + ", m_phone=" + m_phone + ", m_date="
+				+ m_date + ", ac_name=" + ac_name + "]";
 	}
+	
 	
 	
 

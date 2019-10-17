@@ -20,17 +20,19 @@
  	
  	<select id="memberList" parameterType="map" resultType="com.cafe24.eduManger.MemberVo.Member">
  		SELECT 
-			member_id AS m_id, 
-			ac_code AS ac_code, 
+			a.member_id AS m_id, 
+			a.ac_code AS ac_code, 
 			member_pw AS m_pw, 
 			member_level AS m_level, 
 			member_name AS m_name, 
 			member_gender AS m_gender, 
 			member_birth AS m_birth, 
 			member_phone AS m_phone, 
-			member_date AS m_date
-		FROM member
-			WHERE ac_code LIKE CONCAT ('%',#{ac_code},'%')
+			member_date AS m_date,
+			ac_name
+		FROM member AS a INNER JOIN academy AS b
+		ON a.ac_code = b.ac_code
+			WHERE a.ac_code LIKE CONCAT ('%',#{ac_code},'%')
 			LIMIT #{startRow},#{lastRow}
  	</select>
  	
@@ -70,16 +72,18 @@
  	
  	<select id="memberSearch" parameterType="map" resultType="com.cafe24.eduManger.MemberVo.Member">
  		SELECT 
-				member_id AS m_id, 
-				ac_code AS ac_code, 
-				member_pw AS m_pw, 
-				member_level AS m_level, 
-				member_name AS m_name, 
-				member_gender AS m_gender, 
-				member_birth AS m_birth, 
-				member_phone AS m_phone, 
-				member_date AS m_date
-		FROM member
+			a.member_id AS m_id, 
+			a.ac_code AS ac_code, 
+			member_pw AS m_pw, 
+			member_level AS m_level, 
+			member_name AS m_name, 
+			member_gender AS m_gender, 
+			member_birth AS m_birth, 
+			member_phone AS m_phone, 
+			member_date AS m_date,
+			ac_name
+		FROM member AS a INNER JOIN academy AS b
+		ON a.ac_code = b.ac_code
 		WHERE
 				${sk} LIKE CONCAT ('%',#{sv},'%')
 				LIMIT #{startRow},#{lastRow}
