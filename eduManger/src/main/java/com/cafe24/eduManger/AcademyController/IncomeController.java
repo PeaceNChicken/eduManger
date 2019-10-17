@@ -2,6 +2,8 @@ package com.cafe24.eduManger.AcademyController;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +22,10 @@ public class IncomeController {
 	 * @detail 수납 및 납부 안내 버튼을 누르면 할인 수납 및 납부 안내 목록 화면으로 이동한다.
 	 */
 	@GetMapping("/incomeList")
-	public String incomeList(Model model) {
+	public String incomeList(Model model, HttpSession session) {
 		Map<String, Object> pMap = priceInfoService.priceInfoList(); 
 		model.addAttribute("pList", pMap.get("pList"));
+		model.addAttribute("stuList", priceInfoService.stuList(session));
 		System.out.println(pMap);
 		return "/academy/income/incomeList";
 	}

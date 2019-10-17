@@ -29,6 +29,7 @@ public class PriceInfoService {
 	
 	public List<Stu_pi> stuList(HttpSession session){
 		String ac_code = (String)session.getAttribute("SACODE");
+		//System.out.println(ac_code);
 		return priceInfoMapper.stuList(ac_code);
 	}
 }

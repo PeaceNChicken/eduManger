@@ -38,75 +38,82 @@
 				                  </div>
 				                </div> -->
 				                <div class="form-group">
-				                  <label class="col-sm-1 col-sm-1 control-label">이름</label>
-				                  <div class="col-sm-5">
-								  	<input id="m_name" name="m_name" type="text" class="form-control" />
+				                  <label class="col-sm-2 control-label">이름</label>
+				                  <div class="col-sm-4">
+								  	<input id="member_name" name="member_name" type="text" class="form-control" />
+				                  </div>
+				                  <label class="col-sm-2 control-label">학교</label>
+				                  
+				                  <div class="col-sm-4">
+								  	<input id="stu_school" name="stu_school" type="text" class="form-control" />
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">강의 종류</label>
+				                  <label class="col-sm-2 control-label">강의 종류</label>
 				                  <div class="col-sm-10">
 				                  	<div class="col-sm-6">
 								  	  <select id="sub_code" name="sub_code" class="form-control">
-								  		  <option th:each="sList: ${subjectList}" th:value="${sList.sub_code}" th:text="${sList.sub_name}"></option>
-								  	  </select>
-								  		</div>
-								  	<div class="col-sm-6">
-								  	  <select id="class_level_code" name="class_level_code" class="form-control">
-								  		  <option th:each="cList: ${classLevelList}" th:value="${cList.class_level_code}" th:text="${cList.class_grade} +' - '+ ${cList.class_course}"></option>
+								  	    <option value="">선택</option>
+								  		<option th:each="sList: ${subjectList}" th:value="${sList.sub_code}" th:text="${sList.sub_name}"></option>
 								  	  </select>
 								  	</div>
+									<div class="col-sm-6">
+									  <select id="class_level_code" name="class_level_code" class="form-control">
+									  	<option value="">선택</option>
+									    <option th:each="cList: ${classLevelList}" th:value="${cList.class_level_code}" th:text="${cList.class_grade} +' - '+ ${cList.class_course}"></option>
+									  </select>
+									</div>
 				                  </div>
 				                </div>
-				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">강의종류(코드)</label>
+				                <!-- <div class="form-group">
+				                  <label class="col-sm-2 control-label">강의종류(코드)</label>
 				                  <div class="col-sm-10">
 								  	<input id="lecture_code" name="lecture_code" type="text" class="form-control" value="" />
 				                  </div>
-				                </div>
+				                </div> -->
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">등록자아이디</label>
+				                  <label class="col-sm-2 control-label">등록자아이디</label>
 				                  <div class="col-sm-10">
 				                    <input id="member_id" name="member_id" class="form-control" type="text" th:value="${session.SID}" />
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">수강료</label>
+				                  <label class="col-sm-2 control-label">수강료</label>
 				                  <div class="col-sm-10">
 				                    <input id="lecture_price" name="lecture_price" class="form-control" type="text" />
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">할인선택</label>
+				                  <label class="col-sm-2 control-label">할인선택</label>
 				                  <div class="col-sm-10">
-				                    <div class="checkBox">
-				                    	<label>
-						                  <input type="checkbox" name="m_gender" class="m_gender" checked />
+				                    <div class="radio">
+				                    	<label class="col-sm-2">
+						                  <input type="radio" name="discount_cate" class="discount_cate" checked />
 						                  	해당사항없음
 						                </label>
-						                <label>
-						                  <input type="checkbox" name="m_gender" class="m_gender" value="5%할인" />
+						                <label class="col-sm-2">
+						                  <input type="radio" name="discount_cate" class="discount_cate" value="5%할인" />
 						                  	첫등록할인
 						                </label>
-						                <label>
-						                  <input type="checkbox" name="m_gender" class="m_gender" value="10%할인" />
+						                <label class="col-sm-2">
+						                  <input type="radio" name="discount_cate" class="discount_cate" value="10%할인" />
 						                  	형제자매할인
 						                </label>
-						                <label>
-						                  <input type="checkbox" name="m_gender" class="m_gender" value="15%할인" />
+						                <label class="col-sm-2">
+						                  <input type="radio" name="discount_cate" class="discount_cate" value="15%할인" />
 						                  	성적우수할인
 						                </label>
 						             </div>
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">납부금액</label>
+				                  <label class="col-sm-2 control-label">납부금액</label>
 				                  <div class="col-sm-10">
 				                    <input id="price_list_etc" name="price_list_etc" type="text" class="form-control" />
 				                  </div>
 				                </div>
 				                <div class="form-group">
-				                  <label class="col-sm-2 col-sm-2 control-label">등록날짜</label>
+				                  <label class="col-sm-2 control-label">등록날짜</label>
 				                  <div class="col-sm-10">
 				                    <input id="price_list_date" name="price_list_date" type="date" class="form-control" />
 				                  </div>
@@ -175,13 +182,33 @@
 	</section>
 	<script>
 		$(document).ready(function(){
+			
 			$('#stupiList tr').click(function(){
 				var tr = $(this); //클릭한 행 전체 값
 				var td = tr.children(); // 행에 해당하는 자식 노드 값
 				console.log('클릭한 테이블의 값들' + tr.text());
 				
-				$('#m_name').val(td.eq(1).text());
+				$('#member_name').val(td.eq(1).text());
+				$('#stu_school').val(td.eq(2).text());
 			});
+			$('#sub_code, #class_level_code').change(function(){
+				var subCode = $('#sub_code').val();
+				var classLevelCode = $('#class_level_code').val();
+				console.log(subCode);
+				console.log(classLevelCode);
+				/* $.ajax({
+					type: "get",
+					url: "priceInfoInsert.html",
+					data: {"sub_code": subCode, "class_level_code": classLevelCode}
+					success: function(){
+						
+					}
+					
+					
+				}); */
+			});
+			
+			
 		});
 	</script>
 	</th:block>

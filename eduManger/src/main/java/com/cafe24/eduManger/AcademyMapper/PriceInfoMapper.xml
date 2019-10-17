@@ -15,7 +15,13 @@
 			c.class_grade				AS class_grade,
 			c.class_course				AS class_course,
 		CASE WHEN 
-			pinfo.admin_id = 'idad001' 	THEN '김현영' 
+			pinfo.admin_id = 'idad001' 	THEN '김현영'
+		WHEN
+			pinfo.admin_id = 'idad002' 	THEN '관리자2'
+		WHEN
+			pinfo.admin_id = 'idad003' 	THEN '김남성'
+		WHEN
+			pinfo.admin_id = 'idad004' 	THEN '이환'
 		END admin_name,
 			plec.lecture_price			AS lecture_price,
 			dis.discount_cate			AS discount_cate, 
@@ -84,4 +90,5 @@
 		WHERE
 			m.ac_code 			= #{ac_code}
 	</select>
+	
 </mapper>

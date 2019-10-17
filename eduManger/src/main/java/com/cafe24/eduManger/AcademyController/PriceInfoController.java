@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.AcademyService.PriceInfoService;
 import com.cafe24.eduManger.AcademyService.PriceLectureService;
+import com.cafe24.eduManger.AcademyVo.PriceInfoList;
 import com.cafe24.eduManger.StudentService.StuPiService;
 
 @Controller
@@ -35,8 +36,8 @@ public class PriceInfoController {
 	 * @detail 추가하기 버튼을 누르면 수납 및 납부 안내 목록 화면으로 리다이렉트 한다.(DB연결 전)
 	 */
 	@PostMapping("/priceInfoInsert")
-	public String priceInfoInsert() {
-		
+	public String priceInfoInsert(PriceInfoList priceInfoList) {
+		System.out.println(priceInfoList+"<- priceInfoList priceInfoController");
 		return "redirect:/incomeList";
 	}
 	
