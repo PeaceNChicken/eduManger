@@ -7,18 +7,18 @@
  	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
  		SELECT 
 			 c.ac_code AS ac_code 
+			,a.stu_info_code
 			,b.member_id AS m_id 
 			,member_name AS m_name 
 			,member_gender AS m_gender 
-			,stu_counsel_code 
 			,ac_name
-		FROM stu_counsel a 
+		FROM Stu_PI a 
 		inner JOIN member AS b 
 		INNER JOIN academy AS c
-			ON member_level = '수강생'
+			ON b.member_level = '수강생'
 			WHERE b.ac_code LIKE CONCAT ('%',#{ac_code},'%')
 			AND b.ac_code = c.ac_code
-			GROUP BY b.member_id
+			AND a.stu_id = b.member_id
  	</select>
  	
  	<select id="stuPi" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
