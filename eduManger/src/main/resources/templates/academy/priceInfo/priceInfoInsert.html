@@ -199,33 +199,36 @@
 			// 과목, 과정, 횟수 입력시 수강료 산출
 			$('#sub_code, #class_level_code, #price_list_etc').change(function(){
 				if($('#sub_code').val() != "" && $('#class_level_code').val() != "" && $('#price_list_etc').val() != ""){
-					var subCode = $('#sub_code').val(); //과목코드 값
-					var classLevelCode = $('#class_level_code').val(); //학년 및 수업 과정 코드 값
-					var priceListEtc = $('#price_list_etc').val(); // 강의 횟수 값
+					var sub_code = $('#sub_code').val(); //과목코드 값
+					var class_level_code = $('#class_level_code').val(); //학년 및 수업 과정 코드 값
+					var price_list_etc = $('#price_list_etc').val(); // 강의 횟수 값
 					//console.log(subCode);
 					//console.log(classLevelCode);
 					//console.log(priceListEtc);
 					$.ajax({
 						type: "get",
 						url: "/lecturePrice",
-						data: {subCode, classLevelCode, priceListEtc},
+						datatype: "json",
+						data: {"subCode": sub_code, "classLevelCode": class_level_code, "priceListEtc": price_list_etc},
 						success: function(result){
 							$('#lecture_price').val(result); //data 값을 매개변수로 전달한 lecture_price 메서드 호출하여 리턴받은 값을 수강료에 담는다.
 							//console.log($('#lecture_price').text());
 						}
 					});
-					$
+					
 				}
 			});
 			$('.discount_code').change(function(){
-				var discountCode = $('input[name="discount_code"]:checked').val();
-				console.log(discountCode);
+				var discount_code = $('input[name="discount_code"]:checked').val();
+				console.log(discount_code);
 				$.ajax({
 					type: "get",
 					url: "/discountPrice",
-					data: {discountCode},
-					success: function(result){
-						$('#price_list_etc').val(result);
+					datatype: "json",
+					data: {"discountCode": discount_code},
+					success: function(dCode){
+						$('#price_list_etc').val(dCode);
+						//alert("성공");
 					}
 				});
 			});

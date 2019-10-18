@@ -99,10 +99,10 @@ public class PriceInfoController {
 	@GetMapping("/discountPrice")
 	@ResponseBody
 	public int discountCode(String discountCode) {
-		//System.out.println(discountCode);
-		int result = priceInfoService.discountCode(discountCode);
-		//System.out.println(result);
-		return result;
+		System.out.println(discountCode);
+		int dCode = priceInfoService.discountCode(discountCode);
+		System.out.println(dCode);
+		return dCode;
 	}
 	
 }
