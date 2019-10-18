@@ -1,7 +1,5 @@
 package com.cafe24.eduManger.LectureController;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,25 +22,43 @@ public class LectureController {
 		model.addAttribute("lectureList", lectureService.lectureList());
 		return "/lecture/lectureList/lectureList";
 	}
+	//------------------------------------------------------------------------
 	
+	
+	
+	//insert-1 추가페이지로 이동
 	@GetMapping("/lectureInsertForm")
 	public String lectureInsertForm(Model model) {
-		List<Lecture> list = lectureService.lecInsertList();
-		System.out.println(list.toString());
-		model.addAttribute("lecInsertList", lectureService.lecInsertList());
 		return "/lecture/lectureList/lectureInsert";
 	}
+	//insert-2 select option에 강사id 값 가져오기
+	@GetMapping("/lecMidInsertList")
+	public Lecture lecMidInsertList(Lecture lecture) {
+		lectureService.lecMidInsertList(lecture);
+		return lecture;
+	}
+	
+	//insert-END 입력 후 추가버튼
 	@PostMapping("/lectureInsert")
 	public String lectureInsert(Lecture lecture) {
 		lectureService.lectureInsert(lecture);
 		return "redirect:/getlecture";
 	}
+	//----------------------------------------------------------------------------
 	
 	
+	
+	
+	//수정
 	@GetMapping("/lectureUpdate")
 	public String lectureUpdate() {
 		return "/lecture/lectureList/lectureUpdate";
 	}
+	//------------------------------------------------------------------------------
+	
+	
+	
+	
 	
 	//삭제
 	@GetMapping("/lectureDelete")
@@ -51,6 +67,10 @@ public class LectureController {
 		lectureService.lectureDelete(lectureDel);
 		return "redirect:/getlecture";
 	}
+	//------------------------------------------------------------------------------------
+	
+	
+	
 	
 	@GetMapping("/lecStuList")
 	public String view(Model model) {

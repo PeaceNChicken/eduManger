@@ -37,10 +37,15 @@ public class LectureService {
 		return lectureMapper.LectureInsert(lecture);
 	}
 	
+	
 	//강의등록 시 입력리스트
 	public List<Lecture> lecInsertList() {
 		List<Lecture> lecInsertList = lectureMapper.lecInsertList();
 		return lecInsertList;
+	}
+	public String lecMidInsertList(Lecture lecture) {
+		String lecMidInsertList = lectureMapper.lecMidInsertList(lecture);
+		return lecMidInsertList;
 	}
 	
 	

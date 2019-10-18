@@ -29,20 +29,21 @@
 	WHERE 
 		lecture_code=#{lectureDel}	
   </delete>
-  
-  <insert id="LectureInsert" parameterType="com.cafe24.eduManger.LectureVo.Lecture">
+   
+
+  <insert id="lecInsertList" parameterType="com.cafe24.eduManger.LectureVo.Lecture">
   	INSERT INTO 
 		lecture(
 		lecture_code
 		, ac_code
-		, member_id
+		, member_id AS m_id
 		, room_code
 		, member_id2
-		, subject_code
-		, class_level_code
+		, subject_code AS sub_code
+		, class_level_code AS clle_code
 		, lecture_stu_num
-		, lecture_start
-		, lecture_end
+		, lecture_start AS lec_start
+		, lecture_end AS lec_end
 		, lecture_date
 		)
 	VALUES (
@@ -63,13 +64,9 @@
   <!-- insert화면의 저장값 쿼리문 START -->
 		<!-- id -->
 			  <select id="lecMidInsertList" resultType="com.cafe24.eduManger.LectureVo.Lecture">
-				SELECT 
-					member_id AS m_id
-					, room_code
-					, subject_code AS sub_code
-					, class_level_code AS clle_code
-				FROM 
-					lecture
+				SELECT member_id
+				FROM member 
+				WHERE member_level = '강사'
 			  </select>
   		<!-- room_code -->
 		<!-- sub_code -->

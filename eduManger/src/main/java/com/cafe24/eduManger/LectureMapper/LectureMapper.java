@@ -15,6 +15,9 @@ public interface LectureMapper {
 	
 	public int LectureInsert(Lecture lecture);
 	
+	
+	//insert처리 select속성들
 	public List<Lecture> lecInsertList();
 	
+	public String lecMidInsertList(Lecture lecture);
 }
