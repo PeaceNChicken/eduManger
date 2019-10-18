@@ -41,7 +41,7 @@ public class MemberInsertController {
 	
 	@PostMapping("/masterInsert")
 	public String masterInsert(Member member,Model model) {
-		//System.out.println(member.toString() +"<----member.toString() com.cafe24.eduManger.MemberController.MemberInsertController.memberInsert");
+		System.out.println(member.toString() +"<----member.toString() com.cafe24.eduManger.MemberController.MemberInsertController.memberInsert");
 		memberInsertService.masterInsert(member);
 				
 		return "redirect:/memberList";

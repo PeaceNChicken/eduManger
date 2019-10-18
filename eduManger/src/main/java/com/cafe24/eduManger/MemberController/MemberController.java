@@ -1,7 +1,10 @@
 package com.cafe24.eduManger.MemberController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.print.attribute.HashAttributeSet;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +23,21 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@SuppressWarnings("unchecked")
 	@GetMapping("/memberList")
-	public String memberList(Model model, HttpSession session) {
+	public String memberList(Model model, 
+							 HttpSession session
+							,@RequestParam(value="currentPage", required = false, defaultValue = "1")int currentPage
+							) {
+		Map<String,Object> map = memberService.memberList(session, currentPage);
 		
-		model.addAttribute("memberList", memberService.memberList(session));
+		
+		model.addAttribute("memberList", (List<Member>)map.get("memberList"));
+		model.addAttribute("currentPage", (int)map.get("currentPage"));
+		model.addAttribute("lastPage", (int)map.get("lastPage"));
+		model.addAttribute("startPageNum", (int)map.get("startPageNum"));
+		model.addAttribute("lastPageNum", (int)map.get("lastPageNum"));
+		
 		return "/member/memberList/memberList";
 	}
 	
@@ -58,11 +72,13 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@PostMapping("/memberSearch")
 	public String memberSearch(
 							   @RequestParam(value="sk")String sk
 							  ,@RequestParam(value="sv")String sv
-							  ,Model model
+							  ,@RequestParam(value="currentPage" , required = false, defaultValue = "1")int currentPage
+							  ,Model model							  
 							  ) {		
 		//System.out.println(sk + "<--- sk com.cafe24.eduManger.MemberController.MemberController.memberSearch" );
 		//System.out.println(sv + "<--- sv com.cafe24.eduManger.MemberController.MemberController.memberSearch" );
@@ -70,7 +86,14 @@ public class MemberController {
 		if(sk.equals("select")) {
 			return "redirect:/memberList";
 		}
-		model.addAttribute("memberList", memberService.memberSearch(sk, sv));
+		
+		Map<String,Object> map = memberService.memberSearch(sk, sv, currentPage);
+				
+		model.addAttribute("memberList", (List<Member>)map.get("memberSearchList"));
+		model.addAttribute("currentPage", (int)map.get("currentPage"));
+		model.addAttribute("lastPage", (int)map.get("lastPage"));
+		model.addAttribute("startPageNum", (int)map.get("startPageNum"));
+		model.addAttribute("lastPageNum", (int)map.get("lastPageNum"));
 		
 		return "/member/memberList/memberList";
 	}

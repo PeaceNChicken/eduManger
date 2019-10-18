@@ -5,17 +5,20 @@
   
 <mapper namespace="com.cafe24.eduManger.StudentMapper.StuCounselMapper">
 	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
-		SELECT 
-			 b.ac_code AS ac_code 
-			,b.member_id AS m_id 
-			,member_name AS m_name 
-			,member_gender AS m_gender 
-			,stu_counsel_code 
-		FROM stu_counsel a 
-		inner JOIN member AS b 
-			ON member_level = '수강생'
-			WHERE b.ac_code LIKE CONCAT ('%',#{ac_code},'%')
-			GROUP BY b.member_id
+	SELECT 
+		 c.ac_code AS ac_code 
+		,b.member_id AS m_id 
+		,member_name AS m_name 
+		,member_gender AS m_gender 
+		,stu_counsel_code 
+		,ac_name
+	FROM stu_counsel a 
+	inner JOIN member AS b 
+	INNER JOIN academy AS c
+		ON member_level = '수강생'
+		WHERE b.ac_code LIKE CONCAT ('%',#{ac_code},'%')
+		AND b.ac_code = c.ac_code
+		GROUP BY b.member_id
 	</select>
 	
 	<select id="stuSearch" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.StuCounsel">
@@ -25,11 +28,14 @@
 			,member_name AS m_name 
 			,member_gender AS m_gender 
 			,stu_counsel_code 
-		FROM stu_counsel AS a 
+			,ac_name
+		FROM stu_counsel a 
 		inner JOIN member AS b 
+		INNER JOIN academy AS c
 			ON member_level = '수강생'
 			WHERE ${sk} LIKE CONCAT('%',#{sv},'%')
 			AND a.member_id = b.member_id
+			AND b.ac_code = c.ac_code
 			GROUP BY a.member_id
 	</select>
 	
