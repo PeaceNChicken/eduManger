@@ -29,4 +29,8 @@ public class BustimeService {
 	public int getBustimeDelete(String bustime) {
 		return bustimeMapper.getBustimeDelete(bustime);
 	}
+	
+	public List<Bustime> getBustimeSearch(String sk, String sv) {
+		return bustimeMapper.getBustimeSearch(sk, sv);
+	}
 }

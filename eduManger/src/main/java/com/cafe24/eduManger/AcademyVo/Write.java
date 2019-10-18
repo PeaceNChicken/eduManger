@@ -8,6 +8,7 @@ public class Write {
 	private String board_code;
 	private String write_content;
 	private String write_date;
+	
 	public String getWrite_code() {
 		return write_code;
 	}
