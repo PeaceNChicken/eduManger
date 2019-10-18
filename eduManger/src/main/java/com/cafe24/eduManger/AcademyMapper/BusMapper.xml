@@ -17,6 +17,8 @@
 		 	,bus_num
 		 	,bus_limit
 		 	,bus_date
+		 	,line_select
+		 	
 		FROM 
 			bus
 		
@@ -37,7 +39,7 @@
  		,bus_date
 	FROM 
 		bus
-	WHERE 
+	WHERE 	
 		bus_code=#{bus}
 
 	
@@ -52,5 +54,23 @@
 		
 	</delete>
  
+<insert id="getBusInsert" parameterType="com.cafe24.eduManger.AcademyVo.Bus">
+ 	INSERT INTO 
+ 		bus
+		(bus_code
+		,member_id
+		,ac_code
+		,bus_number
+		,bus_cate
+		,bus_driver
+		,bus_driver_phone
+		,bus_num
+		,bus_limit
+		,bus_date
+		,line_select)
+	VALUES 
+		(#{bus_code}, #{member_id}, #{ac_code}, #{bus_number}, #{bus_cate}, #{bus_driver}, #{bus_driver_phone}, #{bus_num}, #{bus_limit},NOW(), #{line_select})
+ 
+ </insert>
  
  </mapper>

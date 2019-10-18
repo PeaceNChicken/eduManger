@@ -1,4 +1,4 @@
-package com.cafe24.eduManger.AcademyController;
+package com.cafe24.eduManger.	AcademyController;
 
 import java.util.Map;
 
@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.AcademyService.BusService;
+import com.cafe24.eduManger.AcademyVo.Bus;
 
 @Controller
 public class BusController {
@@ -28,7 +30,7 @@ public class BusController {
 	}
 	
 	@GetMapping("/busUpdate")
-	public String getBusUpdate(@RequestParam(value="bus")String bus, Model model) {
+	public String getBusUpdate(@RequestParam(value="bus", required = false)String bus, Model model) {
 		System.out.println(bus+"<--bus");
 		System.out.println(busService.getBusUpdate(bus)+"<--");
 		model.addAttribute("busUpdate", busService.getBusUpdate(bus));
@@ -38,6 +40,13 @@ public class BusController {
 	@GetMapping("/busDelete")
 	public String getBusDelete(@RequestParam(value="bus")String bus, Model model) {
 		model.addAttribute("busDelete", busService.getBusDelete(bus));
+		return "redirect:/busList";
+	}
+	
+	@PostMapping("/busInsert")
+	public String getBusInsert(Bus bus) {
+		System.out.println(bus+"<--");
+		busService.getBusInsert(bus);
 		return "redirect:/busList";
 	}
 }

@@ -22,30 +22,31 @@
             		    <div class="form-panel ">
 				              <table class="table table-striped table-advance table-hover">
 				                <h2><i class="fa fa-angle-right">차량시간표</i></h2>
+				                <form action="/bustimeSearch" method="get" >
 				                	  <div class="col-sm-2">								  
-							  	<select class="form-control">
-							  		<option>1호차</option>
-									<option>2호차</option>
-									<option>3호차</option>
+							  	<select name="sk" class="form-control">
+							  		<option value="">전체</option>
+							  		<option value="1호차">1호차</option>
+									<option value="2호차">2호차</option>
+									<option value="3호차">3호차</option>
 								  	</select>
 								  </div>	
 				                <!-- 조건입력창 -->
 								  <div class="col-sm-3">
-								  	<input type="text" class="form-control" placeholder="Search">
+								  	<input name="sv" type="text" class="form-control" placeholder="Search" />
 								  </div>
 								  <div>
-								  	<button type="button" class="btn btn-theme">차량검색</button>
+								  	<button type="submit" class="btn btn-theme">차량검색</button>
 								  	<a href="/bustimeInsert"><button type="button" class="btn btn-theme pull-right">차량시간표추가</button></a>	
-								  </div>			
+								  </div>	
+								  </form>		
 				                <!--  조건입력END -->
 				                <br/>
 				                <br/>
 				                <div class="container">            
 								    <thead>
 								      <tr>
-								        <th>버스시간표코드</th>
 								        <th>등록자아이디</th>
-								        <th>학원코드</th>
 								        <th>버스정보</th>
 								        <th>정류장</th>
 								        <th>A타임</th>
@@ -60,9 +61,7 @@
 								    </thead>
 								    <tbody>
 									   <tr th:each="s: ${bustime}">
-									    <td th:text="${s.bus_time_code}"></td>
 									    <td th:text="${s.member_id}"></td>
-									    <td th:text="${s.ac_code}"></td>
 									    <td th:text="${s.car_info}"></td>
 									    <td th:text="${s.bus_station}"></td>
 								        <td th:text="${s.bus_A_time}"></td>

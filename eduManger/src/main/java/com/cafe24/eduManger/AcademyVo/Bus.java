@@ -12,8 +12,7 @@ public class Bus {
 	private String bus_num;
 	private int bus_limit;
 	private String bus_date;
-	
-	
+	private String line_select;
 	public String getBus_code() {
 		return bus_code;
 	}
@@ -74,14 +73,19 @@ public class Bus {
 	public void setBus_date(String bus_date) {
 		this.bus_date = bus_date;
 	}
+	public String getLine_select() {
+		return line_select;
+	}
+	public void setLine_select(String line_select) {
+		this.line_select = line_select;
+	}
 	@Override
 	public String toString() {
 		return "Bus [bus_code=" + bus_code + ", member_id=" + member_id + ", ac_code=" + ac_code + ", bus_number="
 				+ bus_number + ", bus_cate=" + bus_cate + ", bus_driver=" + bus_driver + ", bus_driver_phone="
 				+ bus_driver_phone + ", bus_num=" + bus_num + ", bus_limit=" + bus_limit + ", bus_date=" + bus_date
-				+ "]";
+				+ ", line_select=" + line_select + "]";
 	}
-	
 	
 	
 }

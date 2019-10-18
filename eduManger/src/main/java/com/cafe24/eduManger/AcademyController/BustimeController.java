@@ -40,4 +40,14 @@ public class BustimeController {
 		model.addAttribute("bustimeDelete", bustimeService.getBustimeDelete(bustime));
 		return "redirect:/bustimeList";
 	}
+	
+	@GetMapping("/bustimeSearch")
+	public String getBustimeSerach(@RequestParam(value="sk", required = false)String sk
+								  ,@RequestParam(value="sv", required = false)String sv
+								  ,Model model) {
+		System.out.println(sk+"<--sk");
+		System.out.println(sv+"<--sv");
+		model.addAttribute("bustime", bustimeService.getBustimeSearch(sk, sv));
+		return "/academy/bus/busTime/bustimeList";
+	}
 }

@@ -14,4 +14,6 @@ public interface BusMapper {
 	public Bus getBusUpdate(String bus);
 	
 	public int getBusDelete(String bus);
+	
+	public int getBusInsert(Bus bus);
 }
