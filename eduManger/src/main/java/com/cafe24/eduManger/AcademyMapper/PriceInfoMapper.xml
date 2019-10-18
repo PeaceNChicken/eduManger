@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.cafe24.eduManger.AcademyMapper.PriceInfoMapper">
+
+	<select id="priceInfoList" resultType="com.cafe24.eduManger.AcademyVo.PriceInfoList">
+		SELECT 
+			pinfo.price_info_code		AS price_info_code,
+			m.member_name				AS member_name, 
+			spi.stu_school				AS stu_school,
+			s.subject_name				AS subject_name,
+			c.class_grade				AS class_grade,
+			c.class_course				AS class_course,
+		CASE WHEN 
+			pinfo.admin_id = 'idad001' 	THEN '김현영'
+		WHEN
+			pinfo.admin_id = 'idad002' 	THEN '관리자2'
+		WHEN
+			pinfo.admin_id = 'idad003' 	THEN '김남성'
+		WHEN
+			pinfo.admin_id = 'idad004' 	THEN '이환'
+		END admin_name,
+			plec.lecture_price			AS lecture_price,
+			plec.price_list_etc			AS price_list_etc,
+			dis.discount_cate			AS discount_cate, 
+			pinfo.price_info_desc		AS price_info_desc, 
+			pinfo.price_info_date		AS price_info_date
+		FROM 
+			price_info pinfo
+		INNER JOIN
+			academy a
+		ON
+			pinfo.ac_code 				= a.ac_code
+		INNER JOIN
+			member m
+		ON
+			pinfo.member_id 			= m.member_id
+		INNER JOIN
+			lecture l
+		ON 
+			pinfo.lecture_code 			= l.lecture_code
+		INNER JOIN
+			subject s
+		ON
+			s.subject_code 				= l.subject_code
+		INNER JOIN
+			class_level c
+		ON
+			c.class_level_code			= l.class_level_code
+		INNER JOIN
+			price_lecture plec
+		ON
+			plec.price_list_code 		= pinfo.price_list_code
+		LEFT OUTER JOIN
+			discount dis
+		ON
+			dis.discount_code 			= pinfo.discount_code
+		LEFT OUTER JOIN
+			Stu_PI spi
+		ON
+			spi.stu_id 					= m.member_id
+	</select>
+	
+	<!-- <select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
+		SELECT * 
+		FROM 
+			subject
+	</select> -->
+	
+	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
+		SELECT 
+			spi.stu_info_code	AS stu_info_code, 
+			m.ac_code			AS ac_code, 
+			spi.stu_id			AS stu_id,
+			m.member_name		AS m_name,
+			spi.admin_id		AS admin_id, 
+			spi.drive_code		AS drive_code, 
+			spi.stu_school		AS stu_school, 
+			spi.parents_phone	AS parents_phone, 
+			spi.stu_brother		AS stu_brother, 
+			spi.stu_info_etc	AS stu_info_etc
+		FROM 
+			Stu_PI spi
+		INNER JOIN
+			member m
+		ON
+			spi.stu_id 			= m.member_id
+		WHERE
+			m.ac_code 			= #{ac_code}
+	</select>
+	
+	<select id="lectureCode" parameterType="String" resultType="String">
+		SELECT lecture_code
+		FROM lecture
+		WHERE
+			subject_code = #{subCode}
+		AND
+			class_level_code = #{classLevelCode}
+	</select>
+	
+	<select id="lecturePrice" parameterType="String" resultType="int">
+		SELECT lecture_price
+		FROM 
+			price_lecture
+		WHERE
+			lecture_code = #{lectureCode}
+		AND 
+			price_list_etc = #{priceListEtc} 
+	</select>
+	
+	<select id="priceLectureList" resultType="com.cafe24.eduManger.AcademyVo.PriceLecture">
+		SELECT *
+		FROM
+			price_lecture
+	</select>
+	
+	<select id="discountCode" parameterType="String" resultType="int">
+		SELECT SUBSTRING_INDEX(discount_cate, "%", 1)
+		AS 
+			discount_cate 
+		FROM 
+			discount
+		WHERE
+			discount_code = #{discountCode}
+	</select>
+	
+</mapper>

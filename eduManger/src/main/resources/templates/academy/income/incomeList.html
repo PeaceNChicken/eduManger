@@ -38,13 +38,13 @@
 										];
 										var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
 									</script>
-									<p>April 17, 2014</p>
+									<p style ="color:#ffffff">October 18, 2019</p>
 								<footer>
 				                    <div class="pull-left">
 				                      <h5><i class="fa fa-hdd-o"></i> 20,000,000원</h5>
 				                    </div>
 				                    <div class="pull-right">
-				                      <h5>전체금액 중70% 납부 </h5>
+				                      <h5>전체금액 중 70% 납부 </h5>
 				                    </div>
 								</footer>
 			                </div>
@@ -93,7 +93,8 @@
 			                    <th>납부금액</th>
 			                    <th>미납여부</th>
 			                    <th>납부날짜</th>
-			                    <th>수정/삭제</th>
+			                    <th>수정</th>
+				                <th>삭제</th>
 			                  </tr>
 			                </thead>
 			                <tbody>
@@ -112,8 +113,9 @@
 			                    <td></td>
 			                    <td>2019-09-03</td>
 			                    <td>
-			                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
 			                      <button class="btn btn-primary btn-xs"><a href="/incomeUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+			                    </td>
+			                    <td>
 			                      <button class="btn btn-danger btn-xs"><a href="/incomeDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 			                    </td>
 			                  </tr>				                     				                 
@@ -137,32 +139,34 @@
 			                <br/>
 				                <thead>
 				                  <tr>
-				                    <th>학원비안내코드</th>
-				                    <th>학원코드</th>
-				                    <th>학생아이디</th>
-				                    <th>강의코드</th>
+				                    <th>학생이름</th>
+				                    <th>학교</th>
+				                    <th>과목</th>
+				                    <th>수업과정</th>
 				                    <th>등록자아이디</th>
-				                    <th>수강료코드</th>
-									<th>수강료할인코드</th>
+				                    <th>수강료</th>
+				                    <th>할인률</th>
+									<th>납부금액</th>
 				                    <th>최종수정일</th>
-				                    <th>수정/삭제</th>
+				                    <th>수정</th>
+				                    <th>삭제</th>
 				                  </tr>
 				                </thead>
 				                <tbody>
-				                  <tr>
+				                  <tr th:each="p: ${pList}">
+				                    <td th:text="${p.member_name}"></td>
+				                    <td th:text="${p.stu_school}"></td>
+				                    <td th:text="${p.subject_name}"></td>
+				                    <td th:text="${p.class_grade} + ' - ' + ${p.class_course} +'('+ ${p.price_list_etc} +')' "></td>
+				                    <td th:text="${p.admin_name}"></td>
+				                    <td th:text="${p.lecture_price}"></td>
+				                    <td th:text="${p.discount_cate}"></td>
+				                    <td th:text="${p.price_info_desc}"></td>
+				                    <td th:text="${p.price_info_date}"></td>
 				                    <td>
-				                      <a href="basic_table.html#">priceInfo001</a>
-				                    </td>
-				                    <td>ac001</td>
-				                    <td>id001</td>
-				                    <td>lecture001</td>
-				                    <td>idad001</td>
-				                    <td>priceLecture001</td>
-				                    <td>discount001</td>
-				                    <td>2019-09-03</td>
-				                    <td>
-				                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
 				                      <button class="btn btn-primary btn-xs"><a href="/priceInfoUpdate" style="color:#ffffff"><i class="fa fa-pencil"></i></a></button>
+				                    </td>
+			                    	<td>
 				                      <button class="btn btn-danger btn-xs"><a href="/priceInfoDelete" style="color:#ffffff"><i class="fa fa-trash-o "></i></a></button>
 				                    </td>
 				                  </tr>				                     				                 

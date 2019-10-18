@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cafe24.eduManger.AcademyService.DiscountService;
 import com.cafe24.eduManger.AcademyService.PriceLectureService;
 import com.cafe24.eduManger.AcademyVo.PriceLecture;
 import com.cafe24.eduManger.AcademyVo.PriceLectureList;
@@ -20,6 +21,7 @@ import com.cafe24.eduManger.AcademyVo.PriceLectureList;
 public class PriceLectureController {
 
 	@Autowired private PriceLectureService priceLectureService;
+	@Autowired private DiscountService discountService;
 	/* @param  	priceLectureList url
 	 * @return 	수강료 및 수강료 할인 정보 페이지 priceLectureList.html
 	 * @detail 	학원관리-수강료 및 할인 정보를 눌렀을 때 get방식으로 priceLectureList url 요청시 priceLectureList메서드를 호출한다.
@@ -30,8 +32,10 @@ public class PriceLectureController {
 	@GetMapping("/priceLectureList")
 	public String priceLectureList(Model model) {
 		Map<String, Object> map = priceLectureService.priceLectureList();
+		Map<String, Object> mapd = discountService.discountList();
 		//System.out.println(map +"<-- priceLectureController");
 		model.addAttribute("list", map.get("list"));
+		model.addAttribute("dList", mapd.get("dList"));
 		return "/academy/priceLecture/priceLectureList";
 	}
 	
