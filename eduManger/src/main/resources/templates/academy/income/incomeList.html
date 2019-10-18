@@ -38,13 +38,13 @@
 										];
 										var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
 									</script>
-									<p>April 17, 2014</p>
+									<p style ="color:#ffffff">October 18, 2019</p>
 								<footer>
 				                    <div class="pull-left">
 				                      <h5><i class="fa fa-hdd-o"></i> 20,000,000원</h5>
 				                    </div>
 				                    <div class="pull-right">
-				                      <h5>전체금액 중70% 납부 </h5>
+				                      <h5>전체금액 중 70% 납부 </h5>
 				                    </div>
 								</footer>
 			                </div>
@@ -157,7 +157,7 @@
 				                    <td th:text="${p.member_name}"></td>
 				                    <td th:text="${p.stu_school}"></td>
 				                    <td th:text="${p.subject_name}"></td>
-				                    <td th:text="${p.class_grade} + ' - ' + ${p.class_course}"></td>
+				                    <td th:text="${p.class_grade} + ' - ' + ${p.class_course} +'('+ ${p.price_list_etc} +')' "></td>
 				                    <td th:text="${p.admin_name}"></td>
 				                    <td th:text="${p.lecture_price}"></td>
 				                    <td th:text="${p.discount_cate}"></td>

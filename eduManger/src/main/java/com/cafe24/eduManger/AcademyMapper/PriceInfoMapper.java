@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.cafe24.eduManger.AcademyVo.PriceInfo;
 import com.cafe24.eduManger.AcademyVo.PriceInfoList;
+import com.cafe24.eduManger.AcademyVo.PriceLecture;
 import com.cafe24.eduManger.LectureVo.Subject;
 import com.cafe24.eduManger.StudentVo.Stu_pi;
 
@@ -19,4 +20,12 @@ public interface PriceInfoMapper {
 	public List<Subject> subjectList();
 	
 	public List<Stu_pi> stuList(String ac_code);
+	
+	public String lectureCode(String subCode, String classLevelCode);
+	
+	public int lecturePrice(String lectureCode, String priceListEtc);
+	
+	public List<PriceLecture> priceLectureList();
+	
+	public int discountCode(String discountCode);
 }

@@ -51,16 +51,22 @@
 				                <div class="form-group">
 				                  <label class="col-sm-2 control-label">강의 종류</label>
 				                  <div class="col-sm-10">
-				                  	<div class="col-sm-6">
+				                  	<div class="col-sm-4">
 								  	  <select id="sub_code" name="sub_code" class="form-control">
 								  	    <option value="">선택</option>
 								  		<option th:each="sList: ${subjectList}" th:value="${sList.sub_code}" th:text="${sList.sub_name}"></option>
 								  	  </select>
 								  	</div>
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 									  <select id="class_level_code" name="class_level_code" class="form-control">
 									  	<option value="">선택</option>
 									    <option th:each="cList: ${classLevelList}" th:value="${cList.class_level_code}" th:text="${cList.class_grade} +' - '+ ${cList.class_course}"></option>
+									  </select>
+									</div>
+									<div class="col-sm-4">
+									  <select id="price_list_etc" name="price_list_etc" class="form-control">
+									  	<option value="">선택</option>
+									    <option th:each="p: ${pList}" th:value="${p.price_list_etc}" th:text="${p.price_list_etc}"></option>
 									  </select>
 									</div>
 				                  </div>
@@ -88,19 +94,19 @@
 				                  <div class="col-sm-10">
 				                    <div class="radio">
 				                    	<label class="col-sm-2">
-						                  <input type="radio" name="discount_cate" class="discount_cate" checked />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="" checked />
 						                  	해당사항없음
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" name="discount_cate" class="discount_cate" value="5%할인" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount1" />
 						                  	첫등록할인
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" name="discount_cate" class="discount_cate" value="10%할인" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount2" />
 						                  	형제자매할인
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" name="discount_cate" class="discount_cate" value="15%할인" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount3" />
 						                  	성적우수할인
 						                </label>
 						             </div>
@@ -133,7 +139,7 @@
 				<!--********** 조건입력창************** -->
 					<h2>학생리스트</h2>
 					<br/>
-					<form action="/stuPiSearch" method="post">
+					<form method="post">
 						<div class="row" >
 							<div class="col-sm-4" >							
 								<span class="input-group">
@@ -148,7 +154,7 @@
 								<div class="input-group">
 									<input name="sv" type="text" class="form-control" placeholder="Search" >
 									<span class="input-group-btn">
-										<button type="submit" class="btn btn-theme">회원검색</button>									
+										<button type="button" class="btn btn-theme">회원검색</button>									
 									</span>
 								</div>
 							</div>
@@ -182,33 +188,47 @@
 	</section>
 	<script>
 		$(document).ready(function(){
-			
 			$('#stupiList tr').click(function(){
 				var tr = $(this); //클릭한 행 전체 값
 				var td = tr.children(); // 행에 해당하는 자식 노드 값
-				console.log('클릭한 테이블의 값들' + tr.text());
+				//console.log('클릭한 테이블의 값들' + tr.text());
 				
 				$('#member_name').val(td.eq(1).text());
 				$('#stu_school').val(td.eq(2).text());
 			});
-			$('#sub_code, #class_level_code').change(function(){
-				var subCode = $('#sub_code').val();
-				var classLevelCode = $('#class_level_code').val();
-				console.log(subCode);
-				console.log(classLevelCode);
-				/* $.ajax({
-					type: "get",
-					url: "priceInfoInsert.html",
-					data: {"sub_code": subCode, "class_level_code": classLevelCode}
-					success: function(){
-						
-					}
-					
-					
-				}); */
+			// 과목, 과정, 횟수 입력시 수강료 산출
+			$('#sub_code, #class_level_code, #price_list_etc').change(function(){
+				if($('#sub_code').val() != "" && $('#class_level_code').val() != "" && $('#price_list_etc').val() != ""){
+					var subCode = $('#sub_code').val(); //과목코드 값
+					var classLevelCode = $('#class_level_code').val(); //학년 및 수업 과정 코드 값
+					var priceListEtc = $('#price_list_etc').val(); // 강의 횟수 값
+					//console.log(subCode);
+					//console.log(classLevelCode);
+					//console.log(priceListEtc);
+					$.ajax({
+						type: "get",
+						url: "/lecturePrice",
+						data: {subCode, classLevelCode, priceListEtc},
+						success: function(result){
+							$('#lecture_price').val(result); //data 값을 매개변수로 전달한 lecture_price 메서드 호출하여 리턴받은 값을 수강료에 담는다.
+							//console.log($('#lecture_price').text());
+						}
+					});
+					$
+				}
 			});
-			
-			
+			$('.discount_code').change(function(){
+				var discountCode = $('input[name="discount_code"]:checked').val();
+				console.log(discountCode);
+				$.ajax({
+					type: "get",
+					url: "/discountPrice",
+					data: {discountCode},
+					success: function(result){
+						$('#price_list_etc').val(result);
+					}
+				});
+			});
 		});
 	</script>
 	</th:block>

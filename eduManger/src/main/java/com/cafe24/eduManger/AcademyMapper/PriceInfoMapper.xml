@@ -24,6 +24,7 @@
 			pinfo.admin_id = 'idad004' 	THEN '이환'
 		END admin_name,
 			plec.lecture_price			AS lecture_price,
+			plec.price_list_etc			AS price_list_etc,
 			dis.discount_cate			AS discount_cate, 
 			pinfo.price_info_desc		AS price_info_desc, 
 			pinfo.price_info_date		AS price_info_date
@@ -89,6 +90,41 @@
 			spi.stu_id 			= m.member_id
 		WHERE
 			m.ac_code 			= #{ac_code}
+	</select>
+	
+	<select id="lectureCode" parameterType="String" resultType="String">
+		SELECT lecture_code
+		FROM lecture
+		WHERE
+			subject_code = #{subCode}
+		AND
+			class_level_code = #{classLevelCode}
+	</select>
+	
+	<select id="lecturePrice" parameterType="String" resultType="int">
+		SELECT lecture_price
+		FROM 
+			price_lecture
+		WHERE
+			lecture_code = #{lectureCode}
+		AND 
+			price_list_etc = #{priceListEtc} 
+	</select>
+	
+	<select id="priceLectureList" resultType="com.cafe24.eduManger.AcademyVo.PriceLecture">
+		SELECT *
+		FROM
+			price_lecture
+	</select>
+	
+	<select id="discountCode" parameterType="String" resultType="int">
+		SELECT SUBSTRING_INDEX(discount_cate, "%", 1)
+		AS 
+			discount_cate 
+		FROM 
+			discount
+		WHERE
+			discount_code = #{discountCode}
 	</select>
 	
 </mapper>

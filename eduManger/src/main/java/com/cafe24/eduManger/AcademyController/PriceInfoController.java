@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cafe24.eduManger.AcademyService.PriceInfoService;
 import com.cafe24.eduManger.AcademyService.PriceLectureService;
 import com.cafe24.eduManger.AcademyVo.PriceInfoList;
+import com.cafe24.eduManger.AcademyVo.PriceLecture;
 import com.cafe24.eduManger.StudentService.StuPiService;
 
 @Controller
@@ -28,6 +30,8 @@ public class PriceInfoController {
 		model.addAttribute("subjectList", priceLectureService.subjectList());
 		model.addAttribute("classLevelList", priceLectureService.classLevelList());
 		model.addAttribute("stuList", priceInfoService.stuList(session));
+		model.addAttribute("pList", priceInfoService.priceLectureList());
+		System.out.println(priceInfoService.priceLectureList());
 		return "academy/priceInfo/priceInfoInsert";
 	}
 	
@@ -80,4 +84,25 @@ public class PriceInfoController {
 		
 		return "redirect:/incomeList";
 	}
+	
+	@GetMapping("/lecturePrice")
+	@ResponseBody
+	public int lecturePrice(String subCode, String classLevelCode, String priceListEtc) {
+		//System.out.println(subCode);
+		//System.out.println(classLevelCode);
+		//System.out.println(priceListEtc);
+		int result = priceInfoService.lecturePrice(subCode, classLevelCode, priceListEtc);
+		//System.out.println(result + "<-result");
+		return result;
+	}
+	
+	@GetMapping("/discountPrice")
+	@ResponseBody
+	public int discountCode(String discountCode) {
+		//System.out.println(discountCode);
+		int result = priceInfoService.discountCode(discountCode);
+		//System.out.println(result);
+		return result;
+	}
+	
 }

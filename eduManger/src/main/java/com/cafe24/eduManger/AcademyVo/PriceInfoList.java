@@ -11,10 +11,10 @@ public class PriceInfoList {
 	private String class_course;
 	private String admin_name;
 	private String lecture_price;
+	private String price_list_etc;
 	private String discount_cate; 
 	private String price_info_desc; 
 	private String price_info_date;
-	
 	public String getPrice_info_code() {
 		return price_info_code;
 	}
@@ -63,6 +63,12 @@ public class PriceInfoList {
 	public void setLecture_price(String lecture_price) {
 		this.lecture_price = lecture_price;
 	}
+	public String getPrice_list_etc() {
+		return price_list_etc;
+	}
+	public void setPrice_list_etc(String price_list_etc) {
+		this.price_list_etc = price_list_etc;
+	}
 	public String getDiscount_cate() {
 		return discount_cate;
 	}
@@ -85,8 +91,9 @@ public class PriceInfoList {
 	public String toString() {
 		return "PriceInfoList [price_info_code=" + price_info_code + ", member_name=" + member_name + ", stu_school="
 				+ stu_school + ", subject_name=" + subject_name + ", class_grade=" + class_grade + ", class_course="
-				+ class_course + ", admin_name=" + admin_name + ", lecture_price=" + lecture_price + ", discount_cate="
-				+ discount_cate + ", price_info_desc=" + price_info_desc + ", price_info_date=" + price_info_date + "]";
+				+ class_course + ", admin_name=" + admin_name + ", lecture_price=" + lecture_price + ", price_list_etc="
+				+ price_list_etc + ", discount_cate=" + discount_cate + ", price_info_desc=" + price_info_desc
+				+ ", price_info_date=" + price_info_date + "]";
 	}
 	
 }
