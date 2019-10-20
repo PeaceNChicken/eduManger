@@ -64,11 +64,32 @@
 			spi.stu_id 					= m.member_id
 	</select>
 	
-	<!-- <select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
-		SELECT * 
-		FROM 
-			subject
-	</select> -->
+	<insert id="">
+	INSERT INTO price_info
+		(
+		price_info_code, 
+		ac_code, 
+		member_id, 
+		lecture_code, 
+		admin_id, 
+		price_list_code, 
+		discount_code, 
+		price_info_desc, 
+		price_info_date
+		)
+	VALUES 
+		(
+		'priceInfo5', 
+		'ac001', 
+		'id001', 
+		'lecture002', 
+		'idad001', 
+		'priceList2', 
+		'discount3', 
+		360000, 
+		NOW()
+		)
+	</insert>
 	
 	<select id="stuList" parameterType="String" resultType="com.cafe24.eduManger.StudentVo.Stu_pi">
 		SELECT 

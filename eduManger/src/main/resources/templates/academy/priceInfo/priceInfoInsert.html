@@ -115,15 +115,15 @@
 				                <div class="form-group">
 				                  <label class="col-sm-2 control-label">납부금액</label>
 				                  <div class="col-sm-10">
-				                    <input id="priceListEtc" name="priceListEtc" type="text" class="form-control" value=""/>
+				                    <input id="price_info_desc" name="price_info_desc" type="text" class="form-control" value=""/>
 				                  </div>
 				                </div>
-				                <div class="form-group">
+				                <!-- <div class="form-group">
 				                  <label class="col-sm-2 control-label">등록날짜</label>
 				                  <div class="col-sm-10">
 				                    <input id="price_list_date" name="price_list_date" type="date" class="form-control" />
 				                  </div>
-				                </div>
+				                </div> -->
 				                <div style="text-align:center">
 				                	<button type="submit" class="btn btn-theme btn-lg">추가하기</button>
 				                </div>			
@@ -212,14 +212,14 @@
 						data: {"subCode": sub_code, "classLevelCode": class_level_code, "priceListEtc": price_list_etc},
 						success: function(result){
 							$('#lecture_price').val(result); //data 값을 매개변수로 전달한 lecture_price 메서드 호출하여 리턴받은 값을 수강료에 담는다.
-							$('#priceListEtc').val(result);
+							$('#price_info_desc').val(result);
 							//console.log(result);
 						}
 					});
 					
 				}
 			});
-			$('.discount_code').change(function(){
+			$('.discount_code').change(function(){ //할인률 radio 버튼이 변경됐을 때 
 				var discount_code = $('input[name="discount_code"]:checked').val();
 				//console.log(discount_code);
 				$.ajax({
@@ -227,12 +227,11 @@
 					url: "/discountPrice",
 					datatype: "json",
 					data: {"discountCode": discount_code},
-					success: function(dCode){
-						//var result = Number(dCode);
-						var fcost = ($('#lecture_price').val() * ((100-(dCode))/100));
-						$('#priceListEtc').val(fcost);
+					success: function(dCode){ //discount 테이블에서 할인률 %에서 앞의 숫자만 받아오는 메서드 호출
+						var fcost = ($('#lecture_price').val() * ((100-(dCode))/100)); //수강료에서 할인률 적용시킨 결과값을 fcost 변수에 담는다.
+						$('#price_info_desc').val(fcost); //납부금액 value에 fcost를 담아서 화면에 보여준다.
 						
-						console.log(fcost);
+						//console.log(fcost);
 					}
 				});
 			});

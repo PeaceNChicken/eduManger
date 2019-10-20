@@ -26,7 +26,6 @@ public class PriceInfoController {
 	 */
 	@GetMapping("/priceInfoInsert")
 	public String priceInfoInsert(Model model, HttpSession session) {
-		//System.out.println(priceLectureService.subjectList() +"<- subjectList()");
 		model.addAttribute("subjectList", priceLectureService.subjectList());
 		model.addAttribute("classLevelList", priceLectureService.classLevelList());
 		model.addAttribute("stuList", priceInfoService.stuList(session));
@@ -104,5 +103,4 @@ public class PriceInfoController {
 		System.out.println(dCode);
 		return dCode;
 	}
-	
 }
