@@ -69,7 +69,8 @@
 		,bus_date
 		,line_select)
 	VALUES 
-		(#{bus_code}, #{member_id}, #{ac_code}, #{bus_number}, #{bus_cate}, #{bus_driver}, #{bus_driver_phone}, #{bus_num}, #{bus_limit},NOW(), #{line_select})
+		(#{bus_code}, #{member_id}, #{ac_code}, #{bus_number}, #{bus_cate}
+		, #{bus_driver}, #{bus_driver_phone}, #{bus_num}, #{bus_limit},NOW(), #{line_select})
  
  </insert>
  

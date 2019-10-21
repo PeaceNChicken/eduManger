@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,17 @@ public class BoardService {
 	public List<Board> getBoardSearch(String sk, String sv) {
 		return boardMapper.getBoardSearch(sk, sv);
 		
+	}
+	
+	public int getBoardInsert(Board board, HttpSession session) {
+	String bp = (String)session.getAttribute("SACODE");	
+	board.setAc_code(bp);
+	System.out.println(board);
+	int pu = boardMapper.getBoardCode()+1;
+	String ba = "board";
+	board.setBoard_code(ba + pu);
+	System.out.println(board+"<--board");
+		return boardMapper.getBoardInsert(board);
 	}
 }
 
