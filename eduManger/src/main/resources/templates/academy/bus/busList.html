@@ -32,7 +32,6 @@
 			                  <tr>
 						        <th>차량번호</th>
 						        <th>차종</th>
-						        <th>호차번호</th>
 						        <th>승차정원</th>
 						        <th>기사성함</th>
 						        <th>기사번호</th>
@@ -47,11 +46,10 @@
 			                <tr th:each="u: ${bus}">
 						        <td th:text="${u.bus_number}"></td>
 						        <td th:text="${u.bus_cate}"></td>
-						        <td th:text="${u.bus_num}"></td>
 						        <td th:text="${u.bus_limit}"></td>
 						        <td th:text="${u.bus_driver}"></td>
 						        <td th:text="${u.bus_driver_phone}"></td>
-						        <td th:text="${u.line_select}"></td>
+						        <td th:text="${u.bus_sim}"></td>
 						        <td th:text="${u.member_id}"></td>
 						        <td th:text="${u.bus_date}"></td>
 						        <td>

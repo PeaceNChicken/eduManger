@@ -81,7 +81,6 @@
 				, #{board_title}, #{board_content}, #{read_level}, #{board_count}, NOW())
  		
  	</insert>
- 	
  	<select id="getBoardCode" resultType="int">
  	
  		SELECT MAX(CAST(SUBSTRING(board_code, 6) AS int)) FROM board

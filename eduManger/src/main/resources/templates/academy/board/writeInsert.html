@@ -24,15 +24,6 @@
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<tbody>
 					<div class="form-group">
-			                  <label class="col-sm-2 col-sm-2 control-label">게시글번호</label>
-			                  <div class="col-sm-10">
-			                    <input type="text" class="form-control" id="board_code" name="board_code">
-			                  </div>
-			                </div>
-			                <br/>
-			                <br/>
-			                <br/>
-					<div class="form-group">
 			                  <label class="col-sm-2 col-sm-2 control-label">작성자</label>
 			                  <div class="col-sm-10">
 			                    <input type="text" class="form-control" id="member_id" name="member_id">
@@ -78,10 +69,10 @@
 							<th colspan="2"	style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
 						</tr>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 주제" id="board_title" name="board_title" maxlength="50"/></td>
+							<td><input type="text" class="form-control" placeholder="글 주제" id="board_title" name="board_title" maxlength="40"/>40자이내</td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" id="board_content" name="board_content" maxlength="2048" style="height: 350px;"></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" id="board_content" name="board_content" maxlength="500" style="height: 350px;" ></textarea>500자이내</td>
 						</tr>
 					</tbody>
 				</table>	

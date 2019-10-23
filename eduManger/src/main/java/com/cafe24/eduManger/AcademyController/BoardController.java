@@ -61,7 +61,6 @@ public class BoardController {
 	@PostMapping("/boardInsert")
 	public String getBoardInsert(Board board, HttpSession session) {
 		System.out.println(board+"<--board");
-		
 		boardService.getBoardInsert(board, session);
 		return "redirect:/boardList";
 	}

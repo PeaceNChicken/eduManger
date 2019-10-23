@@ -32,7 +32,7 @@ public class BoardService {
 		return boardMapper.getBoardDelete(board);    
 	}
 	
-	public List<Board> getBoardSearch(String sk, String sv) {
+	public List<Board> getBoardSearch(String sk, String sv) {	
 		return boardMapper.getBoardSearch(sk, sv);
 		
 	}
