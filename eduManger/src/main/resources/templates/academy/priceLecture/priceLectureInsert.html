@@ -42,11 +42,13 @@
 				                  <div class="col-sm-10">
 				                  	<div class="col-sm-6">
 								  	  <select id="sub_code" name="sub_code" class="form-control">
+								  	  	  <option>선택</option>
 								  		  <option th:each="sList: ${subjectList}" th:value="${sList.sub_code}" th:text="${sList.sub_name}"></option>
 								  	  </select>
 								  		</div>
 								  	<div class="col-sm-6">
 								  	  <select id="class_level_code" name="class_level_code" class="form-control">
+								  	  	  <option>선택</option>
 								  		  <option th:each="cList: ${classLevelList}" th:value="${cList.class_level_code}" th:utext="${cList.class_grade} +' - '+ ${cList.class_course}"></option>
 								  	  </select>
 								  	</div>

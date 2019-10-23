@@ -26,7 +26,7 @@ public class IncomeController {
 		Map<String, Object> pMap = priceInfoService.priceInfoList(); 
 		model.addAttribute("pList", pMap.get("pList"));
 		model.addAttribute("stuList", priceInfoService.stuList(session));
-		System.out.println(pMap);
+		//System.out.println(pMap);
 		return "/academy/income/incomeList";
 	}
 	
