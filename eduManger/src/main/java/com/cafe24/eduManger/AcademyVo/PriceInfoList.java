@@ -7,12 +7,15 @@ public class PriceInfoList {
 	private String member_name; 
 	private String stu_school; 
 	private String sub_name;
+	private String sub_code;
 	private String class_grade;
 	private String class_course;
+	private String class_level_code;
 	private String admin_name;
 	private String lecture_price;
 	private String price_list_etc;
-	private String discount_cate; 
+	private String discount_content; 
+	private String discount_code; 
 	private String price_info_desc; 
 	private String price_info_date;
 	public String getPrice_info_code() {
@@ -33,11 +36,17 @@ public class PriceInfoList {
 	public void setStu_school(String stu_school) {
 		this.stu_school = stu_school;
 	}
-	public String getSubject_name() {
+	public String getSub_name() {
 		return sub_name;
 	}
-	public void setSubject_name(String subject_name) {
-		this.sub_name = subject_name;
+	public void setSub_name(String sub_name) {
+		this.sub_name = sub_name;
+	}
+	public String getSub_code() {
+		return sub_code;
+	}
+	public void setSub_code(String sub_code) {
+		this.sub_code = sub_code;
 	}
 	public String getClass_grade() {
 		return class_grade;
@@ -50,6 +59,12 @@ public class PriceInfoList {
 	}
 	public void setClass_course(String class_course) {
 		this.class_course = class_course;
+	}
+	public String getClass_level_code() {
+		return class_level_code;
+	}
+	public void setClass_level_code(String class_level_code) {
+		this.class_level_code = class_level_code;
 	}
 	public String getAdmin_name() {
 		return admin_name;
@@ -69,11 +84,17 @@ public class PriceInfoList {
 	public void setPrice_list_etc(String price_list_etc) {
 		this.price_list_etc = price_list_etc;
 	}
-	public String getDiscount_cate() {
-		return discount_cate;
+	public String getDiscount_content() {
+		return discount_content;
 	}
-	public void setDiscount_cate(String discount_cate) {
-		this.discount_cate = discount_cate;
+	public void setDiscount_content(String discount_content) {
+		this.discount_content = discount_content;
+	}
+	public String getDiscount_code() {
+		return discount_code;
+	}
+	public void setDiscount_code(String discount_code) {
+		this.discount_code = discount_code;
 	}
 	public String getPrice_info_desc() {
 		return price_info_desc;
@@ -90,10 +111,11 @@ public class PriceInfoList {
 	@Override
 	public String toString() {
 		return "PriceInfoList [price_info_code=" + price_info_code + ", member_name=" + member_name + ", stu_school="
-				+ stu_school + ", sub_name=" + sub_name + ", class_grade=" + class_grade + ", class_course="
-				+ class_course + ", admin_name=" + admin_name + ", lecture_price=" + lecture_price + ", price_list_etc="
-				+ price_list_etc + ", discount_cate=" + discount_cate + ", price_info_desc=" + price_info_desc
-				+ ", price_info_date=" + price_info_date + "]";
+				+ stu_school + ", sub_name=" + sub_name + ", sub_code=" + sub_code + ", class_grade=" + class_grade
+				+ ", class_course=" + class_course + ", class_level_code=" + class_level_code + ", admin_name="
+				+ admin_name + ", lecture_price=" + lecture_price + ", price_list_etc=" + price_list_etc
+				+ ", discount_content=" + discount_content + ", discount_code=" + discount_code + ", price_info_desc="
+				+ price_info_desc + ", price_info_date=" + price_info_date + "]";
 	}
-	
+		
 }

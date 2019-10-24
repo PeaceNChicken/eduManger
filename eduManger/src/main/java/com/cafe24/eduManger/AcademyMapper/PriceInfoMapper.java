@@ -28,4 +28,14 @@ public interface PriceInfoMapper {
 	public List<PriceLecture> priceLectureList();
 	
 	public int discountCode(String discountCode);
+	
+	public int getPriceInfoCode();
+	
+	public int priceInfoInsert(PriceInfo priceInfo);
+	
+	public String getMemberId(String mName, String sSchool);
+	
+	public String getLectureCode();
+	
+	public String GetPriceListCode(String lectureCode, String lecturePrice, String priceListEtc);
 }

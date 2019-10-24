@@ -11,7 +11,9 @@
 			pinfo.price_info_code		AS price_info_code,
 			m.member_name				AS member_name, 
 			spi.stu_school				AS stu_school,
-			s.subject_name				AS subject_name,
+			s.subject_name				AS sub_name,
+			s.subject_code				AS sub_code,
+			c.class_level_code			AS class_level_code,
 			c.class_grade				AS class_grade,
 			c.class_course				AS class_course,
 		CASE WHEN 
@@ -25,7 +27,8 @@
 		END admin_name,
 			plec.lecture_price			AS lecture_price,
 			plec.price_list_etc			AS price_list_etc,
-			dis.discount_cate			AS discount_cate, 
+			dis.discount_content		AS discount_content,
+			dis.discount_code			AS discount_code, 
 			pinfo.price_info_desc		AS price_info_desc, 
 			pinfo.price_info_date		AS price_info_date
 		FROM 
@@ -64,7 +67,7 @@
 			spi.stu_id 					= m.member_id
 	</select>
 	
-	<insert id="">
+	<insert id="priceInfoInsert" parameterType="com.cafe24.eduManger.AcademyVo.PriceInfo">
 	INSERT INTO price_info
 		(
 		price_info_code, 
@@ -79,14 +82,14 @@
 		)
 	VALUES 
 		(
-		'priceInfo5', 
-		'ac001', 
-		'id001', 
-		'lecture002', 
-		'idad001', 
-		'priceList2', 
-		'discount3', 
-		360000, 
+		#{price_info_code}, 
+		#{ac_code}, 
+		#{member_id}, 
+		#{lecture_code}, 
+		#{member_id2}, 
+		#{price_list_code}, 
+		#{discount_code}, 
+		#{price_info_desc}, 
 		NOW()
 		)
 	</insert>
@@ -146,6 +149,39 @@
 			discount
 		WHERE
 			discount_code = #{discountCode}
+	</select>
+	
+	<select id="getPriceInfoCode" resultType="int">
+		SELECT 
+			MAX(CAST(SUBSTR(price_info_code, 10)AS INT)) 
+		FROM 
+			price_info
+	</select>
+	
+	<select id="getMemberId" parameterType="String" resultType="String">
+		SELECT member_id
+		FROM 
+			member m
+		INNER JOIN 
+			Stu_PI s
+		ON
+			m.member_id = s.stu_id
+		WHERE
+			m.member_name = #{mName}
+		AND
+			s.stu_school = #{sSchool}
+	</select>
+	
+	<select id="GetPriceListCode" parameterType="String" resultType="String">
+		SELECT price_list_code
+		FROM 
+			price_lecture
+		WHERE
+			lecture_code = #{lectureCode}
+		AND
+			lecture_price = #{lecturePrice}
+		AND
+			price_list_etc = #{priceListEtc}
 	</select>
 	
 </mapper>

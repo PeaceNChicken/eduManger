@@ -145,7 +145,7 @@
 				                    <th>수업과정</th>
 				                    <th>등록자아이디</th>
 				                    <th>수강료</th>
-				                    <th>할인률</th>
+				                    <th>할인유형</th>
 									<th>납부금액</th>
 				                    <th>최종수정일</th>
 				                    <th>수정</th>
@@ -156,11 +156,11 @@
 				                  <tr th:each="p: ${pList}">
 				                    <td th:text="${p.member_name}"></td>
 				                    <td th:text="${p.stu_school}"></td>
-				                    <td th:text="${p.subject_name}"></td>
+				                    <td th:text="${p.sub_name}"></td>
 				                    <td th:text="${p.class_grade} + ' - ' + ${p.class_course} +'('+ ${p.price_list_etc} +')' "></td>
 				                    <td th:text="${p.admin_name}"></td>
 				                    <td th:text="${p.lecture_price}"></td>
-				                    <td th:text="${p.discount_cate}"></td>
+				                    <td th:text="${p.discount_content}"></td>
 				                    <td th:text="${p.price_info_desc}"></td>
 				                    <td th:text="${p.price_info_date}"></td>
 				                    <td>

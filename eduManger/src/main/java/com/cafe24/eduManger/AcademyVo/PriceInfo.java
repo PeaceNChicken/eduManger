@@ -8,7 +8,6 @@ public class PriceInfo {
 	private String lecture_code;
 	private String member_id2;
 	private String price_list_code;
-	private String book_code;
 	private String discount_code;
 	private String price_info_desc;
 	private String price_info_date;
@@ -49,12 +48,6 @@ public class PriceInfo {
 	public void setPrice_list_code(String price_list_code) {
 		this.price_list_code = price_list_code;
 	}
-	public String getBook_code() {
-		return book_code;
-	}
-	public void setBook_code(String book_code) {
-		this.book_code = book_code;
-	}
 	public String getDiscount_code() {
 		return discount_code;
 	}
@@ -77,7 +70,7 @@ public class PriceInfo {
 	public String toString() {
 		return "PriceInfo [price_info_code=" + price_info_code + ", ac_code=" + ac_code + ", member_id=" + member_id
 				+ ", lecture_code=" + lecture_code + ", member_id2=" + member_id2 + ", price_list_code="
-				+ price_list_code + ", book_code=" + book_code + ", discount_code=" + discount_code
+				+ price_list_code + ", discount_code=" + discount_code
 				+ ", price_info_desc=" + price_info_desc + ", price_info_date=" + price_info_date + "]";
 	}
 	
