@@ -9,10 +9,11 @@ public class Bus {
 	private String bus_cate;
 	private String bus_driver;
 	private String bus_driver_phone;
-	private String bus_num;
+	private String bus_sim;
 	private int bus_limit;
 	private String bus_date;
 	private String line_select;
+	
 	public String getBus_code() {
 		return bus_code;
 	}
@@ -55,11 +56,11 @@ public class Bus {
 	public void setBus_driver_phone(String bus_driver_phone) {
 		this.bus_driver_phone = bus_driver_phone;
 	}
-	public String getBus_num() {
-		return bus_num;
+	public String getBus_sim() {
+		return bus_sim;
 	}
-	public void setBus_num(String bus_num) {
-		this.bus_num = bus_num;
+	public void setBus_sim(String bus_sim) {
+		this.bus_sim = bus_sim;
 	}
 	public int getBus_limit() {
 		return bus_limit;
@@ -83,9 +84,11 @@ public class Bus {
 	public String toString() {
 		return "Bus [bus_code=" + bus_code + ", member_id=" + member_id + ", ac_code=" + ac_code + ", bus_number="
 				+ bus_number + ", bus_cate=" + bus_cate + ", bus_driver=" + bus_driver + ", bus_driver_phone="
-				+ bus_driver_phone + ", bus_num=" + bus_num + ", bus_limit=" + bus_limit + ", bus_date=" + bus_date
-				+ ", line_select=" + line_select + "]";
+				+ bus_driver_phone + ", bus_sim=" + bus_sim + ", bus_limit=" + bus_limit
+				+ ", bus_date=" + bus_date + ", line_select=" + line_select + "]";
 	}
+	
+	
 	
 	
 }

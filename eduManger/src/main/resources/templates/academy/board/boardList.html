@@ -25,7 +25,7 @@
 	               
 	                <!-- 조건입력창 -->
 				  	<a href="/boardInsert"><button type="button" class="btn btn-theme pull-right" th:if="${session.SLEVEL.equals('관리자')}">게시판생성</button></a>
-				  	<a href="/writeInsert"><button type="button" class="btn btn-theme pull-right">글쓰기</button></a>	
+				  	<a href="/writeInsert"><button type="button" class="btn bt	n-theme pull-right">글쓰기</button></a>	
 				  	<br/>
 	                <br/>
 					  	<h4>게시글검색</h4>
@@ -51,6 +51,7 @@
 	                <table class="table table-striped table-advance table-hover">
 		                <thead>
 		                  <tr>
+		                  		<th>게시글번호</th>
 						        <th>작성자</th>						     
 						        <th>카테고리</th>
 						        <th>주제</th>
@@ -58,24 +59,25 @@
 						        <th>글읽기권한</th>
 						        <th>조회수</th>
 						        <th>등록날짜</th>
-						        <th>수정</th>
+						        <th th:if="${session.SLEVEL.equals('관리자')}">수정</th>
 						        <th>삭제</th>
 		                  </tr>
 		                </thead>
 		                <tbody>
-		                <tr th:each="b: ${boardList}">					                    
+		                <tr th:each="b: ${boardList}">	
+		                	<td th:text="${b.board_code}"></td>				                    
 					        <td th:text="${b.member_id}"></td>
 					        <td th:text="${b.board_cate}"></td>
 					        <td th:text="${b.board_title}"></td>						        
 					        <td><a th:text="${b.board_content}" th:href="@{/replyList(replyList=${b.board_code})}"></a></td>
-					        <td th:text="${b.read_level}"></td>
+					        <td th:text="${b.read_level}"></td>	
 					        <td th:text="${b.board_count}"></td>
 					        <td th:text="${b.board_date}"></td>
 					        <td>
-		                      <a th:href="@{/boardUpdate(boardList=${b.board_code})}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>				                      
+		                      <a th:href="@{/boardUpdate(boardList=${b.board_code})}" th:if="${session.SLEVEL.equals('관리자')}"><button class="btn btn-primary btn-xs" ><i class="fa fa-pencil" ></i></button></a>				                      
 		                   </td>
 		                    <td>
-		                      <button class="btn btn-danger btn-xs btnDelete" th:data-board="${b.board_code}"><i class="fa fa-trash-o "></i></button>
+		                      <button class="btn btn-danger btn-xs btnDelete" th:data-board="${b.board_code}"><i class="fa fa-trash-o" ></i></button>
 		                    </td>
 		                  </tr>
 		                </tbody>

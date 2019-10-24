@@ -11,6 +11,8 @@ public class Board {
 	private String board_content;
 	private int board_count;
 	private String board_date;
+	
+	
 	public String getBoard_code() {
 		return board_code;
 	}

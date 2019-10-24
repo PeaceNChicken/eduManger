@@ -3,10 +3,13 @@ package com.cafe24.eduManger.AcademyController;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cafe24.eduManger.AcademyService.BoardService;
@@ -53,5 +56,12 @@ public class BoardController {
 		System.out.println(sv+"<--sv");
 		model.addAttribute("boardList", boardService.getBoardSearch(sk, sv));		
 		return "/academy/board/boardList";
+	}
+	
+	@PostMapping("/boardInsert")
+	public String getBoardInsert(Board board, HttpSession session) {
+		System.out.println(board+"<--board");
+		boardService.getBoardInsert(board, session);
+		return "redirect:/boardList";
 	}
 }
