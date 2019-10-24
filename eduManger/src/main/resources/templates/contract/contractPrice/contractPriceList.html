@@ -24,7 +24,7 @@
 							<h2><i class="fa fa-angle-right"></i>계약 단가표</h2>
 							<hr/>
 							<!-- 조건입력창 -->
-								<button type="button" class="btn btn-theme pull-right"><a href="/contractPriceInsert" style="color:#ffffff">계약단가 추가</a></button>				
+								<button type="button" class="btn btn-theme pull-right" th:if="${session.SID.equals('MASTER1')}"><a th:href="@{contractPriceInsert}" style="color:#ffffff">계약단가 추가</a></button>				
 							<!--  조건입력END -->
 							<br/>
 							<br/>

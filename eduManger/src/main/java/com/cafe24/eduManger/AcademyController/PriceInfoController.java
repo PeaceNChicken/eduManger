@@ -26,7 +26,6 @@ public class PriceInfoController {
 	 */
 	@GetMapping("/priceInfoInsert")
 	public String priceInfoInsert(Model model, HttpSession session) {
-		//System.out.println(priceLectureService.subjectList() +"<- subjectList()");
 		model.addAttribute("subjectList", priceLectureService.subjectList());
 		model.addAttribute("classLevelList", priceLectureService.classLevelList());
 		model.addAttribute("stuList", priceInfoService.stuList(session));
@@ -99,10 +98,9 @@ public class PriceInfoController {
 	@GetMapping("/discountPrice")
 	@ResponseBody
 	public int discountCode(String discountCode) {
-		//System.out.println(discountCode);
-		int result = priceInfoService.discountCode(discountCode);
-		//System.out.println(result);
-		return result;
+		System.out.println(discountCode);
+		int dCode = priceInfoService.discountCode(discountCode);
+		System.out.println(dCode);
+		return dCode;
 	}
-	
 }

@@ -53,7 +53,7 @@
 								</div>
 							</form>
 								<div class="col-sm-1 col-sm-offset-3">
-									<button type="button" class="btn btn-theme"><a href="/contractAcademyInsert" style="color:#ffffff">지점 추가</a></button>
+									<button type="button" class="btn btn-theme" th:if="${session.SID.equals('MASTER1')}"><a th:href="@{/contractAcademyInsert}" style="color:#ffffff">지점 추가</a></button>
 								</div>
 							</div>
 							<!--  조건입력END -->

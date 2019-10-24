@@ -71,12 +71,12 @@
 									</div>
 				                  </div>
 				                </div>
-				                <!-- <div class="form-group">
+				                <div class="form-group" style="display:none">
 				                  <label class="col-sm-2 control-label">강의종류(코드)</label>
 				                  <div class="col-sm-10">
 								  	<input id="lecture_code" name="lecture_code" type="text" class="form-control" value="" />
 				                  </div>
-				                </div> -->
+				                </div>
 				                <div class="form-group">
 				                  <label class="col-sm-2 control-label">등록자아이디</label>
 				                  <div class="col-sm-10">
@@ -94,19 +94,19 @@
 				                  <div class="col-sm-10">
 				                    <div class="radio">
 				                    	<label class="col-sm-2">
-						                  <input type="radio" class= "discount_code" name="discount_code" value="" checked />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount1" checked />
 						                  	해당사항없음
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" class= "discount_code" name="discount_code" value="discount1" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount2" />
 						                  	첫등록할인
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" class= "discount_code" name="discount_code" value="discount2" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount3" />
 						                  	형제자매할인
 						                </label>
 						                <label class="col-sm-2">
-						                  <input type="radio" class= "discount_code" name="discount_code" value="discount3" />
+						                  <input type="radio" class= "discount_code" name="discount_code" value="discount4" />
 						                  	성적우수할인
 						                </label>
 						             </div>
@@ -115,15 +115,15 @@
 				                <div class="form-group">
 				                  <label class="col-sm-2 control-label">납부금액</label>
 				                  <div class="col-sm-10">
-				                    <input id="price_list_etc" name="price_list_etc" type="text" class="form-control" />
+				                    <input id="price_info_desc" name="price_info_desc" type="text" class="form-control" value=""/>
 				                  </div>
 				                </div>
-				                <div class="form-group">
+				                <!-- <div class="form-group">
 				                  <label class="col-sm-2 control-label">등록날짜</label>
 				                  <div class="col-sm-10">
 				                    <input id="price_list_date" name="price_list_date" type="date" class="form-control" />
 				                  </div>
-				                </div>
+				                </div> -->
 				                <div style="text-align:center">
 				                	<button type="submit" class="btn btn-theme btn-lg">추가하기</button>
 				                </div>			
@@ -199,33 +199,39 @@
 			// 과목, 과정, 횟수 입력시 수강료 산출
 			$('#sub_code, #class_level_code, #price_list_etc').change(function(){
 				if($('#sub_code').val() != "" && $('#class_level_code').val() != "" && $('#price_list_etc').val() != ""){
-					var subCode = $('#sub_code').val(); //과목코드 값
-					var classLevelCode = $('#class_level_code').val(); //학년 및 수업 과정 코드 값
-					var priceListEtc = $('#price_list_etc').val(); // 강의 횟수 값
-					//console.log(subCode);
-					//console.log(classLevelCode);
-					//console.log(priceListEtc);
+					var sub_code = $('#sub_code').val(); //과목코드 값
+					var class_level_code = $('#class_level_code').val(); //학년 및 수업 과정 코드 값
+					var price_list_etc = $('#price_list_etc').val(); // 강의 횟수 값
+					console.log("sub_code: " + sub_code);
+					console.log("class_level_code: " + class_level_code);
+					console.log("price_list_etc: " +price_list_etc);
 					$.ajax({
 						type: "get",
 						url: "/lecturePrice",
-						data: {subCode, classLevelCode, priceListEtc},
+						datatype: "json",
+						data: {"subCode": sub_code, "classLevelCode": class_level_code, "priceListEtc": price_list_etc},
 						success: function(result){
-							$('#lecture_price').val(result); //data 값을 매개변수로 전달한 lecture_price 메서드 호출하여 리턴받은 값을 수강료에 담는다.
-							//console.log($('#lecture_price').text());
+							$('#lecture_price').val(result); //리턴받은 수강료 값을 수강료 칸에 출력
+							$('#price_info_desc').val(result); //리턴받은 수강료 값을 할인 전 기본값으로 보이도록 출력 
+							//console.log(result);
 						}
 					});
-					$
+					
 				}
 			});
-			$('.discount_code').change(function(){
-				var discountCode = $('input[name="discount_code"]:checked').val();
-				console.log(discountCode);
+			$('.discount_code').change(function(){ //할인률 radio 버튼이 변경됐을 때 
+				var discount_code = $('input[name="discount_code"]:checked').val();
+				//console.log(discount_code);
 				$.ajax({
 					type: "get",
 					url: "/discountPrice",
-					data: {discountCode},
-					success: function(result){
-						$('#price_list_etc').val(result);
+					datatype: "json",
+					data: {"discountCode": discount_code},
+					success: function(dCode){ //discount 테이블에서 할인률 %에서 앞의 숫자만 받아오는 메서드 호출
+						var fcost = ($('#lecture_price').val() * ((100-(dCode))/100)); //수강료에서 할인률 적용시킨 결과값을 fcost 변수에 담는다.
+						$('#price_info_desc').val(fcost); //납부금액 value에 fcost를 담아서 화면에 보여준다.
+						
+						//console.log(fcost);
 					}
 				});
 			});

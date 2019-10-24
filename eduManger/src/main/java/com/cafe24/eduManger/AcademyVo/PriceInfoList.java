@@ -6,7 +6,7 @@ public class PriceInfoList {
 	private String price_info_code;
 	private String member_name; 
 	private String stu_school; 
-	private String subject_name;
+	private String sub_name;
 	private String class_grade;
 	private String class_course;
 	private String admin_name;
@@ -34,10 +34,10 @@ public class PriceInfoList {
 		this.stu_school = stu_school;
 	}
 	public String getSubject_name() {
-		return subject_name;
+		return sub_name;
 	}
 	public void setSubject_name(String subject_name) {
-		this.subject_name = subject_name;
+		this.sub_name = subject_name;
 	}
 	public String getClass_grade() {
 		return class_grade;
@@ -90,7 +90,7 @@ public class PriceInfoList {
 	@Override
 	public String toString() {
 		return "PriceInfoList [price_info_code=" + price_info_code + ", member_name=" + member_name + ", stu_school="
-				+ stu_school + ", subject_name=" + subject_name + ", class_grade=" + class_grade + ", class_course="
+				+ stu_school + ", sub_name=" + sub_name + ", class_grade=" + class_grade + ", class_course="
 				+ class_course + ", admin_name=" + admin_name + ", lecture_price=" + lecture_price + ", price_list_etc="
 				+ price_list_etc + ", discount_cate=" + discount_cate + ", price_info_desc=" + price_info_desc
 				+ ", price_info_date=" + price_info_date + "]";
