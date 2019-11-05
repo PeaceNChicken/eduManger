@@ -87,7 +87,7 @@ $(document).ready(function(){
 										<td th:text="${l.mem_id}"></td>
 										<td th:text="${l.lec_date}"></td>
 										<td>
-											<a href="@{/lectureUpdate(lectureUp=${l.lec_code})}">
+											<a th:href="@{/lectureUpdate(lectureUp=${l.lec_code})}">
 												<button class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil"></i>
 												</button>
