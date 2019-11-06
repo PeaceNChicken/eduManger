@@ -28,7 +28,6 @@
 						    <thead>
 						      <tr>
 						      	<th>과목코드</th>	<!-- sub_code -->
-						        <th>학원코드</th> <!-- ac_code -->
 						        <th>과목명</th> <!-- sub_name -->						   
 						      </tr>
 						    </thead>
@@ -36,9 +35,6 @@
 						      <tr>
 						      	<td>
 						      		<input th:value="${subjectUpdate.sub_code}" readonly="readonly">
-						      	</td>
-						      	<td> 
-						      		<input th:valye="${subjectUpdate.ac_code}">
 						      	</td>
 						        <td>
 						        	<input type="text" class="form-control" style="width:200px;" th:value="${subjectUpdate.sub_name}">

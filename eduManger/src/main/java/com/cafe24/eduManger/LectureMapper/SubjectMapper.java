@@ -10,7 +10,7 @@ import com.cafe24.eduManger.LectureVo.Subject;
 public interface SubjectMapper{
 
 	//접근지정자 리턴타입 메서드명(화면에서 입력된 값);
-	public List<Subject> subjectList();
+	public List<Subject> subjectList(String sAcode);
 		
 	//Subject subject = 입력폼에서 받은 데이터들;
 	public int subjectInsert(Subject subject);
@@ -21,4 +21,7 @@ public interface SubjectMapper{
 	
 	
 	public Subject subjectUpdate(String subcodeUp);
+	
+	public int subjectCountMaxcol();
+
 }

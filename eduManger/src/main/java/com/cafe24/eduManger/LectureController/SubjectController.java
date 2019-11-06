@@ -1,5 +1,7 @@
 package com.cafe24.eduManger.LectureController;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +22,9 @@ public class SubjectController {
 	
 	@GetMapping("/getsubjectList")//경로연결 시 필요한 키
 							 //데이터타입   변수
-	public String subjectSelect(Model model) {
+	public String subjectSelect(Model model, HttpSession session) {
 		
-		model.addAttribute("subjectList", subjectService.subjectList());
+		model.addAttribute("subjectList", subjectService.subjectList(session));
 							//객체 꺼낼 때 필요한 키
 		return "/lecture/subject/subjectList";
 	}
@@ -57,9 +59,9 @@ public class SubjectController {
 	}
 	
 	@PostMapping("/subjectInsert") 
-	public String subjectInsert(Subject subject) {
+	public String subjectInsert(String sub_name, HttpSession session) {
 		//System.out.println(subject.toString() + "<--subject.toString() com.cafe24.eduManger.LectureController.SubjectController.subjectInsert");
-		subjectService.subjectInsert(subject);
+		subjectService.subjectInsert(sub_name, session);
 		return "redirect:/getsubjectList";
 	}
 	

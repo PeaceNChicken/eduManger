@@ -13,15 +13,15 @@
   
   
   <mapper namespace="com.cafe24.eduManger.LectureMapper.SubjectMapper">
-  	<select id="subjectList" resultType="com.cafe24.eduManger.LectureVo.Subject">
+  	<select id="subjectList" parameterType="String" resultType="com.cafe24.eduManger.LectureVo.Subject">
   		SELECT  
 			subject_code AS sub_code
 			,ac_code AS ac_code
 			,member_id AS m_id
 			,subject_name AS sub_name
 			,subject_date AS sub_date
-		FROM 
-			subject	
+		FROM subject
+	 	WHERE ac_code LIKE CONCAT ('%',#{sAcode},'%')
   	</select>
   		
   	<!-- 어차피 int로 정해져있기때문에 resultType자체를 쓰지말라고 함;; 쓰면 에러남.. -->	
@@ -36,10 +36,10 @@
 			)
 		VALUES (
 			#{sub_code}
-			, 'ac001'
-			, 'id001'
+			, #{ac_code}
+			, #{m_id}
 			, #{sub_name}
-			, #{sub_date}
+			, now()
 			)
   	</insert>
   
@@ -61,6 +61,12 @@
 				FROM subject
 		WHERE 
 			subject_code = #{subcodeUp}
+  	</select>
+  	
+  	<select id="subjectCountMaxcol" resultType="int">
+  		SELECT
+			MAX(CAST(SUBSTRING(subject_code,8) AS DECIMAL)) AS maxcol
+		FROM subject
   	</select>
   	
   	
